@@ -103,14 +103,22 @@ def parse_output(output):
 # Visualisation
 # ---------------------------------------------------------------------------
 
+# Pressions à tracer : uniquement les puissances de 10
+PLOT_PRESSURES_ATM = np.logspace(-3, 3, 7)   # 0.001, 0.01, 0.1, 1, 10, 100, 1000 atm
+
+
 def plot_bprime_table(all_data, pressures_atm):
     """
     Trace la table B' classique :
-      - Gauche  : B'c vs Tw, une courbe par pression
-      - Droite  : h_w vs Tw, une courbe par pression
+      - Gauche  : B'c vs Tw en échelle log10, une courbe par puissance de 10
+      - Droite  : h_w vs Tw, une courbe par puissance de 10
+    Seules les 7 pressions puissances de 10 sont tracées.
     """
-    n = len(pressures_atm)
-    cmap = cm.colormaps.get_cmap("plasma").resampled(n)
+    # Construire un index {P_atm: (header, data)} pour sélectionner facilement
+    data_map = {P: d for P, d in zip(pressures_atm, all_data)}
+
+    n = len(PLOT_PRESSURES_ATM)
+    colors = plt.get_cmap("plasma", n + 1)   # +1 pour éviter le jaune pâle en fin de palette
 
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))
     fig.suptitle(
@@ -119,26 +127,37 @@ def plot_bprime_table(all_data, pressures_atm):
         fontsize=13
     )
 
-    for idx, (P_atm, (header, data)) in enumerate(zip(pressures_atm, all_data)):
-        Tw    = data[:, 0]
-        Bc    = data[:, 1]
-        hw    = data[:, 2]   # MJ/kg (déjà converti par bprime)
-        color = cmap(idx)
-        lbl   = f"{P_atm:.3g} atm"
+    for idx, P_atm in enumerate(PLOT_PRESSURES_ATM):
+        # Trouver la pression la plus proche dans les données calculées
+        closest = min(pressures_atm, key=lambda p: abs(np.log10(p) - np.log10(P_atm)))
+        header, data = data_map[closest]
 
-        ax1.plot(Tw, Bc, color=color, lw=1.5, label=lbl)
-        ax2.plot(Tw, hw, color=color, lw=1.5, label=lbl)
+        Tw  = data[:, 0]
+        Bc  = data[:, 1]
+        hw  = data[:, 2]
 
-    for ax, ylabel, title in [
-        (ax1, r"$B'_c$ (adimensionné)",   r"Taux d'ablation char $B'_c$"),
-        (ax2, r"$h_w$ [MJ/kg]",           r"Enthalpie de paroi $h_w$"),
-    ]:
-        ax.set_xlabel("Température de paroi $T_w$ [K]")
-        ax.set_ylabel(ylabel)
-        ax.set_title(title)
-        ax.grid(True, ls="--", alpha=0.4)
-        ax.legend(fontsize=6, ncol=2, loc="upper left",
-                  title="Pression", title_fontsize=7)
+        # Étiquette propre : puissance de 10
+        exp = int(round(np.log10(P_atm)))
+        lbl = rf"$10^{{{exp}}}$ atm" if exp != 0 else "1 atm"
+
+        color = colors(idx)
+
+        ax1.plot(Tw, Bc, color=color, lw=2, label=lbl)
+        ax2.plot(Tw, hw, color=color, lw=2, label=lbl)
+
+    # Axe B'c en échelle log10
+    ax1.set_yscale("log")
+    ax1.set_xlabel("Température de paroi $T_w$ [K]")
+    ax1.set_ylabel(r"$B'_c$ (échelle log$_{10}$)")
+    ax1.set_title(r"Taux d'ablation char $B'_c$")
+    ax1.grid(True, which="both", ls="--", alpha=0.4)
+    ax1.legend(fontsize=9, loc="upper left", title="Pression", title_fontsize=9)
+
+    ax2.set_xlabel("Température de paroi $T_w$ [K]")
+    ax2.set_ylabel(r"$h_w$ [MJ/kg]")
+    ax2.set_title(r"Enthalpie de paroi $h_w$")
+    ax2.grid(True, ls="--", alpha=0.4)
+    ax2.legend(fontsize=9, loc="upper left", title="Pression", title_fontsize=9)
 
     plt.tight_layout()
     out_png = "carbon_bprime_table.png"
