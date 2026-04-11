@@ -1,0 +1,14 @@
+<!-- Carbon graphite ablation in air mixture -->
+<!-- 11 species: C-based ablation products + air species -->
+<mixture thermo_db="NASA-9">
+
+    <species>
+        N O NO N2 O2 C C2 C3 CN CO CO2 C(gr)
+    </species>
+
+    <element_compositions default="air">
+        <composition name="air">N:0.79, O:0.21</composition>
+        <composition name="pyro">C:1.0</composition>
+    </element_compositions>
+
+</mixture>
