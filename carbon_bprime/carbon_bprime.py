@@ -52,8 +52,8 @@ def find_bprime():
     # Recherche dans les répertoires build typiques, relatifs au script
     script_dir = os.path.dirname(os.path.abspath(__file__))
     candidates = [
+        os.path.join(script_dir, "../build/src/apps/bprime"),
         os.path.join(script_dir, "../../build/src/apps/bprime"),
-        os.path.join(script_dir, "../../../build/src/apps/bprime"),
         "build/src/apps/bprime",
         "../build/src/apps/bprime",
     ]
