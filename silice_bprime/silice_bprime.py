@@ -139,6 +139,7 @@ def plot_bprime_table(all_data, pressures_atm):
         ax2.plot(Tw, hw, color=color, lw=2, label=lbl)
 
     ax1.set_yscale("log")
+    ax1.set_ylim(1e-5, 1e5)
     ax1.set_xlabel("Température de paroi $T_w$ [K]")
     ax1.set_ylabel(r"$B'_c$ (échelle log$_{10}$)")
     ax1.set_title(r"Taux d'ablation silice $B'_c$")
