@@ -1090,71 +1090,59 @@ void Thermodynamics::elementFractions(
 //==============================================================================
 
 void Thermodynamics::surfaceMassBalance(
-    const double *const p_Yke, const double *const p_Ykg, const double T,
+    const double *const p_Yke, const double *const p_Ykg, const double T, 
     const double P, const double Bg, double &Bc, double &hw, double *const p_Xs)
-{
-    // Pure carbon char: y_c,C = 1, all other elements = 0
-    const int ne = nElements();
-    std::vector<double> Ychar(ne, 0.0);
-    Ychar[elementIndex("C")] = 1.0;
-    surfaceMassBalance(p_Yke, p_Ykg, T, P, Bg, Bc, hw, "C", Ychar.data(), p_Xs);
-}
-
-//==============================================================================
-
-void Thermodynamics::surfaceMassBalance(
-    const double *const p_Yke, const double *const p_Ykg, const double T,
-    const double P, const double Bg, double &Bc, double &hw,
-    const std::string &char_element, const double *const p_Ychar,
-    double *const p_Xs)
 {
     const int ne = nElements();
     const int ng = nGas();
-
-    double p_Xw[ne];
-    double* p_X = (p_Xs != NULL ? p_Xs : mp_work1);
-    double* p_h = mp_work2;
-
-    // Initialize wall element mass fractions: BL edge + pyrolysis contribution
+    
+    double p_Xw [ne];
+    double* p_X  = (p_Xs != NULL ? p_Xs : mp_work1);
+    double* p_h  = mp_work2;
+    
+    // Initialize the wall element fractions to be the pyrolysis gas fractions
     double sum = 0.0;
     for (int i = 0; i < ne; ++i) {
-        p_Xw[i] = p_Yke[i] + Bg * p_Ykg[i];
+        p_Xw[i] = p_Yke[i] + Bg*p_Ykg[i];
         sum += p_Xw[i];
     }
-
-    // Add a large amount of char to simulate an infinite ablative surface.
-    // The char composition p_Ychar distributes mass across all its elements.
-    double char_amount = std::max(100.0 * Bg, 200.0);
-    for (int i = 0; i < ne; ++i)
-        p_Xw[i] += char_amount * p_Ychar[i];
-    sum += char_amount;
-
+    
+    // Use "large" amount of carbon to simulate infinite char
+    int ic = elementIndex("C");
+    //double carbon = std::min(1000.0, std::max(100.0,1000.0*Bg));
+    double carbon = std::max(100.0*Bg, 200.0);
+    p_Xw[ic] += carbon;
+    sum += carbon;
+    
     for (int i = 0; i < ne; ++i)
         p_Xw[i] /= sum;
-
-    // Compute thermochemical equilibrium at (T, P)
+    
+    // Compute equilibrium
     convert<YE_TO_XE>(p_Xw, p_Xw);
     equilibriumComposition(T, P, p_Xw, p_X, IN_PHASE);
-
-    // Gas-phase mean molecular weight and mass fraction of the tracking element
-    int ic = elementIndex(char_element);
+    
+    // Compute the gas mass fractions at the wall
     double mwg = 0.0;
     double ywc = 0.0;
+    
     for (int j = 0; j < ng; ++j) {
         mwg += speciesMw(j) * p_X[j];
-        ywc += elementMatrix()(j, ic) * p_X[j];
+        ywc += elementMatrix()(j,ic) * p_X[j];
+        //for (int i = 0; i < ne; ++i)
+        //    p_Yw[i] += elementMatrix()(j,i) * p_X[j];
     }
+    
+    //for (int i = 0; i < ne; ++i)
+    //    p_Yw[i] *= atomicMass(i) / mwg;
     ywc *= atomicMass(ic) / mwg;
-
-    // General B'c formula: denominator is (yw,k - y_c,k)
-    // For pure carbon char: y_c,C = 1  →  identical to the original formula
-    // For multi-element chars (e.g. SiO2): y_c,Si = M_Si/M_SiO2 ≈ 0.467
-    double yck = p_Ychar[ic];
-    Bc = (p_Yke[ic] + Bg * p_Ykg[ic] - ywc * (1.0 + Bg)) / (ywc - yck);
+    
+    // Compute char mass blowing rate
+    Bc = (p_Yke[ic] + Bg*p_Ykg[ic] - ywc*(1.0 + Bg)) / (ywc - 1.0);
     Bc = std::max(Bc, 0.0);
-
-    // Wall enthalpy
+    
+    // Compute the gas enthalpy
     speciesHOverRT(T, p_h);
+    
     hw = 0.0;
     for (int i = 0; i < ng; ++i)
         hw += p_X[i] * p_h[i];
