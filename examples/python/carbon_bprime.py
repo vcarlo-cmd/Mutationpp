@@ -28,7 +28,7 @@ import matplotlib.cm as cm
 # Paramètres du calcul
 # ---------------------------------------------------------------------------
 BPRIME_CMD = "bprime"       # nom du binaire (ou chemin absolu)
-T_RANGE    = "300:100:5000" # Tw de 300 à 5000 K, pas de 100 K
+T_RANGE    = "300:25:5000"  # Tw de 300 à 5000 K, pas de 25 K
 BG         = "0.0"          # débit pyrolyse adimensionné (0 = graphite pur)
 MIXTURE    = "carbon-air"
 BL_COMP    = "air"
