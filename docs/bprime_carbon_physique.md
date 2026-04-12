@@ -225,7 +225,91 @@ Le script boucle sur **25 pressions** de $10^{-3}$ à $10^3$ atm
 
 ---
 
-## 10. Références
+## 10. Réactions chimiques impliquées
+
+Le calcul d'équilibre thermochimique à la paroi fait intervenir l'ensemble des
+réactions entre les espèces du mélange. On les regroupe en trois familles.
+
+### 10.1 Réactions hétérogènes (surface graphite ↔ gaz)
+
+Ce sont les réactions entre le graphite solide C(gr) et les espèces gazeuses
+de la couche limite. Elles sont à l'origine du débit d'ablation $B'_c$.
+
+| # | Réaction | Régime dominant |
+|---|----------|-----------------|
+| R1 | $\text{C(gr)} + \text{O} \rightleftharpoons \text{CO}$ | 700 – 3 500 K (oxydation active) |
+| R2 | $\text{C(gr)} + \tfrac{1}{2}\,\text{O}_2 \rightleftharpoons \text{CO}$ | 700 – 2 000 K |
+| R3 | $\text{C(gr)} + \text{O}_2 \rightleftharpoons \text{CO}_2$ | 300 – 1 000 K (basse T) |
+| R4 | $\text{C(gr)} + \text{CO}_2 \rightleftharpoons 2\,\text{CO}$ | > 1 000 K (Boudouard) |
+| R5 | $\text{C(gr)} + \text{N} \rightleftharpoons \text{CN}$ | > 2 000 K |
+| R6 | $\text{C(gr)} + \text{NO} \rightleftharpoons \text{CO} + \text{N}$ | 1 000 – 3 000 K |
+
+> **Note :** dans l'approche équilibre thermochimique de la table B', ces
+> réactions ne sont pas traitées individuellement avec des cinétiques ; elles
+> contribuent collectivement à la composition d'équilibre du gaz à $(T_w, P)$.
+
+### 10.2 Sublimation et dissociation du graphite
+
+Au-delà de ~3 000 K, le graphite passe en phase gazeuse. Les formes gazeuses
+stables dépendent de la température.
+
+| # | Réaction | Régime |
+|---|----------|--------|
+| R7 | $\text{C(gr)} \rightleftharpoons \text{C}_{(g)}$ | > 3 500 K (atome C) |
+| R8 | $2\,\text{C(gr)} \rightleftharpoons \text{C}_2{}_{(g)}$ | > 3 000 K |
+| R9 | $3\,\text{C(gr)} \rightleftharpoons \text{C}_3{}_{(g)}$ | 2 500 – 4 000 K (molécule la plus stable à T intermédiaire) |
+
+> **C₃** est la forme gazeuse du carbone thermodynamiquement la plus stable
+> dans la plage 2 500 – 4 000 K. Sans la phase condensée C(gr), elle domine
+> dès 300 K, ce qui donne des valeurs de $B'_c$ non physiques (cf. §5).
+
+### 10.3 Réactions homogènes en phase gazeuse
+
+Ces réactions se déroulent dans le gaz à la paroi et au sein de la couche
+limite. Elles fixent l'équilibre entre les espèces C-N-O.
+
+#### Dissociation / recombinaison de l'air
+
+| # | Réaction |
+|---|----------|
+| R10 | $\text{N}_2 \rightleftharpoons 2\,\text{N}$ |
+| R11 | $\text{O}_2 \rightleftharpoons 2\,\text{O}$ |
+| R12 | $\text{N}_2 + \text{O}_2 \rightleftharpoons 2\,\text{NO}$ |
+| R13 | $\text{N} + \text{O} \rightleftharpoons \text{NO}$ |
+
+#### Chimie carbone–oxygène
+
+| # | Réaction |
+|---|----------|
+| R14 | $\text{C} + \text{O} \rightleftharpoons \text{CO}$ |
+| R15 | $\text{CO} + \text{O} \rightleftharpoons \text{CO}_2$ |
+| R16 | $\text{CO}_2 \rightleftharpoons \text{CO} + \text{O}$ |
+| R17 | $\text{C}_2 \rightleftharpoons 2\,\text{C}$ |
+| R18 | $\text{C}_3 \rightleftharpoons \text{C}_2 + \text{C}$ |
+
+#### Chimie carbone–azote
+
+| # | Réaction |
+|---|----------|
+| R19 | $\text{C} + \text{N} \rightleftharpoons \text{CN}$ |
+| R20 | $\text{CN} + \text{O} \rightleftharpoons \text{CO} + \text{N}$ |
+| R21 | $\text{CN} + \text{O}_2 \rightleftharpoons \text{CO} + \text{NO}$ |
+
+### 10.4 Synthèse par régime de température (1 atm)
+
+```
+T_w [K]    Phase stable    Espèce gazeuse dominante    Réactions clés
+─────────────────────────────────────────────────────────────────────
+ 300 – 700    C(gr)          CO₂, O₂, N₂                R3
+ 700 –1500    C(gr)          CO, N₂                      R1, R2, R4
+1500 –2500    C(gr)          CO, N, CN                   R1, R5, R10
+2500 –3800    C(gr) + gaz    CO, CN, C₃                  R7–R9, R15
+3800 –5000    Gaz seul       C, C₂, C₃                   R7–R9, R17–R18
+```
+
+---
+
+## 11. Références
 
 - Lees, L. (1956). *Laminar heat transfer over blunt-nosed bodies at hypersonic
   flight speeds*. Jet Propulsion.
