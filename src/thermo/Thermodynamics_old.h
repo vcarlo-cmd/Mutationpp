@@ -882,41 +882,10 @@ public:
      * the surface.
      */
     void surfaceMassBalance(
-        const double *const p_Yke, const double *const p_Ykg, const double T,
+        const double *const p_Yke, const double *const p_Ykg, const double T, 
         const double P, const double Bg, double &Bc, double &hw,
         double *const p_Xs = NULL);
-
-    /**
-     * Generalized surface mass balance for any ablative char material
-     * (single- or multi-element).  The char is described by its elemental
-     * mass fractions \p p_Ychar and B'c is computed by tracking the element
-     * named \p char_element.
-     *
-     * The elemental SMB for element \f$k\f$ gives
-     * \f[
-     * B'_c = \frac{y_{e,k} + B'_g\,y_{g,k} - y_{w,k}(1 + B'_g)}
-     *             {y_{w,k} - y_{c,k}}
-     * \f]
-     * where \f$y_{c,k}\f$ is the mass fraction of \p char_element in the
-     * char (i.e. \c p_Ychar[char_element_index]).
-     *
-     * @param p_Yke        Element mass fractions of boundary layer edge.
-     * @param p_Ykg        Element mass fractions of the pyrolysis gas.
-     * @param T            Temperature at the surface in K.
-     * @param P            Pressure at the surface in Pa.
-     * @param Bg           Non-dimensional pyrolysis gas mass blowing rate.
-     * @param Bc           On return, non-dimensional char mass blowing rate.
-     * @param hw           On return, enthalpy of the mixed gas at surface (J/kg).
-     * @param char_element Name of the element used to compute B'c (e.g. "C", "Si").
-     * @param p_Ychar      Elemental mass fractions of the char material (size nElements()).
-     * @param p_Xs         (optional) On return, species mole fractions at the surface.
-     */
-    void surfaceMassBalance(
-        const double *const p_Yke, const double *const p_Ykg, const double T,
-        const double P, const double Bg, double &Bc, double &hw,
-        const std::string &char_element, const double *const p_Ychar,
-        double *const p_Xs = NULL);
-
+    
 private:
 
     void sumSpeciesMass(

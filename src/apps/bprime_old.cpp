@@ -70,11 +70,8 @@ typedef struct Options {
     std::string mixture;
     std::string boundary_layer_comp;
     std::string pyrolysis_composition;
-    std::string char_composition;   // elemental composition name for the char
-    std::string char_element;       // element used to compute B'c
 
     bool pyrolysis_exist = false;
-    bool char_exist      = false;   // true when -char and -char-elem are provided
 } Options;
 
 // Checks if an option is present
@@ -125,25 +122,12 @@ void printHelpMessage(const char* const name) {
     cout << tab
          << "-py                 pyrolysis composition name (default = null)"
          << endl;
-    cout << tab
-         << "-char               char elemental composition name defined in the "
-            "mixture file (default = null, uses built-in pure-carbon char)"
-         << endl;
-    cout << tab
-         << "-char-elem          element used to compute B'c when -char is given "
-            "(e.g. \"C\", \"Si\")"
-         << endl;
 
     cout << endl;
     cout << "Example:" << endl;
     cout
         << tab << name
         << " -T 300:100:5000 -P 101325 -b 10 -m carbonPhenol -bl BLedge -py Gas"
-        << endl;
-    cout
-        << tab << name
-        << " -T 300:25:5000  -P 101325 -b 0  -m silica-air   -bl air     "
-           "-char silice -char-elem Si"
         << endl;
     cout << endl;
     cout << "Mixture file:" << endl;
@@ -155,9 +139,6 @@ void printHelpMessage(const char* const name) {
          << endl;
     cout << tab
          << "Gas - corresponds to the pyrolysis elemental gas composition"
-         << endl;
-    cout << tab
-         << "silice - example char composition (Si:1.0, O:2.0 for SiO2)"
          << endl;
     cout << endl;
 
@@ -265,15 +246,6 @@ Options parseOptions(int argc, char** argv) {
         opts.pyrolysis_exist = true;
     }
 
-    if (optionExists(argc, argv, "-char") && optionExists(argc, argv, "-char-elem")) {
-        opts.char_composition = getOption(argc, argv, "-char");
-        opts.char_element     = getOption(argc, argv, "-char-elem");
-        opts.char_exist       = true;
-    } else if (optionExists(argc, argv, "-char") || optionExists(argc, argv, "-char-elem")) {
-        cout << "Error: -char and -char-elem must be provided together." << endl;
-        printHelpMessage(argv[0]);
-    }
-
     return opts;
 }
 
@@ -307,11 +279,6 @@ int main(int argc, char* argv[]) {
         mix.getComposition(opts.pyrolysis_composition, Ykg.data(),
                            Composition::MASS);
 
-    // Prepare char elemental composition when -char / -char-elem are supplied
-    std::vector<double> Ychar(ne, 0.0);
-    if (opts.char_exist)
-        mix.getComposition(opts.char_composition, Ychar.data(), Composition::MASS);
-
     cout << setw(10) << "\"Tw[K]\"" << setw(15) << "\"B'c\"" << setw(15)
          << "\"hw[MJ/kg]\"";
     for (int i = 0; i < ns; ++i)
@@ -319,12 +286,8 @@ int main(int argc, char* argv[]) {
     cout << endl;
 
     for (double T = T1; T < T2 + 1.0e-6; T += dt) {
-        if (opts.char_exist)
-            mix.surfaceMassBalance(Yke.data(), Ykg.data(), T, P, Bg, Bc, hw,
-                                   opts.char_element, Ychar.data(), Xw.data());
-        else
-            mix.surfaceMassBalance(Yke.data(), Ykg.data(), T, P, Bg, Bc, hw,
-                                   Xw.data());
+        mix.surfaceMassBalance(Yke.data(), Ykg.data(), T, P, Bg, Bc, hw,
+                               Xw.data());
         cout << setw(10) << T << setw(15) << Bc << setw(15) << hw / 1.0e6;
         for (int i = 0; i < ns; ++i) cout << setw(25) << Xw[i];
         cout << endl;
