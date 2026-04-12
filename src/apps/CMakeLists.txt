@@ -1,5 +1,5 @@
 # Build and install executables
-set(mutation++_exes checkmix mppequil bprime mppshock)
+set(mutation++_exes checkmix mppequil bprime mppshock bprime_silica)
 foreach (exe ${mutation++_exes})
     add_executable(${exe} ${exe}.cpp)
     target_link_libraries(${exe}
