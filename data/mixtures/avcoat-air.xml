@@ -1,0 +1,30 @@
+<!-- AVCOAT (5026-39HC/G) ablation in air mixture                           -->
+<!-- System C-H-O-N-Si : phenolic resin (C,H,O,N) + SiO2 microspheres (Si) -->
+<!--                                                                          -->
+<!-- Pyrolysis gas composition (Goldstein 1992, same phenolic basis as PICA): -->
+<!--   CH4:0.13, CO:0.23, CO2:0.11, H2:0.12, H2O:0.39, C2H4:0.02           -->
+<!--   → elemental moles: C:0.51, H:1.62, O:0.84                            -->
+<!--                                                                          -->
+<!-- Char composition (Milos & Chen 2014, mass fractions):                   -->
+<!--   C:0.568, O:0.147, Si:0.285                                            -->
+<!--   → elemental mole proportions: C:4.73, O:0.92, Si:1.01                -->
+<mixture thermo_db="NASA-9">
+
+    <!-- Gas phase: C-H-O-N chemistry (phenolic resin decomposition)        -->
+    <!-- Gas phase: Si chemistry (SiO2 microsphere vaporisation)             -->
+    <!-- Condensed phases: graphite char + SiO2 polymorphs                   -->
+    <species>
+       C H O N CH4 CN CO CO2 C2 C2H C2H2,acetylene C3 C4 C4H2,butadiyne C5 HCN
+       H2 H2O N2 CH2OH CNN CNC CNCOCN C6H6 CH CH2 CH3 C2H4 C2H6 C3H3,1-propynl
+       C3H3,2-propynl C6H5O,phenoxy C6H5OH,phenol O2 OH
+       Si SiO SiO2 Si2 SiN
+       C(gr) SiO2(a-qz) SiO2(b-qz) SiO2(b-crt) SiO2(L)
+    </species>
+
+    <element_compositions default="air">
+        <composition name="air">N:0.79, O:0.21</composition>
+        <composition name="avcoat_pyro">C:0.51, H:1.62, O:0.84</composition>
+        <composition name="avcoat_char">C:4.73, O:0.92, Si:1.01</composition>
+    </element_compositions>
+
+</mixture>
