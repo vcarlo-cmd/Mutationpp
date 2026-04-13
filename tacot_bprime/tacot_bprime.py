@@ -40,7 +40,7 @@ CHAR_COMP  = "tacot_char"
 CHAR_ELEM  = "C"
 
 # Valeurs de B'g à calculer
-BG_VALUES = [0.0, 0.5, 1.0, 2.0]
+BG_VALUES = [0.0, 0.1, 0.2, 0.5, 1.0, 2.0]
 
 ONEATM = 101325.0  # Pa
 
