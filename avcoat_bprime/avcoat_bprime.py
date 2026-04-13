@@ -80,11 +80,11 @@ def find_bprime():
     return None
 
 
-def run_bprime(bprime_path, pressure_pa, bg):
-    """Exécute bprime pour une pression (Pa) et un B'g donnés."""
-    cmd = [
+def _bprime_cmd(bprime_path, T_range, pressure_pa, bg):
+    """Construit la commande bprime pour une plage de températures donnée."""
+    return [
         bprime_path,
-        "-T", T_RANGE,
+        "-T", T_range,
         "-P", str(pressure_pa),
         "-b", str(bg),
         "-m", MIXTURE,
@@ -93,12 +93,91 @@ def run_bprime(bprime_path, pressure_pa, bg):
         "-char", CHAR_COMP,
         "-char-elem", CHAR_ELEM,
     ]
-    result = subprocess.run(cmd, capture_output=True, text=True)
-    if result.returncode != 0:
-        print(f"\nERREUR bprime à P={pressure_pa:.2f} Pa, B'g={bg} :")
-        print(result.stderr)
-        sys.exit(1)
-    return result.stdout
+
+
+def _run_cmd(cmd, timeout_s=30):
+    """Exécute une commande et retourne (stdout, ok). Retourne ('', False) si timeout."""
+    try:
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout_s)
+        if result.returncode != 0:
+            return "", False
+        return result.stdout, True
+    except subprocess.TimeoutExpired:
+        return "", False
+
+
+def run_bprime(bprime_path, pressure_pa, bg):
+    """
+    Exécute bprime pour une pression (Pa) et un B'g donnés.
+
+    Stratégie robuste :
+    1. Essai rapide sur la plage complète (timeout 45 s).
+    2. Si accrochage : repasse point par point — les points accrochés sont
+       interpolés linéairement entre voisins valides.
+    """
+    # ── Essai rapide ──────────────────────────────────────────────────────
+    stdout, ok = _run_cmd(_bprime_cmd(bprime_path, T_RANGE, pressure_pa, bg),
+                          timeout_s=45)
+    if ok:
+        return stdout
+
+    # ── Reprise point par point ────────────────────────────────────────────
+    # Reconstruit la grille de températures à partir de T_RANGE "T1:dT:T2"
+    parts = T_RANGE.split(":")
+    T1, dT, T2 = float(parts[0]), float(parts[1]), float(parts[2])
+    temps = []
+    T = T1
+    while T <= T2 + 1e-6:
+        temps.append(T)
+        T += dT
+
+    header = None
+    rows = {}   # T → liste de valeurs
+
+    for T in temps:
+        stdout_pt, ok_pt = _run_cmd(
+            _bprime_cmd(bprime_path, str(int(T)), pressure_pa, bg),
+            timeout_s=5
+        )
+        if ok_pt:
+            lines = [l.strip() for l in stdout_pt.strip().splitlines() if l.strip()]
+            if header is None:
+                header = lines[0]
+            if len(lines) >= 2:
+                rows[T] = lines[1]   # ligne de données
+
+    if not rows:
+        print(f"\nAvertissement : aucun point convergé à P={pressure_pa:.0f} Pa,"
+              f" B'g={bg}. Pression ignorée.")
+        return ""
+
+    # Interpolation linéaire des points manquants
+    valid_temps = sorted(rows.keys())
+    all_rows = {}
+    for T in temps:
+        if T in rows:
+            all_rows[T] = rows[T]
+        else:
+            # Cherche les voisins valides les plus proches
+            lo = max((t for t in valid_temps if t < T), default=None)
+            hi = min((t for t in valid_temps if t > T), default=None)
+            if lo is None or hi is None:
+                continue   # hors plage, ignorer
+            # Interpolation numérique colonne par colonne
+            vals_lo = [float(v) for v in rows[lo].split()]
+            vals_hi = [float(v) for v in rows[hi].split()]
+            alpha = (T - lo) / (hi - lo)
+            interp = [(1 - alpha) * a + alpha * b
+                      for a, b in zip(vals_lo, vals_hi)]
+            interp[0] = T   # forcer Tw exact
+            all_rows[T] = " ".join(f"{v:.6e}" for v in interp)
+
+    # Reconstruction du flux de sortie au format attendu par parse_output
+    lines = [header] + [all_rows[T] for T in sorted(all_rows.keys())]
+    n_interp = len(temps) - len(rows)
+    if n_interp > 0:
+        print(f"[{n_interp} pts interpolés]", end=" ")
+    return "\n".join(lines)
 
 
 def parse_output(output):

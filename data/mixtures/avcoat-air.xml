@@ -18,7 +18,7 @@
        H2 H2O N2 CH2OH CNN CNC CNCOCN C6H6 CH CH2 CH3 C2H4 C2H6 C3H3,1-propynl
        C3H3,2-propynl C6H5O,phenoxy C6H5OH,phenol O2 OH
        Si SiO SiO2 Si2 SiN
-       C(gr) SiO2(a-qz) SiO2(b-qz) SiO2(b-crt) SiO2(L)
+       C(gr) SiO2(a-qz) SiO2(b-qz) SiO2(b-crt)
     </species>
 
     <element_compositions default="air">
