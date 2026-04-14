@@ -1,0 +1,25 @@
+<!-- Cork P50 ablation in air mixture -->
+<!-- Cork P50 composition: 45% suberin, 27% lignin, 12% polysaccharides,  -->
+<!--                        6% ceroids, 6% tannins                         -->
+<!-- Virgin material (mass): C=65.1%, H=8.5%, O=26.4%                     -->
+<!-- Pyrolysis gas composition (22% char yield, char = C pure):            -->
+<!--   C: (65.1-22.0)/12 = 3.59 mol                                        -->
+<!--   H: 8.50/1        = 8.50 mol                                         -->
+<!--   O: 26.4/16       = 1.65 mol                                         -->
+<!--   → molar ratios C:H:O = 1 : 2.37 : 0.46                             -->
+<!--   → cork_pyro: C:0.50, H:1.18, O:0.23                                -->
+<mixture thermo_db="NASA-9">
+
+    <species>
+       C H O N CH4 CN CO CO2 C2 C2H C2H2,acetylene C3 C4 C4H2,butadiyne C5 HCN
+       H2 H2O N2 CH2OH CNN CNC CNCOCN C6H6 CH CH2 CH3 C2H4 C2H6 C3H3,1-propynl
+       C3H3,2-propynl C6H5O,phenoxy C6H5OH,phenol O2 OH C(gr)
+    </species>
+
+    <element_compositions default="air">
+        <composition name="air">N:0.79, O:0.21</composition>
+        <composition name="cork_pyro">C:0.50, H:1.18, O:0.23</composition>
+        <composition name="cork_char">C:1.0</composition>
+    </element_compositions>
+
+</mixture>
