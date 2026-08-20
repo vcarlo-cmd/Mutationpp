@@ -4,8 +4,16 @@ Génère et trace la table B'c du TACOT (Theoretical Ablative Composite for Open
 Testing) dans l'air.
 Utilise le binaire C++ MutationPP `bprime` comme moteur de calcul.
 
-Composition du gaz de pyrolyse (phénol, C6H5OH) :
-    C:6, H:6, O:1 (fractions molaires élémentaires)
+Composition du gaz de pyrolyse, d'après le classeur de référence TACOT 3.0
+(feuille 'Pyrolysis model', Sykes NASA TN D-3810 1967) :
+    C:0.206, H:0.679, O:0.115 (fractions molaires élémentaires)
+équivalente au mélange molaire de la feuille 'Pyrolysis-gas chemistry' :
+    H2:0.4992, H2O:0.2336, CH4:0.1000, C6H5OH:0.0891, CO:0.0576,
+    CO2:0.0157, C6H6:0.0048
+
+Le mélange tacot-air_25 reproduit exactement la liste de 25 espèces de la
+table B' de référence (+ C(gr) pour la phase condensée). Voir
+tacot_bprime_validation.py pour la comparaison quantitative.
 
 La table est calculée pour une plage de pressions de 0.001 à 1000 atm
 (espacement logarithmique, 25 isobares) et une plage de températures de 300 à
@@ -16,7 +24,7 @@ Usage :
 
 Prérequis :
     - Le binaire `bprime` doit être dans le PATH ou dans build/src/apps/
-    - Le fichier data/mixtures/tacot-air_35.xml doit exister
+    - Le fichier data/mixtures/tacot-air_25.xml doit exister
     - matplotlib et numpy installés
 """
 
@@ -33,7 +41,7 @@ import matplotlib.pyplot as plt
 # ---------------------------------------------------------------------------
 BPRIME_CMD = "bprime"
 T_RANGE    = "300:25:5000"   # Tw de 300 à 5000 K, pas 25 K
-MIXTURE    = "tacot-air_35"
+MIXTURE    = "tacot-air_25"
 BL_COMP    = "air"
 PYRO_COMP  = "tacot_pyro"
 CHAR_COMP  = "tacot_char"
