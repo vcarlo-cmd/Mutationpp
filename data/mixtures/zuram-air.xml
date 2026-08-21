@@ -1,0 +1,32 @@
+<!-- ===================================================================== -->
+<!-- Zuram (carbone/phénolique VKI) en ablation dans l'air.                 -->
+<!--                                                                       -->
+<!-- Reproduit EXACTEMENT la mise en données du cas de référence AblaNTIS   -->
+<!-- `carbonPhenolInAir` (fichier carbonPhenolInAir_AblaNTIS.xml) qui a     -->
+<!-- servi à produire la table B' de référence                             -->
+<!-- Bprime_carbonPhenolInAir_AblaNTIS.txt :                               -->
+<!--   - 20 espèces gazeuses C/H/O/N                                       -->
+<!--   - C(gr) comme phase condensée (le char)                             -->
+<!--   - air à l'arête de couche limite, O2/N2 = 0.21/0.79 molaire          -->
+<!--                                                                       -->
+<!-- C(gr) est indispensable au solveur d'équilibre multiphase : sans lui   -->
+<!-- l'excès de carbone du char ne peut pas se condenser, Y_w,C -> 1 et     -->
+<!-- B'c sature sur une valeur non physique.                               -->
+<!--                                                                       -->
+<!-- Composition élémentaire du gaz de pyrolyse (VKIZuramPyroGas) :        -->
+<!--   C:0.171, H:0.722, O:0.107  (fractions molaires élémentaires)        -->
+<!-- ===================================================================== -->
+<mixture thermo_db="NASA-9">
+
+    <species>
+       C(gr) C H O N CH CH4 CO CO2 CN C2H C2H2,acetylene C3 C3H C4
+       C4H2,butadiyne C5 HCN H2 H2O N2
+    </species>
+
+    <element_compositions default="BLedge">
+        <composition name="BLedge">           O:0.21, N:0.79            </composition>
+        <composition name="VKIZuramPyroGas">  C:0.171, H:0.722, O:0.107  </composition>
+        <composition name="Char">             C:1.0                     </composition>
+    </element_compositions>
+
+</mixture>

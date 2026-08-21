@@ -1,0 +1,32 @@
+<!-- ===================================================================== -->
+<!-- Gaz de pyrolyse du Zuram seul, à l'équilibre chimique.                 -->
+<!--                                                                       -->
+<!-- Sert à calculer les propriétés du gaz de pyrolyse (h_g, Cp, M, gamma,  -->
+<!-- rho, mu) en fonction de T et P, avec l'outil `mppequil`. h_g est la    -->
+<!-- grandeur qui manque à la table B' pour fermer le bilan d'énergie de    -->
+<!-- surface (avec h_w) et le terme source de pyrolyse en profondeur        -->
+<!-- (h_g - h_s).                                                          -->
+<!--                                                                       -->
+<!-- À NE PAS confondre avec zuram-air.xml : ici il n'y a NI air NI char —  -->
+<!-- c'est le gaz de pyrolyse pur, avant qu'il n'atteigne la paroi.         -->
+<!--                                                                       -->
+<!-- PAS DE PHASE CONDENSÉE : ajouter C(gr) ferait précipiter du carbone    -->
+<!-- solide et changerait h_g. C'est la convention retenue pour les tables  -->
+<!-- de propriétés du gaz de pyrolyse (cf. classeur TACOT 3.0, feuille      -->
+<!-- 'Pyrolysis model').                                                    -->
+<!--                                                                       -->
+<!-- Espèces : liste du cas AblaNTIS `Pyrogas` (Pyrogas_AblaNTIS.xml),      -->
+<!-- c.-à-d. la liste de zuram-air.xml privée de C(gr).                     -->
+<!-- ===================================================================== -->
+<mixture thermo_db="NASA-9">
+
+    <species>
+       C H O N CH CH4 CO CO2 CN C2H C2H2,acetylene C3 C3H C4
+       C4H2,butadiyne C5 HCN H2 H2O N2
+    </species>
+
+    <element_compositions default="VKIZuramPyroGas">
+        <composition name="VKIZuramPyroGas">  C:0.171, H:0.722, O:0.107  </composition>
+    </element_compositions>
+
+</mixture>
