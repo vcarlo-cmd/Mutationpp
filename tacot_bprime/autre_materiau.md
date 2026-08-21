@@ -1,6 +1,6 @@
 # Changer la composition fibres/résine : qu'est-ce qui change pour la table B' ?
 
-Cas traité : **CP70** — 70 % fibres / 30 % résine (en volume solide),
+Cas traité : **CPh70** — 70 % fibres / 30 % résine (en volume solide),
 porosité 0.01, fibres et résine identiques à celles du TACOT.
 
 ---
@@ -53,7 +53,7 @@ Les deux points clés :
 Avec ρ_fibre = 1600 kg/m³, ρ_résine = 1200 kg/m³, rendement en char de la
 résine 50 % (valeurs TACOT) :
 
-| | TACOT | CP70 |
+| | TACOT | CPh70 |
 |--|-------|------|
 | fibres / résine / pores (volume) | 0.10 / 0.10 / 0.80 | 0.693 / 0.297 / 0.01 |
 | **ρ vierge** | 280.0 kg/m³ | **1465.2 kg/m³** (×5.2) |
@@ -63,7 +63,7 @@ résine 50 % (valeurs TACOT) :
 | gaz de pyrolyse libéré | 60.0 kg/m³ (21.4 % masse) | 178.2 kg/m³ (**12.2 %** masse) |
 | **couplage k = B'g/B'c** | **0.2727** | **0.1385** (×0.51) |
 
-Le CP70 est cinq fois plus dense, mais **riche en fibres** : il produit
+Le CPh70 est cinq fois plus dense, mais **riche en fibres** : il produit
 relativement **deux fois moins** de gaz de pyrolyse par unité de char consommé.
 
 ---
@@ -87,7 +87,7 @@ $$
 La table est commune ; **c'est la droite B'g = k·B'c qui la traverse
 différemment**. Résultat à 1 atm :
 
-| T [K] | TACOT B'c | TACOT B'g | CP70 B'c | CP70 B'g | écart |
+| T [K] | TACOT B'c | TACOT B'g | CPh70 B'c | CPh70 B'g | écart |
 |-------|-----------|-----------|----------|----------|-------|
 | 1000 | 0.14221 | 0.0388 | 0.14774 | 0.0205 | +3.9 % |
 | 2000 | 0.16684 | 0.0455 | 0.17105 | 0.0237 | +2.5 % |
@@ -98,12 +98,12 @@ différemment**. Résultat à 1 atm :
 
 En régime d'oxydation (T < 3000 K) l'écart reste sous 4 %. Il explose au genou
 de sublimation : moins de soufflage pyrolytique ⇒ le char survit à plus haute
-température ⇒ le genou du CP70 est décalé vers la droite (visible sur
+température ⇒ le genou du CPh70 est décalé vers la droite (visible sur
 `material_response_operating_lines.png`).
 
 > Attention : à densité très différente, un même B'c ne donne **pas** la même
 > vitesse de recul. La récession est `ṡ = ṁ_c/ρ_c = B'_c·ṁ_e/ρ_c`. À B'c égal,
-> le CP70 recule **5.85 fois moins vite** que le TACOT (1287/220).
+> le CPh70 recule **5.85 fois moins vite** que le TACOT (1287/220).
 
 ---
 
@@ -129,9 +129,9 @@ ce que fait `silice_bprime` avec `Si:1.0, O:2.0`.
 
 | Fichier | Contenu |
 |---------|---------|
-| `data/mixtures/cp70-air_25.xml` | mise en données CP70 (25 espèces + C(gr)) |
+| `data/mixtures/cph70-air_25.xml` | mise en données CPh70 (25 espèces + C(gr)) |
 | `tacot_bprime/material_response.py` | bilan solide, couplage k, point fixe, tracé |
-| `tacot_bprime/material_response_operating_lines.png` | lignes de fonctionnement TACOT vs CP70 |
+| `tacot_bprime/material_response_operating_lines.png` | lignes de fonctionnement TACOT vs CPh70 |
 
 ```bash
 cd tacot_bprime && python material_response.py

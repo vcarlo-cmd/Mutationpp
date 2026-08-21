@@ -115,5 +115,5 @@ Quelques valeurs à 1 atm :
 | `zuram_pyrolysis_gas.png` | les six propriétés par isobare |
 | `zuram_pyrolysis_gas_enthalpy.png` | zoom sur h_g et sa sensibilité à la pression |
 
-Voir `tacot_bprime/` pour le même travail sur le TACOT et `cp70_bprime/` pour
-le CP70.
+Voir `tacot_bprime/` pour le même travail sur le TACOT et `cph70_bprime/` pour
+le CPh70.
