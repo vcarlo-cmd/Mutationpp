@@ -25,6 +25,7 @@ python zuram_bprime/zuram_variantes_bprime.py     # vérification par bprime
 | Même table B' ? | **Oui, rigoureusement** — vérifié à `0.000e+00` par `bprime` |
 | Même point de fonctionnement ? | **Non** — la pente `k = B'g/B'c` passe de 0.179 à 0.437 |
 | ATG différentes ? | **Résine seule : identiques.** Composite : même forme, perte de 15.2 / 19.0 / 30.4 % |
+| Paramètres d'Arrhenius ? | **Rien à extrapoler** — `A`, `E/R`, `m`, `f` inchangés ; seul le raccord au composite se ré-échelonne |
 | Porosité ? | **0.840 / 0.749 / 0.338** — c'est là que 18/80 cesse d'être un ablateur léger |
 
 Le résultat structurant est une **séparation des rôles** :
@@ -204,6 +205,112 @@ comparaison. Pour un code qui attend des `f` sur le composite, multiplier :
 | 18/50 | 0.017535 | 0.013843 | 0.047991 | 0.110748 |
 | 18/80 | 0.028056 | 0.022150 | 0.076785 | 0.177196 |
 
+### Les paramètres d'Arrhenius : rien à extrapoler
+
+`A`, `E/R` et `m` décrivent la **chimie du novolac**, pas le composite. Ils
+sont **identiques** pour toute variante. `f` aussi, dès lors qu'on l'exprime
+sur la résine — ce que le classeur fait déjà. La seule opération est le
+**raccord au composite**.
+
+#### La forme normalisée, d'abord
+
+Le classeur écrit ses paramètres dans la forme « TACOT-like » (note de version
+1.4.0) :
+
+```
+d(ρ_i)/dt = − A_i · ρ_i,v · [(ρ_i − ρ_i,c)/ρ_i,v]^m · exp(−E_i/(R·T))
+```
+
+mais il ne fournit **que** `f_i, A_i, E_i/R, m_i` — jamais `ρ_i,v` ni `ρ_i,c`
+séparément. Or cette équation n'est pas invariante d'échelle : en posant
+`y = (ρ_i − ρ_i,c)/(ρ_i,v − ρ_i,c)`,
+
+```
+dy/dt = − A_i · [(ρ_i,v − ρ_i,c)/ρ_i,v]^(m−1) · y^m · exp(−E/RT)
+```
+
+Le facteur entre crochets **ne disparaît que si `ρ_i,c = 0`**. Une seule
+lecture rend donc la donnée du classeur complète : chaque réaction consomme
+intégralement sa pseudo-phase, le char étant porté par une phase inerte
+distincte. Avec `x_i = ρ_i/ρ_i,v ∈ [0,1]` :
+
+```
+dx_i/dt = − A_i · x_i^m · exp(−E_i/(R·T))
+ρ_résine(t) = ρ_résine,v · [ (1 − Σf_i) + Σ f_i·x_i ]
+```
+
+> Si votre code attend un `ρ_i,c` non nul, il faut corriger `A` du facteur
+> `[(ρ_i,v − ρ_i,c)/ρ_i,v]^(m−1)`. Avec `m` entre 2.57 et 4.63, l'erreur est
+> d'ordre un — ce n'est pas un détail.
+
+#### (a) Base résine — inchangée pour toutes les variantes
+
+| réaction | f [-] | log₁₀A | A [s⁻¹] | E/R [K] | m |
+|---|---|---|---|---|---|
+| 1 | 0.035070 | 5.33 | 2.138e+05 | 8 178.5 | 4.30 |
+| 2 | 0.027687 | 8.69 | 4.898e+08 | 16 068.4 | 3.70 |
+| 3 | 0.095981 | 10.60 | 3.981e+10 | 21 612.9 | 2.57 |
+| 4 | 0.221495 | 11.67 | 4.677e+11 | 26 423.8 | 4.63 |
+
+`Σf = 0.380234`, soit un rendement en char de `0.619766` — la valeur retrouvée
+indépendamment par les fractions volumiques (§ 5 de `resine_zuram.md`).
+
+#### (b) Base composite — seules les fractions se ré-échelonnent
+
+`F_i = f_i · w` avec `w = YY/100` :
+
+| variante | w | F₁ | F₂ | F₃ | F₄ | Σ |
+|---|---|---|---|---|---|---|
+| 14/40 | 0.400 | 0.014028 | 0.011075 | 0.038393 | 0.088598 | 0.152094 |
+| 18/50 | 0.500 | 0.017535 | 0.013843 | 0.047991 | 0.110748 | 0.190117 |
+| 18/80 | 0.800 | 0.028056 | 0.022150 | 0.076785 | 0.177196 | 0.304187 |
+
+#### (c) Base volumique — pour un code façon `Pyrolysis model`
+
+`ρ_i,v = f_i · ε_m · ρ_résine,intr` et `ρ_i,c = 0`, en kg/m³ de composite :
+
+| variante | ε_m | ρ₁,v | ρ₂,v | ρ₃,v | ρ₄,v | char | fibres | Σ |
+|---|---|---|---|---|---|---|---|---|
+| 14/40 | 0.0710 | 3.27 | 2.58 | 8.96 | 20.67 | 57.84 | 140.00 | 233.33 |
+| 18/50 | 0.1369 | 6.31 | 4.98 | 17.28 | 39.87 | 111.56 | 180.00 | 360.00 |
+| 18/80 | 0.5475 | 25.25 | 19.93 | 69.11 | 159.48 | 446.23 | 180.00 | 900.00 |
+
+La somme redonne exactement `ρ_vierge` de la § 1.
+
+> **Ne pas mélanger les deux conventions de pyrolyse.** Le classeur suppose
+> une densité intrinsèque de matrice *inchangée* avec perte de **volume**
+> (anomalie ouverte n° 3), alors que la cinétique décrit une perte de
+> **densité** à volume constant. Les deux donnent le même `ρ_char` composite,
+> mais pas la même porosité intermédiaire.
+
+#### Vérification
+
+`zuram_cinetique.py` intègre **séparément** la base résine et, pour chaque
+variante, la base composite avec ses propres `ρ_i,v` — deux calculs sans
+référence l'un à l'autre. ATG simulée à 20 K/min :
+
+| T [°C] | perte résine | 14/40 | 18/50 | 18/80 |
+|---|---|---|---|---|
+| 400 | 4.530 % | 1.812 % | 2.265 % | 3.624 % |
+| 600 | 25.715 % | 10.286 % | 12.858 % | 20.572 % |
+| 700 | 33.013 % | 13.205 % | 16.507 % | 26.411 % |
+| 1000 | 37.239 % | 14.896 % | 18.620 % | 29.792 % |
+
+Écart maximal entre les deux intégrations : **1.5e-14**. La relation
+`(ρ_v − ρ)/ρ_v = w · perte_résine(T)` est donc exacte à tout instant, pas
+seulement à l'asymptote.
+
+Pic de DTG à **830.0 K (556.8 °C)**, identique pour toutes les variantes.
+
+> **Queue algébrique — à connaître.** À 1400 K la perte simulée de la résine
+> atteint 37.564 % et non les 38.023 % de `Σf`. Ce n'est pas une erreur
+> d'intégration (résultat convergé en pas ; il ne dépend que de la température
+> finale) mais une propriété du modèle : avec `m > 1`, `dx/dt = −A·x^m` donne
+> `x ~ t^(−1/(m−1))`, qui ne s'annule jamais. Le rendement en char de 0.6198
+> est une valeur **asymptotique** ; à 1400 K le modèle en rend 0.6244. À
+> prendre en compte pour toute comparaison avec une ATG réelle, qui s'arrête
+> à température finie.
+
 ### Réserve physique — c'est ici que le raisonnement peut casser
 
 Tout ce qui précède suppose une résine **identiquement réticulée**. À 80 % en
@@ -276,6 +383,7 @@ le 18/50 : **peser la préforme**. C'est l'anomalie ouverte n° 2, et elle porte
 |---|---|
 | `zuram_variantes.py` | bilan de phase solide, ATG, séparation des rôles |
 | `zuram_variantes_bprime.py` | vérification par `bprime` : table identique, points de fonctionnement |
+| `zuram_cinetique.py` | transposition des paramètres d'Arrhenius, ATG simulée |
 | `resine_zuram.md` | traçabilité de la résine et de la nomenclature |
 | `../tacot_bprime/autre_materiau.md` | même démonstration pour TACOT vs CPh70 |
 

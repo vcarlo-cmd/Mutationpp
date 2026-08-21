@@ -19,6 +19,7 @@ python zuram_validation.py      # comparaison à la table AblaNTIS
 python zuram_pyrolysis_gas.py   # h_g, M, Cp, gamma, rho, mu du gaz de pyrolyse
 python zuram_variantes.py       # variantes XX/YY : densités, ATG, porosité
 python zuram_variantes_bprime.py  # ... et leur vérification par bprime
+python zuram_cinetique.py       # transposition des paramètres d'Arrhenius
 ```
 
 > Traçabilité de la résine et de la nomenclature « 18/50 » :
