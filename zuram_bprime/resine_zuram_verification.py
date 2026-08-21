@@ -16,13 +16,14 @@ Sources :
           phenolic resin pyrolysis products", Aerospace Science and
           Technology 119 (2021) 107079.
 
-Les cinq vérifications :
+Les six vérifications :
 
   1. microstructure -> densités vierge et char       ('ZURAM_official'!D12:F21)
   2. rendement en char, par deux voies indépendantes (volumes / cinétique)
   3. enthalpie de formation du vierge                ('ZURAM_official'!D69:D71)
   4. fractions massiques -> molaires -> le XML       ('ZURAM_official'!D87:E89)
   5. fermeture résine - char -> gaz                  (fig. 7 de [THo])
+  6. nomenclature « 18/50 »                          ('Calcarb_official'!D15)
 
 Différence de nature avec le TACOT : la composition du gaz du ZURAM est une
 donnée ÉLÉMENTAIRE mesurée directement (fractions massiques), là où celle du
@@ -87,6 +88,18 @@ RESIN_FIG7 = {"elemental_analyzer": {"C": 75.21, "H": 5.75, "N": 1.44, "O": 14.1
 
 # [THo] § 4.2.1 — composition du char mesurée à 800 °C, % masse
 CHAR_800C = {"C": 96.36, "N": 0.13, "H": 0.08, "O": 3.43}
+
+# [ODS] 'Calcarb_official' — la préforme seule, qui donne le « 18 » du nom
+CALCARB_VF_FIBERS = 0.114140773620799     # 'Calcarb_official'!E12
+CALCARB_RHO_FIBER = 1577.0                # 'Calcarb_official'!D19
+CALCARB_RHO_MEAN = 180.0                  # 'Calcarb_official'!D15 [kg/m³]
+
+# [ODS] 'ZURAM_official'!B76 — fraction massique de résine de l'échantillon TGA
+RESIN_MASS_FRACTION_TGA = 0.5417721519
+
+# [ODS] 'Versions_and_issues'!G25 — masses volumiques citées dans le courriel DLR
+RHO_DELIVERED = 430.0     # « the final density of the provided virgin ZURAM (18/50) »
+RHO_V12 = 366.0           # « the density indicated (ZURAM V12) »
 
 
 def normalize(d, total=1.0):
@@ -292,6 +305,57 @@ def check_closure(char_yield):
 
 
 # ---------------------------------------------------------------------------
+# 6. Nomenclature « ZURAM 18/50 »
+# ---------------------------------------------------------------------------
+
+def check_nomenclature(rho_v):
+    print("\n" + "=" * 78)
+    print("6. NOMENCLATURE  « ZURAM® 18/50 »")
+    print("=" * 78)
+
+    d = CALCARB_VF_FIBERS * CALCARB_RHO_FIBER
+    print("  « 18 » — la préforme Calcarb® CBCF 18/2000 :")
+    print(f"     {CALCARB_VF_FIBERS:.15f} x {CALCARB_RHO_FIBER:.0f} = {d:.4f} kg/m³")
+    print(f"     'Calcarb_official'!D15 = {CALCARB_RHO_MEAN:.0f} kg/m³   "
+          f"écart {abs(d - CALCARB_RHO_MEAN):.1e}")
+    print("     -> 18 = 0.18 g/cm³, masse volumique apparente NOMINALE de la préforme")
+    ok_18 = abs(d - CALCARB_RHO_MEAN) < 1e-3
+
+    print("\n  « 50 » — non énoncé dans les sources. Lecture « teneur en résine » :")
+    m_f = VF["virgin"]["fibers"] * RHO_FIBER * 1000.0
+    m_r = VF["virgin"]["resin"] * RHO_RESIN_VIRGIN * 1000.0
+    readings = [
+        ("microstructure ZURAM_official", 100 * m_r / (m_f + m_r)),
+        ("échantillon TGA (B76)", 100 * RESIN_MASS_FRACTION_TGA),
+        ("V12 0.366 g/cm³, préforme nominale 180",
+         100 * (RHO_V12 - CALCARB_RHO_MEAN) / RHO_V12),
+        ("livré 0.43 g/cm³, préforme mesurée %.0f" % m_f,
+         100 * (RHO_DELIVERED - m_f) / RHO_DELIVERED),
+        ("livré 0.43 g/cm³, préforme nominale 180",
+         100 * (RHO_DELIVERED - CALCARB_RHO_MEAN) / RHO_DELIVERED),
+    ]
+    for label, v in readings:
+        print(f"     {label:42s} {v:6.2f} %")
+    core = [v for _, v in readings[:3]]
+    print(f"\n     les trois premières lectures tiennent dans "
+          f"[{min(core):.1f} ; {max(core):.1f}] %")
+
+    print("\n  Lecture concurrente « masse volumique visée 0.50 g/cm³ » : EXCLUE.")
+    print(f"     le courriel DLR ('Versions_and_issues'!G25) donne "
+          f"{RHO_DELIVERED/1000:.2f} g/cm³ pour")
+    print(f"     le ZURAM (18/50) livré et {RHO_V12/1000:.3f} g/cm³ pour la version V12 —")
+    print("     deux densités différentes sous le MÊME nom : ce n'est donc pas une densité.")
+
+    print("\n  Les fibres du ZURAM_official pèsent %.1f kg/m³, non 180 :" % m_f)
+    print("     anomalie ouverte n° 2 du classeur — variabilité de la préforme,")
+    print("     jamais pesée par le DLR ; la montée en densité vient du passage")
+    print("     à une infiltration en moule RTM.")
+
+    print("\n  -> 18 : ÉTABLI.   50 : DÉDUCTION cohérente, non énoncée dans les sources.")
+    return ok_18
+
+
+# ---------------------------------------------------------------------------
 
 def main():
     print()
@@ -309,13 +373,15 @@ def main():
     ok3 = check_enthalpy(rho_v)
     ok4 = check_gas()
     ok5 = check_closure(char_yield)
+    ok6 = check_nomenclature(rho_v)
 
     print("\n" + "=" * 78)
     results = [("microstructure -> densités", ok1),
                ("rendement en char, deux voies concordantes", ok2),
                ("enthalpie de formation du vierge", ok3),
                ("massique -> molaire -> le XML", ok4),
-               ("fermeture résine/char/gaz", ok5)]
+               ("fermeture résine/char/gaz", ok5),
+               ("nomenclature : le « 18 » retrouvé", ok6)]
     for label, ok in results:
         print(f"  [{'OK' if ok else 'ÉCHEC'}] {label}")
     print("=" * 78)

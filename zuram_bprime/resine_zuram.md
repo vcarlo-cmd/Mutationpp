@@ -228,6 +228,41 @@ masse vierge (TACOT : 21.4 %).
 La résine représente **51.07 % de la masse vierge** (TACOT : 42.9 %) pour
 16.3 % du volume.
 
+### Les fibres pèsent 205 kg/m³, pas les 180 nominaux
+
+La fraction volumique de fibres du `ZURAM_official` donne
+`0.129973 × 1577.24 = **205.0 kg/m³**`, soit **14 % de plus** que la densité
+nominale de 180 kg/m³ de la préforme CBCF 18/2000 (§ 1). L'écart n'est pas une
+erreur de saisie : c'est une **anomalie ouverte** du classeur
+(`Versions_and_issues`, issue n° 2, statut *Open*, A. Turchi, 09/07/20) :
+
+> *« Data for virgin ZURAM are still relative to a material with virgin density
+> lower than the one tested in AblaNTIS. DLR clarified that this is due to the
+> **variability of the density of Calcarb CBCF 18-2000**. »*
+>
+> Action retenue : *« Consider doing new LFA for virgin ZURAM of right
+> density. »*
+
+Le courriel du DLR cité en `G25` précise que la préforme n'a jamais été pesée :
+
+> *« The preform was all the time CBCF 18-2000. To say the truth, **we have
+> never measured the weight and controlled the density** of the CBCF 18-2000
+> preform. So we don't know if there are any variations regarding the preform
+> density. »*
+
+et attribue la montée en densité des plaques au procédé d'imprégnation, non à
+la préforme : le passage d'une infiltration sous vide manuel en dessiccateur à
+un **moule RTM à vide asservi et vitesse d'entrée de résine réduite** a donné
+*« a more homogenous infiltration and resin distribution which led to an
+increase in density »*.
+
+**Conséquence pratique.** Les propriétés thermiques du vierge (conductivité,
+diffusivité) proviennent de mesures faites sur une plaque à 0.366 g/cm³, alors
+que la microstructure de référence en vaut 0.419 — les deux ne décrivent pas
+tout à fait la même plaque. Cela ne touche **pas** la table B' (§ 4 : seule la
+composition élémentaire du gaz y entre), mais concerne toute réponse matériau
+calculée avec ces propriétés.
+
 ### Enthalpie de formation — contrôle de cohérence
 
 `'ZURAM_official'!D69:D71` donne char 0, résine phénolique −2 143 700 J/kg,
@@ -401,6 +436,10 @@ H 0.90 / O 6.45 %) — les deux matériaux se comportent pareillement.
 | **Gaz, fractions molaires** | **C:0.171 H:0.722 O:0.107** | `'ZURAM_official'!D87:D89` = les XML |
 | Char, composition à 800 °C | C 96.36 / N 0.13 / H 0.08 / O 3.43 | [THo] § 4.2.1 |
 | Émissivité vierge / char | 0.8 / 0.9 | `'ZURAM_official'!D95:D96` |
+| « 18 » du nom | 180 kg/m³, densité nominale de la préforme | `'Calcarb_official'!D15` ; note de version 4.3.0 |
+| « 50 » du nom | ~50 % de résine en masse (**déduit**, non énoncé) | déduction — cf. § 1 |
+| Anomalie ouverte n° 2 | fibres à 205 au lieu de 180 kg/m³ | `Versions_and_issues`, issue 2 |
+| Anomalie ouverte n° 3 | densité de matrice charbonnée non mesurée | `Versions_and_issues`, issue 3 |
 
 ---
 
@@ -408,7 +447,7 @@ H 0.90 / O 6.45 %) — les deux matériaux se comportent pareillement.
 
 | Fichier | Rôle |
 |---|---|
-| `resine_zuram_verification.py` | rejoue les 5 vérifications de ce document |
+| `resine_zuram_verification.py` | rejoue les 6 vérifications de ce document |
 | `README.md` | table B', validation AblaNTIS, propriétés du gaz |
 | `../tacot_bprime/resine_tacot.md` | même travail pour le TACOT |
 | `../tacot_bprime/mise_en_donnees_xml.md` | ce qu'il faut renseigner dans un XML |
