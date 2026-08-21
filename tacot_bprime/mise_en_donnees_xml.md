@@ -66,6 +66,10 @@ Exemple TACOT (feuille `Pyrolysis-gas chemistry`) :
 
 → C = 0.7368, H = 2.4291, O = 0.4117 mol → **C:0.206, H:0.679, O:0.115**
 
+> Traçabilité complète de ces sept nombres jusqu'à la table I de Sykes
+> (NASA TN D-3810, 1967), et identification de la résine dont ils sortent :
+> voir `resine_tacot.md` et `resine_tacot_verification.py`.
+
 Ce qui donne, indifféremment (la normalisation est automatique, §3.1) :
 
 ```xml

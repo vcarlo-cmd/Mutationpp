@@ -51,7 +51,7 @@ Les deux points clés :
 ## 3. Ce qui change réellement : le bilan de phase solide
 
 Avec ρ_fibre = 1600 kg/m³, ρ_résine = 1200 kg/m³, rendement en char de la
-résine 50 % (valeurs TACOT) :
+résine 50 % (valeurs TACOT — origine de chacune dans `resine_tacot.md`) :
 
 | | TACOT | CPh70 |
 |--|-------|------|
