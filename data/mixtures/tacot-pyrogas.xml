@@ -1,0 +1,36 @@
+<!-- ===================================================================== -->
+<!-- Gaz de pyrolyse du TACOT seul, à l'équilibre chimique.                 -->
+<!--                                                                       -->
+<!-- Sert à calculer les propriétés du gaz de pyrolyse (h_g, Cp, M, gamma,  -->
+<!-- rho, mu) en fonction de T et P, avec l'outil `mppequil`. C'est la      -->
+<!-- grandeur h_g qui entre dans le bilan d'énergie de surface et dans le   -->
+<!-- terme source de pyrolyse en profondeur.                               -->
+<!--                                                                       -->
+<!-- À NE PAS confondre avec tacot-air_25.xml : ici il n'y a NI air NI      -->
+<!-- char — c'est le gaz de pyrolyse pur, avant qu'il n'atteigne la paroi.  -->
+<!--                                                                       -->
+<!-- PAS DE PHASE CONDENSÉE : le classeur de référence TACOT 3.0 précise    -->
+<!-- explicitement, feuille 'Pyrolysis model' :                            -->
+<!--   "Pyrolysis gas properties at 0.01, 0.1, 1.0 atm, assuming chemical  -->
+<!--    equilibrium of the gas (no condensed species in the mixture)"      -->
+<!-- Ajouter C(gr) ferait précipiter du carbone solide et changerait h_g.   -->
+<!--                                                                       -->
+<!-- Espèces : sous-ensemble C/H/O des 25 espèces de la table B' de         -->
+<!-- référence (les espèces azotées sont sans objet, le gaz ne contient     -->
+<!-- pas d'azote). Vérifié qu'élargir la liste (OH, O2, CH, CH2, CH3,       -->
+<!-- C2H4, C2H6, HCO, HCHO, C2O, C3H) change h_g de moins de 0.2 %.        -->
+<!--                                                                       -->
+<!-- Composition : feuille 'Pyrolysis model' (Sykes, NASA TN D-3810, 1967) -->
+<!-- ===================================================================== -->
+<mixture thermo_db="NASA-9">
+
+    <species>
+       C H O CH4 CO CO2 C2 C2H C2H2,acetylene C3 C4 C4H2,butadiyne C5
+       H2 H2O CH2OH C6H6
+    </species>
+
+    <element_compositions default="tacot_pyro">
+        <composition name="tacot_pyro">C:0.206, H:0.679, O:0.115</composition>
+    </element_compositions>
+
+</mixture>
