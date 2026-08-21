@@ -79,6 +79,53 @@ Deux arguments convergents, aucun décisif seul :
 2. **La composition élémentaire** (§ 2) tombe à 0.35 point du motif novolac
    linéaire C₇H₆O.
 
+### Que signifie « 18/50 » ?
+
+Le classeur documente le **18** et reste muet sur le **50**.
+
+**18 — la préforme.** Il vient directement de la désignation Mersen
+**Calcarb® CBCF 18/2000**, où 18 est la **masse volumique apparente en
+0.01 g/cm³**, soit **180 kg/m³**. Le classeur le confirme deux fois :
+
+- `Calcarb_official!D15` : *Average density* = **180**, et
+  `Calcarb_official!D12` donne une fraction volumique de fibres de 0.114141
+  qui, multipliée par la densité intrinsèque 1577, redonne exactement 180.
+- Note de version 4.3.0 : *« Updated volume fraction in Calcarb_official,
+  computed now from fiber intrinsic density and **nominal average density of
+  180 kg/m³** »*.
+
+(Le **2000** de `CBCF 18/2000` est, dans la nomenclature Mersen, la
+**température de traitement thermique** de la préforme en °C. Ce point n'est
+pas énoncé dans les documents dont nous disposons.)
+
+**50 — non documenté.** Aucun des fichiers fournis n'explique ce second nombre.
+La lecture qui colle aux chiffres est la **teneur en résine, ~50 % en masse** :
+
+| Lecture | Résine, % masse |
+|---|---|
+| `ZURAM_official`, microstructure (205 kg/m³ fibres + 214 résine) | **51.07** |
+| `ZURAM_official!B76`, échantillon TGA | **54.18** |
+| version « V12 » à 0.366 g/cm³, préforme nominale 180 | **50.82** |
+| version livrée à 0.43 g/cm³, préforme mesurée 205 | 52.33 |
+| version livrée à 0.43 g/cm³, préforme nominale 180 | 58.14 |
+
+L'hypothèse concurrente — 50 = masse volumique visée de 0.50 g/cm³ — est
+**exclue** par le courriel du DLR cité en `Versions_and_issues!G25` :
+
+> *« The final density of the provided virgin ZURAM® **(18/50)** is
+> **0.43 g/cm³**. However, in the thermal conductivity data files you provided,
+> the density indicated (ZURAM® V12) is 0.366 g/cm³. »*
+
+Deux matériaux portant le même nom 18/50 y ont des masses volumiques de 0.43 et
+0.366 g/cm³ : le nombre ne peut donc pas désigner la densité finale. Le DLR
+explique l'écart par l'amélioration du procédé d'infiltration (passage d'un
+dessiccateur à vide manuel à un moule RTM à vide asservi), *« which led to an
+increase in density »* — la préforme, elle, *« was all the time CBCF 18-2000 »*.
+
+En résumé : **18 = la préforme Calcarb à 180 kg/m³** (certain), **50 ≈ la part
+de résine en masse** (déduction cohérente avec toutes les mesures, mais non
+énoncée dans les sources disponibles).
+
 ### Comment la résine a été prélevée
 
 [THo] § 3.1 : les essais ont porté sur **la résine seule**, prélevée sur une
@@ -283,6 +330,10 @@ réticulée (motif C₇H₆O plutôt que C₆H₆O).
 
 > Les deux classeurs font la même hypothèse microstructurale : densité
 > intrinsèque de matrice **inchangée**, la pyrolyse ne retirant que du volume.
+> Le classeur en fait d'ailleurs une **anomalie ouverte** (`Versions_and_issues`,
+> issue n° 3, statut *Open*) : *« Intrinsic density of charred resin not well
+> evaluated by He pycnometry. Hypothesis of constant resin density and only
+> volume shrinkage used. »*
 > Pour le TACOT, cette lecture coexistait avec une seconde (Goldstein :
 > densité divisée par deux à volume constant) ; ici il n'y en a qu'une.
 
@@ -332,6 +383,8 @@ H 0.90 / O 6.45 %) — les deux matériaux se comportent pareillement.
 | Donnée | Valeur | Localisation exacte |
 |---|---|---|
 | Matériau | ZURAM® 18/50, carbone/phénolique DLR | `'ZURAM_official'!A4` |
+| « 18 » du nom | préforme Calcarb CBCF **18**/2000, 180 kg/m³ nominal | `'Calcarb_official'!D15`, note v4.3.0 |
+| « 50 » du nom | ≈ % massique de résine (**déduit**, non énoncé) | déduction — cf. § 1 |
 | Renfort | préforme Mersen Calcarb CBCF 18/2000 | `'ZURAM_official'!A4` |
 | Catalyseur de la résine | hexamine (HMTA) | [THo] § 4.2 |
 | Type de résine | novolac (**déduit**, non déclaré) | déduction — cf. § 1 |
