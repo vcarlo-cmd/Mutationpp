@@ -65,8 +65,8 @@ MATERIALS = {
     "TACOT": dict(f_solid=0.50, porosity=0.80, mixture="tacot-air_25",
                   pyro="tacot_pyro", char="tacot_char",
                   note="10 % fibres / 10 % résine / 80 % pores"),
-    "CP70":  dict(f_solid=0.70, porosity=0.01, mixture="cp70-air_25",
-                  pyro="cp70_pyro", char="cp70_char",
+    "CPh70":  dict(f_solid=0.70, porosity=0.01, mixture="cph70-air_25",
+                  pyro="cph70_pyro", char="cph70_char",
                   note="70 % fibres / 30 % résine du solide, porosité 0.01"),
 }
 
@@ -222,7 +222,7 @@ def plot_operating_lines(data, out_png):
     fig.suptitle("Ablation stationnaire — la table B' est commune, "
                  "seule la ligne de fonctionnement $B'_g = k\\,B'_c$ diffère",
                  fontsize=14)
-    colors = {"TACOT": "tab:blue", "CP70": "tab:red"}
+    colors = {"TACOT": "tab:blue", "CPh70": "tab:red"}
 
     for col, P in enumerate(PRESSURES_ATM):
         ax1, ax2 = axes[0, col], axes[1, col]
@@ -259,13 +259,13 @@ def main():
     for name, mat in MATERIALS.items():
         print_balance(name, mat, balances[name])
 
-    kt, kc = balances["TACOT"]["k"], balances["CP70"]["k"]
+    kt, kc = balances["TACOT"]["k"], balances["CPh70"]["k"]
     print(f"\n{'='*74}\nCOMPARAISON\n{'='*74}")
     print(f"  rho_v : {balances['TACOT']['rho_v']:7.1f} -> "
-          f"{balances['CP70']['rho_v']:7.1f} kg/m3  "
-          f"(x{balances['CP70']['rho_v']/balances['TACOT']['rho_v']:.2f})")
+          f"{balances['CPh70']['rho_v']:7.1f} kg/m3  "
+          f"(x{balances['CPh70']['rho_v']/balances['TACOT']['rho_v']:.2f})")
     print(f"  k     : {kt:7.4f} -> {kc:7.4f}          (x{kc/kt:.2f})")
-    print("\n  Le CP70 est bien plus dense mais, étant riche en fibres, il")
+    print("\n  Le CPh70 est bien plus dense mais, étant riche en fibres, il")
     print("  produit relativement MOINS de gaz de pyrolyse par unité de char :")
     print("  sa ligne de fonctionnement est à B'g environ deux fois plus bas.")
 
@@ -285,7 +285,7 @@ def main():
     # --- Vérification : les deux tables sont-elles identiques ? -----------
     print(f"\n{'='*74}\nVÉRIFICATION — les deux tables B' sont-elles identiques ?\n{'='*74}")
     for P in PRESSURES_ATM:
-        d = np.abs(data["TACOT"][P]["Bc"] - data["CP70"][P]["Bc"]).max()
+        d = np.abs(data["TACOT"][P]["Bc"] - data["CPh70"][P]["Bc"]).max()
         print(f"  P = {P:6g} atm : écart max sur B'c(T,B'g) = {d:.3e}")
     print("\n  -> tables rigoureusement identiques : la mise en données de la")
     print("     table B' ne dépend pas du rapport fibres/résine ni de la porosité.")
@@ -293,11 +293,11 @@ def main():
     # --- Points de fonctionnement à 1 atm ---------------------------------
     print(f"\n{'='*74}\nPOINT DE FONCTIONNEMENT STATIONNAIRE À 1 atm\n{'='*74}")
     print(f"{'T [K]':>7} | {'TACOT B''c':>11} {'B''g':>8} | "
-          f"{'CP70 B''c':>11} {'B''g':>8} | {'écart B''c':>10}")
+          f"{'CPh70 B''c':>11} {'B''g':>8} | {'écart B''c':>10}")
     Ts = data["TACOT"][1.0]["Ts"]
     for T in (1000, 2000, 2500, 3000, 3200, 3400, 3600, 3800):
         j = int(np.argmin(np.abs(Ts - T)))
-        a, b = data["TACOT"][1.0], data["CP70"][1.0]
+        a, b = data["TACOT"][1.0], data["CPh70"][1.0]
         rel = (b["bc"][j] - a["bc"][j]) / max(a["bc"][j], 1e-12) * 100
         print(f"{Ts[j]:>7.0f} | {a['bc'][j]:>11.5f} {a['bg'][j]:>8.4f} | "
               f"{b['bc'][j]:>11.5f} {b['bg'][j]:>8.4f} | {rel:>9.2f} %")

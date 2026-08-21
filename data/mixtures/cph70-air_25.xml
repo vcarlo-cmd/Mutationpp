@@ -1,5 +1,5 @@
 <!-- ===================================================================== -->
-<!-- CP70 — composite carbone/phénolique dense                             -->
+<!-- CPh70 — composite carbone/phénolique dense                            -->
 <!--   fibres de carbone : 70 % du volume solide                           -->
 <!--   résine phénolique : 30 % du volume solide                           -->
 <!--   porosité          : 0.01                                            -->
@@ -28,7 +28,7 @@
 <!-- en ablation stationnaire, avec k = (rho_v - rho_c)/rho_c :             -->
 <!--                                                                       -->
 <!--        TACOT (10/10/80) : rho_v =  280   rho_c =  220   k = 0.2727     -->
-<!--        CP70  (69/30/1)  : rho_v = 1465.2 rho_c = 1287.0 k = 0.1385     -->
+<!--        CPh70 (69/30/1)  : rho_v = 1465.2 rho_c = 1287.0 k = 0.1385     -->
 <!--                                                                       -->
 <!-- Voir tacot_bprime/material_response.py pour le calcul et le tracé de   -->
 <!-- la ligne de fonctionnement.                                            -->
@@ -47,8 +47,8 @@
 
     <element_compositions default="air">
         <composition name="air">N:0.79, O:0.21</composition>
-        <composition name="cp70_pyro">C:0.206, H:0.679, O:0.115</composition>
-        <composition name="cp70_char">C:1.0</composition>
+        <composition name="cph70_pyro">C:0.206, H:0.679, O:0.115</composition>
+        <composition name="cph70_char">C:1.0</composition>
     </element_compositions>
 
 </mixture>

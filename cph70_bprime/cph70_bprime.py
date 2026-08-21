@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 """
-Génère et trace la table B' du CP70 dans l'air.
+Génère et trace la table B' du CPh70 dans l'air.
 
-CP70 : composite carbone/phénolique dense
+CPh70 : composite carbone/phénolique dense
     - 70 % fibres de carbone / 30 % résine phénolique (volume solide)
     - porosité 0.01
     - fibres et résine identiques à celles du TACOT
@@ -15,7 +15,7 @@ Composition du gaz de pyrolyse (résine identique au TACOT) :
     C:0.206, H:0.679, O:0.115 (fractions molaires élémentaires)
 Char : carbone pur (fibres + résine carbonisée), C:1.0
 
-Le mélange cp70-air_25 reproduit la liste de 25 espèces de la table B' de
+Le mélange cph70-air_25 reproduit la liste de 25 espèces de la table B' de
 référence TACOT 3.0 (+ C(gr) pour la phase condensée).
 
 Sorties :
@@ -23,15 +23,15 @@ Sorties :
     - un graphique isobares par valeur de B'g
     - la comparaison des B'g à 1 atm
     - B'c en fonction de B'g à température fixée, avec le point de
-      fonctionnement stationnaire du CP70 et celui du TACOT
+      fonctionnement stationnaire du CPh70 et celui du TACOT
     - la table du point de fonctionnement stationnaire
 
 Usage :
-    python cp70_bprime.py
+    python cph70_bprime.py
 
 Prérequis :
     - binaire `bprime` dans le PATH ou dans build/src/apps/
-    - data/mixtures/cp70-air_25.xml
+    - data/mixtures/cph70-air_25.xml
     - numpy, matplotlib
 """
 
@@ -51,10 +51,10 @@ import matplotlib.pyplot as plt
 # ---------------------------------------------------------------------------
 BPRIME_CMD = "bprime"
 T_RANGE    = "300:25:5000"
-MIXTURE    = "cp70-air_25"
+MIXTURE    = "cph70-air_25"
 BL_COMP    = "air"
-PYRO_COMP  = "cp70_pyro"
-CHAR_COMP  = "cp70_char"
+PYRO_COMP  = "cph70_pyro"
+CHAR_COMP  = "cph70_char"
 CHAR_ELEM  = "C"
 
 BG_VALUES = [0.0, 0.1, 0.2, 0.5, 1.0, 2.0]
@@ -65,7 +65,7 @@ PRESSURES_ATM      = np.logspace(-3, 3, 25)
 PLOT_PRESSURES_ATM = np.logspace(-3, 3, 7)
 
 # Couplage matériau : B'g = k * B'c en ablation stationnaire
-K_CP70  = 0.1385      # (1465.2 - 1287.0) / 1287.0
+K_CPH70  = 0.1385      # (1465.2 - 1287.0) / 1287.0
 K_TACOT = 0.2727      # (  280.0 -  220.0) /  220.0
 
 # Balayage fin en B'g pour la courbe B'c(B'g)
@@ -158,7 +158,7 @@ def plot_isobar_table(all_data, pressures_atm, bg, out_png):
 
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))
     fig.suptitle(
-        rf"Table B' — CP70 dans l'air  ({bg_label(bg)},  "
+        rf"Table B' — CPh70 dans l'air  ({bg_label(bg)},  "
         r"$P \in [10^{-3},\,10^3]$ atm)",
         fontsize=13,
     )
@@ -196,7 +196,7 @@ def plot_bg_comparison(results_by_bg):
     colors = plt.get_cmap("tab10", len(BG_VALUES))
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))
     fig.suptitle(
-        r"Influence de $B'_g$ sur la table B' — CP70 dans l'air (P = 1 atm)",
+        r"Influence de $B'_g$ sur la table B' — CPh70 dans l'air (P = 1 atm)",
         fontsize=13,
     )
     for idx, bg in enumerate(BG_VALUES):
@@ -222,7 +222,7 @@ def plot_bg_comparison(results_by_bg):
     ax2.legend(fontsize=10, loc="upper left")
 
     plt.tight_layout()
-    out_png = "cp70_bprime_bg_comparison.png"
+    out_png = "cph70_bprime_bg_comparison.png"
     plt.savefig(out_png, dpi=150)
     print(f"\nFigure de comparaison B'g sauvegardée : {out_png}")
     plt.close()
@@ -275,7 +275,7 @@ def plot_bc_vs_bg(sweep, out_png):
     """
     B'c en fonction de B'g à T fixée, avec les points de fonctionnement.
 
-    La courbe B'c(B'g) est la MEME pour CP70 et TACOT (même table) ; seuls
+    La courbe B'c(B'g) est la MEME pour CPh70 et TACOT (même table) ; seuls
     les points de fonctionnement diffèrent, car ils sont l'intersection de
     cette courbe avec la droite B'g = k*B'c propre à chaque matériau.
     """
@@ -283,7 +283,7 @@ def plot_bc_vs_bg(sweep, out_png):
                              figsize=(8 * len(SWEEP_PRESSURES), 6))
     axes = np.atleast_1d(axes)
     fig.suptitle(
-        r"$B'_c$ en fonction de $B'_g$ — la courbe est commune CP70 / TACOT, "
+        r"$B'_c$ en fonction de $B'_g$ — la courbe est commune CPh70 / TACOT, "
         r"seuls les points de fonctionnement $B'_g = k\,B'_c$ diffèrent",
         fontsize=13)
     colors = plt.get_cmap("viridis", len(SWEEP_TEMPS) + 1)
@@ -294,15 +294,15 @@ def plot_bc_vs_bg(sweep, out_png):
             c = colors(i)
             ax.plot(bgs, bcs, color=c, lw=2, marker="o", ms=3,
                     label=rf"$T_w = {T}$ K")
-            for k, mark, lab in ((K_CP70, "*", "CP70"),
+            for k, mark, lab in ((K_CPH70, "*", "CPh70"),
                                  (K_TACOT, "s", "TACOT")):
                 x = solve_operating_point(bgs, bcs, k)
                 ax.plot(k * x, x, mark, color=c, ms=13 if mark == "*" else 7,
                         mec="k", mew=0.8, zorder=5)
         # droites de fonctionnement B'g = k*B'c  ->  B'c = B'g/k
         bgline = np.array([1e-3, 10.0])
-        ax.plot(bgline, bgline / K_CP70, "k--", lw=1.2, alpha=0.7,
-                label=rf"CP70 : $B'_g = {K_CP70}\,B'_c$  ($\star$)")
+        ax.plot(bgline, bgline / K_CPH70, "k--", lw=1.2, alpha=0.7,
+                label=rf"CPh70 : $B'_g = {K_CPH70}\,B'_c$  ($\star$)")
         ax.plot(bgline, bgline / K_TACOT, "k:", lw=1.2, alpha=0.7,
                 label=rf"TACOT : $B'_g = {K_TACOT}\,B'_c$  ($\blacksquare$)")
 
@@ -329,7 +329,7 @@ def plot_bc_vs_bg(sweep, out_png):
 
 def steady_state_table(bprime_path, out_csv):
     """
-    Table du point de fonctionnement stationnaire du CP70 :
+    Table du point de fonctionnement stationnaire du CPh70 :
     pour chaque (P, T), résout B'c = table(T, P, B'g = k*B'c).
     """
     raw = {}
@@ -348,8 +348,8 @@ def steady_state_table(bprime_path, out_csv):
             for j, T in enumerate(Ts):
                 bcs = np.array([raw[(P, bg)][j, 1] for bg in BG_SWEEP])
                 hws = np.array([raw[(P, bg)][j, 2] for bg in BG_SWEEP])
-                bc = solve_operating_point(np.array(BG_SWEEP), bcs, K_CP70)
-                bg = min(K_CP70 * bc, BG_SWEEP[-1])
+                bc = solve_operating_point(np.array(BG_SWEEP), bcs, K_CPH70)
+                bg = min(K_CPH70 * bc, BG_SWEEP[-1])
                 hw = np.interp(bg, BG_SWEEP, hws)
                 w.writerow([f"{P:g}", f"{T:g}", f"{bc:.6e}", f"{bg:.6e}",
                             f"{hw:.6e}", f"{bcs[0]:.6e}", f"{bc/rho_c:.6e}"])
@@ -386,7 +386,7 @@ if __name__ == "__main__":
             all_data.append((header, data))
             print(f"{len(data)} points")
 
-        out_csv = f"cp70_bprime_Bg{bg_filename(bg)}.csv"
+        out_csv = f"cph70_bprime_Bg{bg_filename(bg)}.csv"
         with open(out_csv, "w", newline="") as f:
             writer = csv.writer(f)
             writer.writerow(["Bg", "P_atm"] + header)
@@ -397,7 +397,7 @@ if __name__ == "__main__":
         print(f"  Table CSV sauvegardée : {out_csv}")
 
         plot_isobar_table(all_data, PRESSURES_ATM, bg,
-                          f"cp70_bprime_Bg{bg_filename(bg)}.png")
+                          f"cph70_bprime_Bg{bg_filename(bg)}.png")
         results_by_bg[bg] = (PRESSURES_ATM, all_data)
         print()
 
@@ -407,7 +407,7 @@ if __name__ == "__main__":
     print(f"\n=== Balayage B'c(B'g) ===")
     sweep = bc_vs_bg(bprime_path)
 
-    out_csv = "cp70_bprime_Bc_vs_Bg.csv"
+    out_csv = "cph70_bprime_Bc_vs_Bg.csv"
     with open(out_csv, "w", newline="") as f:
         w = csv.writer(f)
         w.writerow(["P_atm", "T_K", "Bg", "Bc", "hw_MJkg"])
@@ -417,23 +417,23 @@ if __name__ == "__main__":
                             f"{bc:.6e}", f"{hw:.6e}"])
     print(f"\nTable B'c(B'g) sauvegardée : {out_csv}")
 
-    plot_bc_vs_bg(sweep, "cp70_bprime_Bc_vs_Bg.png")
+    plot_bc_vs_bg(sweep, "cph70_bprime_Bc_vs_Bg.png")
 
     # --- Point de fonctionnement ------------------------------------------
     print()
-    steady_state_table(bprime_path, "cp70_bprime_steady_state.csv")
+    steady_state_table(bprime_path, "cph70_bprime_steady_state.csv")
 
     # --- Récapitulatif -----------------------------------------------------
     print("\n" + "=" * 78)
-    print("POINTS DE FONCTIONNEMENT — CP70 (k = 0.1385) vs TACOT (k = 0.2727)")
+    print("POINTS DE FONCTIONNEMENT — CPh70 (k = 0.1385) vs TACOT (k = 0.2727)")
     print("=" * 78)
-    print(f"{'P atm':>7} {'T K':>6} | {'CP70 Bc':>10} {'CP70 Bg':>9} | "
+    print(f"{'P atm':>7} {'T K':>6} | {'CPh70 Bc':>10} {'CPh70 Bg':>9} | "
           f"{'TACOT Bc':>10} {'TACOT Bg':>9} | {'ecart Bc':>9}")
     for (P, T), (bgs, bcs, _) in sorted(sweep.items()):
-        a = solve_operating_point(bgs, bcs, K_CP70)
+        a = solve_operating_point(bgs, bcs, K_CPH70)
         b = solve_operating_point(bgs, bcs, K_TACOT)
         rel = (a - b) / max(b, 1e-12) * 100.0
-        print(f"{P:>7g} {T:>6g} | {a:>10.5f} {K_CP70*a:>9.4f} | "
+        print(f"{P:>7g} {T:>6g} | {a:>10.5f} {K_CPH70*a:>9.4f} | "
               f"{b:>10.5f} {K_TACOT*b:>9.4f} | {rel:>8.2f} %")
 
     print("\nTerminé.")
