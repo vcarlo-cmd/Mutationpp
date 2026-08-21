@@ -1,0 +1,56 @@
+<!-- ===================================================================== -->
+<!-- Liège / phénolique (cork phenolic) en ablation dans l'air.            -->
+<!--                                                                       -->
+<!--   80 % liège / 20 % résine phénolique  (fractions MASSIQUES du solide) -->
+<!--   résine phénolique (novolac C7H6O) : rendement en char 50 %          -->
+<!--   liège                             : rendement en char 25 %          -->
+<!--                                                                       -->
+<!-- DIFFÉRENCE ESSENTIELLE avec un carbone/phénolique (TACOT, PICA,       -->
+<!-- CPh70, Zuram) : ici le RENFORT PYROLYSE AUSSI. Le gaz n'est plus      -->
+<!-- produit par la seule résine, mais par les deux constituants, et le    -->
+<!-- rapport liège/résine entre donc DANS la composition du gaz — donc     -->
+<!-- dans la table B'. Pour un carbone/phénolique il n'y entrait pas       -->
+<!-- (cf. tacot_bprime/autre_materiau.md).                                 -->
+<!--                                                                       -->
+<!-- Fermeture élémentaire (aucun atome créé), sur 100 g de vierge :       -->
+<!--                                                                       -->
+<!--   liège  80 g (C 62.4 / H 8.5 / O 28.4 % masse) -> 20 g char + 60 g gaz -->
+<!--   résine 20 g (C7H6O)                           -> 10 g char + 10 g gaz -->
+<!--   ................................................................. -->
+<!--   composite : 30 g char (30 %) + 70 g gaz                             -->
+<!--                                                                       -->
+<!--   gaz liège  : C:0.235, H:0.632, O:0.133   (x molaires élémentaires)  -->
+<!--   gaz résine : C:0.269, H:0.626, O:0.104                              -->
+<!--   gaz total  : C:0.240, H:0.631, O:0.129   <- `cork_pyro`             -->
+<!--                                                                       -->
+<!-- Char : les deux constituants carbonisent vers du carbone => C:1.0.    -->
+<!-- Si le char de liège retenait H/O, il faudrait pondérer par les masses -->
+<!-- de char de chaque constituant (cf. mise_en_donnees_cork.md §5).       -->
+<!--                                                                       -->
+<!-- Couplage en ablation stationnaire :                                   -->
+<!--   k = B'g/B'c = m_gaz/m_char = (rho_v - rho_c)/rho_c = 2.333          -->
+<!-- soit près de dix fois le TACOT (0.273). Le matériau fonctionne à très -->
+<!-- fort soufflage pyrolytique : balayer B'g jusqu'à ~10, pas 2.          -->
+<!--                                                                       -->
+<!-- Liste d'espèces : les 25 espèces de la table B' de référence          -->
+<!-- TACOT 3.0 + C(gr). C(gr) est INDISPENSABLE : sans phase condensée     -->
+<!-- l'excès de carbone du char ne peut pas se condenser, Y_w,C -> 1 et    -->
+<!-- B'c sature sur une valeur non physique.                               -->
+<!--                                                                       -->
+<!-- Voir cork_bprime/cork_pyrolysis_data.py (calcul des compositions et   -->
+<!-- sensibilités) et cork_bprime/mise_en_donnees_cork.md (explication).   -->
+<!-- ===================================================================== -->
+<mixture thermo_db="NASA-9">
+
+    <species>
+       C H O N CH4 CN CO CO2 C2 C2H C2H2,acetylene C3 C4 C4H2,butadiyne C5
+       HCN H2 H2O N2 CH2OH CNN CNC CNCOCN C6H6 HNC C(gr)
+    </species>
+
+    <element_compositions default="air">
+        <composition name="air">N:0.79, O:0.21</composition>
+        <composition name="cork_pyro">C:0.240, H:0.631, O:0.129</composition>
+        <composition name="cork_char">C:1.0</composition>
+    </element_compositions>
+
+</mixture>
