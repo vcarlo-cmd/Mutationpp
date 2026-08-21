@@ -54,8 +54,20 @@ ONEATM = 101325.0
 # ---------------------------------------------------------------------------
 # rho_f / rho_m : masses volumiques intrinsèques des fibres et de la matrice
 # char_yield    : fraction de la masse de résine restant après pyrolyse
-#                 (TACOT : la matrice passe de eps_m=0.10 à 0.05 à densité
-#                  intrinsèque constante, soit 50 %)
+#
+# Sources exactes dans TACOT_3.0.xls (cf. resine_tacot.md) :
+#   'Description'!A11        fibres de carbone ex-cellulose, 2000 K, 1600 kg/m3
+#   'Description'!A12        matrice ex-novolac/formaldéhyde, 1200 kg/m3
+#   'Pyrolysis model'!A32-33 eps_m passe de 0.10 à 0.05 à densité intrinsèque
+#                            constante, soit un rendement en char de 50 %
+#   'Pyrolysis model'!B18-19 cinétique de Goldstein : matrice 1200 -> 600,
+#                            soit (0+600)/(300+900) = 50 % également
+#
+# Le classeur ne porte AUCUNE cellule "char yield" : la valeur y est implicite,
+# mais les deux lectures ci-dessus concordent. Noter que Sykes MESURE 0.54 à
+# 850 °C (NASA TN D-3810, table II) ; le 0.50 est une valeur de modèle arrondie
+# donnant des densités rondes (280 / 220 kg/m3). Sans effet sur la table B',
+# qui ne consomme pas le rendement en char.
 
 RHO_FIBER = 1600.0   # kg/m3, fibres de carbone ex-cellulose
 RHO_RESIN = 1200.0   # kg/m3, novolac/formaldéhyde vierge
