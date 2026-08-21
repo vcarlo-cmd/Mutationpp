@@ -405,6 +405,7 @@ des XML reste néanmoins légitime :
 | `resin_ranges_to_pyro.py` | propagation d'incertitude quand la résine est connue par plages |
 | `material_response.py` | bilan de phase solide, ligne de fonctionnement B'g/B'c |
 | `mise_en_donnees_xml.md` | ce qu'il faut renseigner dans un XML de mélange |
+| `../zuram_bprime/resine_zuram.md` | même travail pour le ZURAM (novolac + hexamine) |
 | `autre_materiau.md` | ce que change (et ne change pas) le rapport fibres/résine |
 | `data/mixtures/tacot-air_25.xml` | 25 espèces de la table B' de référence + C(gr) |
 | `data/mixtures/tacot-air_35.xml` | liste étendue |

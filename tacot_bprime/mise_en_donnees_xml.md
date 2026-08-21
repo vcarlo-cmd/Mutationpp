@@ -69,6 +69,10 @@ Exemple TACOT (feuille `Pyrolysis-gas chemistry`) :
 > Traçabilité complète de ces sept nombres jusqu'à la table I de Sykes
 > (NASA TN D-3810, 1967), et identification de la résine dont ils sortent :
 > voir `resine_tacot.md` et `resine_tacot_verification.py`.
+>
+> Le ZURAM procède autrement : sa composition élémentaire est mesurée
+> directement en fractions massiques, sans passer par une spéciation
+> moléculaire. Voir `../zuram_bprime/resine_zuram.md`.
 
 Ce qui donne, indifféremment (la normalisation est automatique, §3.1) :
 

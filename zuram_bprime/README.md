@@ -7,7 +7,7 @@
 |--|--|
 | mélange paroi | `data/mixtures/zuram-air.xml` (20 espèces gazeuses + C(gr)) |
 | mélange gaz de pyrolyse | `data/mixtures/zuram-pyrogas.xml` (mêmes espèces, sans C(gr)) |
-| gaz de pyrolyse (`VKIZuramPyroGas`) | C:0.171, H:0.722, O:0.107 |
+| gaz de pyrolyse (`VKIZuramPyroGas`) | C:0.171, H:0.722, O:0.107 ([traçabilité](resine_zuram.md)) |
 | arête de couche limite (`BLedge`) | O:0.21, N:0.79 (air) |
 | char (`Char`) | C:1.0 |
 | table de référence | `Bprime_carbonPhenolInAir_AblaNTIS.txt` (15600 points) |
