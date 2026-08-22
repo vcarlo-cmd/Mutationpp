@@ -29,6 +29,7 @@ python zuram_bprime/resine_zuram_verification.py
 | **Type déduit** | **novolac** — l'hexamine est le durcisseur des systèmes novolac deux étages, et la composition mesurée tombe sur le motif C₇H₆O |
 | **Composition mesurée** | C 75.2 / H 5.8 / N 1.4 / O 14.1 % masse → **C₇.₀₉H₆.₄₆O** |
 | **Motif équivalent** | **novolac linéaire C₇H₆O**, à **0.35** point de % près |
+| **Nom « 18/50 »** | préforme à **180 kg/m³** + **50 %** de résine en masse — confirmé par Pagan et al. 2017 (§ 1) |
 
 > **Réserve importante.** Contrairement au TACOT — où Sykes nomme la résine
 > (*Union Carbide BRP 5549, novolac*) — la formulation exacte du ZURAM **n'est
@@ -98,19 +99,46 @@ Le classeur documente le **18** et reste muet sur le **50**.
 **température de traitement thermique** de la préforme en °C. Ce point n'est
 pas énoncé dans les documents dont nous disposons.)
 
-**50 — non documenté.** Aucun des fichiers fournis n'explique ce second nombre.
-La lecture qui colle aux chiffres est la **teneur en résine, ~50 % en masse** :
+**50 — la teneur en résine, en % masse. CONFIRMÉ.** Le classeur ne l'explique
+pas, mais la table 1 de Pagan et al. tranche :
 
-| Lecture | Résine, % masse |
-|---|---|
-| `ZURAM_official`, microstructure (205 kg/m³ fibres + 214 résine) | **51.07** |
-| `ZURAM_official!B76`, échantillon TGA | **54.18** |
-| version « V12 » à 0.366 g/cm³, préforme nominale 180 | **50.82** |
-| version livrée à 0.43 g/cm³, préforme mesurée 205 | 52.33 |
-| version livrée à 0.43 g/cm³, préforme nominale 180 | 58.14 |
+> A. S. Pagan, B. Massuti-Ballester, G. Herdrich, *The Ablation Performance and
+> Dynamics of the Heat Shield Material ZURAM®*, Institut für Raumfahrtsysteme,
+> Universität Stuttgart, 2017.
 
-L'hypothèse concurrente — 50 = masse volumique visée de 0.50 g/cm³ — est
-**exclue** par le courriel du DLR cité en `Versions_and_issues!G25` :
+| Variante | Préforme | Commentaire | ρ_pref | ρ_comp | ρ_char |
+|---|---|---|---|---|---|
+| 18/50 | carbone rigide | *standard quality* | 180 | 370 | 265 |
+| 18/50-3 | carbone + CVI-SiC | revêtement SiC | 350 | 470 | 435 |
+| **18/43** | carbone rigide | *resin content **reduced by 25 %*** | 180 | 340 | 250 |
+| **18/33** | carbone rigide | *resin content **reduced by 50 %*** | 180 | 280 | 225 |
+| M/50 | mullite | mullite au lieu de carbone | 128 | 360 | 230 |
+
+Deux variantes obtenues en réduisant délibérément la résine, et **leurs noms
+tombent exactement** sur la fraction massique résultante :
+
+| réduction | résine | composite | w = résine/composite | nom |
+|---|---|---|---|---|
+| −0 % | 180.0 | 360.0 | **50.000 %** | 18/50 |
+| −25 % | 135.0 | 315.0 | **42.857 %** | **18/43** |
+| −50 % | 90.0 | 270.0 | **33.333 %** | **18/33** |
+
+Aucune autre lecture de YY ne produit à la fois 50, 43 et 33 à partir de −0 %,
+−25 % et −50 %. La déduction devient une **certitude**.
+
+Deux précisions que la table apporte en prime :
+
+- **YY nomme la recette visée, pas le composite tel que construit.** Les trois
+  variantes à préforme carbone standard mesurent +1.4, +4.1 et +2.7 points
+  au-dessus de leur nom — la densité réelle dépasse toujours le nominal, ce que
+  le DLR impute à l'amélioration de l'infiltration (§ 3). Et surtout, `18/50-3`
+  (w réel 25.5 %) et `M/50` (w réel 64.4 %) gardent le « 50 » de la recette de
+  base alors que leur préforme a changé.
+- **Le premier champ nomme la préforme**, pas seulement sa densité : `M/50`
+  remplace le nombre par une lettre pour la mullite.
+
+L'hypothèse concurrente — 50 = masse volumique visée de 0.50 g/cm³ — est de
+toute façon **exclue** par le courriel du DLR cité en `Versions_and_issues!G25` :
 
 > *« The final density of the provided virgin ZURAM® **(18/50)** is
 > **0.43 g/cm³**. However, in the thermal conductivity data files you provided,
@@ -122,9 +150,11 @@ explique l'écart par l'amélioration du procédé d'infiltration (passage d'un
 dessiccateur à vide manuel à un moule RTM à vide asservi), *« which led to an
 increase in density »* — la préforme, elle, *« was all the time CBCF 18-2000 »*.
 
-En résumé : **18 = la préforme Calcarb à 180 kg/m³** (certain), **50 ≈ la part
-de résine en masse** (déduction cohérente avec toutes les mesures, mais non
-énoncée dans les sources disponibles).
+En résumé : **18 = la préforme Calcarb à 180 kg/m³**, **50 = la teneur en
+résine en % masse de la recette** — les deux désormais établis, le second par
+l'arithmétique exacte de 18/43 et 18/33.
+
+Vérification rejouable : `python zuram_bprime/nomenclature_pagan.py`
 
 ### Comment la résine a été prélevée
 
@@ -419,7 +449,7 @@ H 0.90 / O 6.45 %) — les deux matériaux se comportent pareillement.
 |---|---|---|
 | Matériau | ZURAM® 18/50, carbone/phénolique DLR | `'ZURAM_official'!A4` |
 | « 18 » du nom | préforme Calcarb CBCF **18**/2000, 180 kg/m³ nominal | `'Calcarb_official'!D15`, note v4.3.0 |
-| « 50 » du nom | ≈ 50 % de résine en masse (**déduit**, non énoncé) | déduction — cf. § 1 |
+| « 50 » du nom | teneur en résine en % masse de la recette | **confirmé** par Pagan et al. 2017, table 1 |
 | Renfort | préforme Mersen Calcarb CBCF 18/2000 | `'ZURAM_official'!A4` |
 | Catalyseur de la résine | hexamine (HMTA) | [THo] § 4.2 |
 | Type de résine | novolac (**déduit**, non déclaré) | déduction — cf. § 1 |

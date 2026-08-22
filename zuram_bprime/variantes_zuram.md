@@ -27,6 +27,8 @@ python zuram_bprime/zuram_variantes_bprime.py     # vérification par bprime
 | ATG différentes ? | **Résine seule : identiques.** Composite : même forme, perte de 15.2 / 19.0 / 30.4 % |
 | Paramètres d'Arrhenius ? | **Rien à extrapoler** — `A`, `E/R`, `m`, `f` inchangés ; seul le raccord au composite se ré-échelonne |
 | Mise en données prête à l'emploi ? | § 5 — deux jeux complets (`F_i` ou `Δρ_i`), vérifiés équivalents |
+| Le modèle est-il le bon ? | **Oui** — 18/43 et 18/33, réellement fabriqués, tombent exactement dessus (§ 6) |
+| Réserve majeure | le rendement en char mesuré en jet plasma est **0.447**, pas 0.6198 (§ 6) |
 | Porosité ? | **0.840 / 0.749 / 0.338** — c'est là que 18/80 cesse d'être un ablateur léger |
 
 Le résultat structurant est une **séparation des rôles** :
@@ -430,7 +432,80 @@ table B'           la MÊME pour les trois       (vérifié à 0.000e+00, § 2)
 Seules les densités, porosités et fractions volumiques distinguent les trois
 mises en données. Tout ce qui est thermochimie de surface est commun.
 
-## 6. La porosité
+## 6. Confrontation aux variantes réellement fabriquées
+
+Pagan et al. (2017) publient cinq variantes de ZURAM testées en jet plasma à
+l'IRS Stuttgart. Deux d'entre elles sont exactement l'exercice de ce document :
+même préforme, même résine, teneur réduite.
+
+| Variante | Préforme | Commentaire | ρ_pref | ρ_comp | ρ_char |
+|---|---|---|---|---|---|
+| 18/50 | carbone rigide | *standard quality* | 180 | 370 | 265 |
+| 18/50-3 | carbone + CVI-SiC | revêtement SiC | 350 | 470 | 435 |
+| **18/43** | carbone rigide | *resin content reduced by 25 %* | 180 | 340 | 250 |
+| **18/33** | carbone rigide | *resin content reduced by 50 %* | 180 | 280 | 225 |
+| M/50 | mullite | mullite au lieu de carbone | 128 | 360 | 230 |
+
+### Ce que ça valide
+
+La lecture de YY comme teneur en résine en % masse est **confirmée
+exactement** : −25 % de résine donne 42.857 % → `18/43`, et −50 % donne
+33.333 % → `18/33` (cf. `resine_zuram.md` § 1). Le modèle de ce document est
+donc bien celui du fabricant.
+
+### Ce que ça recadre
+
+**Le DLR n'a exploré que la réduction de résine, jamais l'augmentation.**
+Plage réelle : YY de 33 à 50.
+
+- **14/40** — YY = 40 tombe *dans* la plage explorée : l'extrapolation est
+  soutenue par deux matériaux réels. En revanche XX = 14 suppose une préforme
+  Calcarb CBCF 14, absente de la famille — toutes gardent la CBCF 18.
+- **18/80** — YY = 80 est *hors* de la plage, et dans la direction que le DLR
+  n'a jamais prise. La réserve du § 4 cesse d'être une précaution théorique.
+
+### Ce que ça contredit — le rendement en char
+
+C'est le point le plus important de cette confrontation. Les densités de
+Pagan impliquent, pour le 18/50 :
+
+```
+résine vierge     370 − 180 = 190 kg/m³
+résine charbonnée 265 − 180 =  85 kg/m³
+rendement en char  85/190   = 0.4474
+```
+
+La légende de la table confirme que c'est bien la logique employée
+(*« scaled for remaining variants assuming identical ratios of solid resin
+residue »*) : avec 0.4474 on retrouve 251.6 pour 18/43 (table : 250) et 224.7
+pour 18/33 (table : 225).
+
+**Or le classeur VKI donne 0.6198.** Avec cette valeur, ρ_char(18/50) vaudrait
+`180 + 190·0.6198 = 297.8` kg/m³ au lieu des 265 mesurés — **12 % d'écart**.
+
+L'explication la plus probable, à confirmer : les deux grandeurs ne décrivent
+pas le même état. Le 0.6198 vient d'une ATG arrêtée vers 800–1000 °C ; le char
+de Pagan est celui d'échantillons passés en jet plasma, bien au-delà de 2000 K.
+Le modèle cinétique lui-même garde une queue algébrique au-delà de l'ATG
+(§ 4) : un char plus chaud est plus léger.
+
+**Conséquence pratique.** Pour une réponse matériau en ablation, le 0.4474 est
+sans doute plus représentatif. Le couplage en dépend directement :
+
+| rendement en char | origine | k = B'g/B'c |
+|---|---|---|
+| 0.6198 | classeur VKI (ATG) | 0.2410 |
+| **0.4474** | Pagan, 18/50 mesuré | **0.3962** |
+
+La table B', elle, reste inchangée : elle ne consomme pas le rendement en char
+(§ 2). Mais toutes les densités et tous les `Δρ_i` du § 5 sont bâtis sur
+0.6198 — à rebâtir sur 0.4474 si l'on privilégie la mesure post-plasma.
+
+Vérification : `python zuram_bprime/nomenclature_pagan.py`
+
+---
+
+## 7. La porosité
 
 | | 14/40 | 18/50 | 18/80 |
 |---|---|---|---|
@@ -460,7 +535,7 @@ une porosité un peu supérieure — extrapolation modérée.
 
 ---
 
-## 7. Ce qu'il faudrait mesurer avant d'y croire
+## 8. Ce qu'il faudrait mesurer avant d'y croire
 
 | Variante | Table B' | Réponse matériau | À mesurer |
 |---|---|---|---|
@@ -473,7 +548,7 @@ le 18/50 : **peser la préforme**. C'est l'anomalie ouverte n° 2, et elle porte
 
 ---
 
-## 8. Fichiers
+## 9. Fichiers
 
 | Fichier | Rôle |
 |---|---|
@@ -481,6 +556,7 @@ le 18/50 : **peser la préforme**. C'est l'anomalie ouverte n° 2, et elle porte
 | `zuram_variantes_bprime.py` | vérification par `bprime` : table identique, points de fonctionnement |
 | `zuram_cinetique.py` | transposition des paramètres d'Arrhenius, ATG simulée |
 | `zuram_mise_en_donnees.py` | les deux jeux prêts à recopier, et leur équivalence |
+| `nomenclature_pagan.py` | confrontation à Pagan et al. 2017 : nom, densités, rendement en char |
 | `resine_zuram.md` | traçabilité de la résine et de la nomenclature |
 | `../tacot_bprime/autre_materiau.md` | même démonstration pour TACOT vs CPh70 |
 

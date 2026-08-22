@@ -21,6 +21,7 @@ python zuram_variantes.py       # variantes XX/YY : densités, ATG, porosité
 python zuram_variantes_bprime.py  # ... et leur vérification par bprime
 python zuram_cinetique.py       # transposition des paramètres d'Arrhenius
 python zuram_mise_en_donnees.py # les deux jeux de cinétique, base composite
+python nomenclature_pagan.py    # confrontation aux variantes reelles (Pagan 2017)
 ```
 
 > Traçabilité de la résine et de la nomenclature « 18/50 » :
