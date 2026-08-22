@@ -31,7 +31,12 @@ import sys
 # --- constantes matériau, de 'ZURAM_official' (cf. resine_zuram.md) ---------
 RHO_FIBER = 1577.2413793      # kg/m³, densité intrinsèque des fibres Calcarb
 RHO_RESIN = 1315.0719638      # kg/m³, densité intrinsèque de la résine vierge
-CHAR_YIELD = 0.619766         # fraction massique de résine restant en char
+# Rendement en char, en PLEINE PRÉCISION depuis les fractions volumiques du
+# classeur ('ZURAM_official'!F12:F13). La seconde voie du classeur — 1 moins la
+# somme des f de la cinétique — donne la même valeur à 3.3e-16 près. Un arrondi
+# à 6 chiffres suffit à faire diverger rho_char et rho_vierge·(1-somme F) au
+# 7e chiffre : ne pas tronquer.
+CHAR_YIELD = 0.100853796331154 / 0.1627287372   # = 0.619766355141076
 # hypothèse du classeur : densité intrinsèque de matrice INCHANGÉE à la
 # pyrolyse (pure perte de volume). C'est l'anomalie ouverte n° 3.
 RHO_RESIN_CHAR = RHO_RESIN

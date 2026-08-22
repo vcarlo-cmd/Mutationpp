@@ -311,6 +311,89 @@ Pic de DTG à **830.0 K (556.8 °C)**, identique pour toutes les variantes.
 > prendre en compte pour toute comparaison avec une ATG réelle, qui s'arrête
 > à température finie.
 
+### Deux mises en données complètes, prêtes à recopier
+
+Générées et vérifiées par `zuram_mise_en_donnees.py`. Les deux sont sur base
+**composite** (fibres + résine) et décrivent le même matériau.
+
+#### Le bloc d'Arrhenius — commun aux deux jeux et aux trois variantes
+
+```
+dx_i/dt = − A_i · x_i^m_i · exp(−E_i/(R·T))          x_i(0) = 1
+```
+
+| i | A_i [s⁻¹] | E_i/R [K] | E_i [J/mol] | m_i |
+|---|---|---|---|---|
+| 1 | 2.137962e+05 | 8178.520143 | 68 000 | 4.30 |
+| 2 | 4.897788e+08 | 16068.386634 | 133 600 | 3.70 |
+| 3 | 3.981072e+10 | 21612.942201 | 179 700 | 2.57 |
+| 4 | 4.677351e+11 | 26423.836403 | 219 700 | 4.63 |
+
+La colonne `n` du classeur vaut 0 pour les quatre réactions : l'exposant qui
+agit est `m`.
+
+#### JEU A — Arrhenius + F_i
+
+```
+ρ(T) = ρ_vierge · [ 1 − Σ_i F_i · (1 − x_i) ]
+```
+
+| | 14/40 | 18/50 | 18/80 |
+|---|---|---|---|
+| ρ_vierge [kg/m³] | 233.3333 | 360.0000 | 900.0000 |
+| ρ_char [kg/m³] | 197.8449 | 291.5579 | 626.2318 |
+| porosité vierge | 0.840265 | 0.749002 | 0.338378 |
+| porosité char | 0.867251 | 0.801046 | 0.546556 |
+| **F₁** | 0.014028037 | 0.017535047 | 0.028056075 |
+| **F₂** | 0.011074766 | 0.013843458 | 0.022149533 |
+| **F₃** | 0.038392523 | 0.047990654 | 0.076785047 |
+| **F₄** | 0.088598131 | 0.110747664 | 0.177196262 |
+| Σ F_i | 0.152093458 | 0.190116822 | 0.304186916 |
+
+Contrôle : `1 − ΣF_i = ρ_char/ρ_vierge`, exact à 1e-15.
+
+#### JEU B — Arrhenius + Δρ_i
+
+```
+d(ρ_i)/dt = − A_i · Δρ_i · (ρ_i/Δρ_i)^m_i · exp(−E_i/(R·T))     ρ_i(0) = Δρ_i
+ρ(T) = ρ_inerte + Σ_i ρ_i                       ρ_inerte = ρ_char
+```
+
+| | 14/40 | 18/50 | 18/80 |
+|---|---|---|---|
+| ρ_vierge [kg/m³] | 233.3333 | 360.0000 | 900.0000 |
+| ρ_inerte [kg/m³] | 197.8449 | 291.5579 | 626.2318 |
+| **Δρ₁** [kg/m³] | 3.273209 | 6.312617 | 25.250467 |
+| **Δρ₂** | 2.584112 | 4.983645 | 19.934579 |
+| **Δρ₃** | 8.958255 | 17.276636 | 69.106542 |
+| **Δρ₄** | 20.672897 | 39.869159 | 159.476636 |
+| Σ Δρ_i | 35.488474 | 68.442056 | 273.768224 |
+
+Contrôle : `ρ_inerte + ΣΔρ_i = ρ_vierge`, exact.
+
+> **Si le code demande un couple `(ρ_i,v ; ρ_i,c)`** : mettre `ρ_i,v = Δρ_i`
+> **et `ρ_i,c = 0`**. Les `A` ci-dessus ne sont valides que pour `ρ_i,c = 0`.
+
+#### Équivalence des deux jeux — vérifiée
+
+Intégration **indépendante** des deux systèmes, ATG à 20 K/min :
+
+| T [°C] | 14/40 jeu A | jeu B | 18/50 jeu A | jeu B | 18/80 jeu A | jeu B |
+|---|---|---|---|---|---|---|
+| 400 | 229.1052 | 229.1052 | 351.8458 | 351.8458 | 867.3831 | 867.3831 |
+| 600 | 209.3327 | 209.3327 | 313.7130 | 313.7130 | 714.8519 | 714.8519 |
+| 900 | 199.0609 | 199.0609 | 293.9032 | 293.9032 | 635.6130 | 635.6130 |
+
+Écart maximal sur toute la montée : **1.4e-11 kg/m³**.
+
+Densités atteintes à 1400 K, à comparer au char asymptotique (queue algébrique,
+cf. plus haut) : 198.27 / 292.38 / 629.54 contre 197.84 / 291.56 / 626.23.
+
+> **Précision requise sur le rendement en char.** Le tronquer à
+> `0.619766` au lieu de `0.619766355141076` suffit à désaccorder `ρ_char` et
+> `ρ_vierge·(1 − ΣF)` dès le 7ᵉ chiffre. Les deux voies du classeur — fractions
+> volumiques et somme des `f` — concordent en réalité à **3.3e-16**.
+
 ### Réserve physique — c'est ici que le raisonnement peut casser
 
 Tout ce qui précède suppose une résine **identiquement réticulée**. À 80 % en
@@ -384,6 +467,7 @@ le 18/50 : **peser la préforme**. C'est l'anomalie ouverte n° 2, et elle porte
 | `zuram_variantes.py` | bilan de phase solide, ATG, séparation des rôles |
 | `zuram_variantes_bprime.py` | vérification par `bprime` : table identique, points de fonctionnement |
 | `zuram_cinetique.py` | transposition des paramètres d'Arrhenius, ATG simulée |
+| `zuram_mise_en_donnees.py` | les deux jeux prêts à recopier, et leur équivalence |
 | `resine_zuram.md` | traçabilité de la résine et de la nomenclature |
 | `../tacot_bprime/autre_materiau.md` | même démonstration pour TACOT vs CPh70 |
 
