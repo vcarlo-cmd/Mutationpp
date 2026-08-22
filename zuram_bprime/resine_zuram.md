@@ -419,7 +419,7 @@ H 0.90 / O 6.45 %) — les deux matériaux se comportent pareillement.
 |---|---|---|
 | Matériau | ZURAM® 18/50, carbone/phénolique DLR | `'ZURAM_official'!A4` |
 | « 18 » du nom | préforme Calcarb CBCF **18**/2000, 180 kg/m³ nominal | `'Calcarb_official'!D15`, note v4.3.0 |
-| « 50 » du nom | ≈ % massique de résine (**déduit**, non énoncé) | déduction — cf. § 1 |
+| « 50 » du nom | ≈ 50 % de résine en masse (**déduit**, non énoncé) | déduction — cf. § 1 |
 | Renfort | préforme Mersen Calcarb CBCF 18/2000 | `'ZURAM_official'!A4` |
 | Catalyseur de la résine | hexamine (HMTA) | [THo] § 4.2 |
 | Type de résine | novolac (**déduit**, non déclaré) | déduction — cf. § 1 |
@@ -436,8 +436,6 @@ H 0.90 / O 6.45 %) — les deux matériaux se comportent pareillement.
 | **Gaz, fractions molaires** | **C:0.171 H:0.722 O:0.107** | `'ZURAM_official'!D87:D89` = les XML |
 | Char, composition à 800 °C | C 96.36 / N 0.13 / H 0.08 / O 3.43 | [THo] § 4.2.1 |
 | Émissivité vierge / char | 0.8 / 0.9 | `'ZURAM_official'!D95:D96` |
-| « 18 » du nom | 180 kg/m³, densité nominale de la préforme | `'Calcarb_official'!D15` ; note de version 4.3.0 |
-| « 50 » du nom | ~50 % de résine en masse (**déduit**, non énoncé) | déduction — cf. § 1 |
 | Anomalie ouverte n° 2 | fibres à 205 au lieu de 180 kg/m³ | `Versions_and_issues`, issue 2 |
 | Anomalie ouverte n° 3 | densité de matrice charbonnée non mesurée | `Versions_and_issues`, issue 3 |
 
