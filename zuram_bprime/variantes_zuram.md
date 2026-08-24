@@ -246,6 +246,59 @@ dx_i/dt = − A_i · x_i^m · exp(−E_i/(R·T))
 > `[(ρ_i,v − ρ_i,c)/ρ_i,v]^(m−1)`. Avec `m` entre 2.57 et 4.63, l'erreur est
 > d'ordre un — ce n'est pas un détail.
 
+#### Contre-épreuve sur le TACOT — les `f` sont bien de la résine, mais…
+
+Le classeur VKI réécrit aussi la cinétique du TACOT dans cette forme en `f`
+(onglet `TACOT_3_0`), et là **on dispose de l'original** — d'où une vérification
+possible.
+
+| | ρ_v | ρ_c | A | f du classeur |
+|---|---|---|---|---|
+| phase A | 300 | **0** | 1.2e4 | (300−0)/1200 = **0.25** |
+| phase B | 900 | **600** | 4.48e9 | (900−600)/1200 = **0.25** |
+
+**Premier constat, rassurant** : les `f` sont normalisés par la densité
+intrinsèque de la **résine** (1200 kg/m³), et leur somme 0.50 est bien son
+rendement en char. Ce sont des grandeurs de résine, jamais de composite — ce
+qui répond à la question posée.
+
+**Second constat, gênant** : la phase B avait un `ρ_c` **non nul**, que la forme
+en `f` ne sait pas exprimer, et les `A` ont été repris **verbatim**. Vitesse
+initiale, hors exponentielle :
+
+| | original | forme en f | rapport |
+|---|---|---|---|
+| phase A | 3.6000e+06 | 3.6000e+06 | 1.00 |
+| phase B | 1.4933e+11 | 1.3440e+12 | **9.00** |
+
+soit exactement le facteur `[(ρ_v−ρ_c)/ρ_v]^(1−m) = (300/900)⁻² = 9`.
+
+ATG de la résine du TACOT à 20 K/min :
+
+| T [°C] | Goldstein | VKI verbatim | VKI avec A₂/9 |
+|---|---|---|---|
+| 400 | 17.53 % | 17.91 % | 17.53 % |
+| 500 | 24.76 % | **33.42 %** | 24.76 % |
+| 550 | 32.15 % | **41.39 %** | 32.15 % |
+| 600 | 39.71 % | 45.43 % | 39.71 % |
+| 900 | 49.33 % | 49.57 % | 49.33 % |
+
+Écart maximal : **9.92 points** verbatim, **0.00** avec `A₂/9`. Pic de DTG
+décalé de **63 °C** (549.9 → 486.5).
+
+Deux lectures possibles, et le classeur ne tranche pas : soit il manque un
+`ρ_i,c` que `f` seul ne peut porter, soit `A₂` aurait dû être divisé par 9 à la
+transcription.
+
+> **Pour le ZURAM, on ne peut pas trancher de la même façon.** Ses `f` viennent
+> d'un ajustement direct sur ATG (source [5] du classeur), pas de la conversion
+> d'un jeu `(ρ_v, ρ_c)` préexistant : il n'y a pas d'original auquel comparer.
+> La lecture normalisée reste la seule que la donnée fournie rende
+> auto-suffisante, et elle place le pic de DTG à **557 °C**, cohérent avec le
+> maximum de vitesse « ~600 °C » rapporté par Torres-Herrador. Faisceau
+> d'indices, pas preuve — **à confirmer auprès du VKI avant tout calcul de
+> production**.
+
 #### (a) Base résine — inchangée pour toutes les variantes
 
 | réaction | f [-] | log₁₀A | A [s⁻¹] | E/R [K] | m |

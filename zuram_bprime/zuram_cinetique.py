@@ -22,6 +22,11 @@ Ce script établit trois choses :
      superposent exactement, les pics de DTG sont aux mêmes températures, et
      la perte du composite vaut bien w_résine x 0.380234.
 
+  4. UNE CONTRE-ÉPREUVE. Le classeur réécrit aussi la cinétique du TACOT dans
+     cette forme en f, et là on dispose de l'original : la transcription
+     confirme que les f sont bien des grandeurs de RÉSINE, mais révèle que la
+     lecture naïve (rho_i,c = 0) ne reproduit pas la cinétique de départ.
+
 Source : 'ZURAM_official'!A73:F83 du classeur
 Tacot_Zuram_Calcarb_database_v4.3.1.ods. Voir `variantes_zuram.md`.
 
@@ -246,6 +251,127 @@ def show_verification(variants, labels, beta):
 
 
 # ---------------------------------------------------------------------------
+# 4. Contre-épreuve sur le TACOT : la forme en f est-elle fidèle ?
+# ---------------------------------------------------------------------------
+
+# TACOT_3.0.xls, 'Pyrolysis model'!B18:G19 — cinétique de Goldstein d'origine
+TACOT_GOLDSTEIN = [   # rho_i_v, rho_i_c, A, E/R, T_reac
+    (300.0,   0.0, 1.2e4,  8555.555555555555, 333.3333333333333),
+    (900.0, 600.0, 4.48e9, 20444.444444444445, 555.5555555555555),
+]
+TACOT_RHO_RESIN = 1200.0
+# Tacot_Zuram_Calcarb_database, onglet 'TACOT_3_0'!A110:F111 — même cinétique
+# réécrite dans la forme en f, avec les A repris VERBATIM
+TACOT_VKI_F = [  # f, A, E/R, T_reac
+    (0.25, 1.2e4,  8555.555555555555, 333.3333333333333),
+    (0.25, 4.48e9, 20444.444444444445, 555.5555555555555),
+]
+
+
+def _tga_goldstein(beta, t0=300.0, t1=1400.0, n=200000):
+    b, dT = beta / 60.0, (t1 - t0) / n
+    dt = dT / b
+    r = [p[0] for p in TACOT_GOLDSTEIN]
+    Ts, loss = [], []
+    for k in range(n + 1):
+        T = t0 + k * dT
+        Ts.append(T)
+        loss.append((TACOT_RHO_RESIN - sum(r)) / TACOT_RHO_RESIN)
+        for j, (rv, rc, A, er, tr) in enumerate(TACOT_GOLDSTEIN):
+            if T > tr and r[j] > rc:
+                r[j] = max(rc, r[j] - A * rv * ((r[j] - rc) / rv) ** 3
+                           * math.exp(-er / T) * dt)
+    return Ts, loss
+
+
+def _tga_fform(beta, scales=None, t0=300.0, t1=1400.0, n=200000):
+    """scales : facteur correctif par réaction (1.0 = A du classeur tel quel)."""
+    if scales is None:
+        scales = [1.0] * len(TACOT_VKI_F)
+    b, dT = beta / 60.0, (t1 - t0) / n
+    dt = dT / b
+    x = [1.0] * len(TACOT_VKI_F)
+    Ts, loss = [], []
+    for k in range(n + 1):
+        T = t0 + k * dT
+        Ts.append(T)
+        loss.append(sum(f * (1.0 - xi) for (f, _, _, _), xi in zip(TACOT_VKI_F, x)))
+        for j, (f, A, er, tr) in enumerate(TACOT_VKI_F):
+            if T > tr and x[j] > 0.0:
+                x[j] = max(0.0, x[j] - A * scales[j] * x[j] ** 3
+                           * math.exp(-er / T) * dt)
+    return Ts, loss
+
+
+def _peak(Ts, loss):
+    d = [loss[k + 1] - loss[k] for k in range(len(loss) - 1)]
+    return Ts[max(range(len(d)), key=lambda k: d[k])] - 273.15
+
+
+def check_tacot_transcription(beta):
+    print("\n" + "=" * 79)
+    print("  4. CONTRE-ÉPREUVE — la forme en f est-elle fidèle ? (cas du TACOT)")
+    print("=" * 79)
+    print("""
+  Le classeur VKI contient aussi un onglet 'TACOT_3_0' où la cinétique de
+  Goldstein a été réécrite dans la MÊME forme en f que le ZURAM. Comme on
+  dispose ici de l'original, on peut vérifier la transcription.
+
+  Original ('Pyrolysis model'!B18:C19) :
+      phase A : rho_v = 300, rho_c =   0,  A = 1.2e4
+      phase B : rho_v = 900, rho_c = 600,  A = 4.48e9
+  VKI ('TACOT_3_0'!A110:C111) :
+      f1 = 0.25, A = 1.2e4      f2 = 0.25, A = 4.48e9      (A repris verbatim)
+""")
+    print(f"  f1 = (300-0)/1200   = {(300-0)/1200}")
+    print(f"  f2 = (900-600)/1200 = {(900-600)/1200}")
+    print("  -> les f sont bien normalisés par la densité INTRINSÈQUE DE LA")
+    print("     RÉSINE (1200 kg/m3), et leur somme 0.50 est son rendement en char.")
+    print("     Sur ce point, la transcription est juste : ce sont des grandeurs")
+    print("     de RÉSINE, jamais de composite.\n")
+
+    print("  Mais la phase B avait un rho_c NON NUL, que la forme en f ne sait")
+    print("  pas exprimer. Vitesse initiale, hors exponentielle :\n")
+    for lab, (rv, rc, A, _, _) in zip(("phase A", "phase B"), TACOT_GOLDSTEIN):
+        orig, ff = A * rv * ((rv - rc) / rv) ** 3, A * (rv - rc)
+        print(f"      {lab} : original {orig:11.4e}   forme f {ff:11.4e}"
+              f"   rapport {ff/orig:5.2f}")
+    print(f"\n  facteur attendu [(rho_v-rho_c)/rho_v]^(1-m) = (300/900)^-2 = 9")
+    print(f"  A2 qu'il aurait fallu écrire : 4.48e9/9 = {4.48e9/9:.4e}\n")
+
+    Tg, Lg = _tga_goldstein(beta)
+    Tv, Lv = _tga_fform(beta)                        # A du classeur, verbatim
+    Tc, Lc = _tga_fform(beta, [1.0, 1.0 / 9.0])      # seule la phase B corrigée
+    print(f"  ATG de la résine du TACOT à {beta:.0f} K/min :\n")
+    print(f"  {'T [°C]':>7} | {'Goldstein':>11} {'VKI verbatim':>14} {'VKI A2/9':>11}")
+    for T in (300, 400, 500, 550, 600, 700, 900):
+        i = min(range(len(Tg)), key=lambda k: abs(Tg[k] - (T + 273.15)))
+        print(f"  {T:>7} | {100*Lg[i]:10.2f}% {100*Lv[i]:13.2f}% {100*Lc[i]:10.2f}%")
+    dv = max(abs(a - b) for a, b in zip(Lg, Lv))
+    dc = max(abs(a - b) for a, b in zip(Lg, Lc))
+    print(f"\n  écart max / Goldstein : verbatim {100*dv:5.2f} points, "
+          f"avec A2/9 {100*dc:5.2f} points")
+    print(f"  pic de DTG : Goldstein {_peak(Tg, Lg):.1f} °C | "
+          f"VKI verbatim {_peak(Tv, Lv):.1f} °C | VKI A2/9 {_peak(Tc, Lc):.1f} °C")
+    print("""
+  CONCLUSION. Lue naïvement (rho_i,c = 0), la forme en f du classeur ne
+  reproduit PAS la cinétique du TACOT : 9.9 points d'écart et un pic de DTG
+  décalé de 63 °C. Deux lectures possibles, et le classeur ne tranche pas :
+     (a) il manque un rho_i,c, que f seul ne peut pas porter ;
+     (b) ou A2 aurait dû être divisé par 9 à la transcription.
+
+  POUR LE ZURAM, on ne peut pas trancher de la même façon : ses f viennent
+  d'un ajustement direct sur ATG (source [5] du classeur), pas de la
+  conversion d'un jeu (rho_v, rho_c) préexistant. La lecture normalisée est
+  la seule que la donnée fournie rende auto-suffisante, et elle place le pic
+  de DTG à 557 °C — cohérent avec le maximum de vitesse « ~600 °C » rapporté
+  par Torres-Herrador. Mais c'est un faisceau d'indices, pas une preuve :
+  à confirmer auprès du VKI avant tout calcul de production.
+""")
+    return dc < 1e-6
+
+
+# ---------------------------------------------------------------------------
 
 def main():
     ap = argparse.ArgumentParser()
@@ -263,6 +389,7 @@ def main():
     show_form()
     show_tables(variants, labels)
     ok = show_verification(variants, labels, args.beta)
+    ok &= check_tacot_transcription(args.beta)
 
     print("\n" + "=" * 79)
     print("  CONCLUSION")
