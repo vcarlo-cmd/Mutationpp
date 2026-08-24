@@ -18,7 +18,7 @@ Le résultat central est une SÉPARATION DES RÔLES :
 
 et, dans les deux cas, la TABLE B' EST INCHANGÉE : elle ne consomme que des
 compositions élémentaires normalisées, or ni la résine ni les fibres ne
-changent. C'est le même argument que `../tacot_bprime/autre_materiau.md`,
+changent. C'est le même argument que `../tacot_bprime/cph70_vs_tacot.md`,
 vérifié là-bas numériquement à 0.000e+00 près.
 
 Usage :

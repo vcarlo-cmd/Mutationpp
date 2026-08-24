@@ -164,7 +164,7 @@ couplage k         0.1385      = B'g/B'c en ablation stationnaire
 **Le gaz de pyrolyse et le char sont ceux du TACOT** — c'est la même résine et
 les mêmes fibres. C'est pourquoi `data/mixtures/cph70-air_25.xml` est identique
 à `tacot-air_25.xml`, et pourquoi **la table B' est rigoureusement la même**
-(écart 0.000e+00, cf. `../tacot_bprime/autre_materiau.md`).
+(écart 0.000e+00, cf. `../tacot_bprime/cph70_vs_tacot.md`).
 
 ---
 
@@ -197,7 +197,7 @@ Trois lectures de ce tableau :
 |---|---|
 | `../tacot_bprime/tacot_mise_en_donnees.py` | émet les trois jeux (`TACOT` ou `CPh70`) et les vérifie |
 | `../tacot_bprime/mise_en_donnees_pyrolyse.md` | le même document pour le TACOT |
-| `../tacot_bprime/autre_materiau.md` | pourquoi la table B' ne change pas |
+| `../tacot_bprime/cph70_vs_tacot.md` | pourquoi la table B' ne change pas |
 | `../tacot_bprime/material_response.py` | bilan de phase solide, lignes de fonctionnement |
 | `README.md` | table B' et validation du CPh70 |
 | `../data/mixtures/cph70-air_25.xml` | mise en données du mélange (identique au TACOT) |

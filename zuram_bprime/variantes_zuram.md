@@ -115,7 +115,7 @@ B'g ∈ {0, 0.1, 0.5, 1.0}) :
 | 18/80 | **0.000e+00** | **0.000e+00** |
 
 **Une seule table sert toutes les variantes.** C'est le même résultat que
-`../tacot_bprime/autre_materiau.md` établissait pour TACOT vs CPh70.
+`../tacot_bprime/cph70_vs_tacot.md` établissait pour TACOT vs CPh70.
 
 ---
 
@@ -615,7 +615,7 @@ le 18/50 : **peser la préforme**. C'est l'anomalie ouverte n° 2, et elle porte
 | `zuram_mise_en_donnees.py` | les deux jeux prêts à recopier, et leur équivalence |
 | `nomenclature_pagan.py` | confrontation à Pagan et al. 2017 : nom, densités, rendement en char |
 | `resine_zuram.md` | traçabilité de la résine et de la nomenclature |
-| `../tacot_bprime/autre_materiau.md` | même démonstration pour TACOT vs CPh70 |
+| `../tacot_bprime/cph70_vs_tacot.md` | même démonstration pour TACOT vs CPh70 |
 
 Les deux scripts acceptent des variantes en argument :
 

@@ -93,5 +93,5 @@ de ce bilan. Les filtrer avec `Bg_ss < 10`.
 
 ---
 
-Voir `tacot_bprime/autre_materiau.md` pour le raisonnement complet et
+Voir `tacot_bprime/cph70_vs_tacot.md` pour le raisonnement complet et
 `tacot_bprime/material_response.py` pour le bilan de phase solide générique.

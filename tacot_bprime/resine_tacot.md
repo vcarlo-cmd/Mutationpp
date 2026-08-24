@@ -357,7 +357,7 @@ k = B'g / B'c = (ρ_v - ρ_c) / ρ_c = (280 - 220) / 220 = 0.2727
 ```
 
 c'est-à-dire dans le choix du point de fonctionnement sur la table, pas dans la
-table elle-même. Cf. `autre_materiau.md` § 4.
+table elle-même. Cf. `cph70_vs_tacot.md` § 4.
 
 ### 5.4 Le char n'est pas du carbone pur à 850 °C
 
@@ -408,7 +408,7 @@ des XML reste néanmoins légitime :
 | `material_response.py` | bilan de phase solide, ligne de fonctionnement B'g/B'c |
 | `mise_en_donnees_xml.md` | ce qu'il faut renseigner dans un XML de mélange |
 | `../zuram_bprime/resine_zuram.md` | même travail pour le ZURAM (novolac + hexamine) |
-| `autre_materiau.md` | ce que change (et ne change pas) le rapport fibres/résine |
+| `cph70_vs_tacot.md` | ce que change (et ne change pas) le rapport fibres/résine |
 | `data/mixtures/tacot-air_25.xml` | 25 espèces de la table B' de référence + C(gr) |
 | `data/mixtures/tacot-air_35.xml` | liste étendue |
 | `data/mixtures/tacot-pyrogas.xml` | gaz de pyrolyse seul, pour h_g(T, P) |

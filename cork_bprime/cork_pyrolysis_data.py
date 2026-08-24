@@ -14,7 +14,7 @@ Materiau considere
 C'est toute la difference avec un carbone/phenolique : les deux constituants
 produisent du gaz, et leurs gaz n'ont pas la meme composition elementaire.
 Le rapport renfort/resine entre donc DANS la table B', ce qui n'etait pas le
-cas pour le CPh70 (cf. tacot_bprime/autre_materiau.md).
+cas pour le CPh70 (cf. tacot_bprime/cph70_vs_tacot.md).
 
 Principe : fermeture elementaire, constituant par constituant.
 

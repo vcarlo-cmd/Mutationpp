@@ -53,7 +53,7 @@ MATERIALS = {
                        "('Description'!A15:A17)"),
     "CPh70": dict(f_solid=0.70, porosity=0.01,
                   note="70 % fibres / 30 % résine du solide, porosité 0.01 "
-                       "(cf. ../tacot_bprime/autre_materiau.md)"),
+                       "(cf. ../tacot_bprime/cph70_vs_tacot.md)"),
 }
 
 

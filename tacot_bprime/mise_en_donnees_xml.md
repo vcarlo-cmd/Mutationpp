@@ -212,7 +212,7 @@ ont aucune place :
 
 \* sauf si les constituants donnent des chars de compositions élémentaires
 **différentes** (fibres de silice + résine phénolique) : le ratio entre alors
-dans `Y_c`, et la table change. Voir `autre_materiau.md`.
+dans `Y_c`, et la table change. Voir `cph70_vs_tacot.md`.
 
 ---
 
