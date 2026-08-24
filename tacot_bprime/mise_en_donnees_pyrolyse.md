@@ -208,7 +208,8 @@ contre-épreuve de la forme en `f`.
 
 | Fichier | Rôle |
 |---|---|
-| `tacot_mise_en_donnees.py` | émet les trois jeux et vérifie leur équivalence |
+| `tacot_mise_en_donnees.py` | émet les trois jeux et les vérifie — `TACOT` (défaut) ou `CPh70` |
+| `../cph70_bprime/mise_en_donnees_pyrolyse.md` | le même document pour le CPh70 |
 | `resine_tacot.md` | traçabilité de la résine jusqu'à Sykes (1967) |
 | `mise_en_donnees_xml.md` | ce qu'il faut renseigner dans un XML de mélange |
 | `../zuram_bprime/variantes_zuram.md` | le même exercice pour le ZURAM |
