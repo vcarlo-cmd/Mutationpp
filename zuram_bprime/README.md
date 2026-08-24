@@ -7,7 +7,7 @@
 |--|--|
 | mélange paroi | `data/mixtures/zuram-air.xml` (20 espèces gazeuses + C(gr)) |
 | mélange gaz de pyrolyse | `data/mixtures/zuram-pyrogas.xml` (mêmes espèces, sans C(gr)) |
-| gaz de pyrolyse (`VKIZuramPyroGas`) | C:0.171, H:0.722, O:0.107 |
+| gaz de pyrolyse (`VKIZuramPyroGas`) | C:0.171, H:0.722, O:0.107 ([traçabilité](resine_zuram.md)) |
 | arête de couche limite (`BLedge`) | O:0.21, N:0.79 (air) |
 | char (`Char`) | C:1.0 |
 | table de référence | `Bprime_carbonPhenolInAir_AblaNTIS.txt` (15600 points) |
@@ -17,7 +17,17 @@ cd zuram_bprime
 python zuram_bprime.py          # table B'c / h_w + figures
 python zuram_validation.py      # comparaison à la table AblaNTIS
 python zuram_pyrolysis_gas.py   # h_g, M, Cp, gamma, rho, mu du gaz de pyrolyse
+python zuram_variantes.py       # variantes XX/YY : densités, ATG, porosité
+python zuram_variantes_bprime.py  # ... et leur vérification par bprime
+python zuram_cinetique.py       # transposition des paramètres d'Arrhenius
+python zuram_mise_en_donnees.py # les deux jeux de cinétique, base composite
+python nomenclature_pagan.py    # confrontation aux variantes reelles (Pagan 2017)
 ```
+
+> Traçabilité de la résine et de la nomenclature « 18/50 » :
+> [`resine_zuram.md`](resine_zuram.md).
+> Variantes hypothétiques (14/40, 18/80…) :
+> [`variantes_zuram.md`](variantes_zuram.md).
 
 Les trois scripts cherchent `bprime` / `mppequil` dans le `PATH` puis dans
 `build/src/apps/`, et positionnent `MPP_DATA_DIRECTORY` sur `data/` s'il n'est

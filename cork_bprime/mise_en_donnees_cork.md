@@ -18,7 +18,7 @@ traite ce qui est **spécifique au liège** : *le renfort pyrolyse aussi*.
 
 Pour un TACOT, un PICA, un Zuram ou un CPh70, le renfort est de la fibre de
 carbone : **inerte à la pyrolyse**. D'où deux conséquences bien connues
-(`../tacot_bprime/autre_materiau.md`) :
+(`../tacot_bprime/cph70_vs_tacot.md`) :
 
 - le gaz de pyrolyse est produit par la **résine seule** ;
 - fibres et résine carbonisée donnent le **même** char (C pur) ;

@@ -20,6 +20,11 @@ cd cph70_bprime && python cph70_bprime.py
 
 ---
 
+
+> Bloc de **pyrolyse** (cinétique), dans ses trois écritures — native,
+> `F_i`, `Δρ_i` : [`mise_en_donnees_pyrolyse.md`](mise_en_donnees_pyrolyse.md).
+> Attention au facteur 9 sur la phase B.
+
 ## « La table B'c(B'g) est-elle différente de celle du TACOT ? »
 
 Il faut distinguer deux objets.
@@ -88,5 +93,5 @@ de ce bilan. Les filtrer avec `Bg_ss < 10`.
 
 ---
 
-Voir `tacot_bprime/autre_materiau.md` pour le raisonnement complet et
+Voir `tacot_bprime/cph70_vs_tacot.md` pour le raisonnement complet et
 `tacot_bprime/material_response.py` pour le bilan de phase solide générique.

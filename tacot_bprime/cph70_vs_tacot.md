@@ -51,7 +51,7 @@ Les deux points clés :
 ## 3. Ce qui change réellement : le bilan de phase solide
 
 Avec ρ_fibre = 1600 kg/m³, ρ_résine = 1200 kg/m³, rendement en char de la
-résine 50 % (valeurs TACOT) :
+résine 50 % (valeurs TACOT — origine de chacune dans `resine_tacot.md`) :
 
 | | TACOT | CPh70 |
 |--|-------|------|
@@ -130,6 +130,7 @@ ce que fait `silice_bprime` avec `Si:1.0, O:2.0`.
 | Fichier | Contenu |
 |---------|---------|
 | `data/mixtures/cph70-air_25.xml` | mise en données CPh70 (25 espèces + C(gr)) |
+| `cph70_bprime/mise_en_donnees_pyrolyse.md` | bloc de pyrolyse du CPh70, trois écritures |
 | `tacot_bprime/material_response.py` | bilan solide, couplage k, point fixe, tracé |
 | `tacot_bprime/material_response_operating_lines.png` | lignes de fonctionnement TACOT vs CPh70 |
 

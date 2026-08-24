@@ -66,6 +66,17 @@ Exemple TACOT (feuille `Pyrolysis-gas chemistry`) :
 
 → C = 0.7368, H = 2.4291, O = 0.4117 mol → **C:0.206, H:0.679, O:0.115**
 
+> Bloc de PYROLYSE (cinétique) du TACOT, dans ses trois écritures :
+> `mise_en_donnees_pyrolyse.md`. Attention au facteur 9 sur la phase B.
+>
+> Traçabilité complète de ces sept nombres jusqu'à la table I de Sykes
+> (NASA TN D-3810, 1967), et identification de la résine dont ils sortent :
+> voir `resine_tacot.md` et `resine_tacot_verification.py`.
+>
+> Le ZURAM procède autrement : sa composition élémentaire est mesurée
+> directement en fractions massiques, sans passer par une spéciation
+> moléculaire. Voir `../zuram_bprime/resine_zuram.md`.
+
 Ce qui donne, indifféremment (la normalisation est automatique, §3.1) :
 
 ```xml
@@ -201,7 +212,7 @@ ont aucune place :
 
 \* sauf si les constituants donnent des chars de compositions élémentaires
 **différentes** (fibres de silice + résine phénolique) : le ratio entre alors
-dans `Y_c`, et la table change. Voir `autre_materiau.md`.
+dans `Y_c`, et la table change. Voir `cph70_vs_tacot.md`.
 
 ---
 
