@@ -290,6 +290,10 @@ Deux lectures possibles, et le classeur ne tranche pas : soit il manque un
 `ρ_i,c` que `f` seul ne peut porter, soit `A₂` aurait dû être divisé par 9 à la
 transcription.
 
+Les trois écritures cohérentes du bloc TACOT — native, en `F_i` et en `Δρ_i`,
+avec le facteur 9 là où il faut — sont détaillées dans
+`../tacot_bprime/mise_en_donnees_pyrolyse.md`.
+
 > **Pour le ZURAM, on ne peut pas trancher de la même façon.** Ses `f` viennent
 > d'un ajustement direct sur ATG (source [5] du classeur), pas de la conversion
 > d'un jeu `(ρ_v, ρ_c)` préexistant : il n'y a pas d'original auquel comparer.

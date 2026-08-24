@@ -401,6 +401,8 @@ des XML reste néanmoins légitime :
 | Fichier | Rôle |
 |---|---|
 | `resine_tacot_verification.py` | rejoue les 4 vérifications de ce document |
+| `mise_en_donnees_pyrolyse.md` | les trois écritures du bloc de pyrolyse (natif, `F_i`, `Δρ_i`) |
+| `tacot_mise_en_donnees.py` | les émet et vérifie leur équivalence |
 | `pyrolysis_gas_from_resin.py` | fermeture résine → gaz, sensibilité au rendement en char |
 | `resin_ranges_to_pyro.py` | propagation d'incertitude quand la résine est connue par plages |
 | `material_response.py` | bilan de phase solide, ligne de fonctionnement B'g/B'c |

@@ -66,6 +66,9 @@ Exemple TACOT (feuille `Pyrolysis-gas chemistry`) :
 
 → C = 0.7368, H = 2.4291, O = 0.4117 mol → **C:0.206, H:0.679, O:0.115**
 
+> Bloc de PYROLYSE (cinétique) du TACOT, dans ses trois écritures :
+> `mise_en_donnees_pyrolyse.md`. Attention au facteur 9 sur la phase B.
+>
 > Traçabilité complète de ces sept nombres jusqu'à la table I de Sykes
 > (NASA TN D-3810, 1967), et identification de la résine dont ils sortent :
 > voir `resine_tacot.md` et `resine_tacot_verification.py`.
