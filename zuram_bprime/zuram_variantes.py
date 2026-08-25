@@ -88,6 +88,42 @@ def variant(xx, yy):
     )
 
 
+def variant_from_char_mass(w_fiber_char, porosity=0.0):
+    """
+    Variante spécifiée sur l'état CHARBONNÉ, et non sur le vierge.
+
+    w_fiber_char : fraction MASSIQUE de fibres dans le char (le complément
+                   étant le char de résine)
+    porosity     : porosité, au sens de la convention à VOLUME CONSTANT —
+                   c'est-à-dire la même dans le vierge et dans le char.
+
+    Sous cette convention la matrice perd de la densité sans perdre de volume :
+    rho_résine passe de RHO_RESIN à CHAR_YIELD·RHO_RESIN, et eps_m ne bouge pas.
+    C'est la seule lecture qui rende une porosité nulle réalisable des deux
+    côtés — voir la note ci-dessous.
+
+    Retourne le même dictionnaire que `variant()`, en repassant par la
+    convention de nommage XX/YY (préforme en 0.01 g/cm³, résine en % masse).
+    """
+    if not 0.0 < w_fiber_char < 1.0:
+        raise ValueError("w_fiber_char doit être dans ]0, 1[")
+    if not 0.0 <= porosity < 1.0:
+        raise ValueError("porosity doit être dans [0, 1[")
+
+    rho_resin_char = CHAR_YIELD * RHO_RESIN          # perte de densité
+    w_char = 1.0 - w_fiber_char
+    # m_rc/m_f = w_char/w_fiber_char, avec m = eps · rho -> ratio des eps
+    ratio = (w_char / w_fiber_char) * RHO_FIBER / rho_resin_char   # eps_m/eps_f
+    solid = 1.0 - porosity
+    eps_f = solid / (1.0 + ratio)
+    eps_m = solid - eps_f
+
+    m_f = eps_f * RHO_FIBER
+    m_r = eps_m * RHO_RESIN
+    w_resin = m_r / (m_f + m_r)
+    return variant(m_f / 10.0, 100.0 * w_resin)
+
+
 def yy_max(xx):
     """Teneur en résine maximale : tous les pores de la préforme remplis."""
     eps_f = 10.0 * xx / RHO_FIBER

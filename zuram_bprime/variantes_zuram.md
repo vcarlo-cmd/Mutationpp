@@ -29,6 +29,7 @@ python zuram_bprime/zuram_variantes_bprime.py     # vérification par bprime
 | Mise en données prête à l'emploi ? | § 5 — deux jeux complets (`F_i` ou `Δρ_i`), vérifiés équivalents |
 | Le modèle est-il le bon ? | **Oui** — 18/43 et 18/33, réellement fabriqués, tombent exactement dessus (§ 6) |
 | Réserve majeure | le rendement en char mesuré en jet plasma est **0.447**, pas 0.6198 (§ 6) |
+| Variante spécifiée sur le **char** ? | § 7 — 70 % fibres / 30 % char, porosité nulle → **ZURAM 86/41**, ρ 1458.4 / 1231.7 |
 | Porosité ? | **0.840 / 0.749 / 0.338** — c'est là que 18/80 cesse d'être un ablateur léger |
 
 Le résultat structurant est une **séparation des rôles** :
@@ -562,7 +563,97 @@ Vérification : `python zuram_bprime/nomenclature_pagan.py`
 
 ---
 
-## 7. La porosité
+## 7. Une variante spécifiée sur le CHAR : 70 % fibres / 30 % char, porosité nulle
+
+Les variantes précédentes sont spécifiées sur l'état **vierge** (`YY` = teneur
+en résine du vierge). Celle-ci l'est sur l'état **charbonné** — 70 % de fibres
+et 30 % de char en masse — avec une porosité nulle. La construction est donc
+différente, et elle révèle une contrainte que le nommage `XX/YY` masquait.
+
+### La contrainte : une seule des deux conventions rend la spec réalisable
+
+| Lecture de « porosité nulle » | Résultat |
+|---|---|
+| dans l'état **char**, convention **retrait de volume** | `ε_f + ε_r = 1.208` dans le vierge → **IMPOSSIBLE** |
+| convention **perte de densité à volume constant** | `ε_f + ε_m = 1.000000` → **réalisable**, et porosité nulle des **deux** côtés |
+
+Sous la convention à volume constant, `ε_m` ne bouge pas : la matrice perd de la
+densité (1315.07 → 815.04 kg/m³) sans perdre de volume. La porosité est donc la
+même dans le vierge et dans le char — ici zéro. C'est la seule lecture
+cohérente avec l'énoncé.
+
+> Sous la convention concurrente (retrait), le même matériau aurait une
+> porosité de **0.1724** dans le char : la résine rétrécirait en laissant des
+> vides. Les masses seraient identiques, la perméabilité non.
+
+### Le matériau obtenu
+
+| | valeur |
+|---|---|
+| ε_f / ε_m | **0.546639 / 0.453361** (somme 1.000000) |
+| ρ vierge | **1458.38 kg/m³** |
+| ρ char | **1231.69 kg/m³** |
+| masses vierge | fibres 862.18, résine 596.20 |
+| masses char | fibres 862.18, char **369.51** |
+| **contrôle char** | fibres **70.0000 %**, char **30.0000 %** |
+| résine dans le vierge | 40.88 % masse |
+| gaz libéré | 226.70 kg/m³ (15.54 % de la masse vierge) |
+| couplage k = B'g/B'c | **0.1841** |
+
+Une fraction volumique de fibres de 0.547 sans porosité, ce n'est plus une
+préforme imprégnée : c'est un **stratifié carbone/phénolique dense**, du même
+ordre que les CFRP courants (0.55–0.65 de fibres en volume).
+
+### Elle rentre dans la convention de nommage
+
+`XX` = masse de fibres en 0.01 g/cm³ = 862.18/10 → **86** ;
+`YY` = teneur en résine du vierge = 40.88 % → **41**. Soit **ZURAM 86/41**.
+
+Le nom fonctionne, mais `XX = 86` ne désigne plus une préforme Calcarb —
+aucune ne pèse 862 kg/m³. Le premier champ garde son sens arithmétique
+(masse de renfort par m³) en perdant son sens industriel.
+
+### Mises en données
+
+`ΣF_i = 0.155443483`, contrôle `1 − ΣF = 0.844556517 = ρ_char/ρ_vierge` ✓
+
+| i | F_i [-] | Δρ_i [kg/m³] | A_i [s⁻¹] | E_i/R [K] | m_i |
+|---|---|---|---|---|---|
+| 1 | 0.014337020 | 20.908880 | 2.137962e+05 | 8178.520143 | 4.30 |
+| 2 | 0.011318700 | 16.507011 | 4.897788e+08 | 16068.386634 | 3.70 |
+| 3 | 0.039238161 | 57.224304 | 3.981072e+10 | 21612.942201 | 2.57 |
+| 4 | 0.090549602 | 132.056085 | 4.677351e+11 | 26423.836403 | 4.63 |
+| **Σ** | **0.155443483** | **226.696280** | | | |
+
+Contrôle : `1231.6877 + 226.6963 = 1458.3839 = ρ_vierge` ✓
+Les deux jeux vérifiés équivalents à **1.4e-11 kg/m³**.
+
+### Table B' et point de fonctionnement
+
+Gaz de pyrolyse recalculé par fermeture depuis son propre bilan de masse :
+`C:0.162679, H:0.725109, O:0.112212` — **identique** au 18/50 à 1.4e-17 près,
+malgré une masse de résine 3.3 fois plus grande. Tables B' comparées sur
+284 points : **0.000e+00**.
+
+| T [K] | 18/50 B'c | B'g | 86/41 B'c | B'g | recul relatif |
+|---|---|---|---|---|---|
+| 1500 | 0.1696 | 0.0398 | 0.1707 | 0.0314 | **0.24** |
+| 3000 | 0.1932 | 0.0454 | 0.1908 | 0.0351 | 0.23 |
+| 3600 | 0.4181 | 0.0981 | 0.3938 | 0.0725 | 0.22 |
+
+À flux d'arête identique, il recule **quatre fois moins vite** que le 18/50 —
+il est 3.7 fois plus dense au sens du char (1231.7 contre 337.6).
+
+Construction rejouable :
+
+```python
+from zuram_variantes import variant_from_char_mass
+v = variant_from_char_mass(0.70, porosity=0.0)
+```
+
+---
+
+## 8. La porosité
 
 | | 14/40 | 18/50 | 18/80 |
 |---|---|---|---|
@@ -592,7 +683,7 @@ une porosité un peu supérieure — extrapolation modérée.
 
 ---
 
-## 8. Ce qu'il faudrait mesurer avant d'y croire
+## 9. Ce qu'il faudrait mesurer avant d'y croire
 
 | Variante | Table B' | Réponse matériau | À mesurer |
 |---|---|---|---|
@@ -605,7 +696,7 @@ le 18/50 : **peser la préforme**. C'est l'anomalie ouverte n° 2, et elle porte
 
 ---
 
-## 9. Fichiers
+## 10. Fichiers
 
 | Fichier | Rôle |
 |---|---|
