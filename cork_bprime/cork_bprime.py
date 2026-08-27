@@ -22,7 +22,7 @@ Matériau :
     mesuré pour une masse résiduelle de 0.20).
 
 Composition du gaz de pyrolyse (fermeture élémentaire liège + résine) :
-    C:0.300, H:0.594, O:0.107 (fractions molaires élémentaires)
+    C:0.287, H:0.592, O:0.121 (fractions molaires élémentaires)
 Char : carbone pur (liège carbonisé + résine carbonisée), C:1.0
 
 Voir cork_pyrolysis_data.py pour le calcul de ces compositions et

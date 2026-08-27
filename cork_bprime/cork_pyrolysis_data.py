@@ -73,8 +73,15 @@ CORK_BIOCHEM = {
 # esterifie sans glycerol (- H2O). Plus reduit, donc plus riche en C.
 SUBERIN_ALT = {"C": 18, "H": 32, "O": 3}
 
-# Analyse elementaire de reference (litterature, Quercus suber, sec sans
-# cendres) : sert de CONTROLE a la reconstruction, plus de donnee d'entree.
+# Analyse elementaire du liege, valeurs de litterature (Quercus suber, sec
+# sans cendres). C'est la donnee RETENUE ; la reconstruction depuis les unites
+# de repetition (cork_elemental) sert de controle.
+#
+# ATTENTION -- PROVENANCE A CONFIRMER. Ces trois nombres sont des valeurs
+# usuelles citees pour le liege ; ils n'ont PAS ete verifies sur une source
+# primaire accessible depuis cet environnement. A confronter a une analyse
+# elementaire publiee (ou mesuree) avant tout usage engageant. La
+# reconstruction biochimique, elle, est tracable ligne a ligne.
 CORK_MASS_PCT_LITERATURE = {"C": 62.4, "H": 8.5, "O": 28.4}
 
 # Rendements en char des constituants du liege (ordre de grandeur, ATG lente
@@ -168,8 +175,9 @@ def cork_char_yield_from_constituents(biochem=None, yields=None):
     return sum((w / total) * yields[name] for name, (_, w) in biochem.items())
 
 
-# Analyse elementaire retenue : celle qui est RECONSTRUITE (cf. main()).
-CORK_MASS_PCT = cork_elemental()
+# Analyse elementaire retenue : celle de la LITTERATURE (choix utilisateur).
+# Mettre CORK_MASS_PCT = cork_elemental() pour repasser a la reconstruction.
+CORK_MASS_PCT = dict(CORK_MASS_PCT_LITERATURE)
 
 
 def moles_from_mass_pct(mass_pct, mass):
@@ -283,9 +291,9 @@ def main():
 
     rec = cork_elemental()
     lit = CORK_MASS_PCT_LITERATURE
-    print(f"\n  liege reconstruit (parts renormalisees) : "
+    print(f"\n  liege reconstruit (parts renormalisees)  : "
           f"C {rec['C']:.2f}  H {rec['H']:.2f}  O {rec['O']:.2f}")
-    print(f"  analyse elementaire de litterature       : "
+    print(f"  analyse de litterature  <- RETENUE       : "
           f"C {lit['C']:.2f}  H {lit['H']:.2f}  O {lit['O']:.2f}")
     print(f"  ecart                                    : "
           f"C {rec['C']-lit['C']:+.2f}  H {rec['H']-lit['H']:+.2f}  "
@@ -296,6 +304,16 @@ def main():
     print("  -> H est retrouve a 0.2 point pres ; C est surestime de ~4 points")
     print("     (et O sous-estime d'autant). Si les 4 % manquants sont de la")
     print("     matiere oxygenee, la reconstruction rejoint la mesure.")
+    bb = composite_balance()
+    br = composite_balance()
+    import copy
+    saved = dict(CORK_MASS_PCT)
+    CORK_MASS_PCT.update(rec)
+    br = composite_balance()
+    CORK_MASS_PCT.clear(); CORK_MASS_PCT.update(saved)
+    print(f"  Effet sur le gaz de pyrolyse (a char inchange) :")
+    print(f"     avec la litterature (retenue) : {fmt(normalize(bb['gas']))}")
+    print(f"     avec la reconstruction        : {fmt(normalize(br['gas']))}")
 
     print("\n" + line)
     print("1'. CONTROLE DU RENDEMENT EN CHAR PAR ADDITIVITE DES CONSTITUANTS")

@@ -19,13 +19,18 @@
 <!-- Fermeture élémentaire (aucun atome créé), sur 100 g de vierge :       -->
 <!--                                                                       -->
 <!--   liège  80 g (C 62.4 / H 8.5 / O 28.4 % masse) -> 10 g char + 70 g gaz -->
+<!--     (analyse élémentaire de littérature, Quercus suber ; provenance à    -->
+<!--      confirmer. Contrôle : la reconstruction depuis les constituants     -->
+<!--      45/27/12/6/6 % subérine/lignine/polysacch./tanins/céroïdes et       -->
+<!--      leurs unités de répétition donne C 66.2 / H 8.7 / O 25.1, soit un   -->
+<!--      gaz à C:0.300, H:0.594, O:0.107 — cf. cork_pyrolysis_data.py)       -->
 <!--   résine 20 g (C7H6O)                           -> 10 g char + 10 g gaz -->
 <!--   ................................................................. -->
 <!--   composite : 20 g char (20 %) + 80 g gaz                             -->
 <!--                                                                       -->
-<!--   gaz liège  : C:0.304, H:0.589, O:0.107   (x molaires élémentaires)  -->
+<!--   gaz liège  : C:0.290, H:0.587, O:0.124   (x molaires élémentaires)  -->
 <!--   gaz résine : C:0.269, H:0.626, O:0.104                              -->
-<!--   gaz total  : C:0.300, H:0.594, O:0.107   <- `cork_pyro`             -->
+<!--   gaz total  : C:0.287, H:0.592, O:0.121   <- `cork_pyro`             -->
 <!--                                                                       -->
 <!-- Char : les deux constituants carbonisent vers du carbone => C:1.0.    -->
 <!-- Si le char de liège retenait H/O, il faudrait pondérer par les masses -->
@@ -59,7 +64,7 @@
 
     <element_compositions default="air">
         <composition name="air">N:0.79, O:0.21</composition>
-        <composition name="cork_pyro">C:0.300, H:0.594, O:0.107</composition>
+        <composition name="cork_pyro">C:0.287, H:0.592, O:0.121</composition>
         <composition name="cork_char">C:1.0</composition>
     </element_compositions>
 
