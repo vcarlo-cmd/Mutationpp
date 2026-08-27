@@ -49,9 +49,10 @@ CORK_MASS_PCT = {"C": 62.4, "H": 8.5, "O": 28.4}
 # meme resine que celle retenue pour le TACOT.
 RESIN_FORMULA = "C7H6O"
 
-CORK_CHAR_YIELD = 0.25    # choix : ATG liege ~ 20-30 % a 1000 K
-                          # (le calage sur la TGA du P50 donne plutot 12.5 %,
-                          #  cf. la section P50 en fin de programme)
+# Rendement en char du liege : DEDUIT du rendement COMPOSITE mesure par TGA
+# sur le P50 (20 % masse) et du rendement de la resine (50 %) :
+#       0.80 * y_liege + 0.20 * 0.50 = 0.20   =>   y_liege = 12.5 %
+CORK_CHAR_YIELD = 0.125
 RESIN_CHAR_YIELD = 0.50   # donnee de l'enonce (valeur classique novolac)
 
 # Fractions massiques du solide vierge
@@ -204,7 +205,7 @@ def main():
     print(f"\n1. Constituants (base 100 g de composite vierge)")
     print(f"   liege  : {b['m_cork']:6.2f} g   "
           f"{fmt(normalize(moles_from_mass_pct(CORK_MASS_PCT, 1.0)))} "
-          f"(x molaires)   rendement char {100*CORK_CHAR_YIELD:.0f} %")
+          f"(x molaires)   rendement char {100*CORK_CHAR_YIELD:.1f} %")
     print(f"   resine : {b['m_resin']:6.2f} g   {RESIN_FORMULA} "
           f"(M = {molar_mass(parse_formula(RESIN_FORMULA)):.2f} g/mol)"
           f"        rendement char {100*RESIN_CHAR_YIELD:.0f} %")
@@ -229,7 +230,10 @@ def main():
           " de la masse vierge")
     print(f"   k = B'g/B'c = m_gaz/m_char     : {b['k']:.3f}")
     print(f"   rho_v = {RHO_VIRGIN:.0f} kg/m3  ->  rho_c = "
-          f"{RHO_VIRGIN*b['char_yield']:.0f} kg/m3 (sans retrait)")
+          f"{RHO_VIRGIN*b['char_yield']:.0f} kg/m3 SI le volume est conserve,"
+          f"\n   mais la mesure donne {RHO_CHAR_MEASURED:.0f} kg/m3 : le char se"
+          f" retracte (V_char/V_v = {RHO_VIRGIN*b['char_yield']/RHO_CHAR_MEASURED:.2f})."
+          f"\n   k se calcule donc sur les MASSES, pas sur les densites.")
 
     print(f"\n6. A recopier dans data/mixtures/cork-air.xml")
     print(f'   <composition name="cork_pyro">{fmt(normalize(b["gas"]))}'
@@ -246,10 +250,10 @@ def main():
     print(f"  {'char liege':>10} | {'C':>7} {'H':>7} {'O':>7} | "
           f"{'char comp.':>10} | {'k':>6}")
     rows = []
-    for cy in (0.15, 0.20, 0.25, 0.30, 0.35, 0.40):
+    for cy in (0.05, 0.10, 0.125, 0.15, 0.20, 0.25):
         bb = composite_balance(cork_char_yield=cy)
         x = normalize(bb["gas"])
-        print(f"  {100*cy:>9.0f}% | {x['C']:>7.3f} {x['H']:>7.3f} "
+        print(f"  {100*cy:>9.1f}% | {x['C']:>7.3f} {x['H']:>7.3f} "
               f"{x['O']:>7.3f} | {100*bb['char_yield']:>9.1f}% | "
               f"{bb['k']:>6.3f}")
         rows.append(dict(cork_char_yield=cy, x_C=x["C"], x_H=x["H"],
@@ -307,11 +311,12 @@ def main():
     # Calage sur la TGA publiee du cork P50
     # -----------------------------------------------------------------------
     print("\n" + line)
-    print("CALAGE SUR LA TGA DU CORK P50 (Sakraker et al., CEAS Space J. 2022)")
+    print("ORIGINE DE L'HYPOTHESE : TGA DU CORK P50 (Sakraker et al. 2022)")
     print(line)
     print("  TGA sous argon, 10 K/min : masse residuelle 24.5 % a 780 K, puis")
     print("  plateau a 20 % jusqu'a 1650 K  ->  rendement en char COMPOSITE 20 %")
     print("  rho_vierge 464.5 / 466.7 kg/m3, rho_char 279.9 / 298.4 kg/m3")
+    print("  C'est le cas de base ci-dessus. Variante : le plateau a 780 K.")
     for target in (P50_CHAR_YIELD, 0.245):
         y_cork = (target - W_RESIN * RESIN_CHAR_YIELD) / W_CORK
         bp = composite_balance(cork_char_yield=y_cork)

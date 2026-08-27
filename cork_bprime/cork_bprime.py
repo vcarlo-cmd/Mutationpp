@@ -4,20 +4,25 @@ Génère et trace la table B' d'un liège/phénolique (cork phenolic) dans l'air
 
 Matériau :
     - 80 % liège / 20 % résine phénolique (fractions MASSIQUES du solide)
+    - rendement en char du COMPOSITE : 20 % (TGA du cork P50, argon,
+      10 K/min — Sakraker et al., CEAS Space Journal 14:377-393, 2022)
     - résine phénolique (novolac C7H6O) : rendement en char 50 %
-    - liège                             : rendement en char 25 %
+    - liège : 12.5 %, déduit des deux précédents
 
     Le liège PYROLYSE, contrairement aux fibres de carbone d'un TACOT ou
     d'un CPh70 : les deux constituants produisent du gaz, et le rapport
     liège/résine entre donc dans la composition du gaz de pyrolyse.
 
-    Sur 100 g de vierge : 30 g de char + 70 g de gaz
-    rendement en char du composite = 30 %
-    couplage stationnaire k = B'g/B'c = m_gaz/m_char = 2.333
-    (contre 0.2727 pour le TACOT : dix fois plus de soufflage pyrolytique)
+    Sur 100 g de vierge : 20 g de char + 80 g de gaz
+    couplage stationnaire k = B'g/B'c = m_gaz/m_char = (1-y)/y = 4.0
+    (contre 0.2727 pour le TACOT : quinze fois plus de soufflage pyrolytique)
+
+    k se calcule sur les MASSES : l'identité (rho_v - rho_c)/rho_c suppose
+    un volume constant, que ce matériau ne respecte pas (rho_c/rho_v = 0.62
+    mesuré pour une masse résiduelle de 0.20).
 
 Composition du gaz de pyrolyse (fermeture élémentaire liège + résine) :
-    C:0.240, H:0.631, O:0.129 (fractions molaires élémentaires)
+    C:0.287, H:0.592, O:0.121 (fractions molaires élémentaires)
 Char : carbone pur (liège carbonisé + résine carbonisée), C:1.0
 
 Voir cork_pyrolysis_data.py pour le calcul de ces compositions et
@@ -74,13 +79,15 @@ PRESSURES_ATM      = np.logspace(-3, 3, 25)
 PLOT_PRESSURES_ATM = np.logspace(-3, 3, 7)
 
 # Couplage matériau : B'g = k * B'c en ablation stationnaire
-K_CORK  = 2.333       # (rho_v - rho_c)/rho_c = 70 g gaz / 30 g char
+K_CORK  = 4.000       # m_gaz/m_char = 80 g gaz / 20 g char
 K_TACOT = 0.2727      # (  280.0 -  220.0) /  220.0
 
 # Masses volumiques (kg/m3) : n'entrent PAS dans le XML, seulement dans la
 # récession s_dot = B'c * mdot_e / rho_c.
-RHO_VIRGIN = 470.0
-RHO_CHAR   = 141.0     # 30 % de rho_v, sans retrait
+# Mesures P50 (Sakraker et al. 2022) : le char se rétracte, rho_c mesurée
+# n'est pas 0.20*rho_v.
+RHO_VIRGIN = 465.6
+RHO_CHAR   = 289.1
 
 # Balayage fin en B'g pour la courbe B'c(B'g)
 BG_SWEEP = [0.0, 0.02, 0.04, 0.07, 0.1, 0.15, 0.2, 0.25, 0.32, 0.4,
@@ -291,7 +298,7 @@ def plot_bc_vs_bg(sweep, out_png):
 
     La courbe tracée est celle du liège/phénolique. Les deux jeux de
     symboles montrent où la MEME courbe est lue selon le couplage matériau :
-    k = 2.333 (liège/phénolique, étoiles) ou k = 0.2727 (couplage typique
+    k = 4.0 (liège/phénolique, étoiles) ou k = 0.2727 (couplage typique
     d'un carbone/phénolique, carrés). Le point de fonctionnement est
     l'intersection de la courbe avec la droite B'g = k*B'c.
     """
@@ -318,7 +325,7 @@ def plot_bc_vs_bg(sweep, out_png):
         # droites de fonctionnement B'g = k*B'c  ->  B'c = B'g/k
         bgline = np.array([1e-3, 10.0])
         ax.plot(bgline, bgline / K_CORK, "k--", lw=1.2, alpha=0.7,
-                label=rf"liège/phéno. : $B'_g = {K_CORK}\,B'_c$  ($\star$)")
+                label=rf"liège/phéno. : $B'_g = {K_CORK:g}\,B'_c$  ($\star$)")
         ax.plot(bgline, bgline / K_TACOT, "k:", lw=1.2, alpha=0.7,
                 label=rf"réf. carbone/phéno. : $B'_g = {K_TACOT}\,B'_c$"
                       + r"  ($\blacksquare$)")
@@ -442,7 +449,7 @@ if __name__ == "__main__":
 
     # --- Récapitulatif -----------------------------------------------------
     print("\n" + "=" * 78)
-    print("POINTS DE FONCTIONNEMENT — liège/phéno. (k = 2.333) vs TACOT (k = 0.2727)")
+    print("POINTS DE FONCTIONNEMENT — liège/phéno. (k = 4.0) vs TACOT (k = 0.2727)")
     print("=" * 78)
     print(f"{'P atm':>7} {'T K':>6} | {'cork Bc':>10} {'cork Bg':>9} | "
           f"{'k=0.273 Bc':>11} {'Bg':>9} | {'ecart Bc':>9}")

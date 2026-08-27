@@ -10,13 +10,14 @@
 <!-- À NE PAS confondre avec cork-air.xml : ici il n'y a NI air NI char —  -->
 <!-- c'est le gaz de pyrolyse pur, avant qu'il n'atteigne la paroi. Sa     -->
 <!-- composition élémentaire est celle du mélange des gaz du liège et de   -->
-<!-- la résine (80/20 masse, rendements 25 % et 50 %).                     -->
+<!-- la résine (80/20 masse ; rendement en char du composite 20 %, mesuré  -->
+<!-- par TGA sur le cork P50, d'où liège 12.5 % et résine 50 %).           -->
 <!--                                                                       -->
 <!-- PAS DE PHASE CONDENSÉE : ajouter C(gr) ferait précipiter du carbone   -->
 <!-- solide et changerait h_g. C'est la convention retenue pour les tables -->
 <!-- de propriétés du gaz de pyrolyse (cf. classeur TACOT 3.0, feuille     -->
 <!-- 'Pyrolysis model'). Elle mérite d'être vérifiée ici : ce gaz est plus -->
-<!-- riche en carbone que celui d'un carbone/phénolique (C:0.240 contre    -->
+<!-- riche en carbone que celui d'un carbone/phénolique (C:0.287 contre    -->
 <!-- C:0.206), donc plus proche de la limite de dépôt de suie.             -->
 <!--                                                                       -->
 <!-- Espèces : liste de cork-air.xml privée de C(gr), plus les espèces     -->
@@ -30,7 +31,7 @@
     </species>
 
     <element_compositions default="cork_pyro">
-        <composition name="cork_pyro">C:0.240, H:0.631, O:0.129</composition>
+        <composition name="cork_pyro">C:0.287, H:0.592, O:0.121</composition>
     </element_compositions>
 
 </mixture>
