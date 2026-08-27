@@ -1,0 +1,51 @@
+<!-- ===================================================================== -->
+<!-- Résine SC-1008 (Durite, Hexion / Bakelite Synthetics) en ablation      -->
+<!-- dans l'air. Résol phénol-formaldéhyde monocomposant, réticulant par    -->
+<!-- chauffage seul — c'est la matrice du PICA, sur préforme FiberForm.     -->
+<!--                                                                       -->
+<!-- Motif de la résine cuite : C7.5H6O                                     -->
+<!--   phénol C6H6O + 1.5 CH2O - 1.5 H2O, le 1.5 étant imposé par les       -->
+<!--   3 sites réactifs du phénol (2 ortho + 1 para), un pont étant partagé -->
+<!--   entre 2 cycles. Soit 80.3 % C / 5.4 % H / 14.3 % O en masse.         -->
+<!--                                                                       -->
+<!-- PAS D'AZOTE dans le gaz de pyrolyse : un résol réticule sans           -->
+<!-- durcisseur, il n'y a donc pas d'hexaméthylènetétramine — contrairement -->
+<!-- au TACOT (2.35 % N mesuré) et au ZURAM (1.4 %).                        -->
+<!--                                                                       -->
+<!-- Rendement en char Y = 0.55, recoupement de deux sources disjointes :   -->
+<!--   - Trick & Saliba 1995, via la composition du gaz : 0.545             -->
+<!--   - ATG SC-1008 nue : 55-60 % au-delà de 650 °C                        -->
+<!-- (Wong et al. 2016 donnent 0.62 sur PICA, mais la préforme carbone y    -->
+<!--  capte des radicaux et relève le rendement : propre au composite.)     -->
+<!--                                                                       -->
+<!-- Gaz obtenu par fermeture élémentaire  n_E(gaz) = n_E(résine) - n_E(char) -->
+<!-- avec char de carbone pur. Reproduit la composition mesurée de          -->
+<!-- Trick & Saliba à 1.5 % sur C, 0.3 % sur H, 1.9 % sur O.                -->
+<!--                                                                       -->
+<!-- Traçabilité complète et vérifications rejouables :                     -->
+<!--   sc1008_bprime/resine_sc1008.md                                       -->
+<!--   python sc1008_bprime/resine_sc1008_verification.py                   -->
+<!--                                                                       -->
+<!-- C(gr) est indispensable au solveur d'équilibre multiphase : sans lui   -->
+<!-- l'excès de carbone du char ne peut pas se condenser, Y_w,C -> 1 et     -->
+<!-- B'c sature sur une valeur non physique.                                -->
+<!--                                                                       -->
+<!-- Espèces : liste de tacot-air_25.xml (25 espèces de la table B' de      -->
+<!-- référence) + C(gr), complétée du phénol et du crésol, qui sont les     -->
+<!-- produits dominants en masse de la pyrolyse d'un résol (Trick & Saliba  -->
+<!-- région 1 ; Wong et al. tables 1).                                      -->
+<!-- ===================================================================== -->
+<mixture thermo_db="NASA-9">
+
+    <species>
+       C H O N CH4 CN CO CO2 C2 C2H C2H2,acetylene C3 C4 C4H2,butadiyne C5
+       HCN H2 H2O N2 CH2OH CNN CNC CNCOCN C6H6 C6H5OH,phenol HNC C(gr)
+    </species>
+
+    <element_compositions default="air">
+        <composition name="air">N:0.79, O:0.21</composition>
+        <composition name="sc1008_pyro">C:0.2526, H:0.6407, O:0.1068</composition>
+        <composition name="sc1008_char">C:1.0</composition>
+    </element_compositions>
+
+</mixture>
