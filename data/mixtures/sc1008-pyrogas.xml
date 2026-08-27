@@ -1,0 +1,34 @@
+<!-- ===================================================================== -->
+<!-- Gaz de pyrolyse de la résine SC-1008 seule, à l'équilibre chimique.    -->
+<!--                                                                       -->
+<!-- Sert à calculer les propriétés du gaz de pyrolyse (h_g, Cp, M, gamma,  -->
+<!-- rho, mu) en fonction de T et P, avec l'outil `mppequil`. h_g est la    -->
+<!-- grandeur qui entre dans le bilan d'énergie de surface (avec h_w) et    -->
+<!-- dans le terme source de pyrolyse en profondeur (h_g - h_s).            -->
+<!--                                                                       -->
+<!-- À NE PAS confondre avec sc1008-air.xml : ici il n'y a NI air NI char — -->
+<!-- c'est le gaz de pyrolyse pur, avant qu'il n'atteigne la paroi.         -->
+<!--                                                                       -->
+<!-- PAS DE PHASE CONDENSÉE : ajouter C(gr) ferait précipiter du carbone    -->
+<!-- solide et changerait h_g. C'est la convention retenue pour les tables  -->
+<!-- de propriétés du gaz de pyrolyse (cf. classeur TACOT 3.0, feuille      -->
+<!-- 'Pyrolysis model' : « assuming chemical equilibrium of the gas (no     -->
+<!-- condensed species in the mixture) »).                                  -->
+<!--                                                                       -->
+<!-- Espèces : sous-ensemble C/H/O de sc1008-air.xml — les espèces azotées  -->
+<!-- sont sans objet, un résol ne contient pas d'azote (pas de HMTA).       -->
+<!--                                                                       -->
+<!-- Composition : voir sc1008_bprime/resine_sc1008.md                      -->
+<!-- ===================================================================== -->
+<mixture thermo_db="NASA-9">
+
+    <species>
+       C H O CH4 CO CO2 C2 C2H C2H2,acetylene C3 C4 C4H2,butadiyne C5
+       H2 H2O CH2OH C6H6 C6H5OH,phenol
+    </species>
+
+    <element_compositions default="sc1008_pyro">
+        <composition name="sc1008_pyro">C:0.2526, H:0.6407, O:0.1068</composition>
+    </element_compositions>
+
+</mixture>
