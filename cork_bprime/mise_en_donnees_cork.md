@@ -248,7 +248,8 @@ python cork_pyrolysis_gas.py    # h_g, M, Cp, gamma, rho, mu du gaz
 **25 %** retenu ici. C'est un choix, à assumer comme tel : le liège
 (subérine + lignine + polysaccharides) donne en ATG un résidu carboné de
 l'ordre de 20 à 30 % à 1000 K, sensible à la vitesse de chauffe et à la
-pression. Sensibilité (script §2) :
+pression. Le calage sur la TGA du P50 réel (ci-dessous) donne plutôt 12.5 %.
+Sensibilité (script §2) :
 
 | char liège | C | H | O | char composite | k |
 |---|---|---|---|---|---|
@@ -261,6 +262,44 @@ pression. Sensibilité (script §2) :
 ±5 points de rendement déplacent le carbone du gaz de ±0.02 (≈ 9 %) et `k` de
 ∓17 %. C'est **le** paramètre à mesurer en priorité (ATG), avant l'analyse
 élémentaire du liège.
+
+### Valeurs mesurées sur le cork P50
+
+La TGA publiée sur le **P50** (Amorim, matériau de l'IXV et de QARMAN) donne
+un rendement en char **du composite**, sous argon à 10 K/min :
+
+| | valeur |
+|---|---|
+| début de décomposition | ~430 K (masse 98 %) |
+| entièrement carbonisé | 780 K, masse **24.5 %** |
+| plateau jusqu'à 1650 K | masse **20 %** |
+| ρ vierge / ρ char | 464.5 et 466.7 / 279.9 et 298.4 kg/m³ |
+
+Source : Sakraker et al., *Performance of cork-based thermal protection
+material P50 exposed to air plasma*, CEAS Space Journal 14:377-393 (2022).
+
+Ce 20 % est le rendement du **composite**, pas celui du liège. Rapporté à la
+présente mise en données (80/20 en masse, résine à 50 %), il implique un
+rendement du liège de **12.5 %** :
+
+| rendement composite | liège impliqué | gaz C / H / O | k |
+|---|---|---|---|
+| 20.0 % (plateau) | 12.5 % | 0.287 / 0.592 / 0.121 | **4.00** |
+| 24.5 % (780 K) | 18.1 % | 0.266 / 0.609 / 0.124 | 3.08 |
+| *25 % (choix du présent document)* | *25 %* | *0.240 / 0.631 / 0.129* | *2.33* |
+
+Le P50 réel produit donc **encore plus de gaz** que le matériau générique
+retenu ici : k = 4 au lieu de 2.33. Tout ce qui est dit au §8 (soufflage
+dominant, table à balayer loin en B'g) n'en est que plus vrai.
+
+> **Piège : k ne se calcule pas sur les densités pour ce matériau.**
+> L'identité `k = (ρ_v − ρ_c)/ρ_c` suppose un **volume constant**. Le P50 ne
+> la respecte pas : ρ_c/ρ_v = 0.62 alors que la masse résiduelle est 0.20,
+> soit V_char/V_vierge ≈ 0.32. Prendre les densités donnerait k = 0.61, six
+> fois trop peu. Le couplage stationnaire se calcule sur les **masses** :
+> `k = (1 − y)/y` avec y le rendement en char massique. Les carbone/phénolique
+> (TACOT, CPh70) ne changent pas de volume, d'où la confusion possible : chez
+> eux les deux formules coïncident.
 
 > **Piège d'énoncé.** « 80 % de liège » : masse ou volume ? Le liège est très
 > léger (≈ 120 kg/m³ contre 1200 pour la résine). 80 % en **volume** ne fait
@@ -300,10 +339,11 @@ Deux conséquences pratiques :
    (10) ou où `Bc_ss` vaut 1000 ne sont pas des solutions physiques mais la
    signature de B'c → ∞. Les filtrer.
 
-> La récession se lit sur ρ_c, pas sur B'c : `ṡ = B'c·ṁe/ρc`. Avec
-> ρ_c ≈ 141 kg/m³ (30 % de 470, sans retrait), le liège/phénolique recule
-> ~9 fois plus vite qu'un CPh70 à B'c égal. Colonne
-> `recession_over_mdote_m3_per_kg` du CSV.
+> La récession se lit sur ρ_c, pas sur B'c : `ṡ = B'c·ṁe/ρc`. La colonne
+> `recession_over_mdote_m3_per_kg` du CSV donne B'c/ρc avec l'hypothèse « sans
+> retrait » (ρ_c = 141 kg/m³, 30 % de 470). Pour un P50 réel il faut la ρ_char
+> **mesurée** (≈ 289 kg/m³, le char se rétracte, cf. §7) : la récession est
+> alors deux fois plus lente que ne le suggère l'hypothèse sans retrait.
 
 ---
 

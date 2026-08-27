@@ -17,6 +17,7 @@ celui de la résine, et le rapport liège/résine entre donc dans la table B'.
 | char (`cork_char`) | C:1.0 |
 | bilan sur 100 g vierge | 30 g de char + 70 g de gaz |
 | couplage stationnaire | **k = B'g/B'c = 2.333** (TACOT : 0.273) |
+| pour mémoire, cork P50 mesuré | char 20 % (TGA, Ar, 10 K/min) → k = 4.0 — cf. `mise_en_donnees_cork.md` §7 |
 
 **L'explication complète de la mise en données est dans
 [`mise_en_donnees_cork.md`](mise_en_donnees_cork.md).**

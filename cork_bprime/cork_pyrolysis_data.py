@@ -50,6 +50,8 @@ CORK_MASS_PCT = {"C": 62.4, "H": 8.5, "O": 28.4}
 RESIN_FORMULA = "C7H6O"
 
 CORK_CHAR_YIELD = 0.25    # choix : ATG liege ~ 20-30 % a 1000 K
+                          # (le calage sur la TGA du P50 donne plutot 12.5 %,
+                          #  cf. la section P50 en fin de programme)
 RESIN_CHAR_YIELD = 0.50   # donnee de l'enonce (valeur classique novolac)
 
 # Fractions massiques du solide vierge
@@ -60,8 +62,15 @@ W_RESIN = 0.20
 CHAR_COMP = {"C": 1.0}
 
 # Masses volumiques (kg/m3) pour la reponse materiau -- n'entrent PAS dans le
-# XML, seulement dans le couplage stationnaire B'g = k B'c.
-RHO_VIRGIN = 470.0        # cork phenolic type P50 / Norcoat
+# XML, seulement dans la recession s_dot = B'c mdot_e / rho_c.
+# Mesures publiees sur le cork P50 (Sakraker et al., CEAS Space J. 14:377-393,
+# 2022) : rho_vierge 464.5 et 466.7, rho_char 279.9 et 298.4.
+RHO_VIRGIN = 465.6
+RHO_CHAR_MEASURED = 289.1
+
+# Rendement en char COMPOSITE mesure par TGA sur le P50 (argon, 10 K/min) :
+# 24.5 % a 780 K puis plateau a 20 % jusqu'a 1650 K.
+P50_CHAR_YIELD = 0.20
 
 
 # ---------------------------------------------------------------------------
@@ -293,6 +302,33 @@ def main():
           f"char {100*bvol['char_yield']:.1f} %   k = {bvol['k']:.3f}")
     print("  -> l'enonce '80 % de liege' doit imperativement preciser"
           " masse ou volume.")
+
+    # -----------------------------------------------------------------------
+    # Calage sur la TGA publiee du cork P50
+    # -----------------------------------------------------------------------
+    print("\n" + line)
+    print("CALAGE SUR LA TGA DU CORK P50 (Sakraker et al., CEAS Space J. 2022)")
+    print(line)
+    print("  TGA sous argon, 10 K/min : masse residuelle 24.5 % a 780 K, puis")
+    print("  plateau a 20 % jusqu'a 1650 K  ->  rendement en char COMPOSITE 20 %")
+    print("  rho_vierge 464.5 / 466.7 kg/m3, rho_char 279.9 / 298.4 kg/m3")
+    for target in (P50_CHAR_YIELD, 0.245):
+        y_cork = (target - W_RESIN * RESIN_CHAR_YIELD) / W_CORK
+        bp = composite_balance(cork_char_yield=y_cork)
+        print(f"\n  composite {100*target:.1f} %  =>  liege {100*y_cork:.1f} % "
+              f"(a 80/20 masse et resine 50 %)")
+        print(f"    gaz x molaires : {fmt(normalize(bp['gas']))}")
+        print(f"    k = m_gaz/m_char : {bp['k']:.3f}")
+
+    rho_v, rho_c = 465.6, 289.1      # moyennes des deux echantillons
+    print(f"\n  ATTENTION : k = (rho_v - rho_c)/rho_c = "
+          f"{(rho_v - rho_c)/rho_c:.2f} donnerait un tout autre chiffre.")
+    print(f"  Cette identite suppose un volume constant, ce que le P50 ne")
+    print(f"  respecte pas : rho_c/rho_v = {rho_c/rho_v:.2f} alors que la masse")
+    print(f"  residuelle est 0.20, soit V_char/V_vierge = "
+          f"{P50_CHAR_YIELD*rho_v/rho_c:.2f}.")
+    print(f"  Le couplage stationnaire se calcule sur les MASSES : k = "
+          f"(1-y)/y = {(1-P50_CHAR_YIELD)/P50_CHAR_YIELD:.1f}.")
 
     out = os.path.join(here, "cork_pyrolysis_data.csv")
     with open(out, "w", newline="") as f:
