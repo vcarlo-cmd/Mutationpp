@@ -1,8 +1,9 @@
 # Mise en données XML d'un liège/phénolique (cork phenolic)
 
 **Matériau traité** : 80 % liège / 20 % résine phénolique (fractions
-**massiques** du solide), résine de rendement en char **50 %**, liège de
-rendement en char **25 %** (valeur choisie, cf. §7).
+**massiques** du solide), résine de rendement en char **50 %**, et rendement
+en char **du composite 20 %** — valeur mesurée par TGA sur le cork P50, dont
+se déduit le rendement du liège, **12.5 %** (§3.1, §7).
 
 Objectif : produire les trois données que consomment `bprime` et `mppequil`
 pour la table **B'c(T, P, B'g)**, l'enthalpie de paroi **h_w** et l'enthalpie
@@ -31,8 +32,8 @@ Il faut donc :
 |--|--|--|
 | gaz de pyrolyse | résine seule | **liège + résine**, au prorata des masses dégazées |
 | rapport renfort/résine dans la table B' | non | **oui** (il pondère le mélange des deux gaz) |
-| rendement en char du renfort | sans objet (0 % de gaz) | **donnée d'entrée indispensable** |
-| couplage stationnaire k = B'g/B'c | 0.27 (TACOT) | **2.33** — dix fois plus de soufflage |
+| rendement en char du renfort | sans objet (0 % de gaz) | **donnée d'entrée indispensable** (ici déduite de la TGA du composite) |
+| couplage stationnaire k = B'g/B'c | 0.27 (TACOT) | **4.0** — quinze fois plus de soufflage |
 
 La dernière ligne est la plus lourde de conséquences : le matériau ne lit pas
 la table au même endroit du tout (§6).
@@ -66,53 +67,163 @@ puis on **somme les deux gaz** — c'est là qu'entre le rapport 80/20.
 
 ### 3.1 Données d'entrée
 
-| Constituant | Composition élémentaire | Rendement en char |
+#### Le liège : analyse élémentaire retenue
+
+```
+liège :  C 62.4   H 8.5   O 28.4   (% masse, sec sans cendres)
+```
+
+Valeurs usuellement citées pour le liège de *Quercus suber*. L'azote
+(~0.6 % masse) est négligé — le retenir ajouterait N au gaz de pyrolyse, donc
+une quatrième composante à `cork_pyro`.
+
+> **Provenance à confirmer.** Ces trois nombres sont des valeurs usuelles, pas
+> une donnée vérifiée sur une source primaire : les domaines d'éditeurs sont
+> inaccessibles depuis l'environnement de calcul, et aucune des recherches
+> menées n'a permis de remonter à un tableau d'analyse élémentaire publié pour
+> *Q. suber*. À confronter à une analyse (publiée ou mesurée) avant tout usage
+> engageant. Pistes : Pereira H., *Cork: Biology, Production and Uses*
+> (Elsevier, 2007) ; les articles de Şen & Pereira sur la pyrolyse du liège,
+> qui portent une analyse élémentaire du liège cru en plus de celle des
+> biochars. Le contrôle biochimique ci-dessous, lui, est traçable ligne à
+> ligne.
+
+#### Contrôle : le liège reconstruit depuis ses unités de répétition
+
+On additionne les constituants, chacun représenté par son unité de
+répétition :
+
+| Constituant | % masse | Unité retenue | Formule | M | C | H | O |
+|---|---|---|---|---|---|---|---|
+| subérine | 45 | glycérol + 3 acides 9,10-époxy-18-hydroxyoctadécanoïques, − 3 H₂O | C57H104O12 | 981.5 | 69.8 | 10.7 | 19.6 |
+| lignine | 27 | alcool coniférylique (unité guaïacyle) | C10H12O3 | 180.2 | 66.7 | 6.7 | 26.6 |
+| cellulose, polysaccharides | 12 | anhydroglucose | C6H10O5 | 162.1 | 44.4 | 6.2 | 49.3 |
+| tanins | 6 | flavan-3-ol (catéchine) | C15H14O6 | 290.3 | 62.1 | 4.9 | 33.1 |
+| céroïdes | 6 | friedéline (triterpène des cires du liège) | C30H50O | 426.7 | 84.4 | 11.8 | 3.7 |
+
+Les parts somment à **96 %** : le complément (cendres ~1 %, humidité
+résiduelle, extractibles mineurs) n'est pas de la matière C/H/O identifiée. On
+renormalise sur les 96 % déclarés.
+
+```
+liège reconstruit  : C 66.16   H 8.71   O 25.13   (% masse)
+```
+
+| | C | H | O |
+|---|---|---|---|
+| **littérature — retenue** | **62.40** | **8.50** | **28.40** |
+| reconstruit | 66.16 | 8.71 | 25.13 |
+| **écart** | **+3.8** | **+0.2** | **−3.3** |
+
+L'hydrogène tombe juste à 0.2 point près ; le carbone est surestimé d'environ
+4 points, l'oxygène sous-estimé d'autant. Deux causes plausibles, non
+exclusives :
+
+- **les 4 % manquants**. S'ils sont de la matière oxygénée (humidité
+  résiduelle, sels), la reconstruction rejoint la mesure à ~1 point.
+- **le choix de l'unité de subérine**, qui pèse 45 % à elle seule. La variante
+  sans glycérol (C18H32O3, acide époxy-hydroxy estérifié) donne C 67.6 / H 8.8
+  / O 23.6, soit 1.5 point de C de plus : la subérine réelle contient plus de
+  glycérol, de diacides et d'acide férulique que le modèle, tous plus
+  oxygénés.
+
+**Décision** : on retient l'**analyse de littérature**. La reconstruction
+reste dans le script (`cork_elemental()`) comme contrôle indépendant — il
+suffit d'écrire `CORK_MASS_PCT = cork_elemental()` pour basculer. Les deux
+voies se recoupent à 4 points sur C, ce qui est un accord raisonnable vu les
+choix d'unités ; l'effet sur le gaz est chiffré en §3.3.
+
+#### La résine
+
+| Constituant | Composition | Rendement en char |
 |---|---|---|
-| liège | C 62.4 / H 8.5 / O 28.4 (% masse, sec sans cendres) | 25 % *(choisi)* |
 | résine phénolique | novolac **C7H6O** (M = 106.12 g/mol) | 50 % *(énoncé)* |
 
-L'analyse élémentaire du liège est une donnée de **litt. matériau** (subérine,
-lignine, polysaccharides) ; l'azote (~0.6 % masse) est négligé — le retenir
-ajouterait N au gaz de pyrolyse, donc une quatrième composante à `cork_pyro`.
+Même motif que pour le TACOT, le PICA et le CPh70 — c'est la « composition
+classique » des autres matériaux du dépôt.
+
+#### Les rendements en char
+
+| | valeur | origine |
+|---|---|---|
+| composite | **20 %** | mesuré (TGA du cork P50, §7) |
+| résine | 50 % | énoncé |
+| **liège** | **12.5 %** | **déduit** : `0.80·y + 0.20·0.50 = 0.20` |
+
+**Contrôle par additivité des constituants.** Chaque famille a son propre
+rendement (ordres de grandeur, ATG lente sous inerte) :
+
+| | subérine | lignine | polysacch. | tanins | céroïdes | → liège |
+|---|---|---|---|---|---|---|
+| % masse | 45 | 27 | 12 | 6 | 6 | |
+| char | 15 % | 45 % | 15 % | 40 % | 2 % | **24.2 %** |
+
+Soit un composite à **29.3 %**, contre **20 %** mesurés sur le P50 — les deux
+voies ne se rejoignent pas, d'un facteur deux sur le liège. Explications
+possibles : le P50 est **plastifié au glycol**, qui part entièrement en gaz ;
+son rapport liège/résine n'est pas nécessairement 80/20 ; et les rendements
+par constituant ci-dessus sont indicatifs. **On garde la mesure** — c'est elle
+qui fixe `k`, la grandeur qui gouverne le point de fonctionnement. L'écart est
+chiffré en §3.3 et borné en §7.3.
 
 ### 3.2 Bilan sur 100 g de composite vierge
 
 | | masse | char | gaz | moles d'atomes du gaz |
 |---|---|---|---|---|
-| liège | 80 g | 20 g | 60 g | C 2.520, H 6.794, O 1.430 |
+| liège | 80 g | 10 g | 70 g | C 3.353, H 6.794, O 1.430 |
 | résine | 20 g | 10 g | 10 g | C 0.487, H 1.131, O 0.188 |
-| **composite** | 100 g | **30 g** | **70 g** | **C 3.007, H 7.924, O 1.619** |
+| **composite** | 100 g | **20 g** | **80 g** | **C 3.840, H 7.924, O 1.619** |
 
 Fractions molaires élémentaires :
 
 | | C | H | O |
 |---|---|---|---|
-| gaz du liège seul | 0.235 | 0.632 | 0.133 |
+| gaz du liège seul | 0.290 | 0.587 | 0.124 |
 | gaz de la résine seule | 0.269 | 0.626 | 0.104 |
-| **gaz du composite** | **0.240** | **0.631** | **0.129** |
+| **gaz du composite** | **0.287** | **0.592** | **0.121** |
 | *pour mémoire, TACOT* | *0.206* | *0.679* | *0.115* |
 
-Soit en masse : C 0.516, H 0.114, O 0.370 (le parseur convertit tout seul,
+Soit en masse : C 0.576, H 0.100, O 0.324 (le parseur convertit tout seul,
 cf. `mise_en_donnees_xml.md` §3.2 — mais il faut déclarer le bon `type`).
 
 Calcul, sensibilités et variantes : `python cork_pyrolysis_data.py`.
 
-### 3.3 Ce que le rapport 80/20 change vraiment
+### 3.3 Ce que valent les deux révisions
 
-Les deux gaz se ressemblent (le liège est un peu plus oxygéné, la résine un
-peu plus carbonée), donc **le mélange déplace peu la composition** :
+Effet, sur le gaz, de la reconstruction du liège et de l'incertitude sur le
+rendement en char :
+
+| composition du liège | char liège | gaz C / H / O | k |
+|---|---|---|---|
+| **littérature 62.4/8.5/28.4 — retenue** | **12.5 %** | **0.287 / 0.592 / 0.121** | **4.00** |
+| reconstruite 66.2/8.7/25.1 | 12.5 % | 0.300 / 0.594 / 0.107 | 4.00 |
+| littérature | 24.2 % (additivité) | 0.243 / 0.629 / 0.128 | 2.41 |
+
+Passer d'une composition de liège à l'autre déplace le gaz de **0.013 sur C et
+0.014 sur O** (+4 % et −12 % en relatif) : réel, mais second ordre.
+L'incertitude sur le rendement en char pèse **trois fois plus** sur la
+composition, et surtout **divise k par 1.7** — c'est-à-dire qu'elle déplace le
+point de fonctionnement bien davantage. Priorité de mesure : la TGA d'abord,
+l'analyse élémentaire ensuite.
+
+### 3.4 Ce que le rapport 80/20 change vraiment
+
+Les deux gaz se ressemblent — celui du liège est un peu plus carboné et plus
+oxygéné, celui de la résine un peu plus hydrogéné — donc **le mélange déplace
+peu la composition** :
 
 | liège (% masse) | C | H | O | k = B'g/B'c |
 |---|---|---|---|---|
 | 0 % (résine pure) | 0.269 | 0.626 | 0.104 | 1.000 |
-| 50 % | 0.249 | 0.630 | 0.122 | 1.667 |
-| **80 %** | **0.240** | **0.631** | **0.129** | **2.333** |
-| 100 % (liège pur) | 0.235 | 0.632 | 0.133 | 3.000 |
+| 50 % | 0.282 | 0.602 | 0.116 | 2.200 |
+| **80 %** | **0.287** | **0.592** | **0.121** | **4.000** |
+| 100 % (liège pur) | 0.290 | 0.587 | 0.124 | 7.000 |
 
 Conclusion honnête : le rapport liège/résine entre bien dans la table B'
 (contrairement au cas carbone/phénolique), mais son effet **direct** sur la
-composition du gaz est modeste. Son effet **dominant** est sur la *quantité*
-de gaz, c.-à-d. sur `k` — qui triple entre la résine pure et le liège pur.
+composition du gaz est modeste — les deux gaz se ressemblent. Son effet
+**dominant** est sur la *quantité* de gaz, c.-à-d. sur `k`, qui est multiplié
+par sept entre la résine pure et le liège pur.
 
 ---
 
@@ -130,7 +241,7 @@ de gaz, c.-à-d. sur `k` — qui triple entre la résine pure et le liège pur.
 
     <element_compositions default="air">
         <composition name="air">N:0.79, O:0.21</composition>
-        <composition name="cork_pyro">C:0.240, H:0.631, O:0.129</composition>
+        <composition name="cork_pyro">C:0.287, H:0.592, O:0.121</composition>
         <composition name="cork_char">C:1.0</composition>
     </element_compositions>
 
@@ -144,7 +255,7 @@ de gaz, c.-à-d. sur `k` — qui triple entre la résine pure et le liège pur.
   couvre les mêmes éléments C/H/O/N et convient donc telle quelle. Elle
   conditionne le résultat (`mise_en_donnees_xml.md` §4.2) : pour comparer à
   une table publiée, reprendre **sa** liste.
-- Rien d'autre : ni densité (470 kg/m³), ni porosité, ni rendement en char.
+- Rien d'autre : ni densité (466 kg/m³), ni porosité, ni rendement en char.
   Ces grandeurs vivent dans le solveur de réponse matériau.
 
 ### 4.2 `data/mixtures/cork-pyrogas.xml` — enthalpie du gaz h_g
@@ -158,7 +269,7 @@ Le gaz de pyrolyse **pur**, à l'équilibre : ni air, ni char, **ni C(gr)**.
        H2 H2O CH2OH C6H6
     </species>
     <element_compositions default="cork_pyro">
-        <composition name="cork_pyro">C:0.240, H:0.631, O:0.129</composition>
+        <composition name="cork_pyro">C:0.287, H:0.592, O:0.121</composition>
     </element_compositions>
 </mixture>
 ```
@@ -167,10 +278,22 @@ Deux points d'attention :
 
 - **pas de phase condensée** : c'est la convention des tables de propriétés de
   gaz de pyrolyse (classeur TACOT 3.0, feuille *Pyrolysis model*). Ajouter
-  C(gr) ferait précipiter du carbone solide et changerait h_g. Ce gaz étant
-  plus carboné que celui d'un carbone/phénolique (C:0.240 vs C:0.206), la
-  question du dépôt de suie mérite d'être posée si l'on vise un bilan
-  d'énergie fin.
+  C(gr) ferait précipiter du carbone solide et changerait h_g.
+
+  **Ce n'est pas une hypothèse gratuite, et elle coûte cher ici.** Mesuré en
+  ajoutant C(gr) au mélange, à 1 atm et 1000 K :
+
+  | gaz | x(C(gr)) à l'équilibre |
+  |---|---|
+  | **liège/phénolique, C:0.287** | **0.329** |
+  | *variante reconstruite, C:0.300* | *0.362* |
+  | *TACOT, C:0.206* | *0.200* |
+
+  Le carbone condense dans tous les cas — la convention est donc universelle,
+  pas propre au liège — mais l'écart grandit avec la teneur en C : h_g à
+  1000 K passe de **−2137 kJ/kg** (sans C(gr), retenu) à **−1434 kJ/kg**
+  avec, soit **0.7 MJ/kg**. Si le modèle de réponse matériau traite la suie,
+  c'est cette seconde valeur qu'il faut, pas la première.
 - **pas d'azote** : le gaz n'en contient pas ; les espèces azotées sont
   retirées de la liste.
 
@@ -192,11 +315,11 @@ char de résine C pur, mêmes rendements) :
 
 | | C | H | O |
 |---|---|---|---|
-| char | 0.824 | 0.140 | 0.035 |
-| gaz (recalculé, les atomes retenus manquent au gaz) | 0.260 | 0.616 | 0.124 |
+| char | 0.864 | 0.108 | 0.027 |
+| gaz (recalculé, les atomes retenus manquent au gaz) | 0.297 | 0.585 | 0.119 |
 
 ```xml
-<composition name="cork_char">C:0.824, H:0.140, O:0.035</composition>
+<composition name="cork_char">C:0.864, H:0.108, O:0.027</composition>
 ```
 
 `-char-elem C` reste valable : l'élément du bilan doit être présent dans le
@@ -243,29 +366,74 @@ python cork_pyrolysis_gas.py    # h_g, M, Cp, gamma, rho, mu du gaz
 
 ---
 
-## 7. Le rendement en char du liège : le paramètre choisi
+## 7. D'où vient le rendement en char, et ce qu'il pèse
 
-**25 %** retenu ici. C'est un choix, à assumer comme tel : le liège
-(subérine + lignine + polysaccharides) donne en ATG un résidu carboné de
-l'ordre de 20 à 30 % à 1000 K, sensible à la vitesse de chauffe et à la
-pression. Sensibilité (script §2) :
+### 7.1 La mesure : TGA du cork P50
+
+La TGA publiée sur le **P50** (Amorim ; matériau de l'IXV et de QARMAN) donne
+un rendement en char **du composite**, sous argon à 10 K/min :
+
+| | valeur |
+|---|---|
+| début de décomposition | ~430 K (masse 98 %) |
+| entièrement carbonisé | 780 K, masse **24.5 %** |
+| plateau jusqu'à 1650 K | masse **20 %** ← retenu |
+| ρ vierge / ρ char | 464.5 et 466.7 / 279.9 et 298.4 kg/m³ |
+
+Source : Sakraker et al., *Performance of cork-based thermal protection
+material P50 exposed to air plasma*, CEAS Space Journal 14:377-393 (2022).
+
+L'argon est essentiel : sous air on mesurerait l'oxydation du char, pas la
+pyrolyse. Le plateau est lu à 1650 K, pas à 780 K, pour être cohérent avec la
+température de référence du modèle de pyrolyse. Et 10 K/min reste lent devant
+une rentrée : une pyrolyse flash donnerait moins de char.
+
+### 7.2 Du composite aux constituants
+
+La TGA ne sépare pas le liège de la résine. Avec la résine à 50 % (énoncé) :
+
+```
+0.80 · y_liège + 0.20 · 0.50 = 0.20   =>   y_liège = 12.5 %
+```
+
+| rendement composite | liège impliqué | gaz C / H / O | k |
+|---|---|---|---|
+| **20.0 % (plateau, retenu)** | **12.5 %** | **0.287 / 0.592 / 0.121** | **4.00** |
+| 24.5 % (plateau à 780 K) | 18.1 % | 0.266 / 0.609 / 0.124 | 3.08 |
+| *29.3 % (additivité des constituants, §3.1)* | *24.2 %* | *0.243 / 0.629 / 0.128* | *2.41* |
+
+Pour lever l'hypothèse « résine à 50 % », il faut une seconde TGA — sur la
+résine seule ou sur le liège seul.
+
+### 7.3 Sensibilité
 
 | char liège | C | H | O | char composite | k |
 |---|---|---|---|---|---|
+| 5 % | 0.313 | 0.571 | 0.117 | 14.0 % | 6.143 |
+| 10 % | 0.296 | 0.585 | 0.119 | 18.0 % | 4.556 |
+| **12.5 %** | **0.287** | **0.592** | **0.121** | **20.0 %** | **4.000** |
 | 15 % | 0.278 | 0.600 | 0.122 | 22.0 % | 3.545 |
 | 20 % | 0.259 | 0.615 | 0.126 | 26.0 % | 2.846 |
-| **25 %** | **0.240** | **0.631** | **0.129** | **30.0 %** | **2.333** |
-| 30 % | 0.219 | 0.649 | 0.132 | 34.0 % | 1.941 |
-| 40 % | 0.174 | 0.686 | 0.140 | 42.0 % | 1.381 |
+| 24.2 % *(additivité)* | 0.243 | 0.629 | 0.128 | 29.4 % | 2.406 |
 
-±5 points de rendement déplacent le carbone du gaz de ±0.02 (≈ 9 %) et `k` de
-∓17 %. C'est **le** paramètre à mesurer en priorité (ATG), avant l'analyse
-élémentaire du liège.
+±5 points de rendement déplacent le carbone du gaz de ±0.018 et `k` de ∓25 %.
+C'est **le** paramètre à mesurer en priorité, avant l'analyse élémentaire du
+liège : `k` gouverne le point de fonctionnement (§8), la composition ne le
+déplace que marginalement.
+
+> **Piège : k ne se calcule pas sur les densités pour ce matériau.**
+> L'identité `k = (ρ_v − ρ_c)/ρ_c` suppose un **volume constant**. Le P50 ne
+> la respecte pas : ρ_c/ρ_v = 0.62 alors que la masse résiduelle est 0.20,
+> soit V_char/V_vierge ≈ 0.32 — le char se rétracte. Prendre les densités
+> donnerait k = 0.61, **six fois trop peu**. Le couplage stationnaire se
+> calcule sur les **masses** : `k = (1 − y)/y`, avec y le rendement en char
+> massique. Chez les carbone/phénolique (TACOT, CPh70), qui ne changent pas
+> de volume, les deux formules coïncident — d'où la confusion possible.
 
 > **Piège d'énoncé.** « 80 % de liège » : masse ou volume ? Le liège est très
 > léger (≈ 120 kg/m³ contre 1200 pour la résine). 80 % en **volume** ne fait
 > que **28.6 %** en masse, ce qui donne un tout autre matériau : gaz
-> C:0.256, H:0.628, O:0.115, char 42.9 %, **k = 1.333**. Le présent document
+> C:0.277, H:0.611, O:0.112, char 39.3 %, k = 1.545. Le présent document
 > retient la lecture **massique**.
 
 ---
@@ -273,7 +441,7 @@ pression. Sensibilité (script §2) :
 ## 8. Conséquence physique : où le matériau lit la table
 
 En ablation stationnaire le matériau impose `B'g = k·B'c` avec
-`k = m_gaz/m_char = (ρ_v − ρ_c)/ρ_c = 2.333` (70 g de gaz pour 30 g de char).
+`k = m_gaz/m_char = (1 − y)/y = 4.0` (80 g de gaz pour 20 g de char).
 Le point de fonctionnement est le point fixe
 `B'c = B'c_table(T, P, B'g = k·B'c)`.
 
@@ -281,15 +449,15 @@ Le point de fonctionnement est le point fixe
 
 | T [K] | B'c (B'g = 0) | **B'c point de fonct.** | B'g associé | h_w [MJ/kg] |
 |---|---|---|---|---|
-| 1000 | 0.1540 | **0.0896** | 0.209 | −1.11 |
-| 2000 | 0.1749 | **0.1152** | 0.269 | 0.94 |
-| 3000 | 0.1768 | **0.1705** | 0.398 | 4.41 |
-| 3400 | 0.2097 | **0.3309** | 0.772 | 9.55 |
+| 1000 | 0.1540 | **0.0598** | 0.239 | −1.11 |
+| 2000 | 0.1749 | **0.0769** | 0.307 | 0.94 |
+| 3000 | 0.1768 | **0.1138** | 0.455 | 4.41 |
+| 3400 | 0.2097 | **0.2213** | 0.885 | 9.57 |
 
-Le soufflage pyrolytique **divise par près de deux** l'ablation du char en
-régime d'oxydation (1000 K) : le gaz, riche en H et en C, consomme l'oxygène
-avant qu'il n'atteigne la paroi. Effet marginal pour un TACOT (B'g ≈ 0.04),
-dominant ici (B'g ≈ 0.2 – 0.8).
+Le soufflage pyrolytique **divise par 2.6** l'ablation du char en régime
+d'oxydation (1000 K) : le gaz, riche en H et en C, consomme l'oxygène avant
+qu'il n'atteigne la paroi. Effet marginal pour un TACOT (B'g ≈ 0.04),
+dominant ici (B'g ≈ 0.24 – 0.9).
 
 Deux conséquences pratiques :
 
@@ -300,10 +468,11 @@ Deux conséquences pratiques :
    (10) ou où `Bc_ss` vaut 1000 ne sont pas des solutions physiques mais la
    signature de B'c → ∞. Les filtrer.
 
-> La récession se lit sur ρ_c, pas sur B'c : `ṡ = B'c·ṁe/ρc`. Avec
-> ρ_c ≈ 141 kg/m³ (30 % de 470, sans retrait), le liège/phénolique recule
-> ~9 fois plus vite qu'un CPh70 à B'c égal. Colonne
-> `recession_over_mdote_m3_per_kg` du CSV.
+> La récession se lit sur ρ_c, pas sur B'c : `ṡ = B'c·ṁe/ρc`. La colonne
+> `recession_over_mdote_m3_per_kg` du CSV donne B'c/ρc avec la **ρ_char
+> mesurée** (289.1 kg/m³) et non 0.20·ρ_v = 93 kg/m³ : le char se rétracte
+> (§7), et prendre l'hypothèse « sans retrait » surestimerait la récession
+> d'un facteur trois.
 
 ---
 
@@ -313,5 +482,7 @@ Deux conséquences pratiques :
 > compositions élémentaires**. Pour un liège/phénolique, la seule vraie
 > difficulté est la deuxième : le gaz de pyrolyse est le **mélange** des gaz
 > des deux constituants, obtenu par fermeture élémentaire, et il faut donc
-> connaître le rendement en char **du liège** autant que celui de la résine.
+> connaître le rendement en char **du liège** autant que celui de la résine —
+> ici via le rendement du composite mesuré par TGA (20 %), dont le liège se
+> déduit (12.5 %).
 > Un deuxième fichier, sans phase condensée ni air, donne h_g.

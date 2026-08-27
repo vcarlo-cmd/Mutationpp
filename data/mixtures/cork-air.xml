@@ -2,8 +2,12 @@
 <!-- Liège / phénolique (cork phenolic) en ablation dans l'air.            -->
 <!--                                                                       -->
 <!--   80 % liège / 20 % résine phénolique  (fractions MASSIQUES du solide) -->
+<!--   rendement en char du COMPOSITE : 20 % (TGA du cork P50, argon,      -->
+<!--     10 K/min : plateau à 20 % de 780 K à 1650 K — Sakraker et al.,    -->
+<!--     CEAS Space Journal 14:377-393, 2022)                              -->
 <!--   résine phénolique (novolac C7H6O) : rendement en char 50 %          -->
-<!--   liège                             : rendement en char 25 %          -->
+<!--   liège : 12.5 %, DÉDUIT des deux précédents                          -->
+<!--     0.80 x y_liège + 0.20 x 0.50 = 0.20  =>  y_liège = 0.125          -->
 <!--                                                                       -->
 <!-- DIFFÉRENCE ESSENTIELLE avec un carbone/phénolique (TACOT, PICA,       -->
 <!-- CPh70, Zuram) : ici le RENFORT PYROLYSE AUSSI. Le gaz n'est plus      -->
@@ -14,23 +18,34 @@
 <!--                                                                       -->
 <!-- Fermeture élémentaire (aucun atome créé), sur 100 g de vierge :       -->
 <!--                                                                       -->
-<!--   liège  80 g (C 62.4 / H 8.5 / O 28.4 % masse) -> 20 g char + 60 g gaz -->
+<!--   liège  80 g (C 62.4 / H 8.5 / O 28.4 % masse) -> 10 g char + 70 g gaz -->
+<!--     (analyse élémentaire de littérature, Quercus suber ; provenance à    -->
+<!--      confirmer. Contrôle : la reconstruction depuis les constituants     -->
+<!--      45/27/12/6/6 % subérine/lignine/polysacch./tanins/céroïdes et       -->
+<!--      leurs unités de répétition donne C 66.2 / H 8.7 / O 25.1, soit un   -->
+<!--      gaz à C:0.300, H:0.594, O:0.107 — cf. cork_pyrolysis_data.py)       -->
 <!--   résine 20 g (C7H6O)                           -> 10 g char + 10 g gaz -->
 <!--   ................................................................. -->
-<!--   composite : 30 g char (30 %) + 70 g gaz                             -->
+<!--   composite : 20 g char (20 %) + 80 g gaz                             -->
 <!--                                                                       -->
-<!--   gaz liège  : C:0.235, H:0.632, O:0.133   (x molaires élémentaires)  -->
+<!--   gaz liège  : C:0.290, H:0.587, O:0.124   (x molaires élémentaires)  -->
 <!--   gaz résine : C:0.269, H:0.626, O:0.104                              -->
-<!--   gaz total  : C:0.240, H:0.631, O:0.129   <- `cork_pyro`             -->
+<!--   gaz total  : C:0.287, H:0.592, O:0.121   <- `cork_pyro`             -->
 <!--                                                                       -->
 <!-- Char : les deux constituants carbonisent vers du carbone => C:1.0.    -->
 <!-- Si le char de liège retenait H/O, il faudrait pondérer par les masses -->
 <!-- de char de chaque constituant (cf. mise_en_donnees_cork.md §5).       -->
 <!--                                                                       -->
 <!-- Couplage en ablation stationnaire :                                   -->
-<!--   k = B'g/B'c = m_gaz/m_char = (rho_v - rho_c)/rho_c = 2.333          -->
-<!-- soit près de dix fois le TACOT (0.273). Le matériau fonctionne à très -->
-<!-- fort soufflage pyrolytique : balayer B'g jusqu'à ~10, pas 2.          -->
+<!--   k = B'g/B'c = m_gaz/m_char = (1 - y)/y = 80/20 = 4.0               -->
+<!-- soit quinze fois le TACOT (0.273). Le matériau fonctionne à très fort -->
+<!-- soufflage pyrolytique : balayer B'g jusqu'à ~10, pas 2.               -->
+<!--                                                                       -->
+<!-- k se calcule sur les MASSES. L'identité k = (rho_v - rho_c)/rho_c     -->
+<!-- suppose un volume constant, que ce matériau ne respecte pas : mesures -->
+<!-- P50 rho_v = 465.6, rho_c = 289.1 kg/m3 alors que la masse résiduelle  -->
+<!-- est 0.20, soit V_char/V_vierge = 0.32. Les densités donneraient       -->
+<!-- k = 0.61, six fois trop peu.                                          -->
 <!--                                                                       -->
 <!-- Liste d'espèces : les 25 espèces de la table B' de référence          -->
 <!-- TACOT 3.0 + C(gr). C(gr) est INDISPENSABLE : sans phase condensée     -->
@@ -49,7 +64,7 @@
 
     <element_compositions default="air">
         <composition name="air">N:0.79, O:0.21</composition>
-        <composition name="cork_pyro">C:0.240, H:0.631, O:0.129</composition>
+        <composition name="cork_pyro">C:0.287, H:0.592, O:0.121</composition>
         <composition name="cork_char">C:1.0</composition>
     </element_compositions>
 
