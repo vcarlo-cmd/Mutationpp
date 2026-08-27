@@ -10,9 +10,9 @@ de surface (avec h_w) et le terme source de pyrolyse en profondeur (h_g - h_s).
 
 Composition, issue de la fermeture élémentaire liège + résine
 (cf. cork_pyrolysis_data.py) :
-    cork_pyro : C:0.287, H:0.592, O:0.121 (fractions molaires élémentaires)
+    cork_pyro : C:0.300, H:0.594, O:0.107 (fractions molaires élémentaires)
 
-Elle mélange le gaz du liège (C:0.290, H:0.587, O:0.124, 70 g sur 100 g de
+Elle mélange le gaz du liège (C:0.304, H:0.589, O:0.107, 70 g sur 100 g de
 vierge) et celui de la résine (C:0.269, H:0.626, O:0.104, 10 g), sous
 l'hypothèse d'un rendement en char du composite de 20 % (TGA du cork P50).
 
@@ -22,7 +22,7 @@ Hypothèse : équilibre chimique du gaz, sans phase condensée. Le mélange
 l'air ni en contact avec le char.
 
 Ce gaz est plus riche en carbone que celui d'un carbone/phénolique
-(C:0.287 contre C:0.206 pour le TACOT) : la convention « sans phase
+(C:0.300 contre C:0.206 pour le TACOT) : la convention « sans phase
 condensée » est d'autant plus à vérifier, le dépôt de suie étant plus proche.
 
 La table est calculée pour une plage de pressions de 0.001 à 1000 atm

@@ -17,7 +17,7 @@
 <!-- solide et changerait h_g. C'est la convention retenue pour les tables -->
 <!-- de propriétés du gaz de pyrolyse (cf. classeur TACOT 3.0, feuille     -->
 <!-- 'Pyrolysis model'). Elle mérite d'être vérifiée ici : ce gaz est plus -->
-<!-- riche en carbone que celui d'un carbone/phénolique (C:0.287 contre    -->
+<!-- riche en carbone que celui d'un carbone/phénolique (C:0.300 contre    -->
 <!-- C:0.206), donc plus proche de la limite de dépôt de suie.             -->
 <!--                                                                       -->
 <!-- Espèces : liste de cork-air.xml privée de C(gr), plus les espèces     -->
@@ -31,7 +31,7 @@
     </species>
 
     <element_compositions default="cork_pyro">
-        <composition name="cork_pyro">C:0.287, H:0.592, O:0.121</composition>
+        <composition name="cork_pyro">C:0.300, H:0.594, O:0.107</composition>
     </element_compositions>
 
 </mixture>

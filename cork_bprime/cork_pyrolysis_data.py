@@ -39,11 +39,53 @@ M = {"C": 12.011, "H": 1.008, "O": 15.999, "N": 14.007}
 # Donnees materiau
 # ---------------------------------------------------------------------------
 
-# Liege : analyse elementaire (% masse, sec, sans cendres). Valeurs usuelles
-# de la litterature sur le liege de Quercus suber (subrine + lignine +
-# polysaccharides) : C 62-63 %, H 8.5-9 %, O 28-29 %, N ~0.6 % (neglige ici,
-# il serait sinon a ajouter comme element du gaz de pyrolyse).
-CORK_MASS_PCT = {"C": 62.4, "H": 8.5, "O": 28.4}
+# ---------------------------------------------------------------------------
+# Liege : composition BIOCHIMIQUE et unites de repetition
+# ---------------------------------------------------------------------------
+# Plutot que de prendre une analyse elementaire toute faite, on reconstruit le
+# liege depuis ses constituants et l'unite de repetition de chacun.
+#
+#   (formule de l'unite, % masse, commentaire)
+#
+# Choix des unites -- chacun est un representant, pas une verite :
+#   suberine  : polyester glycerol / acides gras en C18. Unite = glycerol
+#               esterifie par 3 acides 9,10-epoxy-18-hydroxyoctadecanoiques
+#               (le monomere dominant du liege de Quercus suber), moins 3 H2O
+#               de condensation :  C3H8O3 + 3 C18H34O4 - 3 H2O = C57H104O12
+#   lignine   : lignine de liege essentiellement guaiacyle -> alcool
+#               coniferylique C10H12O3
+#   polysacch.: unite anhydroglucose C6H10O5 (cellulose et hemicelluloses)
+#   tanins    : tanins condenses = proanthocyanidines -> unite flavan-3-ol
+#               (catechine) C15H14O6
+#   ceroides  : cires du liege, dominees par la friedeline C30H50O
+CORK_BIOCHEM = {
+    "suberine":     ({"C": 57, "H": 104, "O": 12}, 45.0),
+    "lignine":      ({"C": 10, "H":  12, "O":  3}, 27.0),
+    "polysacch.":   ({"C":  6, "H":  10, "O":  5}, 12.0),
+    "tanins":       ({"C": 15, "H":  14, "O":  6},  6.0),
+    "ceroides":     ({"C": 30, "H":  50, "O":  1},  6.0),
+}
+# Les parts somment a 96 % : le complement (cendres, humidite, extractibles
+# mineurs) n'est pas de la matiere C/H/O identifiee. On renormalise sur les
+# 96 % declares -- voir la discussion du programme.
+
+# Variante d'unite pour la suberine : acide 9,10-epoxy-18-hydroxyoctadecanoique
+# esterifie sans glycerol (- H2O). Plus reduit, donc plus riche en C.
+SUBERIN_ALT = {"C": 18, "H": 32, "O": 3}
+
+# Analyse elementaire de reference (litterature, Quercus suber, sec sans
+# cendres) : sert de CONTROLE a la reconstruction, plus de donnee d'entree.
+CORK_MASS_PCT_LITERATURE = {"C": 62.4, "H": 8.5, "O": 28.4}
+
+# Rendements en char des constituants du liege (ordre de grandeur, ATG lente
+# sous inerte) : sert de CONTROLE au rendement deduit de la TGA du composite.
+CORK_CONSTITUENT_CHAR_YIELD = {
+    "suberine":   0.15,   # polyester aliphatique, tres volatil
+    "lignine":    0.45,   # aromatique, le plus charbonnant
+    "polysacch.": 0.15,   # cellulose ~10-20 %
+    "tanins":     0.40,   # polyphenols
+    "ceroides":   0.02,   # cires : partent entierement
+}
 
 # Resine phenolique : motif novolac C7H6O (phenol + formaldehyde),
 # meme resine que celle retenue pour le TACOT.
@@ -100,6 +142,34 @@ def mass_fractions(comp):
     m = {e: n * M[e] for e, n in comp.items()}
     tot = sum(m.values())
     return {e: v / tot for e, v in m.items()}
+
+
+def cork_elemental(biochem=None):
+    """Analyse elementaire (% masse) du liege depuis ses unites de repetition.
+
+    Chaque constituant apporte la composition elementaire de son unite de
+    repetition, ponderee par sa part massique ; les parts sont renormalisees.
+    """
+    biochem = biochem or CORK_BIOCHEM
+    total = sum(w for _, w in biochem.values())
+    out = {"C": 0.0, "H": 0.0, "O": 0.0}
+    for unit, w in biochem.values():
+        y = mass_fractions(unit)
+        for e in out:
+            out[e] += (w / total) * y.get(e, 0.0)
+    return {e: 100.0 * v for e, v in out.items()}
+
+
+def cork_char_yield_from_constituents(biochem=None, yields=None):
+    """Rendement en char du liege par additivite des constituants."""
+    biochem = biochem or CORK_BIOCHEM
+    yields = yields or CORK_CONSTITUENT_CHAR_YIELD
+    total = sum(w for _, w in biochem.values())
+    return sum((w / total) * yields[name] for name, (_, w) in biochem.items())
+
+
+# Analyse elementaire retenue : celle qui est RECONSTRUITE (cf. main()).
+CORK_MASS_PCT = cork_elemental()
 
 
 def moles_from_mass_pct(mass_pct, mass):
@@ -197,6 +267,58 @@ def main():
     line = "=" * 76
 
     print(line)
+    print("0. LE LIEGE RECONSTRUIT DEPUIS SES UNITES DE REPETITION")
+    print(line)
+    tot = sum(w for _, w in CORK_BIOCHEM.values())
+    print(f"  {'constituant':12s} {'% masse':>8}  {'unite':>12}  "
+          f"{'M':>8}  {'C':>6} {'H':>6} {'O':>6}  (% masse de l'unite)")
+    for name, (unit, w) in CORK_BIOCHEM.items():
+        y = mass_fractions(unit)
+        f = "".join(f"{e}{int(n)}" for e, n in
+                    sorted(unit.items(), key=lambda kv: "CHO".index(kv[0])))
+        print(f"  {name:12s} {w:8.1f}  {f:>12}  {molar_mass(unit):8.2f}  "
+              f"{100*y['C']:6.1f} {100*y['H']:6.1f} {100*y['O']:6.1f}")
+    print(f"  {'':12s} {tot:8.1f}   <- le complement a 100 % (cendres,"
+          " humidite, extractibles) n'est pas de la matiere C/H/O identifiee")
+
+    rec = cork_elemental()
+    lit = CORK_MASS_PCT_LITERATURE
+    print(f"\n  liege reconstruit (parts renormalisees) : "
+          f"C {rec['C']:.2f}  H {rec['H']:.2f}  O {rec['O']:.2f}")
+    print(f"  analyse elementaire de litterature       : "
+          f"C {lit['C']:.2f}  H {lit['H']:.2f}  O {lit['O']:.2f}")
+    print(f"  ecart                                    : "
+          f"C {rec['C']-lit['C']:+.2f}  H {rec['H']-lit['H']:+.2f}  "
+          f"O {rec['O']-lit['O']:+.2f}")
+    alt = cork_elemental({**CORK_BIOCHEM, "suberine": (SUBERIN_ALT, 45.0)})
+    print(f"  variante suberine sans glycerol (C18H32O3) : "
+          f"C {alt['C']:.2f}  H {alt['H']:.2f}  O {alt['O']:.2f}")
+    print("  -> H est retrouve a 0.2 point pres ; C est surestime de ~4 points")
+    print("     (et O sous-estime d'autant). Si les 4 % manquants sont de la")
+    print("     matiere oxygenee, la reconstruction rejoint la mesure.")
+
+    print("\n" + line)
+    print("1'. CONTROLE DU RENDEMENT EN CHAR PAR ADDITIVITE DES CONSTITUANTS")
+    print(line)
+    add = cork_char_yield_from_constituents()
+    print(f"  {'constituant':12s} {'% masse':>8} {'char':>7}")
+    for name, (_, w) in CORK_BIOCHEM.items():
+        print(f"  {name:12s} {w:8.1f} {100*CORK_CONSTITUENT_CHAR_YIELD[name]:6.0f}%")
+    print(f"  -> liege : {100*add:.1f} %   (contre {100*CORK_CHAR_YIELD:.1f} %"
+          f" deduit de la TGA du composite)")
+    comp_add = W_CORK * add + W_RESIN * RESIN_CHAR_YIELD
+    print(f"  -> composite : {100*comp_add:.1f} %  contre "
+          f"{100*P50_CHAR_YIELD:.1f} % mesure sur le P50.")
+    print("  Les deux estimations ne se rejoignent pas : le P50 contient un")
+    print("  plastifiant glycol qui part entierement en gaz, son rapport")
+    print("  liege/resine n'est pas force 80/20, et les rendements par")
+    print("  constituant ci-dessus sont des ordres de grandeur. On garde la")
+    print("  MESURE (composite 20 %) : c'est elle qui fixe k.")
+    bx = composite_balance(cork_char_yield=add)
+    print(f"  Pour information, avec un liege a {100*add:.1f} % : "
+          f"gaz {fmt(normalize(bx['gas']))}, k = {bx['k']:.3f}")
+
+    print("\n" + line)
     print("LIEGE / PHENOLIQUE  80 / 20 (masse) -- fermeture elementaire")
     print(line)
 
