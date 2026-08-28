@@ -1,0 +1,100 @@
+<!-- ===================================================================== -->
+<!-- MX-4926 — carbone/phénolique chargé noir de carbone, ablation dans    -->
+<!-- l'air. Composite de nozzle SRM (Fiberite / Cytec), renfort tissé      -->
+<!-- satin de 5 ou 8, matrice résol SC-1008.                               -->
+<!--                                                                       -->
+<!-- Composition massique (données utilisateur) :                          -->
+<!--   renfort  41 – 56 %  fibres de carbone ex-rayon (ex-cellulose)       -->
+<!--   matrice  31 – 37 %  résol phénol-formaldéhyde SC-1008               -->
+<!--   charge   11 – 16 %  noir de carbone                                 -->
+<!--                                                                       -->
+<!-- Les trois plages ne sont PAS indépendantes : leurs bornes basses ne    -->
+<!-- somment qu'à 83 % et leurs bornes hautes à 109 %. La contrainte de     -->
+<!-- fermeture Σw = 1 restreint le renfort à 47 – 56 % ; les 41 % annoncés  -->
+<!-- ne sont atteignables avec aucun couple (résine, charge) admissible.    -->
+<!-- Centroïde du domaine admissible : 52.2 / 34.2 / 13.6 %.                -->
+<!-- ===================================================================== -->
+<!--                                                                       -->
+<!-- IMPORTANT — pourquoi ce fichier est identique à sc1008-air.xml :       -->
+<!--                                                                       -->
+<!-- La table B' est une condition limite de thermochimie de surface. Le    -->
+<!-- solveur (Thermodynamics::surfaceMassBalance) ne consomme que trois     -->
+<!-- compositions ELEMENTAIRES — bord de couche limite, gaz de pyrolyse,    -->
+<!-- char — plus T, P et B'g. Ni la densité, ni la porosité, ni le taux de  -->
+<!-- charge, ni le rapport fibres/résine n'entrent dans ce bilan.           -->
+<!--                                                                       -->
+<!--   - gaz de pyrolyse : produit par la RESINE SEULE. Le renfort ex-rayon -->
+<!--     est déjà carbonisé et le noir de carbone est inerte : ni l'un ni   -->
+<!--     l'autre ne dégaze. La matrice étant le SC-1008, la composition     -->
+<!--     élémentaire du gaz est celle du SC-1008 à l'identique — seule la   -->
+<!--     QUANTITE produite change (donc B'g, pas la table).                 -->
+<!--   - char : fibres ex-rayon, noir de carbone et résol carbonisé sont    -->
+<!--     tous les trois du carbone pur => C:1.0, quelles que soient les     -->
+<!--     proportions.                                                       -->
+<!--                                                                       -->
+<!-- B'c(T, P, B'g) et h_w(T, P, B'g) sont donc RIGOUREUSEMENT ceux de      -->
+<!-- sc1008-air.xml (même liste d'espèces, mêmes trois compositions). Même  -->
+<!-- situation que cph70-air_25.xml face à tacot-air_25.xml.                -->
+<!-- Ce fichier n'est justifié que par la traçabilité : nommer le matériau. -->
+<!--                                                                       -->
+<!-- Pour les propriétés du gaz de pyrolyse seul (h_g, Cp, M, gamma), il    -->
+<!-- n'y a pas non plus de fichier propre : utiliser sc1008-pyrogas.xml.    -->
+<!-- ===================================================================== -->
+<!--                                                                       -->
+<!-- CE QUI, EN REVANCHE, EST PROPRE AU MX-4926 — la réponse matériau.      -->
+<!--                                                                       -->
+<!-- Rendement en char du composite (le renfort et la charge ne perdent     -->
+<!-- rien, la résine garde Y = 0.55 — cf. sc1008_bprime/resine_sc1008.md) : -->
+<!--                                                                       -->
+<!--   Y_comp = w_fibre + w_charge + 0.55 * w_resine                        -->
+<!--          = 0.8463 au centroïde   (0.8335 – 0.8605 sur le domaine)      -->
+<!--                                                                       -->
+<!-- d'où le couplage d'ablation stationnaire, indépendant des densités :   -->
+<!--                                                                       -->
+<!--   k = B'g/B'c = (rho_v - rho_c)/rho_c = (1 - Y_comp)/Y_comp            -->
+<!--     = 0.1817 au centroïde        (0.1621 – 0.1998 sur le domaine)      -->
+<!--                                                                       -->
+<!--        TACOT   (10/10/80)      k = 0.2727                              -->
+<!--        CPh70   (69/30/1)       k = 0.1385                              -->
+<!--        MX-4926 (52/34/14 wt)   k = 0.1817                              -->
+<!--                                                                       -->
+<!-- Densités, avec rho = 1600 (fibres ex-cellulose, comme le TACOT),       -->
+<!-- 1250 (résol cuit) et 1800 kg/m3 (noir de carbone), porosité 0.02 :     -->
+<!--                                                                       -->
+<!--        rho_v = 1451 kg/m3   rho_c = 1228 kg/m3   gaz = 223 kg/m3       -->
+<!--                             (15.4 % de la masse vierge)                -->
+<!--                                                                       -->
+<!-- La porosité 0.02 n'est pas ajustée librement : c'est celle qui rend    -->
+<!-- la densité publiée du MX-4926 (~1.45 g/cm3). Aucune de ces valeurs     -->
+<!-- n'entre dans le XML — elles vivent dans le solveur de réponse          -->
+<!-- matériau ; voir tacot_bprime/material_response.py.                     -->
+<!-- ===================================================================== -->
+<!--                                                                       -->
+<!-- Espèces : liste de sc1008-air.xml, reprise à l'identique pour que les  -->
+<!-- deux tables soient comparables terme à terme — 25 espèces de la table  -->
+<!-- B' de référence TACOT 3.0, plus le phénol (produit dominant en masse   -->
+<!-- de la pyrolyse d'un résol), plus C(gr).                                -->
+<!--                                                                       -->
+<!-- C(gr) est indispensable au solveur d'équilibre multiphase : sans lui   -->
+<!-- l'excès de carbone du char ne peut pas se condenser, Y_w,C -> 1 et     -->
+<!-- B'c sature sur une valeur non physique (~200 au lieu de ~0.087 à       -->
+<!-- 300 K et B'g = 0).                                                     -->
+<!--                                                                       -->
+<!--   bprime -T 300:25:4000 -P 101325 -b 0.5 \                             -->
+<!--          -m mx4926-air -bl air -py mx4926_pyro \                       -->
+<!--          -char mx4926_char -char-elem C                                -->
+<!-- ===================================================================== -->
+<mixture thermo_db="NASA-9">
+
+    <species>
+       C H O N CH4 CN CO CO2 C2 C2H C2H2,acetylene C3 C4 C4H2,butadiyne C5
+       HCN H2 H2O N2 CH2OH CNN CNC CNCOCN C6H6 C6H5OH,phenol HNC C(gr)
+    </species>
+
+    <element_compositions default="air">
+        <composition name="air">N:0.79, O:0.21</composition>
+        <composition name="mx4926_pyro">C:0.2526, H:0.6407, O:0.1068</composition>
+        <composition name="mx4926_char">C:1.0</composition>
+    </element_compositions>
+
+</mixture>
