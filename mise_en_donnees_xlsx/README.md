@@ -19,6 +19,7 @@ python verification_xlsx.py          # évalue toutes les formules et confronte 
 | `CPh70` | carbone/phénolique dense | **A**, héritée du TACOT (même résine) | C:0.206, H:0.679, O:0.115 |
 | `ZURAM` | carbone/phénolique DLR | **B** — conversion masse → mole d'une analyse élémentaire mesurée | C:0.171, H:0.722, O:0.107 |
 | `SC-1008` | résol (matrice du PICA) | **C** — fermeture élémentaire motif + rendement en char | C:0.2526, H:0.6407, O:0.1068 |
+| `MX-4926` | carbone/phénolique chargé noir de carbone | **C**, héritée du SC-1008 (même résine) | C:0.2526, H:0.6407, O:0.1068 |
 | `Liège-phénolique` | liège / phénolique 80/20 | **D** — fermeture sur DEUX constituants pyrolysants | C:0.287, H:0.592, O:0.121 |
 | `Carbone` | graphite | **E** — stœchiométrie directe, pas de gaz | C:1.0 (char) |
 | `Silice` | SiO₂ | **E** — char multi-élément, `-char-elem Si` | Si:1.0, O:2.0 |
@@ -58,11 +59,12 @@ au `§4` avec la valeur réellement présente dans le dépôt.
 Sortie attendue :
 
 ```
-543 formules évaluées, 0 erreur(s)
+621 formules évaluées, 0 erreur(s)
 [OK ] TACOT              tacot_pyro       ... écart max 0.06 %
 [OK ] CPh70              cph70_pyro       ... écart max 0.06 %
 [OK ] ZURAM              VKIZuramPyroGas  ... écart max 0.03 %
 [OK ] SC-1008            sc1008_pyro      ... écart max 0.01 %
+[OK ] MX-4926            mx4926_pyro      ... écart max 0.01 %
 [OK ] Liège-phénolique   cork_pyro        ... écart max 0.04 %
 ```
 
@@ -82,5 +84,6 @@ documentent déjà, en prose, les fichiers suivants du dépôt.
 | CPh70 | `tacot_bprime/cph70_vs_tacot.md`, `cph70_bprime/README.md` |
 | ZURAM | `zuram_bprime/resine_zuram.md` |
 | SC-1008 | `sc1008_bprime/resine_sc1008.md` |
+| MX-4926 | `mx4926_bprime/composition_mx4926.md`, `mx4926_bprime/README.md` |
 | Liège | `cork_bprime/mise_en_donnees_cork.md`, `cork_pyrolysis_data.py` |
 | Carbone | `carbon_bprime/bprime_carbon_physique.md` |
