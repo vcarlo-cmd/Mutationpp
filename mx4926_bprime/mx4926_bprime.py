@@ -433,6 +433,30 @@ if __name__ == "__main__":
 
     plot_bg_comparison(results_by_bg)
 
+    # Table B'c au format long : Tw_K, P_atm, Bg, Bc (nTw x nP x nBg lignes)
+    out_csv = "mx4926_bprime_bc_table.csv"
+    with open(out_csv, "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["Tw_K", "P_atm", "Bg", "Bc"])
+        for bg in BG_VALUES:
+            pressures_atm, all_data_bg = results_by_bg[bg]
+            for P_atm, (_, data) in zip(pressures_atm, all_data_bg):
+                for row in data:
+                    w.writerow([f"{row[0]:.6g}", f"{P_atm:.6g}", f"{bg:g}",
+                                f"{row[1]:.6e}"])
+    print(f"Table B'c (nTw x nP x nBg) sauvegardée : {out_csv}")
+
+    # Table h_w au format long, à B'g = 0 : Tw_K, P_atm, hw_MJkg (nTw x nP lignes)
+    out_csv = "mx4926_bprime_hw_table.csv"
+    with open(out_csv, "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["Tw_K", "P_atm", "hw_MJkg"])
+        pressures_atm, all_data_bg0 = results_by_bg[0.0]
+        for P_atm, (_, data) in zip(pressures_atm, all_data_bg0):
+            for row in data:
+                w.writerow([f"{row[0]:.6g}", f"{P_atm:.6g}", f"{row[2]:.6e}"])
+    print(f"Table h_w (nTw x nP, B'g=0) sauvegardée : {out_csv}")
+
     # --- B'c en fonction de B'g -------------------------------------------
     print("\n=== Balayage B'c(B'g) ===")
     sweep = bc_vs_bg(bprime_path)
