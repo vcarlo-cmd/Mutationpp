@@ -280,6 +280,18 @@ if __name__ == "__main__":
                 )
     print(f"\nTable complète sauvegardée : {out_csv}")
 
+    # 3bis. Table h_g dédiée, au format long : Tw_K, P_atm, hg_kJkg
+    #       (nTw x nP lignes, colonnes dans cet ordre)
+    out_csv = "zuram_pyrolysis_gas_hg_table.csv"
+    with open(out_csv, "w", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(["Tw_K", "P_atm", "hg_kJkg"])
+        for P_atm, data in zip(PRESSURES_ATM, all_data):
+            for row in data:
+                writer.writerow([f"{row[0]:.6g}", f"{P_atm:.6g}",
+                                  f"{row[3] * 1e-3:.6e}"])
+    print(f"Table h_g (nTw x nP) sauvegardée : {out_csv}")
+
     # 4. Visualisation
     plot_gas_properties(all_data, PRESSURES_ATM)
     plot_enthalpy_focus(all_data, PRESSURES_ATM)
