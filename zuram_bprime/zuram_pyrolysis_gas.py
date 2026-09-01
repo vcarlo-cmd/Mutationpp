@@ -61,12 +61,12 @@ MPP_INDICES = "0,5,9,10,18,3,32"
 
 # colonnes de sortie, dans l'ordre de MPP_INDICES : (nom, facteur, unité)
 QUANTITIES = [
-    ("M",     1e3,  "kg/kmol"),
-    ("Cp",    1e-3, "kJ/kg-K"),
+    ("M",     1.0,  "kg/mol"),
+    ("Cp",    1.0,  "J/kg-K"),
     ("h",     1.0,  "J/kg"),
     ("gamma", 1.0,  "-"),
     ("rho",   1.0,  "kg/m3"),
-    ("mu",    1e4,  "millipoise"),
+    ("mu",    1.0,  "Pa-s"),
 ]
 
 
@@ -158,9 +158,9 @@ def plot_gas_properties(all_data, pressures_atm):
         r"(C:0.171, H:0.722, O:0.107 ; $P \in [10^{-3},\,10^3]$ atm)",
         fontsize=14,
     )
-    ylabels = {"M": "M [kg/kmol]", "Cp": r"$C_p$ [kJ/kg/K]",
+    ylabels = {"M": "M [kg/mol]", "Cp": r"$C_p$ [J/kg/K]",
                "h": r"$h_g$ [J/kg]", "gamma": r"$\gamma$",
-               "rho": r"$\rho$ [kg/m³]", "mu": r"$\mu$ [millipoise]"}
+               "rho": r"$\rho$ [kg/m³]", "mu": r"$\mu$ [Pa·s]"}
 
     for ax, (name, fac, unit) in zip(axes.ravel(), QUANTITIES):
         col = 1 + [q[0] for q in QUANTITIES].index(name)
