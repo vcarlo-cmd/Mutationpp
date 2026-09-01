@@ -17,7 +17,7 @@ La table est calculée pour une plage de pressions de 0.001 à 1000 atm
 (espacement logarithmique) et une plage de températures de 200 à 4000 K.
 
 Usage :
-    python pyrolysis_gas_enthalpy.py
+    python tacot_pyrolysis_gas.py
 
 Prérequis :
     - Le binaire `mppequil` doit être dans le PATH ou dans build/src/apps/
@@ -25,7 +25,7 @@ Prérequis :
     - matplotlib et numpy installés
 
 Pour comparer ces résultats à la table de référence du classeur TACOT 3.0,
-voir pyrolysis_gas_enthalpy_validation.py.
+voir tacot_pyrolysis_gas_validation.py.
 """
 
 import subprocess
@@ -180,7 +180,7 @@ def plot_gas_properties(all_data, pressures_atm):
         ax.legend(fontsize=7, ncol=2, title="Pression", title_fontsize=7)
 
     plt.tight_layout()
-    out_png = "pyrolysis_gas_enthalpy.png"
+    out_png = "tacot_pyrolysis_gas.png"
     plt.savefig(out_png, dpi=150)
     print(f"Figure sauvegardée : {out_png}")
     plt.close()
@@ -215,7 +215,7 @@ if __name__ == "__main__":
         print(f"{len(data)} points")
 
     # 3. Sauvegarde CSV globale : Tw_K, P_atm en premières colonnes
-    out_csv = "pyrolysis_gas_enthalpy.csv"
+    out_csv = "tacot_pyrolysis_gas.csv"
     quantity_cols = [f"{name}[{unit}]" for name, _, unit in QUANTITIES]
     with open(out_csv, "w", newline="") as f:
         writer = csv.writer(f)
