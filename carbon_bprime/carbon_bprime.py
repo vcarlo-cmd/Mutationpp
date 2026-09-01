@@ -207,25 +207,29 @@ if __name__ == "__main__":
                 )
     print(f"\nTable complète sauvegardée : {out_csv}")
 
-    # 3bis. Table B'c au format long : Tw_K, P_atm, Bg, Bc (nTw x nP x nBg=1)
+    # 3bis. Table B'c au format long, unites SI : Tw_K, P_bar, Bg, Bc
+    #       (nTw x nP x nBg=1)
     out_csv = "carbon_bprime_bc_table.csv"
     with open(out_csv, "w", newline="") as f:
         writer = csv.writer(f)
-        writer.writerow(["Tw_K", "P_atm", "Bg", "Bc"])
+        writer.writerow(["Tw_K", "P_bar", "Bg", "Bc"])
         for P_atm, (_, data) in zip(PRESSURES_ATM, all_data):
+            P_bar = P_atm * ONEATM / 1.0e5
             for row in data:
-                writer.writerow([f"{row[0]:.6g}", f"{P_atm:.6g}", BG,
+                writer.writerow([f"{row[0]:.6g}", f"{P_bar:.6g}", BG,
                                   f"{row[1]:.6e}"])
     print(f"Table B'c (nTw x nP x nBg) sauvegardée : {out_csv}")
 
-    # 3ter. Table h_w au format long : Tw_K, P_atm, hw_MJkg (nTw x nP)
+    # 3ter. Table h_w au format long, unites SI : Tw_K, P_bar, hw_Jkg (nTw x nP)
     out_csv = "carbon_bprime_hw_table.csv"
     with open(out_csv, "w", newline="") as f:
         writer = csv.writer(f)
-        writer.writerow(["Tw_K", "P_atm", "hw_MJkg"])
+        writer.writerow(["Tw_K", "P_bar", "hw_Jkg"])
         for P_atm, (_, data) in zip(PRESSURES_ATM, all_data):
+            P_bar = P_atm * ONEATM / 1.0e5
             for row in data:
-                writer.writerow([f"{row[0]:.6g}", f"{P_atm:.6g}", f"{row[2]:.6e}"])
+                writer.writerow([f"{row[0]:.6g}", f"{P_bar:.6g}",
+                                  f"{row[2] * 1.0e6:.6e}"])
     print(f"Table h_w (nTw x nP) sauvegardée : {out_csv}")
 
     # 4. Visualisation

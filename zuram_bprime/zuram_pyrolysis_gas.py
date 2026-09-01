@@ -63,7 +63,7 @@ MPP_INDICES = "0,5,9,10,18,3,32"
 QUANTITIES = [
     ("M",     1e3,  "kg/kmol"),
     ("Cp",    1e-3, "kJ/kg-K"),
-    ("h",     1e-3, "kJ/kg"),
+    ("h",     1.0,  "J/kg"),
     ("gamma", 1.0,  "-"),
     ("rho",   1.0,  "kg/m3"),
     ("mu",    1e4,  "millipoise"),
@@ -159,7 +159,7 @@ def plot_gas_properties(all_data, pressures_atm):
         fontsize=14,
     )
     ylabels = {"M": "M [kg/kmol]", "Cp": r"$C_p$ [kJ/kg/K]",
-               "h": r"$h_g$ [kJ/kg]", "gamma": r"$\gamma$",
+               "h": r"$h_g$ [J/kg]", "gamma": r"$\gamma$",
                "rho": r"$\rho$ [kg/m³]", "mu": r"$\mu$ [millipoise]"}
 
     for ax, (name, fac, unit) in zip(axes.ravel(), QUANTITIES):
@@ -265,18 +265,19 @@ if __name__ == "__main__":
         all_data.append(data)
         print(f"{len(data)} points")
 
-    # 3. Sauvegarde CSV globale : Tw_K, P_atm en premières colonnes
+    # 3. Sauvegarde CSV globale, unites SI : Tw_K, P_bar en premières colonnes
     out_csv = "zuram_pyrolysis_gas.csv"
     quantity_cols = [f"{name}[{unit}]" for name, _, unit in QUANTITIES]
     with open(out_csv, "w", newline="") as f:
         writer = csv.writer(f)
-        writer.writerow(["Tw_K", "P_atm"] + quantity_cols)
+        writer.writerow(["Tw_K", "P_bar"] + quantity_cols)
         for P_atm, data in zip(PRESSURES_ATM, all_data):
+            P_bar = P_atm * ONEATM / 1.0e5
             for row in data:
                 T = row[0]
                 vals = [row[1 + i] * fac for i, (_, fac, _) in enumerate(QUANTITIES)]
                 writer.writerow(
-                    [f"{T:.6g}", f"{P_atm:.6g}"] + [f"{v:.6e}" for v in vals]
+                    [f"{T:.6g}", f"{P_bar:.6g}"] + [f"{v:.6e}" for v in vals]
                 )
     print(f"\nTable complète sauvegardée : {out_csv}")
 
