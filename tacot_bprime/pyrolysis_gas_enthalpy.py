@@ -214,32 +214,20 @@ if __name__ == "__main__":
         all_data.append(data)
         print(f"{len(data)} points")
 
-    # 3. Sauvegarde CSV globale
+    # 3. Sauvegarde CSV globale : Tw_K, P_atm en premières colonnes
     out_csv = "pyrolysis_gas_enthalpy.csv"
-    header = ["T_K"] + [f"{name}[{unit}]" for name, _, unit in QUANTITIES]
+    quantity_cols = [f"{name}[{unit}]" for name, _, unit in QUANTITIES]
     with open(out_csv, "w", newline="") as f:
         writer = csv.writer(f)
-        writer.writerow(["P_atm"] + header)
+        writer.writerow(["Tw_K", "P_atm"] + quantity_cols)
         for P_atm, data in zip(PRESSURES_ATM, all_data):
             for row in data:
                 T = row[0]
                 vals = [row[1 + i] * fac for i, (_, fac, _) in enumerate(QUANTITIES)]
                 writer.writerow(
-                    [f"{P_atm:.6g}", f"{T:.6g}"] + [f"{v:.6e}" for v in vals]
+                    [f"{T:.6g}", f"{P_atm:.6g}"] + [f"{v:.6e}" for v in vals]
                 )
     print(f"\nTable complète sauvegardée : {out_csv}")
-
-    # 3bis. Table h_g dédiée, au format long : Tw_K, P_atm, hg_kJkg
-    #       (nTw x nP lignes, colonnes dans cet ordre)
-    out_csv = "pyrolysis_gas_enthalpy_hg_table.csv"
-    with open(out_csv, "w", newline="") as f:
-        writer = csv.writer(f)
-        writer.writerow(["Tw_K", "P_atm", "hg_kJkg"])
-        for P_atm, data in zip(PRESSURES_ATM, all_data):
-            for row in data:
-                writer.writerow([f"{row[0]:.6g}", f"{P_atm:.6g}",
-                                  f"{row[3] * 1e-3:.6e}"])
-    print(f"Table h_g (nTw x nP) sauvegardée : {out_csv}")
 
     # 4. Visualisation
     plot_gas_properties(all_data, PRESSURES_ATM)
