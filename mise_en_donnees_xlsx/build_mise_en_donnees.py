@@ -233,6 +233,7 @@ ws_tac = wb.create_sheet("TACOT")
 ws_cph = wb.create_sheet("CPh70")
 ws_zur = wb.create_sheet("ZURAM")
 ws_sc  = wb.create_sheet("SC-1008")
+ws_mx  = wb.create_sheet("MX-4926")
 ws_cor = wb.create_sheet("Liège-phénolique")
 ws_car = wb.create_sheet("Carbone")
 ws_sil = wb.create_sheet("Silice")
@@ -1313,7 +1314,291 @@ r = xmlblock(ws, r, [
     '    </element_compositions>',
     '</mixture>',
 ])
-SC_XML = (rxml, rk)
+SC_XML = (rxml, rk, rxE, rY)
+
+
+# ===========================================================================
+# ONGLET  MX-4926
+# ===========================================================================
+ws = ws_mx
+setup(ws, "7030A0")
+r = title(ws, "MX-4926 — carbone/phénolique chargé noir de carbone",
+          "Matrice SC-1008 : le gaz est HÉRITÉ · démontre que le taux de charge n'entre pas dans le XML, et que la fermeture Σw = 1 tronque une des plages annoncées",
+          "data/mixtures/mx4926-air.xml")
+
+r = section(ws, r, "§0 — FICHE D'IDENTITÉ")
+r = kv(ws, r, "Matériau", "MX-4926 — carbone/phénolique chargé", "matériau de tuyère de moteur à propergol solide")
+r = kv(ws, r, "Renfort", "fibres de carbone ex-rayon (ex-cellulose), tissu satin de 5 ou de 8", "le satin accommode les formes complexes et tient la stabilité dimensionnelle")
+r = kv(ws, r, "Matrice", "résol phénol-formaldéhyde SC-1008 — IDENTIQUE au PICA", "cf. onglet SC-1008 §0 ; liant à haut rendement en char")
+r = kv(ws, r, "Charge", "noir de carbone", "optimise l'isolation thermique et la formation du char")
+r = kv(ws, r, "Source du gaz", "route C, HÉRITÉE du SC-1008 (résine inchangée)", "mx4926_bprime/composition_mx4926.md §2.1")
+r = kv(ws, r, "Compositions du XML", "air (-bl) · mx4926_pyro (-py) · mx4926_char (-char, -char-elem C)", "mx4926_bprime/README.md")
+r += 1
+
+r = section(ws, r, "§1 — HYPOTHÈSES")
+r = hyp(ws, r, "H1", "La matrice est RIGOUREUSEMENT le SC-1008 de l'onglet précédent : même motif C7.5H6O, même rendement en char.",
+        "C'est la seule chose dont dépend la composition du gaz. Tout le §3 de l'onglet SC-1008 s'applique tel quel et n'est PAS refait ici.")
+r = hyp(ws, r, "H2", "Le renfort ex-rayon ne dégaze pas : une fibre de carbone est déjà le produit d'une pyrolyse.",
+        "Perte de masse nulle jusqu'au domaine de sublimation. Contre-exemple : le liège, qui pyrolyse — son onglet doit alors fermer sur DEUX constituants.")
+r = hyp(ws, r, "H3", "Le noir de carbone est inerte et ne dégaze pas non plus.",
+        "Carbone quasi pur (97-99 % C). Du point de vue du bilan de surface il se comporte exactement comme des fibres.")
+r = hyp(ws, r, "H4", "Les trois constituants carbonisent vers le carbone pur ⇒ char C:1.0 quelles que soient les proportions.",
+        "La pondération n_E(char) = Σ_i (m_char,i/M_i)·ν_E,i se réduit à C:1.0 dès que tous les constituants donnent le même élément.")
+r = hyp(ws, r, "H5", "Aucune grandeur volumique n'entre dans le bilan de surface.",
+        "Le bilan est écrit sur des fractions massiques élémentaires, donc normalisées : ni ρ, ni porosité (Constantes §4).")
+r = hyp(ws, r, "H6", "Les trois plages de composition annoncées doivent se refermer à 100 %.",
+        "Elles sont données indépendamment les unes des autres, mais ne peuvent pas l'être : c'est l'objet de l'étape 1 du §3.")
+r += 1
+
+r = section(ws, r, "§2 — DONNÉES D'ENTRÉE")
+rb = r + 1
+r = headrow(ws, r, ["Fractions MASSIQUES annoncées", "borne basse", "borne haute", "", "", "", ""])
+r = row(ws, r, ["renfort — fibres de carbone ex-rayon", 0.41, 0.56, "", "", "", ""],
+        fonts=[F_LAB, F_IN, F_IN, None, None, None, None], nfs=[None, NF_X3, NF_X3],
+        fills=[None, FILL_KEY, FILL_KEY, None, None, None, None])
+rwf = r - 1
+r = row(ws, r, ["matrice — résol SC-1008", 0.31, 0.37, "", "", "", ""],
+        fonts=[F_LAB, F_IN, F_IN, None, None, None, None], nfs=[None, NF_X3, NF_X3],
+        fills=[None, FILL_KEY, FILL_KEY, None, None, None, None])
+rwr = r - 1
+r = row(ws, r, ["charge — noir de carbone", 0.11, 0.16, "", "", "", ""],
+        fonts=[F_LAB, F_IN, F_IN, None, None, None, None], nfs=[None, NF_X3, NF_X3],
+        fills=[None, FILL_KEY, FILL_KEY, None, None, None, None])
+rwc = r - 1
+r = row(ws, r, ["SOMME", f"=SUM(C{rwf}:C{rwc})", f"=SUM(D{rwf}:D{rwc})", "", "", "", ""],
+        fonts=[F_LABB, F_OUT, F_OUT, None, None, None, None], nfs=[None, NF_X3, NF_X3])
+rsum = r - 1
+r = note(ws, r, "Ces deux sommes sont le point de départ de tout l'onglet : 0.830 et 1.090. "
+                "Elles encadrent 1 sans le valoir — les trois plages ne sont donc pas indépendantes.")
+r = kv(ws, r, "rendement en char de la RÉSINE, Y", f"='SC-1008'!C{SC_XML[3]}",
+       "lien vers l'onglet SC-1008 §2 : 0.55, recoupement [TS] et ATG", font=F_LINK, nf=NF_X3)
+rY = r - 1
+r = kv(ws, r, "ρ intrinsèque fibres [kg/m³]", 1600, "fibres ex-cellulose — Description!A11 du classeur TACOT 3.0 ; le rayon EST une cellulose régénérée")
+rrf = r - 1
+r = kv(ws, r, "ρ intrinsèque résol cuit [kg/m³]", 1250, "valeur usuelle d'un phénolique cuit (1200-1300)")
+rrr = r - 1
+r = kv(ws, r, "ρ intrinsèque noir de carbone [kg/m³]", 1800, "valeur usuelle (1800-2100)")
+rrc_ = r - 1
+r = kv(ws, r, "densité publiée du MX-4926 [kg/m³]", 1450, "≈ 1.45 g/cm³ — sert au contrôle C du §5, pas au calcul", key=True)
+rrpub = r - 1
+r += 1
+
+r = section(ws, r, "§3 — CALCUL PAS À PAS")
+r = step(ws, r, "Étape 1 — FERMETURE : les plages effectives ne sont pas les plages annoncées",
+         "w_i,min_eff = MAX(w_i,min ; 1 − Σ_{j≠i} w_j,max)   et symétriquement")
+reff = r + 1
+r = headrow(ws, r, ["Plages EFFECTIVES après fermeture", "min", "max", "annoncé min", "annoncé max",
+                    "largeur perdue", ""])
+for lab, rr_, o1, o2 in [("renfort", rwf, rwr, rwc),
+                         ("matrice", rwr, rwf, rwc),
+                         ("charge",  rwc, rwf, rwr)]:
+    r = row(ws, r, [lab,
+                    f"=MAX(C{rr_},1-D{o1}-D{o2})", f"=MIN(D{rr_},1-C{o1}-C{o2})",
+                    f"=C{rr_}", f"=D{rr_}",
+                    f"=(D{rr_}-C{rr_})-(D{r}-C{r})", ""],
+            fonts=[F_LAB, F_CALC, F_CALC, F_LINK, F_LINK, F_OUT, None],
+            nfs=[None, NF_X3, NF_X3, NF_X3, NF_X3, NF_X3])
+    if lab == "renfort":
+        reff_f = r - 1
+    elif lab == "matrice":
+        reff_r = r - 1
+r = note(ws, r, "Une seule ligne a une largeur perdue non nulle : le RENFORT, dont la borne basse passe de 41 % à 47 %. Pour descendre à 41 % de fibres il "
+                "faudrait 59 % de résine + charge, alors que le maximum admissible est 37 + 16 = 53 %. "
+                "Les 41 % annoncés ne sont atteignables avec AUCUN couple (résine, charge) admissible. "
+                "Les plages de la matrice et de la charge survivent intactes — et c'est la matrice qui "
+                "pilote toute la suite (étape 4).")
+
+r = step(ws, r, "Étape 2 — composition retenue : le centroïde du domaine admissible",
+         "centroïde d'AIRE du polygone (5 sommets), pas une moyenne de grille")
+rce = r + 1
+r = headrow(ws, r, ["Composition retenue (fractions massiques)", "renfort", "matrice", "charge", "Somme", "", ""])
+r = row(ws, r, ["centroïde exact du polygone admissible",
+                0.52202381, 0.34166667, f"=1-C{r}-D{r}", f"=SUM(C{r}:E{r})", "", ""],
+        fonts=[F_LAB, F_IN, F_IN, F_CALC, F_CALC, None, None],
+        nfs=[None, "0.00000000", "0.00000000", "0.00000000", "0.00000000"],
+        fills=[None, FILL_KEY, FILL_KEY, None, None, None, None])
+rc = r - 1
+r = note(ws, r, "Les deux valeurs bleues sont produites par mx4926_bprime/composition_mx4926_verification.py §2 "
+                "(clipping de Sutherland-Hodgman, puis formule du centroïde d'aire) : un polygone à 5 sommets "
+                "ne se moyenne pas à la main. La CHARGE n'est pas saisie : elle est fermée par différence, "
+                "de sorte que Σw = 1 exactement quel que soit l'arrondi des deux autres — saisir les trois "
+                "arrondies à 1e-6 briserait la fermeture de 1e-6. Le contrôle D du §5 vérifie que le point "
+                "tombe bien dans les plages effectives ci-dessus.")
+
+r = step(ws, r, "Étape 3 — gaz de pyrolyse : HÉRITÉ, pas recalculé",
+         "Y_g(MX-4926) = Y_g(SC-1008), par H1 + H2 + H3")
+rg = r + 1
+r = headrow(ws, r, ["Gaz de pyrolyse", "C", "H", "O", "Somme", "H/O", ""])
+r = row(ws, r, ["reprise de l'onglet SC-1008 (fermeture élémentaire, route C)",
+                f"='SC-1008'!C{SC_XML[2]}", f"='SC-1008'!D{SC_XML[2]}", f"='SC-1008'!E{SC_XML[2]}",
+                f"=SUM(C{r}:E{r})", f"=D{r}/E{r}", ""],
+        fonts=[F_LAB, F_LINK, F_LINK, F_LINK, F_CALC, F_CALC, None],
+        nfs=[None, NF_X, NF_X, NF_X, NF_X3, "0.00"])
+rgc = r - 1
+r = note(ws, r, "Le gaz est produit par la RÉSINE SEULE. Le renfort ex-rayon est déjà carbonisé (H2) et le "
+                "noir de carbone est inerte (H3) : aucun des deux ne dégaze. La matrice étant le SC-1008, la "
+                "composition élémentaire du gaz est celle du SC-1008 — toute sa traçabilité (motif C7.5H6O, "
+                "fermeture à Y = 0.55, confrontation à [TS]) est celle de l'onglet précédent. Le taux de "
+                "charge et le rapport fibres/résine changent la QUANTITÉ de gaz produite, donc B'g, qui est "
+                "un paramètre d'ENTRÉE de la table.")
+
+r = step(ws, r, "Étape 4 — char : pondération générale des TROIS constituants",
+         "n_E(char) = Σ_i (m_char,i / M_i) · ν_E,i")
+r = para(ws, r, "Fibres ex-rayon : carbone pur. Noir de carbone : carbone pur. Résol carbonisé : carbone pur. "
+                "La somme pondérée de trois compositions identiques est cette composition, quelles que soient "
+                "les masses : le char vaut C:1.0 pour TOUT jeu de proportions. C'est ce qui rendrait le calcul "
+                "faux avec des fibres de silice, un char retenant H/O, ou une charge non carbonée.", 30)
+
+r = step(ws, r, "Étape 5 — rendement en char du COMPOSITE : la fermeture le simplifie",
+         "Y_comp = w_f + w_c + Y·w_r = 1 − (1 − Y)·w_r")
+rY2 = r + 1
+r = headrow(ws, r, ["Rendement en char du composite", "forme longue", "forme courte", "écart", "", "", ""])
+r = row(ws, r, ["Y_comp",
+                f"=C{rc}+E{rc}+$C${rY}*D{rc}",
+                f"=1-(1-$C${rY})*D{rc}",
+                f"=C{r}-D{r}", "", "", ""],
+        nfs=[None, "0.000000", "0.000000", "0.00E+00"])
+rYc = r - 1
+r = note(ws, r, "LE POINT DE CET ONGLET. Le renfort et la charge ne perdent pas de masse (H2, H3) ; en "
+                "utilisant w_f + w_c = 1 − w_r, les deux disparaissent de l'expression. Y_comp — donc k, donc "
+                "le point de fonctionnement — ne dépend QUE de la fraction de RÉSINE. Le partage "
+                "fibres/charge n'a aucun effet, et l'incertitude sur le renfort mise en évidence à l'étape 1 "
+                "est sans conséquence sur la réponse matériau.")
+
+r = step(ws, r, "Étape 6 — couplage et densités",
+         "k = (ρ_v − ρ_c)/ρ_c = (1 − Y_comp)/Y_comp ;  ρ_v = (1 − φ)/Σ_i (w_i/ρ_i)")
+r = kv(ws, r, "couplage k = B'g / B'c", f"=(1-C{rYc})/C{rYc}",
+       "attendu 0.1817 — la SEULE grandeur qui distingue le MX-4926 du SC-1008", font=F_CALC, nf="0.0000")
+rk = r - 1
+r = kv(ws, r, "porosité φ", 0.02, "contrôlée au §5 : c'est celle qui restitue la densité publiée", key=True)
+rphi = r - 1
+r = kv(ws, r, "volume de solide par kg [m³/kg]",
+       f"=C{rc}/$C${rrf}+D{rc}/$C${rrr}+E{rc}/$C${rrc_}", "Σ w_i/ρ_i", font=F_CALC, nf="0.0000000")
+rvol = r - 1
+r = kv(ws, r, "ρ vierge [kg/m³]", f"=(1-C{rphi})/C{rvol}",
+       "attendu 1451 (PICA : 274 · TACOT : 280 · CPh70 : 1465)", font=F_CALC, nf="0.0")
+rrv = r - 1
+r = kv(ws, r, "ρ char [kg/m³]", f"=C{rrv}*C{rYc}", "attendu 1228", font=F_CALC, nf="0.0")
+rrc2 = r - 1
+r = kv(ws, r, "gaz de pyrolyse libéré [kg/m³]", f"=C{rrv}-C{rrc2}", "attendu 223.1", font=F_CALC, nf="0.0")
+r = kv(ws, r, "… soit en % de la masse vierge", f"=(1-C{rYc})*100",
+       "15.4 % — contre 21.4 % pour le TACOT et 12.2 % pour le CPh70", font=F_CALC, nf=NF_P)
+r = note(ws, r, "k est un rapport de MASSES : ni les densités ni la porosité n'y entrent — elles ne servent "
+                "qu'à la récession ṡ = B'c·ṁe/ρ_c. C'est pourquoi l'incertitude sur ρ des constituants, "
+                "réelle, ne se propage pas au point de fonctionnement.")
+r += 1
+
+r = section(ws, r, "§4 — RÉSULTAT : CE QUI ENTRE DANS LE XML")
+r, rcalc, rxml = result_block(ws, r, "mx4926_pyro", f"C{rgc}", f"D{rgc}", f"E{rgc}",
+                              (0.2526, 0.6407, 0.1068))
+r = headrow(ws, r, ["Char (mx4926_char)", "C", "H", "O", "", "", ""])
+r = row(ws, r, ["composition du XML", 1.0, "—", "—", "", "", ""],
+        fonts=[F_LAB, F_OUT, F_NOTE, F_NOTE, None, None, None],
+        nfs=[None, NF_X3, None, None], fills=[None, FILL_OUT, None, None])
+r = note(ws, r, "Le fichier mx4926-air.xml est donc STRICTEMENT identique à sc1008-air.xml — même liste "
+                "d'espèces, mêmes trois compositions. Il n'est justifié que par la traçabilité : nommer le "
+                "matériau. Pour les propriétés du gaz de pyrolyse seul (h_g, Cp, M, γ), il n'y a pas non plus "
+                "de fichier propre : sc1008-pyrogas.xml est valable tel quel.")
+r += 1
+
+r = section(ws, r, "§5 — CONTRÔLES ET VALIDATION CROISÉE")
+r = step(ws, r, "Contrôle A — identité BIT À BIT de la table B' avec celle du SC-1008",
+         "diff caractère pour caractère de la sortie de `bprime`")
+rA = r + 1
+r = headrow(ws, r, ["B'g testé", "lignes comparées", "lignes différentes", "", "", "", ""])
+for bg in (0.0, 0.1, 0.5, 2.0):
+    r = row(ws, r, [bg, 149, 0, "", "", "", ""],
+            fonts=[F_IN, F_IN, F_OUT, None, None, None, None], nfs=[NF_X3, "0", "0"])
+r = note(ws, r, "Produit par `python mx4926_bprime/composition_mx4926_verification.py` §5. Pas « proche » : "
+                "identique caractère pour caractère, comme cph70-air_25 face à tacot-air_25.")
+r = step(ws, r, "Contrôle B — limite d'oxydation à 300 K", "C + O2 → CO2, indépendante de la pression")
+r = kv(ws, r, "B'c(300 K, B'g = 0, 1 atm)", 0.087427, "attendu 0.0874 — une valeur ≈ 200 signalerait l'absence de C(gr)", font=F_CALC, nf="0.000000")
+r = step(ws, r, "Contrôle C — la porosité retenue restitue-t-elle la densité publiée ?",
+         "φ = 1 − ρ_publié · Σ_i (w_i/ρ_i)")
+r = kv(ws, r, "porosité déduite de la densité publiée", f"=1-C{rrpub}*C{rvol}",
+       "0.0208 — à comparer au 0.02 retenu à l'étape 6 ; faible et positive, cohérent avec un composite dense pressé",
+       font=F_CALC, nf="0.0000")
+r = kv(ws, r, "écart sur ρ_v", f"=ABS(C{rrv}-C{rrpub})/C{rrpub}",
+       "la porosité n'est donc pas un paramètre libre : elle est fixée par la densité mesurée", font=F_CALC, nf=NF_E)
+r = step(ws, r, "Contrôle D — le centroïde referme-t-il, et tombe-t-il dans les plages effectives ?",
+         "marge = distance à la borne la plus proche ; elle doit être > 0")
+r = kv(ws, r, "défaut de fermeture |Σw − 1|", f"=ABS(F{rc}-1)",
+       "nul par construction : la charge est fermée par différence (étape 2)", font=F_CALC, nf="0.00E+00")
+r = kv(ws, r, "marge du renfort dans [min_eff ; max_eff]",
+       f"=MIN(C{rc}-C{reff_f},D{reff_f}-C{rc})",
+       "0.0380 — le centroïde est loin des deux bornes", font=F_CALC, nf=NF_X)
+r = kv(ws, r, "marge de la matrice dans [min_eff ; max_eff]",
+       f"=MIN(D{rc}-C{reff_r},D{reff_r}-D{rc})",
+       "0.0283 — idem", font=F_CALC, nf=NF_X)
+r += 1
+
+r = section(ws, r, "§6 — SENSIBILITÉ : SEULE LA FRACTION DE RÉSINE COMPTE")
+rs = r + 1
+r = headrow(ws, r, ["w_résine testé", "Y_comp", "k = B'g/B'c", "B'c stationnaire 1 atm 3000 K",
+                    "gaz — C", "gaz — H", "gaz — O"])
+for wr_, bc in [(0.31, 0.18171), (0.341667, 0.18187), (0.37, 0.18203)]:
+    r = row(ws, r, [wr_, f"=1-(1-$C${rY})*B{r}", f"=(1-C{r})/C{r}", bc,
+                    f"=$C${rgc}", f"=$D${rgc}", f"=$E${rgc}"],
+            fonts=[F_IN, F_CALC, F_CALC, F_IN, F_LINK, F_LINK, F_LINK],
+            nfs=[NF_X, "0.0000", "0.0000", "0.00000", NF_X, NF_X, NF_X])
+r = note(ws, r, "Les trois dernières colonnes sont CONSTANTES : c'est la démonstration de cet onglet, comme "
+                "pour le CPh70. Toute la plage de composition annoncée (31-37 % de résine) déplace k de 0.162 "
+                "à 0.200 et ne touche pas d'un iota la composition portée dans le XML — ni, en pratique, le "
+                "B'c stationnaire : 0.18 % d'étendue à 3000 K, 1.07 % à 2000 K, 4.6 % seulement au genou de "
+                "sublimation à 3700 K. Ce n'est pas le paramètre à resserrer en priorité.")
+rsn = r + 1
+r = headrow(ws, r, ["Sensibilité au partage fibres/charge", "renfort", "charge", "Y_comp", "k", "", ""])
+for wf_, wc_ in [(0.47, 0.189), (0.522024, 0.136310), (0.56, 0.098)]:
+    r = row(ws, r, ["w_résine gelé au centroïde", wf_, wc_,
+                    f"=1-(1-$C${rY})*$D${rc}", f"=(1-E{r})/E{r}", "", ""],
+            fonts=[F_NOTE, F_IN, F_IN, F_CALC, F_CALC, None, None],
+            nfs=[None, NF_X, NF_X, "0.0000", "0.0000"])
+r = note(ws, r, "Colonnes Y_comp et k STRICTEMENT constantes : déplacer 9 points de masse du renfort vers la "
+                "charge ne change rien. Les deux sont du carbone à perte de masse nulle — seule leur SOMME "
+                "compte, et la fermeture la fixe à 1 − w_résine. (Les couples ci-dessus ne referment "
+                "volontairement pas à 1 avec w_résine : ils n'illustrent que le partage.)")
+r += 1
+
+r = section(ws, r, "§7 — RÉPONSE MATÉRIAU (n'entre PAS dans le XML)")
+rkc = r + 1
+r = headrow(ws, r, ["Matériau", "k = B'g/B'c", "nature", "", "", "", ""])
+for lab, kk, nat in [("TACOT (10/10/80 vol.)", None, "poreux — beaucoup de résine par unité de masse"),
+                     ("PICA / SC-1008", None, "même résine, sans charge, taux de résine plus élevé"),
+                     ("MX-4926", None, "dense et chargé"),
+                     ("CPh70 (69/30/1 vol.)", None, "dense et très riche en fibres")]:
+    if lab.startswith("TACOT"):
+        v = f"='TACOT'!C{TAC_XML[1]}"
+    elif lab.startswith("PICA"):
+        v = f"='SC-1008'!C{SC_XML[1]}"
+    elif lab.startswith("MX"):
+        v = f"=C{rk}"
+    else:
+        v = f"='CPh70'!C{CPH_XML[1]}"
+    r = row(ws, r, [lab, v, nat, "", "", "", ""],
+            fonts=[F_LAB, F_LINK if not lab.startswith("MX") else F_OUT, F_NOTE, None, None, None, None],
+            nfs=[None, "0.0000", None])
+r = note(ws, r, "Le noir de carbone agit exactement comme des fibres du point de vue du bilan : il ajoute de "
+                "la masse qui ne dégaze pas, donc il ABAISSE k. Le MX-4926 se place entre le PICA — même "
+                "résine, mais sans charge — et le CPh70.")
+r = kv(ws, r, "rapport ρ_char MX-4926 / ρ_char TACOT", f"=C{rrc2}/'TACOT'!C{TAC_XML[3]}",
+       "à B'c égal, la récession ṡ = B'c·ṁe/ρ_c du MX-4926 est ~5.6 fois plus lente", font=F_CALC, nf="0.00")
+r += 1
+
+r = section(ws, r, "§8 — BLOC XML")
+r = xmlblock(ws, r, [
+    '<mixture thermo_db="NASA-9">',
+    '    <species>',
+    '       C H O N CH4 CN CO CO2 C2 C2H C2H2,acetylene C3 C4 C4H2,butadiyne C5',
+    '       HCN H2 H2O N2 CH2OH CNN CNC CNCOCN C6H6 C6H5OH,phenol HNC C(gr)',
+    '    </species>',
+    '    <element_compositions default="air">',
+    '        <composition name="air">N:0.79, O:0.21</composition>',
+    '        <composition name="mx4926_pyro">C:0.2526, H:0.6407, O:0.1068</composition>',
+    '        <composition name="mx4926_char">C:1.0</composition>',
+    '    </element_compositions>',
+    '</mixture>',
+])
+MX_XML = (rxml, rk)
 
 
 # ===========================================================================
@@ -1867,7 +2152,7 @@ ws = ws_syn
 setup(ws, "1F3864")
 r = title(ws, "Mise en données des matériaux — synthèse",
           "D'où viennent les proportions portées dans data/mixtures/*.xml : hypothèses, étapes et formules, un onglet par matériau",
-          "data/mixtures/ — 8 matériaux, 16 fichiers de mélange")
+          "data/mixtures/ — 9 matériaux, 17 fichiers de mélange")
 
 r = section(ws, r, "§1 — MODE D'EMPLOI")
 r = para(ws, r, "Chaque onglet matériau reconstruit, ÉTAPE PAR ÉTAPE ET EN FORMULES VIVANTES, la chaîne qui "
@@ -1889,6 +2174,7 @@ SYN = [
     ("CPh70",            "CPh70",            CPH_XML[0], CPH_XML[1], "C:1.0", True),
     ("ZURAM 18/50",      "ZURAM",            ZUR_XML[0], ZUR_XML[1], "C:1.0", True),
     ("SC-1008 (PICA)",   "SC-1008",          SC_XML[0],  SC_XML[1],  "C:1.0", True),
+    ("MX-4926",          "MX-4926",          MX_XML[0],  MX_XML[1],  "C:1.0", True),
     ("Liège/phénolique", "Liège-phénolique", COR_XML[0], COR_XML[1], "C:1.0", True),
     ("Carbone graphite", "Carbone",          CAR_XML[0], CAR_XML[1], "C:1.0", False),
     ("Silice SiO2",      "Silice",           SIL_XML[0], SIL_XML[1], "Si:1.0, O:2.0", False),

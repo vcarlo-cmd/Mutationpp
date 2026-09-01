@@ -44,6 +44,7 @@ LINKS = {
     "CPh70":            ("cph70-air_25.xml",  "cph70_pyro"),
     "ZURAM":            ("zuram-air.xml",     "VKIZuramPyroGas"),
     "SC-1008":          ("sc1008-air.xml",    "sc1008_pyro"),
+    "MX-4926":          ("mx4926-air.xml",    "mx4926_pyro"),
     "Liège-phénolique": ("cork-air.xml",      "cork_pyro"),
 }
 TOL = 1e-3   # écart relatif toléré : l'arrondi des XML (3 à 4 décimales)
