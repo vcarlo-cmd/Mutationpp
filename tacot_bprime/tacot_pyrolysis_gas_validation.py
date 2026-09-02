@@ -19,10 +19,10 @@ condensée. Le gaz réel qui sort de la résine est métastable et n'est pas à
 l'équilibre à basse température — voir la discussion en fin de sortie.
 
 Ce script COMPARE à la référence. Pour calculer h_g sans comparaison,
-voir pyrolysis_gas_enthalpy.py.
+voir tacot_pyrolysis_gas.py.
 
 Usage :
-    python pyrolysis_gas_enthalpy_validation.py [--mixture tacot-pyrogas] [--ref chemin.xls]
+    python tacot_pyrolysis_gas_validation.py [--mixture tacot-pyrogas] [--ref chemin.xls]
 
 Prérequis :
     - binaire `mppequil` (cmake --build build --target mppequil)
@@ -217,7 +217,7 @@ def main():
     print(f"\nRéférence Sheet9 : {len(ref)} points\n")
 
     # --- CSV + statistiques ----------------------------------------------
-    out_csv = "pyrolysis_gas_enthalpy_validation.csv"
+    out_csv = "tacot_pyrolysis_gas_validation.csv"
     errs = {q[0]: [] for q in QUANTITIES}
     with open(out_csv, "w", newline="") as f:
         w = csv.writer(f)
@@ -271,7 +271,7 @@ def main():
               f"{rel_err(m, r, 50.0):>8.2f} % | "
               f"{results[101325.0][T][1]*1e3:>12.3f}")
 
-    plot_all(results, ref, "pyrolysis_gas_enthalpy_validation.png")
+    plot_all(results, ref, "tacot_pyrolysis_gas_validation.png")
 
     print("\n" + "=" * 84)
     print("MISE EN GARDE — équilibre vs gaz réel")

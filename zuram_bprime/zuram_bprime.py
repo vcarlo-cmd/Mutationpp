@@ -328,4 +328,33 @@ if __name__ == "__main__":
     # Graphique de comparaison entre B'g à 1 atm
     plot_bg_comparison(results_by_bg)
 
+    # Table B'c au format long, unites SI : Tw_K, P_bar, Bg, Bc
+    # (nTw x nP x nBg lignes)
+    out_csv = "zuram_bprime_bc_table.csv"
+    with open(out_csv, "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["Tw_K", "P_bar", "Bg", "Bc"])
+        for bg in BG_VALUES:
+            pressures_atm, all_data_bg = results_by_bg[bg]
+            for P_atm, (_, data) in zip(pressures_atm, all_data_bg):
+                P_bar = P_atm * ONEATM / 1.0e5
+                for row in data:
+                    w.writerow([f"{row[0]:.6g}", f"{P_bar:.6g}", f"{bg:g}",
+                                f"{row[1]:.6e}"])
+    print(f"Table B'c (nTw x nP x nBg) sauvegardée : {out_csv}")
+
+    # Table h_w au format long, unites SI, a B'g = 0 : Tw_K, P_bar, hw_Jkg
+    # (nTw x nP lignes)
+    out_csv = "zuram_bprime_hw_table.csv"
+    with open(out_csv, "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["Tw_K", "P_bar", "hw_Jkg"])
+        pressures_atm, all_data_bg0 = results_by_bg[0.0]
+        for P_atm, (_, data) in zip(pressures_atm, all_data_bg0):
+            P_bar = P_atm * ONEATM / 1.0e5
+            for row in data:
+                w.writerow([f"{row[0]:.6g}", f"{P_bar:.6g}",
+                            f"{row[2] * 1.0e6:.6e}"])
+    print(f"Table h_w (nTw x nP, B'g=0) sauvegardée : {out_csv}")
+
     print("\nTerminé.")

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-Génère et trace les propriétés du gaz de pyrolyse du Zuram à l'équilibre
+Génère et trace les propriétés du gaz de pyrolyse du CPh70 à l'équilibre
 chimique : enthalpie h_g, masse molaire M, Cp, gamma, masse volumique rho
 et viscosité mu, en fonction de la température, pour plusieurs pressions.
 Utilise l'outil MutationPP `mppequil` comme moteur de calcul.
@@ -8,25 +8,28 @@ Utilise l'outil MutationPP `mppequil` comme moteur de calcul.
 h_g est la grandeur qui manque à la table B' pour fermer le bilan d'énergie
 de surface (avec h_w) et le terme source de pyrolyse en profondeur (h_g - h_s).
 
-Composition, reprise du cas de référence AblaNTIS `Pyrogas` :
-    VKIZuramPyroGas : C:0.171, H:0.722, O:0.107 (fractions molaires
-                      élémentaires)
+Le CPh70 emploie EXACTEMENT la même résine que le TACOT (cf.
+mise_en_donnees_pyrolyse.md §0) — seules les proportions fibres/résine et la
+porosité changent, pas la composition élémentaire du gaz de pyrolyse :
+    cph70_pyro = tacot_pyro : C:0.206, H:0.679, O:0.115 (fractions molaires
+                 élémentaires)
+Ce script réutilise donc directement le mélange `tacot-pyrogas` (composition
+`tacot_pyro`, numériquement identique à `cph70_pyro`) plutôt que de dupliquer
+un fichier XML : la table produite ici est rigoureusement celle du TACOT
+(voir tacot_bprime/tacot_pyrolysis_gas.py), sous le nom du CPh70.
 
-Hypothèse : équilibre chimique du gaz, sans phase condensée. Le mélange
-`zuram-pyrogas` reprend la liste d'espèces du cas AblaNTIS, c.-à-d. celle de
-`zuram-air` privée de C(gr) — le gaz de pyrolyse pur, avant qu'il n'atteigne
-la paroi, n'est ni mélangé à l'air ni en contact avec le char.
+Hypothèse : équilibre chimique du gaz, sans phase condensée.
 
 La table est calculée pour une plage de pressions de 0.001 à 1000 atm
 (espacement logarithmique, 25 isobares) et une plage de températures de 200 à
 4000 K, pas 25 K.
 
 Usage :
-    python zuram_pyrolysis_gas.py
+    python cph70_pyrolysis_gas.py
 
 Prérequis :
     - Le binaire `mppequil` doit être dans le PATH ou dans build/src/apps/
-    - Le fichier data/mixtures/zuram-pyrogas.xml doit exister
+    - Le fichier data/mixtures/tacot-pyrogas.xml doit exister
     - matplotlib et numpy installés
 """
 
@@ -45,8 +48,8 @@ import matplotlib.pyplot as plt
 # ---------------------------------------------------------------------------
 MPPEQUIL_CMD = "mppequil"
 T_RANGE      = "200:25:4000"   # T de 200 à 4000 K, pas de 25 K
-MIXTURE      = "zuram-pyrogas"
-ELEM_COMP    = "VKIZuramPyroGas"
+MIXTURE      = "tacot-pyrogas"   # résine identique au TACOT, cf. docstring
+ELEM_COMP    = "tacot_pyro"      # = cph70_pyro : C:0.206, H:0.679, O:0.115
 
 ONEATM = 101325.0   # Pa
 
@@ -154,8 +157,8 @@ def plot_gas_properties(all_data, pressures_atm):
 
     fig, axes = plt.subplots(2, 3, figsize=(19, 10))
     fig.suptitle(
-        "Propriétés du gaz de pyrolyse du Zuram à l'équilibre  "
-        r"(C:0.171, H:0.722, O:0.107 ; $P \in [10^{-3},\,10^3]$ atm)",
+        "Propriétés du gaz de pyrolyse du CPh70 à l'équilibre  "
+        r"(= TACOT, même résine ; $P \in [10^{-3},\,10^3]$ atm)",
         fontsize=14,
     )
     ylabels = {"M": "M [kg/mol]", "Cp": r"$C_p$ [J/kg/K]",
@@ -182,7 +185,7 @@ def plot_gas_properties(all_data, pressures_atm):
         ax.legend(fontsize=7, ncol=2, title="Pression", title_fontsize=7)
 
     plt.tight_layout()
-    out_png = "zuram_pyrolysis_gas.png"
+    out_png = "cph70_pyrolysis_gas.png"
     plt.savefig(out_png, dpi=150)
     print(f"Figure sauvegardée : {out_png}")
     plt.close()
@@ -202,7 +205,7 @@ def plot_enthalpy_focus(all_data, pressures_atm):
 
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))
     fig.suptitle(
-        r"Enthalpie du gaz de pyrolyse du Zuram à l'équilibre  $h_g(T, P)$",
+        r"Enthalpie du gaz de pyrolyse du CPh70 à l'équilibre  $h_g(T, P)$",
         fontsize=13)
 
     for idx, P_atm in enumerate(PLOT_PRESSURES_ATM):
@@ -231,7 +234,7 @@ def plot_enthalpy_focus(all_data, pressures_atm):
     ax2.legend(fontsize=8, ncol=2, title="Pression", title_fontsize=8)
 
     plt.tight_layout()
-    out_png = "zuram_pyrolysis_gas_enthalpy.png"
+    out_png = "cph70_pyrolysis_gas_enthalpy.png"
     plt.savefig(out_png, dpi=150)
     print(f"Figure sauvegardée : {out_png}")
     plt.close()
@@ -266,7 +269,7 @@ if __name__ == "__main__":
         print(f"{len(data)} points")
 
     # 3. Sauvegarde CSV globale, unites SI : Tw_K, P_bar en premières colonnes
-    out_csv = "zuram_pyrolysis_gas.csv"
+    out_csv = "cph70_pyrolysis_gas.csv"
     quantity_cols = [f"{name}[{unit}]" for name, _, unit in QUANTITIES]
     with open(out_csv, "w", newline="") as f:
         writer = csv.writer(f)
