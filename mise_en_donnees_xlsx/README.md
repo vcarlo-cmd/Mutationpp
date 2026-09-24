@@ -23,6 +23,7 @@ python verification_xlsx.py          # évalue toutes les formules et confronte 
 | `Liège-phénolique` | liège / phénolique 80/20 | **D** — fermeture sur DEUX constituants pyrolysants | C:0.287, H:0.592, O:0.121 |
 | `Carbone` | graphite | **E** — stœchiométrie directe, pas de gaz | C:1.0 (char) |
 | `Silice` | SiO₂ | **E** — char multi-élément, `-char-elem Si` | Si:1.0, O:2.0 |
+| `SiC` | carbure de silicium | **E** — char multi-élément non congruent, `-char-elem N` | Si:1.0, C:1.0 |
 
 ## Trame commune à chaque onglet matériau
 
@@ -87,3 +88,4 @@ documentent déjà, en prose, les fichiers suivants du dépôt.
 | MX-4926 | `mx4926_bprime/composition_mx4926.md`, `mx4926_bprime/README.md` |
 | Liège | `cork_bprime/mise_en_donnees_cork.md`, `cork_pyrolysis_data.py` |
 | Carbone | `carbon_bprime/bprime_carbon_physique.md` |
+| SiC | `sic_bprime/README.md` |

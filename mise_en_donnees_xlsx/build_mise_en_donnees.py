@@ -237,6 +237,7 @@ ws_mx  = wb.create_sheet("MX-4926")
 ws_cor = wb.create_sheet("Liège-phénolique")
 ws_car = wb.create_sheet("Carbone")
 ws_sil = wb.create_sheet("Silice")
+ws_sic = wb.create_sheet("SiC")
 
 # Adresses absolues des masses molaires (onglet Constantes)
 MC  = "Constantes!$C$7"    # C   usuelle
@@ -2038,7 +2039,7 @@ CAR_XML = (rres, rk)
 ws = ws_sil
 setup(ws, "0070C0")
 r = title(ws, "Silice SiO2 — char MULTI-ÉLÉMENT",
-          "Le seul matériau du dépôt dont le char n'est pas du carbone : montre comment se remplit une composition à plusieurs éléments",
+          "Premier char du dépôt qui n'est pas du carbone (avec le SiC) : montre comment se remplit une composition à plusieurs éléments",
           "data/mixtures/silica-air.xml")
 
 r = section(ws, r, "§0 — FICHE D'IDENTITÉ")
@@ -2146,13 +2147,173 @@ SIL_XML = (rres, rk)
 
 
 # ===========================================================================
+# ONGLET  SiC (carbure de silicium)
+# ===========================================================================
+ws = ws_sic
+setup(ws, "7030A0")
+r = title(ws, "Carbure de silicium SiC — char multi-élément NON congruent",
+          "Char à deux éléments qui peut laisser à la paroi SiO2, Si liquide ou carbone : le bilan est suivi sur l'azote de l'air",
+          "data/mixtures/sic-air.xml")
+
+r = section(ws, r, "§0 — FICHE D'IDENTITÉ")
+r = kv(ws, r, "Matériau", "carbure de silicium massif β-SiC (dense, fritté ou CVD)", "sic_bprime/sic_bprime.py · sic_bprime/README.md")
+r = kv(ws, r, "Système chimique", "Si-C-N-O : 5 espèces d'air + 6 gaz carbonés + 10 gaz siliciés (SiO, SiO2, SiC, SiC2, Si2C, SiN…) + 9 phases condensées", "30 espèces au total")
+r = kv(ws, r, "Phases condensées", "C(gr) · Si(cr), Si(L) · SiC(b), SiC(L) · SiO2(a-qz), SiO2(b-qz), SiO2(b-crt), SiO2(L)", "une seule forme de chaque famille est valide à une température donnée")
+r = kv(ws, r, "Binaire", "bprime généralisé : -char sic -char-elem N", "aucun binaire dédié (contrairement à bprime_silica)")
+r = kv(ws, r, "Compositions du XML", "air (-bl) · sic (char, -char)", "")
+r += 1
+
+r = section(ws, r, "§1 — HYPOTHÈSES")
+r = hyp(ws, r, "H1", "Le char est le SiC lui-même, de stœchiométrie Si:C = 1:1 exacte.",
+        "Matériau monolithique : pas de résine, donc pas de gaz de pyrolyse (B'g = 0) et pas de fermeture élémentaire à faire.")
+r = hyp(ws, r, "H2", "L'élément du bilan est l'AZOTE de l'air, pas Si ni C.",
+        "Le SiC ne se consomme pas toujours en bloc : selon (T_w, P) il laisse de la silice (oxydation passive), du silicium liquide ou un résidu de carbone (décomposition SiC → Si(g) + C(gr)). Suivre Si ou C donne alors un B'c faux — nul, ou négatif puis écrêté, alors que le matériau se décompose (§5). N est inerte et absent de toute phase condensée : son bilan donne la masse NETTE gazéifiée par la paroi. Pour le carbone et la silice, dont le char est la seule phase condensée, le résultat est identique à celui du suivi sur C ou sur Si.")
+r = hyp(ws, r, "H3", "Toutes les phases condensées du système Si-C-O figurent dans <species>, sauf Si3N4.",
+        "Même exigence que C(gr) pour le carbone : sans SiO2 condensée, l'oxydation passive disparaît ; sans C(gr), le résidu de décomposition ne peut pas se former. Si3N4(cr) est écarté : il bloque le solveur, et la nitruration du SiC sous air est cinétiquement inhibée.")
+r = hyp(ws, r, "H4", "Équilibre thermochimique à la paroi, vérifié point par point.",
+        "Le solveur multiphase boucle sur ~7 % des points (frontières de phases). Chaque point est contrôlé : aucune phase absente ne doit avoir une force motrice g°/RT − Σ a·λ négative. Sinon les assemblages de phases sont énumérés et celui qui vérifie ce critère est retenu (équilibre vrai).")
+r += 1
+
+r = section(ws, r, "§2 — DONNÉES D'ENTRÉE")
+r = kv(ws, r, "stœchiométrie — ν_Si", 1, "SiC", key=True)
+rnsi = r - 1
+r = kv(ws, r, "stœchiométrie — ν_C", 1, "", key=True)
+rnc = r - 1
+r = kv(ws, r, "fraction massique d'oxygène de l'air", "=Constantes!D19", "y_O calculé au §2 de l'onglet Constantes",
+       font=F_LINK, nf=NF_X)
+ryO = r - 1
+r = kv(ws, r, "fraction massique d'azote de l'air", "=Constantes!C19", "y_N — l'élément de suivi du bilan (H2)",
+       font=F_LINK, nf=NF_X)
+ryN = r - 1
+r = kv(ws, r, "masse volumique du SiC [kg/m³]", 3210, "β-SiC dense — n'entre que dans la récession")
+rrho = r - 1
+r += 1
+
+r = section(ws, r, "§3 — CALCUL PAS À PAS")
+r = step(ws, r, "Étape 1 — masse molaire du motif", "M = ν_Si·M_Si + ν_C·M_C")
+r = kv(ws, r, "M(SiC) [g/mol]", f"=C{rnsi}*{MSI}+C{rnc}*{MC}", "attendu 40.10 g/mol", font=F_CALC, nf=NF_M)
+rM = r - 1
+r = step(ws, r, "Étape 2 — composition élémentaire, en molaire puis en massique",
+         "x_E = ν_E / Σ ν_j ;  y_E = ν_E·M_E / M")
+r = headrow(ws, r, ["", "Si", "C", "Somme", "", "", ""])
+r = row(ws, r, ["ν_E (moles d'atomes par motif)", f"=C{rnsi}", f"=C{rnc}", f"=SUM(C{r}:D{r})", "", "", ""],
+        nfs=[None, NF_X3, NF_X3, NF_X3])
+rnu = r - 1
+r = row(ws, r, ["x_E (fraction molaire élémentaire, normalisée)",
+                f"=C{rnu}/$E${rnu}", f"=D{rnu}/$E${rnu}", f"=SUM(C{r}:D{r})", "", "", ""],
+        nfs=[None, NF_X, NF_X, NF_X3])
+rxE = r - 1
+r = row(ws, r, ["y_E (fraction massique élémentaire)",
+                f"=C{rnu}*{MSI}/$C${rM}", f"=D{rnu}*{MC}/$C${rM}", f"=SUM(C{r}:D{r})", "", "", ""],
+        nfs=[None, NF_X, NF_X, NF_X3])
+ryE = r - 1
+r = note(ws, r, "Attendu : x_Si = x_C = 0.5000 en molaire, y_Si = 0.7005 / y_C = 0.2995 en masse.")
+r = step(ws, r, "Étape 3 — le bilan de surface, écrit sur l'azote",
+         "B'c = [Y_e,N + B'g·Y_g,N − Y_w,N(1+B'g)] / (Y_w,N − Y_c,N)")
+r = para(ws, r, "Avec Y_c,N = 0 (le char ne contient pas d'azote) et B'g = 0, il ne reste que :", 16)
+r = xmlblock(ws, r, ["   B'c = Y_e,N / Y_w,N − 1        (masse nette gazéifiée par unité de masse d'air)"])
+r = para(ws, r, "Le gaz à la paroi contient (1 + B'c) fois la masse d'air qui y entre ; l'azote, qui ne se "
+                "dépose nulle part, s'y trouve dilué d'autant. Si la paroi FIXE de l'oxygène (silice "
+                "d'oxydation passive), la masse gazéifiée nette est négative : bprime écrête B'c à 0, "
+                "comme pour tous les matériaux.", 30)
+r += 1
+
+r = section(ws, r, "§4 — RÉSULTAT : CE QUI ENTRE DANS LE XML")
+rres = r + 1
+r = headrow(ws, r, ["Composition élémentaire", "Si", "C", "Somme", "après normalisation par le parseur", "", ""])
+r = row(ws, r, ["valeur portée dans le XML (sic)", 1.0, 1.0, f"=SUM(C{r}:D{r})",
+                "x_Si = x_C = 1/2", ""],
+        fonts=[F_LAB, F_OUT, F_OUT, F_CALC, F_NOTE, None],
+        nfs=[None, NF_X3, NF_X3, NF_X3, None], fills=[None, FILL_OUT, FILL_OUT, None, None])
+r = row(ws, r, ["air — valeur portée dans le XML", "N : 0.79", "O : 0.21", "", "", ""],
+        fonts=[F_LAB, F_OUT, F_OUT, None, None, None], fills=[None, FILL_OUT, FILL_OUT, None, None])
+r += 1
+
+r = section(ws, r, "§5 — CONTRÔLES ET VALIDATION CROISÉE")
+r = step(ws, r, "Contrôle 1 — plateau d'oxydation ACTIVE, indépendant de la pression",
+         "SiC + O2 → SiO(g) + CO : un SiC gazéifié par O2 consommé")
+r = para(ws, r, "Tout l'oxygène de l'air part en SiO et CO, la paroi reste du SiC nu. Chaque O2 (2 atomes "
+                "d'oxygène) emporte un motif SiC : la masse ablatée par unité de masse d'air vaut "
+                "y_O · M_SiC / (2·M_O).", 30)
+r = kv(ws, r, "B'c attendu sur le plateau", f"=C{ryO}*$C${rM}/(2*{MO})",
+       "bprime donne 0.2920 (1 atm, 2100 K ; 0.001 atm, 1600 K) — le plateau s'étend sur 200 à 600 K selon P",
+       font=F_CALC, nf="0.00000")
+r = step(ws, r, "Contrôle 2 — oxydation PASSIVE à basse température",
+         "SiC + O2 → SiO2(s) + C(gr) : la paroi fixe l'oxygène")
+r = para(ws, r, "Le gaz à la paroi est de l'azote pur : Y_w,N = 1, donc B'c = Y_e,N − 1 < 0 (prise de masse), "
+                "écrêté à 0. C'est la couche de silice protectrice qui fait l'intérêt du SiC.", 30)
+r = kv(ws, r, "B'c brut (avant écrêtage) à 300 K", f"=C{ryN}/1-1", "prise de masse = masse d'oxygène fixée", font=F_CALC, nf="0.0000")
+r = step(ws, r, "Contrôle 3 — pourquoi PAS -char-elem Si : comparaison sur trois points calculés")
+r = headrow(ws, r, ["Point (T_w, P)", "phases à la paroi", "B'c suivi N", "B'c suivi Si", "B'c suivi C", "", ""])
+for lab, ph, bn, bsi, bc in [
+        ("2100 K, 1 atm", "SiC", 0.2920, 0.2920, 0.2920),
+        ("2600 K, 1 atm", "SiC + Si(L)", 0.3056, 0.1506, 0.3056),
+        ("2500 K, 0.001 atm", "C(gr) (résidu)", 3.357, 0.0, 12.03)]:
+    r = row(ws, r, [lab, ph, bn, bsi, bc, "", ""],
+            fonts=[F_LAB, F_IN, F_IN, F_IN, F_IN, None, None],
+            nfs=[None, None, "0.0000", "0.0000", "0.0000"])
+r = note(ws, r, "Les trois suivis coïncident tant que le SiC est la seule phase condensée. Dès qu'un autre "
+                "solide reste à la paroi, le suivi sur Si ignore le silicium laissé liquide, et le suivi sur C "
+                "compte comme ablaté le résidu de carbone. Le suivi sur N donne la masse réellement injectée "
+                "dans la couche limite, celle qu'attend le bilan d'énergie de surface.")
+r += 1
+
+r = section(ws, r, "§6 — SENSIBILITÉ — régimes physiques (à 1 atm)")
+r = headrow(ws, r, ["Régime", "T_w [K]", "Phases condensées", "Espèces gazeuses dominantes", "Mécanisme", "", ""])
+for lab, T, ph, sp, me in [
+        ("oxydation passive", "300 – 1650", "SiC + SiO2 + C(gr)", "N2 (CO au-delà de 1400 K)", "SiC + O2 → SiO2 + C ; B'c = 0"),
+        ("transition passive → active", "1650 – 1975", "SiC + SiO2", "N2, CO, SiO", "SiC + 2 SiO2 → 3 SiO + CO"),
+        ("oxydation active", "2000 – 2250", "SiC", "N2, CO, SiO", "SiC + O2 → SiO + CO ; B'c = 0.292"),
+        ("décomposition + oxydation", "2275 – 3100", "SiC + Si(L)", "N2, CO, SiO, Si, Si2C", "SiC + O → Si(L) + CO"),
+        ("sublimation", "3100 – 3175", "SiC", "SiC2, Si2C, Si", "SiC ⇌ Si + SiC2 + Si2C"),
+        ("sublimation totale", "> 3175", "gaz seul", "Si, SiC2, Si2C", "plus de phase condensée : B'c = 200 (plafond)")]:
+    r = row(ws, r, [lab, T, ph, sp, me, "", ""],
+            fonts=[F_LAB, F_IN, F_IN, F_IN, F_NOTE, None, None])
+r = note(ws, r, "La pression décale TOUTES les transitions : à 0.001 atm l'oxydation devient active dès "
+                "~1500 K et le SiC se décompose en laissant un résidu de carbone vers 2400 K ; à 1000 atm "
+                "la silice (liquide) protège jusqu'à ~2600 K. Assemblage retenu en chaque point : "
+                "sic_bprime/sic_bprime_phases.csv.")
+r += 1
+
+r = section(ws, r, "§7 — RÉPONSE MATÉRIAU (n'entre PAS dans le XML)")
+r = kv(ws, r, "couplage k = B'g / B'c", 0.0, "pas de pyrolyse interne — comme le graphite et la silice", font=F_CALC, nf=NF_X3)
+rk = r - 1
+r = kv(ws, r, "récession par unité de flux sur le plateau actif, B'c/ρ [m³/kg]",
+       f"=C{ryO}*$C${rM}/(2*{MO})/C{rrho}", "ṡ = B'c·ṁe/ρ — valable tant que la paroi reste du SiC nu", font=F_CALC, nf="0.00E+00")
+r = note(ws, r, "Hors du régime actif la paroi porte un autre solide (SiO2, Si liquide, carbone) : B'c reste "
+                "la masse gazéifiée, mais la récession du SiC n'en découle plus directement — le solide "
+                "résiduel s'accumule, coule ou s'écaille, ce que le modèle d'équilibre ne décrit pas.")
+r += 1
+
+r = section(ws, r, "§8 — BLOC XML")
+r = xmlblock(ws, r, [
+    '<mixture thermo_db="NASA-9">',
+    '    <species>',
+    '        N O NO N2 O2',
+    '        C C2 C3 CN CO CO2',
+    '        Si Si2 Si3 SiO SiO2 SiN Si2N SiC SiC2 Si2C',
+    '        C(gr) Si(cr) Si(L) SiC(b) SiC(L)',
+    '        SiO2(a-qz) SiO2(b-qz) SiO2(b-crt) SiO2(L)',
+    '    </species>',
+    '    <element_compositions default="air">',
+    '        <composition name="air">N:0.79, O:0.21</composition>',
+    '        <composition name="sic">Si:1.0, C:1.0</composition>',
+    '    </element_compositions>',
+    '</mixture>',
+])
+r += 1
+r = para(ws, r, "bprime -T <Tw> -P <P> -b 0.0 -m sic-air -bl air -char sic -char-elem N   (point par point, cf. sic_bprime.py)", 16)
+SIC_XML = (rres, rk)
+
+
+# ===========================================================================
 # ONGLET  SYNTHÈSE  (rempli en dernier, affiché en premier)
 # ===========================================================================
 ws = ws_syn
 setup(ws, "1F3864")
 r = title(ws, "Mise en données des matériaux — synthèse",
           "D'où viennent les proportions portées dans data/mixtures/*.xml : hypothèses, étapes et formules, un onglet par matériau",
-          "data/mixtures/ — 9 matériaux, 17 fichiers de mélange")
+          "data/mixtures/ — 10 matériaux, 18 fichiers de mélange")
 
 r = section(ws, r, "§1 — MODE D'EMPLOI")
 r = para(ws, r, "Chaque onglet matériau reconstruit, ÉTAPE PAR ÉTAPE ET EN FORMULES VIVANTES, la chaîne qui "
@@ -2178,6 +2339,7 @@ SYN = [
     ("Liège/phénolique", "Liège-phénolique", COR_XML[0], COR_XML[1], "C:1.0", True),
     ("Carbone graphite", "Carbone",          CAR_XML[0], CAR_XML[1], "C:1.0", False),
     ("Silice SiO2",      "Silice",           SIL_XML[0], SIL_XML[1], "Si:1.0, O:2.0", False),
+    ("Carbure de silicium SiC", "SiC",       SIC_XML[0], SIC_XML[1], "Si:1.0, C:1.0", False),
 ]
 for lab, sheet, rx, rk_, char, has_gas in SYN:
     q = f"'{sheet}'"
@@ -2192,7 +2354,7 @@ for lab, sheet, rx, rk_, char, has_gas in SYN:
         nfs = [None, None, None, None, None, None, "0.0000"]
     r = row(ws, r, vals, fonts=fts, nfs=nfs)
 r = note(ws, r, "Les colonnes « gaz » sont des liens vers la ligne « valeur portée dans le XML » de chaque "
-                "onglet. Le graphite et la silice n'ont pas de gaz de pyrolyse (k = 0). "
+                "onglet. Le graphite, la silice et le SiC n'ont pas de gaz de pyrolyse (k = 0). "
                 "TACOT et CPh70 portent RIGOUREUSEMENT la même composition : leurs fichiers XML sont "
                 "identiques, seul k les distingue — c'est la démonstration de l'onglet CPh70.")
 r += 1
@@ -2226,9 +2388,9 @@ for route, mat, prim, pas, crit in [
         ("D — fermeture sur DEUX constituants", "Liège/phénolique",
          "analyses des deux constituants + rendements", "n_E(gaz) = Σ_i [n_E(i) − n_E(char,i)]",
          "le renfort pyrolyse : le rapport renfort/résine entre dans la table B'"),
-        ("E — stœchiométrie directe", "Carbone, Silice",
+        ("E — stœchiométrie directe", "Carbone, Silice, SiC",
          "la formule du solide", "aucun gaz de pyrolyse (B'g = 0)",
-         "le char EST le matériau ; pour la silice, -char-elem devient Si")]:
+         "le char EST le matériau ; -char-elem Si pour la silice, N pour le SiC (char non congruent)")]:
     r = row(ws, r, [route, mat, prim, pas, crit, "", ""],
             fonts=[F_LABB, F_LAB, F_LAB, F_MONO, F_NOTE, None, None])
     ws.row_dimensions[r-1].height = 28
@@ -2260,7 +2422,7 @@ for n, txt in enumerate([
         "Char → C:1.0 si tous les constituants carbonisent vers le carbone ; sinon pondérer par les masses de char de chaque constituant.",
         "Espèces → tous les produits attendus des éléments présents, PLUS la ou les phases condensées.",
         "Vérifier : checkmix (noms, phases), puis un run court.",
-        "Contrôler la physique : à 300 K et B'g = 0 dans l'air, un char carboné doit donner B'c ≈ 0.0874 (limite C + O2 → CO2, indépendante de la pression). Une valeur ≈ 200 signale l'absence de C(gr).",
+        "Contrôler la physique : à 300 K et B'g = 0 dans l'air, un char carboné doit donner B'c ≈ 0.0874 (limite C + O2 → CO2, indépendante de la pression). Une valeur ≈ 200 signale l'absence de C(gr). Pour un char multi-élément susceptible de laisser un autre solide à la paroi (SiC), suivre le bilan sur N (-char-elem N).",
 ], 1):
     ws[f"A{r}"] = n
     ws[f"A{r}"].font = F_STEP
@@ -2273,7 +2435,7 @@ r += 1
 r = para(ws, r, "Documents de référence du dépôt : tacot_bprime/mise_en_donnees_xml.md (mécanique du "
                 "fichier XML et règles du parseur) · resine_tacot.md · zuram_bprime/resine_zuram.md · "
                 "sc1008_bprime/resine_sc1008.md · cork_bprime/mise_en_donnees_cork.md · "
-                "tacot_bprime/cph70_vs_tacot.md · carbon_bprime/bprime_carbon_physique.md.", 30)
+                "tacot_bprime/cph70_vs_tacot.md · carbon_bprime/bprime_carbon_physique.md · sic_bprime/README.md.", 30)
 
 # ---------------------------------------------------------------------------
 wb.save(OUT)
