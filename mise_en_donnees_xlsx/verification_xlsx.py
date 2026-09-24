@@ -152,7 +152,8 @@ def main():
               f"écart max {worst*100:.2f} %")
     for sheet, fname, comp, exp in [("Carbone", "carbon-air.xml", "pyro", {"C": 1.0}),
                                     ("Silice", "silica-air.xml", "silice", {"Si": 1.0, "O": 2.0}),
-                                    ("SiC", "sic-air.xml", "sic", {"Si": 1.0, "C": 1.0})]:
+                                    ("SiC", "sic-air.xml", "sic", {"Si": 1.0, "C": 1.0}),
+                                    ("Molybdène", "mo-air.xml", "mo", {"Mo": 1.0})]:
         got = xml_composition(fname, comp)
         good = got == exp
         ko += 0 if good else 1

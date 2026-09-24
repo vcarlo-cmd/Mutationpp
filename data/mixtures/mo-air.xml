@@ -1,0 +1,17 @@
+<!-- Molybdenum (Mo, TZM) ablation in air mixture -->
+<!-- System Mo-N-O : 5 air species + Mo and its gaseous oxides (MoO3 polymers) -->
+<!-- + condensed phases Mo(cr,L), MoO2(cr), MoO3(cr,L) -->
+<mixture thermo_db="NASA-9">
+
+    <species>
+        N O NO N2 O2
+        Mo MoO MoO2 MoO3 Mo2O6 Mo3O9 Mo4O12 Mo5O15
+        Mo(cr) Mo(L) MoO2(cr) MoO3(cr) MoO3(L)
+    </species>
+
+    <element_compositions default="air">
+        <composition name="air">N:0.79, O:0.21</composition>
+        <composition name="mo">Mo:1.0</composition>
+    </element_compositions>
+
+</mixture>

@@ -238,6 +238,7 @@ ws_cor = wb.create_sheet("Liège-phénolique")
 ws_car = wb.create_sheet("Carbone")
 ws_sil = wb.create_sheet("Silice")
 ws_sic = wb.create_sheet("SiC")
+ws_mo  = wb.create_sheet("Molybdène")
 
 # Adresses absolues des masses molaires (onglet Constantes)
 MC  = "Constantes!$C$7"    # C   usuelle
@@ -2309,13 +2310,120 @@ SIC_XML = (rres, rk)
 
 
 # ===========================================================================
+# ONGLET  MOLYBDÈNE (Mo, TZM)
+# ===========================================================================
+ws = ws_mo
+setup(ws, "C55A11")
+r = title(ws, "Molybdène Mo (TZM) — métal à oxyde VOLATIL",
+          "Char monoélément dont l'oxyde MoO3 s'évapore : deux tables encadrent la réalité, équilibre complet (borne basse) et surface nue (borne haute)",
+          "data/mixtures/mo-air.xml")
+
+r = section(ws, r, "§0 — FICHE D'IDENTITÉ")
+r = kv(ws, r, "Matériau", "molybdène ; s'applique au TZM (Mo + 0.5 % Ti, 0.08 % Zr, ~0.02 % C)", "mo_bprime/mo_bprime.py · mo_bprime/README.md")
+r = kv(ws, r, "Système chimique", "Mo-N-O : 5 espèces d'air + Mo, MoO, MoO2, MoO3 et polymères Mo2O6…Mo5O15 + 5 phases condensées", "18 espèces au total")
+r = kv(ws, r, "Phases condensées", "Mo(cr), Mo(L) · MoO2(cr) · MoO3(cr), MoO3(L)", "toutes présentes dans nasa9.dat")
+r = kv(ws, r, "Binaire", "bprime généralisé : -char mo -char-elem N", "")
+r = kv(ws, r, "Compositions du XML", "air (-bl) · mo (char, -char)", "")
+r += 1
+
+r = section(ws, r, "§1 — HYPOTHÈSES")
+r = hyp(ws, r, "H1", "Le char est le métal pur, Mo:1.0 ; les additions du TZM sont ignorées.",
+        "Ti, Zr et C durcissent l'alliage mais ne changent pas son oxydation, et n'ont pas de données dans la base. Pas de pyrolyse : B'g = 0.")
+r = hyp(ws, r, "H2", "Bilan suivi sur N, comme pour le SiC.",
+        "B'c = masse nette gazéifiée. Pour un char monoélément, identique au suivi sur Mo tant que seul le métal est condensé.")
+r = hyp(ws, r, "H3", "L'équilibre complet est une BORNE BASSE.",
+        "Avec un excès de métal, l'oxygène est fixé en MoO2 solide et B'c = 0 jusqu'à ~2350 K à 1 atm. En réalité MoO3 se forme sur la face externe de l'oxyde, fond à 795 °C et s'évapore : le molybdène s'oxyde vite dès ~1000 K.")
+r = hyp(ws, r, "H4", "La table « surface nue » (sans oxydes condensés) est une BORNE HAUTE.",
+        "Tout l'oxygène qui atteint la paroi repart en oxydes gazeux : régime limité par la diffusion dans la couche limite. Conservative au-dessus de ~1000 K, fausse en dessous (cinétique lente).")
+r += 1
+
+r = section(ws, r, "§2 — DONNÉES D'ENTRÉE")
+r = kv(ws, r, "M_Mo [g/mol]", 95.96, "data/thermo/elements.xml (masse de Mutation++)", key=True, nf=NF_M)
+rMo = r - 1
+r = kv(ws, r, "fraction massique d'oxygène de l'air", "=Constantes!D19", "y_O calculé au §2 de l'onglet Constantes",
+       font=F_LINK, nf=NF_X)
+ryO = r - 1
+r = kv(ws, r, "masse volumique du TZM [kg/m³]", 10220, "Mo pur : 10 280 kg/m³ — n'entre que dans la récession")
+rrho = r - 1
+r += 1
+
+r = section(ws, r, "§3 — CALCUL PAS À PAS")
+r = step(ws, r, "Étape 1 — composition élémentaire du char : directe", "métal pur ⇒ x_Mo = y_Mo = 1")
+r = step(ws, r, "Étape 2 — réaction limite du régime de diffusion", "Mo + 3/2 O2 → MoO3(g)")
+r = para(ws, r, "Chaque molécule d'O2 qui atteint la paroi emporte 2/3 d'atome de molybdène. La masse de Mo "
+                "gazéifiée par unité de masse d'air vaut donc y_O · M_Mo / (3·M_O), indépendamment de la pression.", 30)
+r = kv(ws, r, "B'c limite de diffusion (MoO3)", f"=C{ryO}*C{rMo}/(3*{MO})",
+       "table « surface nue » : 0.4657 sur tout le plateau", font=F_CALC, nf="0.00000")
+rBd = r - 1
+r = kv(ws, r, "B'c si l'oxyde gazeux était MoO2", f"=C{ryO}*C{rMo}/(2*{MO})",
+       "borne supérieure du plateau, approchée à haute T quand MoO2 et MoO remplacent MoO3", font=F_CALC, nf="0.00000")
+r += 1
+
+r = section(ws, r, "§4 — RÉSULTAT : CE QUI ENTRE DANS LE XML")
+rres = r + 1
+r = headrow(ws, r, ["Composition élémentaire", "Mo", "N", "O", "", "", ""])
+r = row(ws, r, ["mo — valeur portée dans le XML", 1.0, "—", "—", "", "", ""],
+        fonts=[F_LAB, F_OUT, F_NOTE, F_NOTE, None, None, None],
+        nfs=[None, NF_X3, None, None], fills=[None, FILL_OUT, None, None])
+r = row(ws, r, ["air — valeur portée dans le XML", "—", 0.79, 0.21, "", "", ""],
+        fonts=[F_LAB, F_NOTE, F_OUT, F_OUT, None, None, None],
+        nfs=[None, None, NF_X3, NF_X3], fills=[None, None, FILL_OUT, FILL_OUT])
+r = note(ws, r, "La variante « surface nue » n'est pas un fichier du dépôt : mo_bprime.py l'écrit à la volée "
+                "en retirant MoO2(cr), MoO3(cr) et MoO3(L) de la liste d'espèces.")
+r += 1
+
+r = section(ws, r, "§5 — CONTRÔLES ET VALIDATION CROISÉE")
+r = kv(ws, r, "plateau de la table « surface nue »", 0.4657, "à comparer au calcul analytique du §3", nf="0.0000")
+r = kv(ws, r, "écart relatif", f"=ABS(C{r-1}-C{rBd})/C{rBd}", "l'arrondi de la table", font=F_CALC, nf=NF_E)
+r = kv(ws, r, "points instables (critère de force motrice)", 0, "table d'équilibre complet, 4725 points — contrôle du script SiC", nf="0")
+r += 1
+
+r = section(ws, r, "§6 — SENSIBILITÉ — disparition des oxydes condensés (équilibre complet)")
+r = headrow(ws, r, ["P [atm]", "T_w [K]", "", "", "", "", ""])
+for P_, T_ in [(0.001, 1875), (0.01, 2025), (0.1, 2175), (1, 2350), (10, 2600), (100, 2925), (1000, 4775)]:
+    r = row(ws, r, [P_, T_, "", "", "", "", ""], fonts=[F_IN, F_IN, None, None, None, None, None],
+            nfs=["0.###", "0", None])
+r = note(ws, r, "En dessous de ces températures, l'équilibre complet donne B'c = 0 (MoO2 solide) et la surface "
+                "nue 0.466 : la vérité est entre les deux, fixée par la cinétique. Au-dessus, les deux tables "
+                "coïncident ; fusion du métal à 2896 K, puis sublimation jusqu'au plafond B'c = 200.")
+r += 1
+
+r = section(ws, r, "§7 — RÉPONSE MATÉRIAU (n'entre PAS dans le XML)")
+r = kv(ws, r, "couplage k = B'g / B'c", 0.0, "pas de pyrolyse interne", font=F_CALC, nf=NF_X3)
+rk = r - 1
+r = kv(ws, r, "récession par unité de flux en limite de diffusion, B'c/ρ [m³/kg]",
+       f"=C{rBd}/C{rrho}", "ṡ = B'c·ṁe/ρ — borne haute au-dessus de ~1000 K", font=F_CALC, nf="0.00E+00")
+r = note(ws, r, "Dans l'air, le TZM s'emploie revêtu (siliciures de type MoSi2). La table décrit le métal mis à nu "
+                "par une défaillance du revêtement.")
+r += 1
+
+r = section(ws, r, "§8 — BLOC XML")
+r = xmlblock(ws, r, [
+    '<mixture thermo_db="NASA-9">',
+    '    <species>',
+    '        N O NO N2 O2',
+    '        Mo MoO MoO2 MoO3 Mo2O6 Mo3O9 Mo4O12 Mo5O15',
+    '        Mo(cr) Mo(L) MoO2(cr) MoO3(cr) MoO3(L)',
+    '    </species>',
+    '    <element_compositions default="air">',
+    '        <composition name="air">N:0.79, O:0.21</composition>',
+    '        <composition name="mo">Mo:1.0</composition>',
+    '    </element_compositions>',
+    '</mixture>',
+])
+r += 1
+r = para(ws, r, "bprime -T 300:25:5000 -P <P> -b 0.0 -m mo-air -bl air -char mo -char-elem N", 16)
+MO_XML = (rres, rk)
+
+
+# ===========================================================================
 # ONGLET  SYNTHÈSE  (rempli en dernier, affiché en premier)
 # ===========================================================================
 ws = ws_syn
 setup(ws, "1F3864")
 r = title(ws, "Mise en données des matériaux — synthèse",
           "D'où viennent les proportions portées dans data/mixtures/*.xml : hypothèses, étapes et formules, un onglet par matériau",
-          "data/mixtures/ — 10 matériaux, 18 fichiers de mélange")
+          "data/mixtures/ — 11 matériaux, 19 fichiers de mélange")
 
 r = section(ws, r, "§1 — MODE D'EMPLOI")
 r = para(ws, r, "Chaque onglet matériau reconstruit, ÉTAPE PAR ÉTAPE ET EN FORMULES VIVANTES, la chaîne qui "
@@ -2342,6 +2450,7 @@ SYN = [
     ("Carbone graphite", "Carbone",          CAR_XML[0], CAR_XML[1], "C:1.0", False),
     ("Silice SiO2",      "Silice",           SIL_XML[0], SIL_XML[1], "Si:1.0, O:2.0", False),
     ("Carbure de silicium SiC", "SiC",       SIC_XML[0], SIC_XML[1], "Si:1.0, C:1.0", False),
+    ("Molybdène (TZM)",  "Molybdène",        MO_XML[0],  MO_XML[1],  "Mo:1.0", False),
 ]
 for lab, sheet, rx, rk_, char, has_gas in SYN:
     q = f"'{sheet}'"
@@ -2356,7 +2465,7 @@ for lab, sheet, rx, rk_, char, has_gas in SYN:
         nfs = [None, None, None, None, None, None, "0.0000"]
     r = row(ws, r, vals, fonts=fts, nfs=nfs)
 r = note(ws, r, "Les colonnes « gaz » sont des liens vers la ligne « valeur portée dans le XML » de chaque "
-                "onglet. Le graphite, la silice et le SiC n'ont pas de gaz de pyrolyse (k = 0). "
+                "onglet. Le graphite, la silice, le SiC et le molybdène n'ont pas de gaz de pyrolyse (k = 0). "
                 "TACOT et CPh70 portent RIGOUREUSEMENT la même composition : leurs fichiers XML sont "
                 "identiques, seul k les distingue — c'est la démonstration de l'onglet CPh70.")
 r += 1
@@ -2390,7 +2499,7 @@ for route, mat, prim, pas, crit in [
         ("D — fermeture sur DEUX constituants", "Liège/phénolique",
          "analyses des deux constituants + rendements", "n_E(gaz) = Σ_i [n_E(i) − n_E(char,i)]",
          "le renfort pyrolyse : le rapport renfort/résine entre dans la table B'"),
-        ("E — stœchiométrie directe", "Carbone, Silice, SiC",
+        ("E — stœchiométrie directe", "Carbone, Silice, SiC, Mo",
          "la formule du solide", "aucun gaz de pyrolyse (B'g = 0)",
          "le char EST le matériau ; -char-elem Si pour la silice, N pour le SiC (char non congruent)")]:
     r = row(ws, r, [route, mat, prim, pas, crit, "", ""],
@@ -2437,7 +2546,7 @@ r += 1
 r = para(ws, r, "Documents de référence du dépôt : tacot_bprime/mise_en_donnees_xml.md (mécanique du "
                 "fichier XML et règles du parseur) · resine_tacot.md · zuram_bprime/resine_zuram.md · "
                 "sc1008_bprime/resine_sc1008.md · cork_bprime/mise_en_donnees_cork.md · "
-                "tacot_bprime/cph70_vs_tacot.md · carbon_bprime/bprime_carbon_physique.md · sic_bprime/README.md.", 30)
+                "tacot_bprime/cph70_vs_tacot.md · carbon_bprime/bprime_carbon_physique.md · sic_bprime/README.md · mo_bprime/README.md.", 30)
 
 # ---------------------------------------------------------------------------
 wb.save(OUT)
