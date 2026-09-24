@@ -1,0 +1,19 @@
+<!-- Silicon carbide (SiC) ablation in air mixture -->
+<!-- System Si-C-N-O : 5 air species + C, Si, SiO2, Si-C, Si-N gas species -->
+<!-- + condensed phases C(gr), Si(cr,L), SiC(b,L), SiO2(a-qz,b-qz,b-crt,L) -->
+<mixture thermo_db="NASA-9">
+
+    <species>
+        N O NO N2 O2
+        C C2 C3 CN CO CO2
+        Si Si2 Si3 SiO SiO2 SiN Si2N SiC SiC2 Si2C
+        C(gr) Si(cr) Si(L) SiC(b) SiC(L)
+        SiO2(a-qz) SiO2(b-qz) SiO2(b-crt) SiO2(L)
+    </species>
+
+    <element_compositions default="air">
+        <composition name="air">N:0.79, O:0.21</composition>
+        <composition name="sic">Si:1.0, C:1.0</composition>
+    </element_compositions>
+
+</mixture>
