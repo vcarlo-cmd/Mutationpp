@@ -60,7 +60,7 @@ au `§4` avec la valeur réellement présente dans le dépôt.
 Sortie attendue :
 
 ```
-621 formules évaluées, 0 erreur(s)
+638 formules évaluées, 0 erreur(s)
 [OK ] TACOT              tacot_pyro       ... écart max 0.06 %
 [OK ] CPh70              cph70_pyro       ... écart max 0.06 %
 [OK ] ZURAM              VKIZuramPyroGas  ... écart max 0.03 %

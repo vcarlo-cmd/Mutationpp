@@ -2171,7 +2171,7 @@ r = hyp(ws, r, "H2", "L'élément du bilan est l'AZOTE de l'air, pas Si ni C.",
 r = hyp(ws, r, "H3", "Toutes les phases condensées du système Si-C-O figurent dans <species>, sauf Si3N4.",
         "Même exigence que C(gr) pour le carbone : sans SiO2 condensée, l'oxydation passive disparaît ; sans C(gr), le résidu de décomposition ne peut pas se former. Si3N4(cr) est écarté : il bloque le solveur, et la nitruration du SiC sous air est cinétiquement inhibée.")
 r = hyp(ws, r, "H4", "Équilibre thermochimique à la paroi, vérifié point par point.",
-        "Le solveur multiphase boucle sur ~7 % des points (frontières de phases). Chaque point est contrôlé : aucune phase absente ne doit avoir une force motrice g°/RT − Σ a·λ négative. Sinon les assemblages de phases sont énumérés et celui qui vérifie ce critère est retenu (équilibre vrai).")
+        "Le solveur multiphase boucle sur ~7 % des points (frontières de phases). Chaque point est contrôlé : aucune phase absente ne doit avoir une force motrice g°/RT − Σ a·λ négative. Sinon les assemblages de phases sont énumérés et celui qui vérifie ce critère est retenu (équilibre vrai). Là où plusieurs solides coexistent (SiC + C(gr), SiC + SiO2 + Si(L)), l'équilibre à assemblage fixé est résolu directement en potentiels élémentaires. Bilan : 4387 points directs, 289 par énumération, 49 à assemblage fixé, tous strictement stables.")
 r += 1
 
 r = section(ws, r, "§2 — DONNÉES D'ENTRÉE")
@@ -2236,7 +2236,7 @@ r = para(ws, r, "Tout l'oxygène de l'air part en SiO et CO, la paroi reste du S
                 "d'oxygène) emporte un motif SiC : la masse ablatée par unité de masse d'air vaut "
                 "y_O · M_SiC / (2·M_O).", 30)
 r = kv(ws, r, "B'c attendu sur le plateau", f"=C{ryO}*$C${rM}/(2*{MO})",
-       "bprime donne 0.2920 (1 atm, 2100 K ; 0.001 atm, 1600 K) — le plateau s'étend sur 200 à 600 K selon P",
+       "table : 0.2920 à 1 atm entre 1975 et 2200 K ; 0.2919 à 0.001 atm, 1600 K",
        font=F_CALC, nf="0.00000")
 r = step(ws, r, "Contrôle 2 — oxydation PASSIVE à basse température",
          "SiC + O2 → SiO2(s) + C(gr) : la paroi fixe l'oxygène")
@@ -2247,31 +2247,33 @@ r = step(ws, r, "Contrôle 3 — pourquoi PAS -char-elem Si : comparaison sur tr
 r = headrow(ws, r, ["Point (T_w, P)", "phases à la paroi", "B'c suivi N", "B'c suivi Si", "B'c suivi C", "", ""])
 for lab, ph, bn, bsi, bc in [
         ("2100 K, 1 atm", "SiC", 0.2920, 0.2920, 0.2920),
-        ("2600 K, 1 atm", "SiC + Si(L)", 0.3056, 0.1506, 0.3056),
-        ("2500 K, 0.001 atm", "C(gr) (résidu)", 3.357, 0.0, 12.03)]:
+        ("2600 K, 1 atm", "SiC + Si(L)", 0.2583, 0.1506, 0.6108),
+        ("2500 K, 0.001 atm", "C(gr) (résidu)", 185.4, 0.0, 4.312)]:
     r = row(ws, r, [lab, ph, bn, bsi, bc, "", ""],
             fonts=[F_LAB, F_IN, F_IN, F_IN, F_IN, None, None],
             nfs=[None, None, "0.0000", "0.0000", "0.0000"])
 r = note(ws, r, "Les trois suivis coïncident tant que le SiC est la seule phase condensée. Dès qu'un autre "
-                "solide reste à la paroi, le suivi sur Si ignore le silicium laissé liquide, et le suivi sur C "
-                "compte comme ablaté le résidu de carbone. Le suivi sur N donne la masse réellement injectée "
-                "dans la couche limite, celle qu'attend le bilan d'énergie de surface.")
+                "solide reste à la paroi, un suivi sur un seul élément du char suppose à tort que l'autre part "
+                "avec lui dans le rapport 1:1 : avec Si liquide résiduel, le suivi sur Si sous-estime (0.15) et "
+                "le suivi sur C surestime (0.61) ; avec un résidu de carbone, le suivi sur Si tombe à 0 alors "
+                "que le SiC se décompose. Le suivi sur N donne la masse réellement injectée dans la couche "
+                "limite, celle qu'attend le bilan d'énergie de surface.")
 r += 1
 
 r = section(ws, r, "§6 — SENSIBILITÉ — régimes physiques (à 1 atm)")
 r = headrow(ws, r, ["Régime", "T_w [K]", "Phases condensées", "Espèces gazeuses dominantes", "Mécanisme", "", ""])
 for lab, T, ph, sp, me in [
-        ("oxydation passive", "300 – 1650", "SiC + SiO2 + C(gr)", "N2 (CO au-delà de 1400 K)", "SiC + O2 → SiO2 + C ; B'c = 0"),
-        ("transition passive → active", "1650 – 1975", "SiC + SiO2", "N2, CO, SiO", "SiC + 2 SiO2 → 3 SiO + CO"),
-        ("oxydation active", "2000 – 2250", "SiC", "N2, CO, SiO", "SiC + O2 → SiO + CO ; B'c = 0.292"),
-        ("décomposition + oxydation", "2275 – 3100", "SiC + Si(L)", "N2, CO, SiO, Si, Si2C", "SiC + O → Si(L) + CO"),
-        ("sublimation", "3100 – 3175", "SiC", "SiC2, Si2C, Si", "SiC ⇌ Si + SiC2 + Si2C"),
-        ("sublimation totale", "> 3175", "gaz seul", "Si, SiC2, Si2C", "plus de phase condensée : B'c = 200 (plafond)")]:
+        ("oxydation passive", "300 – 1625", "SiC + SiO2 + C(gr)", "N2", "SiC + O2 → SiO2 + C ; B'c = 0"),
+        ("transition passive → active", "1650 – 1950", "SiC + SiO2", "N2, CO, SiO", "SiC + 2 SiO2 → 3 SiO + CO ; B'c 0 → 0.17"),
+        ("oxydation active", "1975 – 2200", "SiC", "N2, CO, SiO", "SiC + O2 → SiO + CO ; B'c = 0.292"),
+        ("oxydation + silicium liquide", "2225 – 3000", "SiC + Si(L)", "N2, CO, SiO, Si, Si2C", "SiC + O → Si(L) + CO ; B'c 0.29 → 1.7"),
+        ("sublimation", "3025 – 3100", "SiC", "SiC2, Si2C, Si", "SiC ⇌ Si + SiC2 + Si2C ; B'c 2.3 → 13.5"),
+        ("sublimation totale", "≥ 3125", "gaz seul", "Si, SiC2, Si2C", "plus de phase condensée : B'c = 200 (plafond)")]:
     r = row(ws, r, [lab, T, ph, sp, me, "", ""],
             fonts=[F_LAB, F_IN, F_IN, F_IN, F_NOTE, None, None])
 r = note(ws, r, "La pression décale TOUTES les transitions : à 0.001 atm l'oxydation devient active dès "
-                "~1500 K et le SiC se décompose en laissant un résidu de carbone vers 2400 K ; à 1000 atm "
-                "la silice (liquide) protège jusqu'à ~2600 K. Assemblage retenu en chaque point : "
+                "1500 K et le SiC se décompose en laissant un résidu de carbone dès 2350 K ; à 1000 atm "
+                "la silice (liquide) protège jusqu'à ~2700 K. Assemblage retenu en chaque point : "
                 "sic_bprime/sic_bprime_phases.csv.")
 r += 1
 

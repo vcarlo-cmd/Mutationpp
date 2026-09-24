@@ -29,9 +29,15 @@ Deux particularités par rapport au carbone et à la silice :
      et toute phase condensée absente doit avoir une force motrice
      g°/RT - sum(a.lambda) >= 0 (polynômes NASA-9 lus dans nasa9.dat).
      Si le solveur bloque ou si le résultat n'est pas stable, on énumère
-     les assemblages de phases condensées possibles et on retient celui qui
-     satisfait le critère de stabilité : c'est l'équilibre vrai (minimum
-     de l'enthalpie libre).
+     les assemblages de phases condensées possibles (bprime sur un mélange
+     restreint) et on retient celui qui satisfait le critère de stabilité :
+     c'est l'équilibre vrai (minimum de l'enthalpie libre).
+     Aux points où deux ou trois solides coexistent (SiC + C(gr),
+     SiC + SiO2(L) + Si(L)...), le solveur de Mutation++ échoue même sur le
+     mélange restreint. L'équilibre à assemblage fixé est alors résolu ici
+     directement en potentiels élémentaires (mêmes données NASA-9, mêmes
+     masses atomiques, même excès de char que bprime) ; ce solveur reproduit
+     bprime à 1e-5 près là où celui-ci converge.
 
 Usage :
     python sic_bprime.py
@@ -40,7 +46,7 @@ Prérequis :
     - Le binaire `bprime` doit être dans le PATH ou dans build/src/apps/
     - Le fichier data/mixtures/sic-air.xml doit exister
     - MPP_DATA_DIRECTORY pointe sur data/ (sinon ../data est utilisé)
-    - matplotlib et numpy installés
+    - matplotlib, numpy et scipy installés
 """
 
 import subprocess
@@ -54,6 +60,7 @@ import tempfile
 import re
 from concurrent.futures import ThreadPoolExecutor
 import numpy as np
+from scipy.optimize import root, nnls
 import matplotlib.pyplot as plt
 
 # ---------------------------------------------------------------------------
@@ -85,6 +92,10 @@ CONDENSED_FAMILIES = [
     ["SiO2(a-qz)", "SiO2(b-qz)", "SiO2(b-crt)", "SiO2(L)"],
 ]
 ELEMENTS = ["Si", "C", "N", "O"]
+# Masses atomiques de data/thermo/elements.xml (celles de Mutation++)
+ATOMIC_MW = {"Si": 28.085, "C": 12.011, "N": 14.0067, "O": 15.9994}
+RU = 6.0221415e23 * 1.3806503e-23   # J/mol/K, src/general/Constants.h
+AIR_X = {"N": 0.79, "O": 0.21}      # composition "air" de sic-air.xml
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.environ.get("MPP_DATA_DIRECTORY",
@@ -242,19 +253,40 @@ def valid_at(sp, T):
     return sp["tb"][0] < T <= sp["tb"][-1]
 
 
-def driving_forces(db, T, P, X):
+def h_over_rt(sp, T):
+    """h/RT, formule de Nasa9Polynomial::enthalpy."""
+    tb, co = sp["tb"], sp["co"]
+    tr = len(co) - 1
+    for k in range(1, len(co)):
+        if T < tb[k]:
+            tr = k - 1
+            break
+    c = co[tr]
+    p = [-1.0 / T**2, math.log(T) / T, 1.0, 0.5 * T,
+         T**2 / 3.0, 0.25 * T**3, T**4 / 5.0, 1.0 / T]
+    return sum(ci * pi for ci, pi in zip(c[:8], p))
+
+
+def element_potentials(db, T, P, X):
     """
     Potentiels élémentaires lambda déduits de la phase gaz (moindres carrés
-    sur mu_i/RT = g°_i/RT + ln(x_i P/P°) = sum_j a_ij lambda_j), puis force
-    motrice d_k = g°_k/RT - sum_j a_kj lambda_j de chaque phase condensée
-    valide à T. À l'équilibre : d_k = 0 si k est présente, d_k >= 0 sinon.
+    sur mu_i/RT = g°_i/RT + ln(x_i P/P°) = sum_j a_ij lambda_j).
     """
     A, b = [], []
     for s, x in X.items():
         if not db[s]["cond"] and x > 1.0e-250:
             A.append([db[s]["form"].get(e, 0.0) for e in ELEMENTS])
             b.append(g_over_rt(db[s], T) + math.log(x) + math.log(P / ONEATM))
-    lam = np.linalg.lstsq(np.array(A), np.array(b), rcond=None)[0]
+    return np.linalg.lstsq(np.array(A), np.array(b), rcond=None)[0]
+
+
+def driving_forces(db, T, P, X):
+    """
+    Force motrice d_k = g°_k/RT - sum_j a_kj lambda_j de chaque phase
+    condensée valide à T. À l'équilibre : d_k = 0 si k est présente,
+    d_k >= 0 sinon.
+    """
+    lam = element_potentials(db, T, P, X)
     return {s: g_over_rt(db[s], T)
                - sum(db[s]["form"].get(e, 0.0) * l for e, l in zip(ELEMENTS, lam))
             for s in X if db[s]["cond"] and valid_at(db[s], T)}
@@ -266,6 +298,78 @@ def stability_violation(db, T, P, X):
     return max([0.0] + [-v for s, v in d.items() if X[s] <= 0.0])
 
 
+def solve_fixed_assemblage(db, species, T, P, cond, lam0):
+    """
+    Équilibre à assemblage de phases condensées FIXÉ, pour le système de
+    bprime : 1 kg d'air + 200 kg de SiC (surfaceMassBalance, B'g = 0).
+    Inconnues : lambda (4), ln n_gaz, ln n_k (k dans cond).
+    Équations : g°_k/RT = a_k.lambda (k dans cond), sum x_i = 1,
+                bilans des 4 éléments.
+    Retourne (row, X) au format de bprime, ou None si pas de solution
+    (typiquement : une phase de l'assemblage devrait avoir n_k <= 0).
+    """
+    gas = [s for s in species if not db[s]["cond"]]
+    Ag = np.array([[db[s]["form"].get(e, 0.0) for e in ELEMENTS] for s in gas])
+    gg = np.array([g_over_rt(db[s], T) for s in gas]) + math.log(P / ONEATM)
+    Ac = np.array([[db[s]["form"].get(e, 0.0) for e in ELEMENTS]
+                   for s in cond]).reshape(len(cond), len(ELEMENTS))
+    gc = np.array([g_over_rt(db[s], T) for s in cond])
+    m_air = sum(AIR_X[e] * ATOMIC_MW[e] for e in AIR_X)
+    ye = {e: AIR_X.get(e, 0.0) * ATOMIC_MW[e] / m_air for e in ELEMENTS}
+    m_sic = ATOMIC_MW["Si"] + ATOMIC_MW["C"]
+    yc = {"Si": ATOMIC_MW["Si"] / m_sic, "C": ATOMIC_MW["C"] / m_sic}
+    char_amount = 200.0
+    b = np.array([(ye[e] + char_amount * yc.get(e, 0.0)) / ATOMIC_MW[e]
+                  for e in ELEMENTS])
+    iN = ELEMENTS.index("N")
+
+    def xg(lam):
+        return np.exp(np.clip(Ag @ lam - gg, -700.0, 50.0))
+
+    def F(u):
+        lam, lng, lnc = u[:4], u[4], u[5:]
+        x = xg(lam)
+        el = (math.exp(min(lng, 700.0)) * (Ag.T @ x)
+              + Ac.T @ np.exp(np.minimum(lnc, 700.0)))
+        return np.r_[Ac @ lam - gc, x.sum() - 1.0, el / b - 1.0]
+
+    # Estimations initiales : gaz de la graine, solides par NNLS sur les bilans
+    x0 = xg(lam0)
+    x0 = x0 / x0.sum()
+    ng0 = b[iN] / max(Ag[:, iN] @ x0, 1.0e-300)
+    guesses = [np.full(len(cond), math.log(b.max() * f)) for f in (0.5, 1e-3, 1e-8)]
+    if cond:
+        nc = nnls(Ac.T, np.maximum(b - ng0 * (Ag.T @ x0), 0.0))[0]
+        guesses.insert(0, np.log(np.maximum(nc, 1.0e-10)))
+    best = None
+    with np.errstate(all="ignore"):
+        for lc0 in guesses:
+            u0 = np.r_[lam0, math.log(max(ng0, 1.0e-30)), lc0]
+            sol = root(F, u0, method="hybr", options={"xtol": 1e-13, "maxfev": 20000})
+            res = np.abs(F(sol.x)).max()
+            if best is None or res < best[1]:
+                best = (sol.x, res)
+            if res < 1.0e-10:
+                break
+    if best[1] > 1.0e-9:
+        return None
+
+    x = xg(best[0][:4])
+    x = x / x.sum()
+    mw = np.array([sum(db[s]["form"].get(e, 0.0) * ATOMIC_MW[e] for e in ELEMENTS)
+                   for s in gas])
+    mwg = x @ mw
+    ywN = ATOMIC_MW["N"] * (Ag[:, iN] @ x) / mwg
+    Bc = max(ye["N"] / ywN - 1.0, 0.0)                       # -char-elem N
+    hw = RU * T / (mwg * 1.0e-3) * (x @ np.array([h_over_rt(db[s], T) for s in gas]))
+    X = {s: 0.0 for s in species}
+    X.update(zip(gas, x))
+    for s in cond:
+        X[s] = 1.0                                           # IN_PHASE
+    row = np.array([T, Bc, hw / 1.0e6] + [X[s] for s in species])
+    return row, X
+
+
 # ---------------------------------------------------------------------------
 # Résolution d'un point (Tw, P)
 # ---------------------------------------------------------------------------
@@ -273,11 +377,15 @@ def stability_violation(db, T, P, X):
 def solve_point(ctx, T, P_pa):
     """
     Retourne (row, méthode, phases condensées présentes, violation).
-    méthode : 'direct' (sic-air complet), 'enum' (assemblage énuméré),
-              'enum-approx' (aucun assemblage strictement stable : le moins
-              instable est retenu).
+    méthode : 'direct'     bprime sur sic-air complet
+              'enum'       bprime sur un mélange restreint à un assemblage
+              'assemblage' équilibre à assemblage fixé résolu en Python
+              'approx'     aucun assemblage strictement stable trouvé : le
+                           moins instable est retenu (ne se produit pas sur
+                           la grille actuelle)
     """
     bprime_path, db, species, gas, tmpdir = ctx
+    seeds = []
     res = run_bprime_sic(bprime_path, T, P_pa)
     if res is not None:
         header, row = res
@@ -285,32 +393,51 @@ def solve_point(ctx, T, P_pa):
         viol = stability_violation(db, T, P_pa, X)
         if viol <= STAB_TOL:
             return row, "direct", [s for s in X if db[s]["cond"] and X[s] > 0], viol
+        seeds.append(element_potentials(db, T, P_pa, X))
 
     # Énumération des assemblages : un polymorphe valide par famille,
     # de 0 à 4 familles présentes.
     fams = [[s for s in f if valid_at(db[s], T)] for f in CONDENSED_FAMILIES]
     fams = [f[0] for f in fams if f]
+    subsets = [sub for n in range(len(fams) + 1)
+               for sub in itertools.combinations(fams, n)]
     best = None
-    for n in range(len(fams) + 1):
-        for subset in itertools.combinations(fams, n):
-            name = "sic_var_" + "_".join(
-                re.sub(r"[()]", "", s) for s in subset) if subset else "sic_var_gaz"
-            out = run_bprime_sic(bprime_path, T, P_pa, mixture=name, cwd=tmpdir)
+    for subset in subsets:
+        if len(subset) == len(fams):
+            continue       # identique au mélange complet, déjà essayé
+        name = "sic_var_" + "_".join(
+            re.sub(r"[()]", "", s) for s in subset) if subset else "sic_var_gaz"
+        out = run_bprime_sic(bprime_path, T, P_pa, mixture=name, cwd=tmpdir)
+        if out is None:
+            continue
+        h, r = out
+        vals = dict(zip(h, r))
+        row = np.array([vals.get(c, 0.0) for c in ["Tw[K]", "B'c", "hw[MJ/kg]"] + species])
+        X = dict(zip(species, row[3:]))
+        viol = stability_violation(db, T, P_pa, X)
+        seeds.append(element_potentials(db, T, P_pa, X))
+        if best is None or viol < best[3]:
+            best = (row, "enum", [s for s in subset if X[s] > 0], viol)
+        if viol <= STAB_TOL:
+            return best
+
+    # Coexistence de phases que Mutation++ ne sait pas converger : équilibre
+    # à assemblage fixé, graines lambda tirées des calculs précédents.
+    for subset in subsets:
+        for lam0 in seeds:
+            out = solve_fixed_assemblage(db, species, T, P_pa, list(subset), lam0)
             if out is None:
                 continue
-            h, r = out
-            vals = dict(zip(h, r))
-            row = np.array([vals.get(c, 0.0) for c in ["Tw[K]", "B'c", "hw[MJ/kg]"] + species])
-            X = dict(zip(species, row[3:]))
+            row, X = out
             viol = stability_violation(db, T, P_pa, X)
-            present = [s for s in subset if X[s] > 0]
             if best is None or viol < best[3]:
-                best = (row, "enum", present, viol)
+                best = (row, "assemblage", list(subset), viol)
+            if viol <= STAB_TOL:
+                return best
+            break
     if best is None:
         sys.exit(f"Aucun assemblage calculable à T = {T} K, P = {P_pa} Pa")
-    if best[3] > STAB_TOL:
-        best = (best[0], "enum-approx", best[2], best[3])
-    return best
+    return (best[0], "approx", best[2], best[3])
 
 
 # ---------------------------------------------------------------------------
@@ -424,12 +551,12 @@ if __name__ == "__main__":
                 n_enum = sum(r[1] != "direct" for r in results)
                 print(f"{len(data)} points ({n_enum} par énumération des phases)")
 
-    n_dir = sum(d[2] == "direct" for d in diag)
-    n_enum = sum(d[2] == "enum" for d in diag)
-    n_apx = sum(d[2] == "enum-approx" for d in diag)
-    print(f"\nPoints : {n_dir} directs, {n_enum} par énumération, "
-          f"{n_apx} approchés (violation max "
-          f"{max([d[4] for d in diag if d[2] == 'enum-approx'] + [0.0]):.2e})")
+    counts = {m: sum(d[2] == m for d in diag)
+              for m in ("direct", "enum", "assemblage", "approx")}
+    print(f"\nPoints : {counts['direct']} directs, {counts['enum']} par "
+          f"énumération bprime, {counts['assemblage']} par assemblage fixé, "
+          f"{counts['approx']} approchés (violation max "
+          f"{max([d[4] for d in diag] + [0.0]):.2e})")
 
     # 3. Sauvegarde CSV globale
     out_csv = "sic_bprime_table.csv"
