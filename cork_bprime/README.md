@@ -187,3 +187,54 @@ distance buse–éprouvette pèse donc autant que le réglage O2/C2H2.
   avec colonnes `O2_C2H2` et `f_air`), `cork_oat_bprime_steady_state.csv`,
   `cork_oat_bprime_vs_air.png`, `cork_oat_bprime_steady_state.png`,
   `cork_oat_air_bprime.png` (effet de l'air entraîné).
+
+---
+
+## 5. `cork_bprime_hvof.py` — même matériau sous jet HVOF kérosène (Jet-A1)
+
+Cas distinct de l'OAT, même principe : seul le bord de couche limite change
+(`data/mixtures/cork-hvof.xml`, même gaz de pyrolyse, même char, mêmes 26
+espèces). Carburant Jet-A1 représenté par **C12H23**, comburant **O2 pur**
+(pistolets HVOF kérosène type JP-5000), richesse φ :
+C12H23 + (17.75/φ) O2, soit C:H:O = 12 : 23 : 35.5/φ. Trois réglages :
+φ = 0.8 (pauvre), 1.0 (stœchiométrique), 1.3 (riche).
+
+Contrairement à l'OAT, le jet HVOF brûle presque complètement : il reste
+beaucoup d'oxygène au-delà de ce que son propre carbone consomme. (Le point
+« CO-neutre », analogue de la flamme neutre OAT, serait φ = 2.96, hors
+fonctionnement HVOF.) Palier d'oxydation :
+B'c = M_C(35.5/φ − 12)/(M_C12H23 + (17.75/φ)·M_O2) = 0.443 / 0.384 / 0.304
+(air : 0.175), retrouvé par Mutation++.
+
+**Jet + air entraîné** : fraction massique f = 0.25 et 0.50 d'air ambiant
+pour chaque φ (`hvof_phi*_air25/50`). Le palier devient
+(1 − f)·B'c(jet) + f·0.175 : le jet étant plus oxydant que l'air,
+**l'entraînement fait baisser B'c** (sens inverse de l'OAT neutre).
+
+1 atm :
+
+| T [K] | 1000 | 1500 | 2000 | 2500 | 3000 | 3400 |
+|---|---|---|---|---|---|---|
+| B'c, B'g=0 — air | 0.154 | 0.175 | 0.175 | 0.175 | 0.177 | 0.210 |
+| — HVOF φ=0.8 | 0.304 | 0.443 | 0.444 | 0.447 | 0.462 | 0.526 |
+| — HVOF φ=1.0 | 0.251 | 0.384 | 0.384 | 0.388 | 0.406 | 0.476 |
+| — HVOF φ=1.3 | 0.181 | 0.304 | 0.305 | 0.309 | 0.331 | 0.409 |
+| — φ=1.0 + 25 % air | 0.230 | 0.331 | 0.334 | 0.343 | 0.369 | 0.438 |
+| — φ=1.0 + 50 % air | 0.207 | 0.279 | 0.282 | 0.291 | 0.315 | 0.374 |
+| **B'c stationnaire (B'g=4B'c)** — air | 0.060 | 0.075 | 0.077 | 0.086 | 0.114 | 0.221 |
+| — HVOF φ=0.8 | 0.121 | 0.190 | 0.190 | 0.196 | 0.225 | 0.365 |
+| — HVOF φ=1.0 | 0.100 | 0.164 | 0.165 | 0.170 | 0.198 | 0.330 |
+| — HVOF φ=1.3 | 0.072 | 0.130 | 0.131 | 0.135 | 0.161 | 0.284 |
+| — φ=1.0 + 25 % air | 0.091 | 0.142 | 0.144 | 0.154 | 0.190 | 0.330 |
+| — φ=1.0 + 50 % air | 0.081 | 0.120 | 0.122 | 0.132 | 0.168 | 0.303 |
+
+- Le jet HVOF oxyde le char **2 à 2.5 fois plus que l'air** sur le palier,
+  quel que soit φ dans le domaine usuel ; φ pèse moins que r pour l'OAT.
+- h_w et sublimation : mêmes remarques qu'au §4 (h_w bas à froid, h_e à
+  prendre dans la même référence NASA-9, seuil de sublimation inchangé).
+- HVAF (kérosène/air) n'est pas traité : ce serait un troisième cas, avec
+  l'azote dès la sortie de buse.
+- Fichiers : `cork_hvof_bprime_bc_table.csv` / `_hw_table.csv` (format
+  long, colonnes `phi` et `f_air`), `cork_hvof_bprime_steady_state.csv`,
+  `cork_hvof_bprime_vs_air.png`, `cork_hvof_bprime_steady_state.png`,
+  `cork_hvof_air_bprime.png`.
