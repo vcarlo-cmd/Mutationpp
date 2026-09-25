@@ -177,7 +177,8 @@ B'c = (1 − f)·B'c(flamme) + f·0.175, retrouvé exactement par Mutation++.
 | — r=1.3 + 50 % air | 0.032 | 0.060 | 0.062 | 0.070 | 0.095 | 0.193 |
 
 L'entraînement rapproche la table de celle de l'air sans l'atteindre tant
-que r < 2.3 (au-delà, la flamme seule oxyde déjà plus que l'air). Pour une
+que r < 1.55 (au-delà, la flamme seule oxyde déjà plus que l'air et
+l'entraînement fait au contraire baisser B'c). Pour une
 flamme neutre il change la nature du régime : sans air le char ne s'oxyde
 pas avant ~2500 K, avec 25 % d'air il a déjà un palier à 0.044. La
 distance buse–éprouvette pèse donc autant que le réglage O2/C2H2.
