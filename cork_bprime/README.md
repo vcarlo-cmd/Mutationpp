@@ -117,3 +117,41 @@ en profondeur (h_g − h_s). 25 isobares de 10⁻³ à 10³ atm, T de 200 à 400
 
 Voir `../tacot_bprime/` (TACOT et mécanique générale du XML),
 `../cph70_bprime/` et `../zuram_bprime/` pour les carbone/phénolique.
+
+---
+
+## 4. `cork_bprime_oat.py` — même matériau sous torche oxyacétylénique
+
+Seul le bord de couche limite change (`data/mixtures/cork-oat.xml`, même
+gaz de pyrolyse, même char, mêmes 26 espèces) : produits de
+C2H2 + r O2 en sortie de buse, **sans air entraîné** (pas d'azote),
+C:H:O = 2:2:2r. Trois réglages : r = 1.0 (neutre), **1.3** (réglage OAT
+usuel), 2.5 (stœchiométrique).
+
+Ce qui pilote la table est l'**oxygène en excès sur le carbone** de la
+flamme, seul capable d'oxyder le char (→ CO) :
+plateau B'c = M_C(2r−2)/(M_C2H2 + r·M_O2) = 0 / 0.107 / 0.340 (air : 0.175).
+
+1 atm :
+
+| T [K] | 1000 | 1500 | 2000 | 2500 | 3000 | 3400 |
+|---|---|---|---|---|---|---|
+| B'c, B'g=0 — air | 0.154 | 0.175 | 0.175 | 0.175 | 0.177 | 0.210 |
+| B'c, B'g=0 — OAT r=1.0 | 0 | 0 | 0.0003 | 0.0044 | 0.024 | 0.092 |
+| B'c, B'g=0 — OAT r=1.3 | 0.001 | 0.106 | 0.107 | 0.110 | 0.127 | 0.190 |
+| B'c, B'g=0 — OAT r=2.5 | 0.210 | 0.339 | 0.340 | 0.342 | 0.353 | 0.405 |
+| **B'c stationnaire (B'g=4B'c)** — air | 0.060 | 0.075 | 0.077 | 0.086 | 0.114 | 0.221 |
+| — OAT r=1.0 | 0 | 0 | 0.0003 | 0.0023 | 0.012 | 0.064 |
+| — OAT r=1.3 | 0.001 | 0.046 | 0.046 | 0.048 | 0.062 | 0.132 |
+| — OAT r=2.5 | 0.083 | 0.146 | 0.146 | 0.150 | 0.172 | 0.281 |
+
+- Le seuil de sublimation (~3500–4000 K à 1 atm) ne bouge pas : il dépend
+  du char, pas du bord.
+- h_w est **plus bas** qu'à l'air à basse T (−10 MJ/kg à 300 K contre
+  −2.6) : les éléments C/H de la flamme se recombinent en CH4/H2O/CO2 à la
+  paroi. h_w et h_e (enthalpie de récupération de la flamme) doivent être
+  pris dans la **même référence** (NASA-9, enthalpies de formation
+  incluses) — ne pas mélanger avec une h_e « air » ou sensible seule.
+- Fichiers : `cork_oat_bprime_bc_table.csv` / `_hw_table.csv` (format long
+  avec colonne `O2_C2H2`), `cork_oat_bprime_steady_state.csv`,
+  `cork_oat_bprime_vs_air.png`, `cork_oat_bprime_steady_state.png`.
