@@ -235,6 +235,7 @@ ws_zur = wb.create_sheet("ZURAM")
 ws_sc  = wb.create_sheet("SC-1008")
 ws_mx  = wb.create_sheet("MX-4926")
 ws_cor = wb.create_sheet("Liège-phénolique")
+ws_oak = wb.create_sheet("Chêne")
 ws_car = wb.create_sheet("Carbone")
 ws_sil = wb.create_sheet("Silice")
 ws_sic = wb.create_sheet("SiC")
@@ -1912,6 +1913,272 @@ COR_XML = (rxml, rk)
 
 
 # ===========================================================================
+# ONGLET  CHÊNE
+# ===========================================================================
+ws = ws_oak
+setup(ws, "7F6000")
+r = title(ws, "Bois de chêne — ablateur pyrolysant à un seul constituant",
+          "Le cas le plus simple des ablateurs pyrolysants : TOUT le solide pyrolyse, sans résine ni renfort inerte — une seule fermeture élémentaire bois − char",
+          "data/mixtures/oak-air.xml · oak-pyrogas.xml")
+
+r = section(ws, r, "§0 — FICHE D'IDENTITÉ")
+r = kv(ws, r, "Matériau", "bois de chêne massif (Quercus robur / Q. petraea), SEC, sans résine", "feuillu — à ne pas confondre avec le liège (Q. suber)")
+r = kv(ws, r, "Constituants", "cellulose 43 / hémicelluloses 22 / lignine S+G 25 / ellagitanins 8 %", "IL PYROLYSE ENTIÈREMENT : 80 % du bois part en gaz")
+r = kv(ws, r, "Rendement en char", "20 % en masse", "donnée de l'énoncé")
+r = kv(ws, r, "Unité de répétition globale", "C6H8.7O3.95 — soit CH1.45O0.66 par atome de carbone", "calculée à l'étape 5 du §3")
+r = kv(ws, r, "Sources", "oak_bprime/mise_en_donnees_chene.md · oak_pyrolysis_data.py", "")
+r = kv(ws, r, "Compositions du XML", "air (-bl) · oak_pyro (-py) · oak_char (-char, -char-elem C)", "")
+r += 1
+
+r = section(ws, r, "§1 — HYPOTHÈSES")
+r = hyp(ws, r, "H1", "UN SEUL CONSTITUANT, QUI PYROLYSE ENTIÈREMENT. Gaz = bois − char, sans mélange de gaz.",
+        "Route C (fermeture élémentaire), mais partant d'une ANALYSE élémentaire et non d'un motif idéalisé. Pas de rapport renfort/résine : contrairement au liège, rien d'autre que le rendement en char ne pondère le gaz.")
+r = hyp(ws, r, "H2", "Bois SEC. L'humidité (8-12 % dans un bois stabilisé à l'air) n'est pas comptée.",
+        "Elle partirait intégralement en vapeur d'eau, donc dans le gaz : le §6 chiffre la variante (gaz plus riche en H et O, k plus grand).")
+r = hyp(ws, r, "H3", "Analyse élémentaire du chêne retenue : C 50.0 / H 6.1 / O 43.9 % masse (littérature, sec sans cendres).",
+        "PROVENANCE À CONFIRMER : valeurs usuelles pour le bois de chêne, non vérifiées sur une source primaire accessible. Le contrôle biochimique du §5 les retrouve à 0.4 point près. L'azote (0.1-0.3 %) est négligé.")
+r = hyp(ws, r, "H4", "Rendement en char : 20 % en masse du bois sec.",
+        "Donnée de l'énoncé. C'est LE paramètre du calcul : il fixe à la fois le carbone du gaz et le couplage k (§6). Le contrôle par additivité des constituants donne 22 %.")
+r = hyp(ws, r, "H5", "Le bois carbonise vers du carbone pur ⇒ char C:1.0.",
+        "Un charbon de bois réel retient H et O (d'autant plus que la carbonisation est froide) : le §5 chiffre la variante — et rappelle qu'il faut alors RETIRER ces atomes du gaz.")
+r = hyp(ws, r, "H6", "Le couplage stationnaire se calcule sur les MASSES : k = (1 − y)/y = 4.0.",
+        "L'identité k = (ρ_v − ρ_c)/ρ_c suppose un volume constant ; le bois se rétracte en carbonisant (retrait volumique typiquement 30-50 %).")
+r += 1
+
+r = section(ws, r, "§2 — DONNÉES D'ENTRÉE")
+r = step(ws, r, "Analyse élémentaire du chêne — valeurs de littérature (RETENUES)", "% masse, sec sans cendres")
+rcl = r + 1
+r = headrow(ws, r, ["", "C", "H", "O", "Somme", "", ""])
+r = row(ws, r, ["chêne [% masse]", 50.0, 6.1, 43.9, f"=SUM(C{r}:E{r})", "", ""],
+        fonts=[F_LAB, F_IN, F_IN, F_IN, F_CALC, None, None],
+        nfs=[None, NF_P, NF_P, NF_P, NF_P], fills=[None, FILL_KEY, FILL_KEY, FILL_KEY, None])
+r = note(ws, r, "La somme vaut 100 % : l'étape 1 renormalise quand même, pour qu'une analyse mesurée "
+                "(qui ne somme jamais exactement à 100) puisse être collée ici telle quelle.")
+r += 1
+r = step(ws, r, "Constituants biochimiques du chêne et leurs unités de répétition (sert au contrôle du §5)",
+         "M_i = Σ_E ν_E,i · M_E")
+rbio = r + 1
+r = headrow(ws, r, ["Constituant — unité de répétition", "% masse", "ν_C", "ν_H", "ν_O",
+                    "M [g/mol]", "rendement en char"])
+BIO = [("cellulose — C6H10O5 (anhydroglucose)", 43.0, 6, 10, 5, 0.10),
+       ("hémicelluloses — C5H8O4 (anhydroxylose, glucuronoxylane)", 22.0, 5, 8, 4, 0.20),
+       ("lignine S — C11H14O4 (alcool sinapylique)", 16.0, 11, 14, 4, 0.35),
+       ("lignine G — C10H12O3 (alcool coniférylique)", 9.0, 10, 12, 3, 0.45),
+       ("tanins — C41H26O26 (vescalagine, ellagitanin)", 8.0, 41, 26, 26, 0.40)]
+for lab, pct, nc, nh, no, cy in BIO:
+    r = row(ws, r, [lab, pct, nc, nh, no,
+                    f"=D{r}*{MC}+E{r}*{MH}+F{r}*{MO}", cy],
+            fonts=[F_LAB, F_IN, F_IN, F_IN, F_IN, F_CALC, F_IN],
+            nfs=[None, NF_P, "0", "0", "0", "0.00", "0.00"])
+rbio_end = r - 1
+r = row(ws, r, ["SOMME des parts", f"=SUM(C{rbio}:C{rbio_end})", "", "", "", "", ""],
+        fonts=[F_LABB, F_CALC, None, None, None, None, None], nfs=[None, NF_P])
+rbio_sum = r - 1
+r = note(ws, r, "Les parts somment à 98 % : le complément (cendres ~0.4 %, groupes acétyles des "
+                "hémicelluloses, extractibles mineurs) n'est pas de la matière C/H/O identifiée. On renormalise "
+                "sur les 98 % déclarés. La lignine de feuillu est répartie en 16 % S + 9 % G en masse, soit "
+                "S/G = 1.52 en moles. Les rendements en char par constituant (dernière colonne) sont des ordres "
+                "de grandeur d'ATG lente sous inerte — ils servent au contrôle B du §5, pas au calcul du XML.")
+r += 1
+r = kv(ws, r, "rendement en char du bois sec", 0.20, "hypothèse H4 — donnée de l'énoncé", key=True, nf=NF_X3)
+ryco = r - 1
+r = kv(ws, r, "ρ vierge [kg/m³]", 700.0, "chêne sec, ordre de grandeur 650-750 kg/m³ — n'entre PAS dans le XML")
+rrv = r - 1
+r = kv(ws, r, "V_char / V_vierge (retrait volumique)", 0.55, "HYPOTHÈSE, non mesurée ici — à remplacer par une mesure (§7)", nf=NF_X3)
+rvr = r - 1
+r += 1
+
+r = section(ws, r, "§3 — CALCUL PAS À PAS")
+r = step(ws, r, "Étape 1 — renormaliser l'analyse élémentaire du chêne à 100 %",
+         "w_E = w_E,brut / Σ w_j,brut")
+r = headrow(ws, r, ["", "C", "H", "O", "Somme", "", ""])
+r = row(ws, r, ["chêne renormalisé [% masse]", f"=C{rcl}/$F${rcl}*100", f"=D{rcl}/$F${rcl}*100",
+                f"=E{rcl}/$F${rcl}*100", f"=SUM(C{r}:E{r})", "", ""],
+        nfs=[None, NF_P, NF_P, NF_P, NF_P])
+rwn = r - 1
+r = step(ws, r, "Étape 2 — bilan de masse sur 100 g de bois sec",
+         "m_char = 100 · y ;  m_gaz = 100 · (1 − y)")
+r = headrow(ws, r, ["", "masse [g]", "rendement char", "char [g]", "gaz [g]", "", ""])
+r = row(ws, r, ["bois sec", 100, f"=$C${ryco}", f"=C{r}*D{r}", f"=C{r}-E{r}", "", ""],
+        fonts=[F_LAB, F_CALC, F_CALC, F_CALC, F_CALC, None, None],
+        nfs=[None, "0.00", NF_X3, "0.00", "0.00"])
+rbt = r - 1
+r = step(ws, r, "Étape 3 — fermeture élémentaire : aucun atome n'est créé",
+         "n_E(gaz) = n_E(bois) − n_E(char)")
+r = headrow(ws, r, ["Moles d'atomes", "C", "H", "O", "Somme", "", ""])
+r = row(ws, r, ["bois — atomes du solide vierge",
+                f"=$C${rbt}*C{rwn}/100/{MC}", f"=$C${rbt}*D{rwn}/100/{MH}", f"=$C${rbt}*E{rwn}/100/{MO}",
+                f"=SUM(C{r}:E{r})", "", ""], nfs=[None, NF_MOL, NF_MOL, NF_MOL, NF_MOL])
+rlc = r - 1
+r = row(ws, r, ["bois — atomes du char (C pur)", f"=$E${rbt}/{MC}", 0, 0, f"=SUM(C{r}:E{r})", "", ""],
+        nfs=[None, NF_MOL, NF_MOL, NF_MOL, NF_MOL])
+rlch = r - 1
+r = row(ws, r, ["GAZ = bois − char", f"=C{rlc}-C{rlch}", f"=D{rlc}-D{rlch}",
+                f"=E{rlc}-E{rlch}", f"=SUM(C{r}:E{r})", "", ""],
+        fonts=[F_LABB, F_CALC, F_CALC, F_CALC, F_CALC, None, None],
+        nfs=[None, NF_MOL, NF_MOL, NF_MOL, NF_MOL])
+rlg = r - 1
+r = note(ws, r, "Le char ne prend que du carbone : tout l'hydrogène et tout l'oxygène du bois passent dans le gaz. "
+                "Le char emporte 1.665 des 4.163 moles de carbone, soit 40 % du carbone du bois.")
+r = step(ws, r, "Étape 4 — normaliser",
+         "x_E = n_E / Σ n_j ;  y_E = x_E·M_E / Σ x_j·M_j")
+r = headrow(ws, r, ["", "C", "H", "O", "Somme", "M par atome [g/mol]", "H/O"])
+r = row(ws, r, ["x_E (fraction molaire élémentaire)", f"=C{rlg}/$F${rlg}", f"=D{rlg}/$F${rlg}",
+                f"=E{rlg}/$F${rlg}", f"=SUM(C{r}:E{r})",
+                f"=C{r}*{MC}+D{r}*{MH}+E{r}*{MO}", f"=D{r}/E{r}"],
+        nfs=[None, NF_X, NF_X, NF_X, NF_X3, NF_M, "0.000"])
+rxE = r - 1
+r = row(ws, r, ["y_E (fraction massique élémentaire)", f"=C{rxE}*{MC}/$G${rxE}", f"=D{rxE}*{MH}/$G${rxE}",
+                f"=E{rxE}*{MO}/$G${rxE}", f"=SUM(C{r}:E{r})", "", ""],
+        nfs=[None, NF_X3, NF_X3, NF_X3, NF_X3])
+r = note(ws, r, "H/O = 2.2 : trois fois plus bas que les phénoliques (5.9-6.8) et deux fois plus bas que le "
+                "liège (4.9). C'est le gaz le plus OXYGÉNÉ du dépôt — le bois est pour les deux tiers des "
+                "polysaccharides, eux-mêmes à H/O = 2. Plus d'oxygène dans le gaz de pyrolyse, c'est plus "
+                "d'oxydant disponible à la paroi pour le char.")
+r = step(ws, r, "Étape 5 — unité de répétition globale du bois (ramenée à 6 atomes de carbone)",
+         "ν_E = 6 · (w_E/M_E) / (w_C/M_C)")
+r = headrow(ws, r, ["", "ν_C", "ν_H", "ν_O", "M [g/mol]", "H/C", "O/C"])
+r = row(ws, r, ["bois de chêne — C6HxOy", 6, f"=6*(D{rwn}/{MH})/(C{rwn}/{MC})",
+                f"=6*(E{rwn}/{MO})/(C{rwn}/{MC})", f"=C{r}*{MC}+D{r}*{MH}+E{r}*{MO}",
+                f"=D{r}/C{r}", f"=E{r}/C{r}"],
+        fonts=[F_LAB, F_CALC, F_CALC, F_CALC, F_CALC, F_CALC, F_CALC],
+        nfs=[None, "0", "0.00", "0.00", "0.0", "0.000", "0.000"])
+runit = r - 1
+r = note(ws, r, "Attendu C6H8.72O3.95 (M = 144.1 g/mol), soit CH1.45O0.66 : l'anhydroglucose C6H10O5 "
+                "(cellulose) « enrichi en carbone » par la lignine. Cette unité n'entre pas dans le XML — "
+                "c'est la même information que l'analyse élémentaire, écrite en motif.")
+r += 1
+
+r = section(ws, r, "§4 — RÉSULTAT : CE QUI ENTRE DANS LE XML")
+r, rcalc, rxml = result_block(ws, r, "oak_pyro", f"C{rxE}", f"D{rxE}", f"E{rxE}",
+                              (0.221, 0.536, 0.243))
+r = headrow(ws, r, ["Char (oak_char)", "C", "H", "O", "", "", ""])
+r = row(ws, r, ["composition du XML", 1.0, "—", "—", "", "", ""],
+        fonts=[F_LAB, F_OUT, F_NOTE, F_NOTE, None, None, None],
+        nfs=[None, NF_X3, None, None], fills=[None, FILL_OUT, None, None])
+r += 1
+
+r = section(ws, r, "§5 — CONTRÔLES ET VALIDATION CROISÉE")
+r = step(ws, r, "Contrôle A — reconstruire le chêne depuis ses unités de répétition (traçable ligne à ligne)",
+         "w_E = Σ_i (part_i / Σ parts) · (ν_E,i·M_E / M_i)")
+r = headrow(ws, r, ["", "C", "H", "O", "Somme", "écart / littérature [points]", ""])
+r = row(ws, r, ["chêne reconstruit [% masse]",
+                f"=SUMPRODUCT($C${rbio}:$C${rbio_end},D{rbio}:D{rbio_end}/$G${rbio}:$G${rbio_end})*{MC}/$C${rbio_sum}*100",
+                f"=SUMPRODUCT($C${rbio}:$C${rbio_end},E{rbio}:E{rbio_end}/$G${rbio}:$G${rbio_end})*{MH}/$C${rbio_sum}*100",
+                f"=SUMPRODUCT($C${rbio}:$C${rbio_end},F{rbio}:F{rbio_end}/$G${rbio}:$G${rbio_end})*{MO}/$C${rbio_sum}*100",
+                f"=SUM(C{r}:E{r})",
+                f"=MAX(ABS(C{r}-C{rwn}),ABS(D{r}-D{rwn}),ABS(E{r}-E{rwn}))", ""],
+        nfs=[None, NF_P, NF_P, NF_P, NF_P, NF_P])
+rrec = r - 1
+r = row(ws, r, ["⇒ gaz de pyrolyse avec le chêne reconstruit (x_E)",
+                f"=(100*C{rrec}/$F${rrec}/{MC}-$E${rbt}/{MC})/(100*C{rrec}/$F${rrec}/{MC}-$E${rbt}/{MC}+100*D{rrec}/$F${rrec}/{MH}+100*E{rrec}/$F${rrec}/{MO})",
+                f"=(100*D{rrec}/$F${rrec}/{MH})/(100*C{rrec}/$F${rrec}/{MC}-$E${rbt}/{MC}+100*D{rrec}/$F${rrec}/{MH}+100*E{rrec}/$F${rrec}/{MO})",
+                f"=(100*E{rrec}/$F${rrec}/{MO})/(100*C{rrec}/$F${rrec}/{MC}-$E${rbt}/{MC}+100*D{rrec}/$F${rrec}/{MH}+100*E{rrec}/$F${rrec}/{MO})",
+                f"=SUM(C{r}:E{r})", "", ""],
+        nfs=[None, NF_X3, NF_X3, NF_X3, NF_X3])
+r = note(ws, r, "Attendu C 50.39 / H 6.04 / O 43.57, soit un gaz C:0.225 / H:0.533 / O:0.242. La reconstruction "
+                "retombe sur l'analyse de littérature à 0.4 point près — bien mieux que pour le liège (4 points "
+                "sur C) : l'unité dominante, l'anhydroglucose, est exacte, et il n'y a pas de subérine dont "
+                "l'unité serait incertaine. L'écart sur le gaz (0.004 sur x_C) est négligeable.")
+r = step(ws, r, "Contrôle B — rendement en char par additivité des constituants",
+         "y = Σ_i part_i · y_i / Σ parts")
+r = kv(ws, r, "y_chêne par additivité",
+       f"=SUMPRODUCT($C${rbio}:$C${rbio_end},$H${rbio}:$H${rbio_end})/$C${rbio_sum}",
+       "attendu 22.0 % — contre 20 % retenus : les deux voies sont COHÉRENTES", font=F_CALC, nf=NF_X3)
+r = note(ws, r, "La cellulose, qui pèse 43 %, se dépolymérise en lévoglucosane et laisse peu de char ; la "
+                "lignine et les tanins, aromatiques, en laissent le plus. Le rendement réel dépend fortement "
+                "de la vitesse de chauffe : 20 % correspond à une pyrolyse lente, une pyrolyse flash descend "
+                "vers 10-15 %.")
+r = step(ws, r, "Contrôle C — variante : char retenant H et O (char multi-élément)",
+         "n_E(char) = m_char · w_E,char / M_E ;  n_E(gaz) = n_E(bois) − n_E(char)")
+r = headrow(ws, r, ["char supposé [% masse]", "C", "H", "O", "Somme", "", ""])
+r = row(ws, r, ["hypothèse de travail", 90.0, 2.0, 8.0, f"=SUM(C{r}:E{r})", "", ""],
+        fonts=[F_LAB, F_IN, F_IN, F_IN, F_CALC, None, None],
+        nfs=[None, NF_P, NF_P, NF_P, NF_P])
+rmulh = r - 1
+r = row(ws, r, ["moles d'atomes du char",
+                f"=$E${rbt}*C{rmulh}/100/{MC}", f"=$E${rbt}*D{rmulh}/100/{MH}",
+                f"=$E${rbt}*E{rmulh}/100/{MO}", f"=SUM(C{r}:E{r})", "", ""],
+        nfs=[None, NF_MOL, NF_MOL, NF_MOL, NF_MOL])
+rmulm = r - 1
+r = row(ws, r, ["⇒ oak_char multi-élément (x_E)", f"=C{rmulm}/$F${rmulm}", f"=D{rmulm}/$F${rmulm}",
+                f"=E{rmulm}/$F${rmulm}", f"=SUM(C{r}:E{r})", "", ""],
+        nfs=[None, NF_X3, NF_X3, NF_X3, NF_X3])
+r = row(ws, r, ["⇒ gaz cohérent (x_E)",
+                f"=(C{rlc}-C{rmulm})/($F${rlc}-$F${rmulm})", f"=(D{rlc}-D{rmulm})/($F${rlc}-$F${rmulm})",
+                f"=(E{rlc}-E{rmulm})/($F${rlc}-$F${rmulm})", f"=SUM(C{r}:E{r})", "", ""],
+        nfs=[None, NF_X3, NF_X3, NF_X3, NF_X3])
+r = note(ws, r, "Attendu char C:0.751, H:0.199, O:0.050 et gaz C:0.243, H:0.516, O:0.241. `-char-elem C` reste "
+                "valable. Un char qui retient H et O laisse PLUS de carbone au gaz (x_C +0.022) : c'est "
+                "automatique dans la fermeture élémentaire, pas si l'on recopie deux compositions de sources "
+                "différentes.")
+r += 1
+
+r = section(ws, r, "§6 — SENSIBILITÉ")
+r = step(ws, r, "Au rendement en char — LE paramètre du calcul", "")
+r = headrow(ws, r, ["y testé", "C", "H", "O", "", "k = (1−y)/y", ""])
+for y in [0.10, 0.15, 0.20, 0.25, 0.30]:
+    cC = f"($C${rlc}-100*B{r}/{MC})"
+    cH = f"$D${rlc}"
+    cO = f"$E${rlc}"
+    tot = f"({cC}+{cH}+{cO})"
+    r = row(ws, r, [y, f"={cC}/{tot}", f"={cH}/{tot}", f"={cO}/{tot}", "", f"=(1-B{r})/B{r}", ""],
+            fonts=[F_IN, F_CALC, F_CALC, F_CALC, None, F_CALC, None],
+            nfs=[NF_X3, NF_X3, NF_X3, NF_X3, None, "0.000"])
+r = note(ws, r, "±5 points de rendement déplacent le carbone du gaz de ∓0.03 et k de 3.0 à 5.7. Comme pour "
+                "le liège, le rendement pèse bien plus sur la QUANTITÉ de gaz (k) que sur sa composition.")
+r = step(ws, r, "À l'humidité du bois — l'eau part entièrement dans le gaz", "m_eau = 100·h/(1−h) ;  n_H += 2·n_eau ;  n_O += n_eau")
+r = headrow(ws, r, ["humidité h (base humide)", "C", "H", "O", "char / bois humide", "k = m_gaz/m_char", ""])
+for h in [0.0, 0.08, 0.12]:
+    nw = f"(100*B{r}/(1-B{r})/(2*{MH}+{MO}))"
+    cC = f"$C${rlg}"
+    cH = f"($D${rlg}+2*{nw})"
+    cO = f"($E${rlg}+{nw})"
+    tot = f"({cC}+{cH}+{cO})"
+    r = row(ws, r, [h, f"={cC}/{tot}", f"={cH}/{tot}", f"={cO}/{tot}",
+                    f"=$E${rbt}/(100+100*B{r}/(1-B{r}))",
+                    f"=($F${rbt}+100*B{r}/(1-B{r}))/$E${rbt}", ""],
+            fonts=[F_IN, F_CALC, F_CALC, F_CALC, F_CALC, F_CALC, None],
+            nfs=[NF_X3, NF_X3, NF_X3, NF_X3, NF_X3, "0.000"])
+r = note(ws, r, "Un bois stabilisé à l'air (12 %) donne un gaz C:0.184 et k = 4.68 : l'effet sur la composition "
+                "dépasse celui de ±5 points de rendement. Préciser « sec » ou « à X % d'humidité » dans l'énoncé.")
+r += 1
+
+r = section(ws, r, "§7 — RÉPONSE MATÉRIAU (n'entre PAS dans le XML)")
+r = kv(ws, r, "k = B'g/B'c = m_gaz / m_char = (1 − y)/y", f"=F{rbt}/E{rbt}",
+       "attendu 4.0 — le même que le liège/phénolique, QUINZE FOIS le TACOT (0.273)", font=F_CALC, nf="0.0000")
+rk = r - 1
+r = kv(ws, r, "ρ char [kg/m³] = y · ρ_v / (V_char/V_v)", f"=$C${ryco}*C{rrv}/C{rvr}",
+       "≈ 255 kg/m³ avec le retrait supposé — à MESURER", font=F_CALC, nf="0.0")
+rrc = r - 1
+r = kv(ws, r, "k si l'on prenait les densités : (ρ_v − ρ_c)/ρ_c", f"=(C{rrv}-C{rrc})/C{rrc}",
+       "1.75 — plus de deux fois trop peu : l'identité suppose un volume constant", font=F_CALC, nf="0.0000")
+r = note(ws, r, "Conséquences pratiques : (1) balayer B'g jusqu'à ~10 (les tables oak_bprime vont à B'g = 5 et le "
+                "balayage du point de fonctionnement à 10) ; (2) la récession se lit sur la ρ_char MESURÉE, pas "
+                "sur 0.20·ρ_v = 140 kg/m³ ; (3) le gaz porte plus d'oxygène que de carbone (O/C = 1.10) : "
+                "au-dessus de ~1500 K il OXYDE le char, et B'c CROÎT avec B'g (1 atm, 3000 K : 0.177 à B'g = 0, "
+                "0.79 à B'g = 5) — l'inverse du liège, dont le soufflage protège le char. Point de "
+                "fonctionnement à 1 atm : B'c = 0.127 / 0.213 / 0.430 à 1000 / 2000 / 3000 K (oak_bprime).")
+r += 1
+
+r = section(ws, r, "§8 — BLOC XML")
+r = xmlblock(ws, r, [
+    '<mixture thermo_db="NASA-9">',
+    '    <species>',
+    '       C H O N CH4 CN CO CO2 C2 C2H C2H2,acetylene C3 C4 C4H2,butadiyne C5',
+    '       HCN H2 H2O N2 CH2OH CNN CNC CNCOCN C6H6 HNC C(gr)',
+    '    </species>',
+    '    <element_compositions default="air">',
+    '        <composition name="air">N:0.79, O:0.21</composition>',
+    '        <composition name="oak_pyro">C:0.221, H:0.536, O:0.243</composition>',
+    '        <composition name="oak_char">C:1.0</composition>',
+    '    </element_compositions>',
+    '</mixture>',
+])
+OAK_XML = (rxml, rk)
+
+
+# ===========================================================================
 # ONGLET  CARBONE (graphite)
 # ===========================================================================
 ws = ws_car
@@ -2423,7 +2690,7 @@ ws = ws_syn
 setup(ws, "1F3864")
 r = title(ws, "Mise en données des matériaux — synthèse",
           "D'où viennent les proportions portées dans data/mixtures/*.xml : hypothèses, étapes et formules, un onglet par matériau",
-          "data/mixtures/ — 11 matériaux, 19 fichiers de mélange")
+          "data/mixtures/ — 12 matériaux, 21 fichiers de mélange")
 
 r = section(ws, r, "§1 — MODE D'EMPLOI")
 r = para(ws, r, "Chaque onglet matériau reconstruit, ÉTAPE PAR ÉTAPE ET EN FORMULES VIVANTES, la chaîne qui "
@@ -2447,6 +2714,7 @@ SYN = [
     ("SC-1008 (PICA)",   "SC-1008",          SC_XML[0],  SC_XML[1],  "C:1.0", True),
     ("MX-4926",          "MX-4926",          MX_XML[0],  MX_XML[1],  "C:1.0", True),
     ("Liège/phénolique", "Liège-phénolique", COR_XML[0], COR_XML[1], "C:1.0", True),
+    ("Bois de chêne",    "Chêne",            OAK_XML[0], OAK_XML[1], "C:1.0", True),
     ("Carbone graphite", "Carbone",          CAR_XML[0], CAR_XML[1], "C:1.0", False),
     ("Silice SiO2",      "Silice",           SIL_XML[0], SIL_XML[1], "Si:1.0, O:2.0", False),
     ("Carbure de silicium SiC", "SiC",       SIC_XML[0], SIC_XML[1], "Si:1.0, C:1.0", False),
@@ -2493,8 +2761,8 @@ for route, mat, prim, pas, crit in [
         ("B — conversion directe", "ZURAM",
          "composition élémentaire MASSIQUE mesurée", "x_E = (y_E/M_E) / Σ (y_j/M_j)",
          "traçabilité limitée à 3 décimales ; la source primaire VKI n'est pas publique"),
-        ("C — fermeture élémentaire", "SC-1008",
-         "motif chimique idéalisé + rendement en char", "n_E(gaz) = n_E(résine) − n_E(char)",
+        ("C — fermeture élémentaire", "SC-1008, Chêne",
+         "motif idéalisé (SC-1008) ou analyse élémentaire (chêne) + rendement en char", "n_E(gaz) = n_E(solide) − n_E(char)",
          "le rendement en char entre DANS la chaîne : ±0.05 sur Y déplace le carbone de ~12 %"),
         ("D — fermeture sur DEUX constituants", "Liège/phénolique",
          "analyses des deux constituants + rendements", "n_E(gaz) = Σ_i [n_E(i) − n_E(char,i)]",
@@ -2545,7 +2813,7 @@ for n, txt in enumerate([
 r += 1
 r = para(ws, r, "Documents de référence du dépôt : tacot_bprime/mise_en_donnees_xml.md (mécanique du "
                 "fichier XML et règles du parseur) · resine_tacot.md · zuram_bprime/resine_zuram.md · "
-                "sc1008_bprime/resine_sc1008.md · cork_bprime/mise_en_donnees_cork.md · "
+                "sc1008_bprime/resine_sc1008.md · cork_bprime/mise_en_donnees_cork.md · oak_bprime/mise_en_donnees_chene.md · "
                 "tacot_bprime/cph70_vs_tacot.md · carbon_bprime/bprime_carbon_physique.md · sic_bprime/README.md · mo_bprime/README.md.", 30)
 
 # ---------------------------------------------------------------------------

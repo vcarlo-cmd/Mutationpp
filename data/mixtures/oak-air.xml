@@ -1,0 +1,52 @@
+<!-- ===================================================================== -->
+<!-- Bois de chêne (Quercus robur / Q. petraea) en ablation dans l'air.    -->
+<!--                                                                       -->
+<!--   bois massif SEC, sans résine                                        -->
+<!--   rendement en char : 20 % en masse (donnée de l'énoncé)              -->
+<!--                                                                       -->
+<!-- Cas le plus simple des ablateurs pyrolysants du dépôt : UN SEUL       -->
+<!-- constituant, qui pyrolyse entièrement vers char + gaz. Ni renfort     -->
+<!-- inerte (TACOT, CPh70), ni mélange de deux gaz (liège/phénolique).     -->
+<!--                                                                       -->
+<!-- Fermeture élémentaire (aucun atome créé), sur 100 g de bois sec :     -->
+<!--                                                                       -->
+<!--   bois 100 g (C 50.0 / H 6.1 / O 43.9 % masse) -> 20 g char + 80 g gaz -->
+<!--     (analyse élémentaire de littérature, sec sans cendres ; provenance -->
+<!--      à confirmer. Contrôle : la reconstruction depuis les constituants -->
+<!--      43/22/25/8 % cellulose/hémicelluloses/lignine S+G/ellagitanins    -->
+<!--      et leurs unités de répétition donne C 50.4 / H 6.0 / O 43.6,      -->
+<!--      soit un gaz à C:0.225, H:0.533, O:0.242 — cf. oak_pyrolysis_data.py) -->
+<!--                                                                       -->
+<!--   unité de répétition globale du bois : C6H8.7O3.95 (CH1.45O0.66)     -->
+<!--   gaz : C:0.221, H:0.536, O:0.243   <- `oak_pyro`                     -->
+<!--                                                                       -->
+<!-- Gaz nettement plus OXYGÉNÉ que celui d'un phénolique (H/O = 2.2       -->
+<!-- contre 5.9) : le bois est pour les deux tiers des polysaccharides.    -->
+<!--                                                                       -->
+<!-- Char : carbone pur => C:1.0.                                          -->
+<!--                                                                       -->
+<!-- Couplage en ablation stationnaire :                                   -->
+<!--   k = B'g/B'c = m_gaz/m_char = (1 - y)/y = 80/20 = 4.0                -->
+<!-- (même valeur que le liège/phénolique, quinze fois le TACOT) : balayer -->
+<!-- B'g jusqu'à ~10.                                                      -->
+<!--                                                                       -->
+<!-- Liste d'espèces : les 25 espèces de la table B' de référence          -->
+<!-- TACOT 3.0 + C(gr), comme cork-air.xml. C(gr) est INDISPENSABLE.       -->
+<!--                                                                       -->
+<!-- Voir oak_bprime/oak_pyrolysis_data.py (calcul des compositions et     -->
+<!-- sensibilités) et oak_bprime/mise_en_donnees_chene.md (explication).   -->
+<!-- ===================================================================== -->
+<mixture thermo_db="NASA-9">
+
+    <species>
+       C H O N CH4 CN CO CO2 C2 C2H C2H2,acetylene C3 C4 C4H2,butadiyne C5
+       HCN H2 H2O N2 CH2OH CNN CNC CNCOCN C6H6 HNC C(gr)
+    </species>
+
+    <element_compositions default="air">
+        <composition name="air">N:0.79, O:0.21</composition>
+        <composition name="oak_pyro">C:0.221, H:0.536, O:0.243</composition>
+        <composition name="oak_char">C:1.0</composition>
+    </element_compositions>
+
+</mixture>
