@@ -152,6 +152,37 @@ plateau B'c = M_C(2r−2)/(M_C2H2 + r·M_O2) = 0 / 0.107 / 0.340 (air : 0.175).
   paroi. h_w et h_e (enthalpie de récupération de la flamme) doivent être
   pris dans la **même référence** (NASA-9, enthalpies de formation
   incluses) — ne pas mélanger avec une h_e « air » ou sensible seule.
+
+### 4.1 Flamme + air entraîné
+
+Loin de la buse, le jet entraîne de l'air ambiant. Cas traités : fraction
+**massique** f = 0.25 et 0.50 d'air (N2/O2 = 79/21) mélangée aux produits
+de flamme, pour r = 1.0 et 1.3 (compositions `oat_r*_air25/50` de
+`cork-oat.xml`). L'azote entre alors au bord de couche limite.
+
+Le palier d'oxydation est la moyenne massique des deux :
+B'c = (1 − f)·B'c(flamme) + f·0.175, retrouvé exactement par Mutation++.
+
+1 atm :
+
+| T [K] | 1000 | 1500 | 2000 | 2500 | 3000 | 3400 |
+|---|---|---|---|---|---|---|
+| B'c, B'g=0 — r=1.0 + 25 % air | 0 | 0.044 | 0.046 | 0.056 | 0.084 | 0.151 |
+| — r=1.0 + 50 % air | 0.033 | 0.087 | 0.090 | 0.100 | 0.125 | 0.183 |
+| — r=1.3 + 25 % air | 0.042 | 0.124 | 0.126 | 0.135 | 0.160 | 0.222 |
+| — r=1.3 + 50 % air | 0.081 | 0.141 | 0.143 | 0.152 | 0.175 | 0.229 |
+| **B'c stationnaire** — r=1.0 + 25 % air | 0 | 0.019 | 0.020 | 0.025 | 0.044 | 0.118 |
+| — r=1.0 + 50 % air | 0.013 | 0.038 | 0.039 | 0.046 | 0.069 | 0.156 |
+| — r=1.3 + 25 % air | 0.016 | 0.053 | 0.054 | 0.061 | 0.083 | 0.172 |
+| — r=1.3 + 50 % air | 0.032 | 0.060 | 0.062 | 0.070 | 0.095 | 0.193 |
+
+L'entraînement rapproche la table de celle de l'air sans l'atteindre tant
+que r < 2.3 (au-delà, la flamme seule oxyde déjà plus que l'air). Pour une
+flamme neutre il change la nature du régime : sans air le char ne s'oxyde
+pas avant ~2500 K, avec 25 % d'air il a déjà un palier à 0.044. La
+distance buse–éprouvette pèse donc autant que le réglage O2/C2H2.
+
 - Fichiers : `cork_oat_bprime_bc_table.csv` / `_hw_table.csv` (format long
-  avec colonne `O2_C2H2`), `cork_oat_bprime_steady_state.csv`,
-  `cork_oat_bprime_vs_air.png`, `cork_oat_bprime_steady_state.png`.
+  avec colonnes `O2_C2H2` et `f_air`), `cork_oat_bprime_steady_state.csv`,
+  `cork_oat_bprime_vs_air.png`, `cork_oat_bprime_steady_state.png`,
+  `cork_oat_air_bprime.png` (effet de l'air entraîné).

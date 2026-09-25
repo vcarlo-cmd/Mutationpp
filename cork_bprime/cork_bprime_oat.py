@@ -14,18 +14,26 @@ Bord de couche limite = produits de C2H2 + r O2, sans entraînement d'air :
     r = 1.3  réglage OAT usuel     -> 0.6 mol O en excès pour 2 C
     r = 2.5  stoechiométrique      -> 3 mol O en excès pour 2 C
 
+Flamme + air entraîné : une fraction MASSIQUE f d'air ambiant se mélange
+aux produits de flamme avant la paroi (r = 1.0 et 1.3, f = 0.25 et 0.50).
+L'azote entre alors au bord.
+
 Plateau d'oxydation attendu (tout l'O en excès sur C forme du CO) :
 
     B'c = M_C * (2r - 2) / (M_C2H2 + r M_O2)
         r = 1.0 : 0         r = 1.3 : 0.106     r = 2.5 : 0.340
         (air    : 0.175)
 
+et, avec entraînement, la moyenne massique (1 - f) B'c(flamme) + f B'c(air)
+(le plateau est linéaire en masse d'oxygène disponible).
+
 Sorties :
-    cork_oat_bprime_bc_table.csv     Tw_K, P_bar, O2_C2H2, Bg, Bc
-    cork_oat_bprime_hw_table.csv     Tw_K, P_bar, O2_C2H2, Bg, hw_Jkg
+    cork_oat_bprime_bc_table.csv     Tw_K, P_bar, O2_C2H2, f_air, Bg, Bc
+    cork_oat_bprime_hw_table.csv     Tw_K, P_bar, O2_C2H2, f_air, Bg, hw_Jkg
     cork_oat_bprime_steady_state.csv point de fonctionnement k = 4 (+ air)
     cork_oat_bprime_vs_air.png       B'c et h_w à 1 atm, B'g = 0 et 5
     cork_oat_bprime_steady_state.png B'c stationnaire, air vs OAT
+    cork_oat_air_bprime.png          effet de l'air entraîné (1 atm)
 
 Usage :
     python cork_bprime_oat.py
@@ -57,6 +65,20 @@ EDGES = [
     ("oat_r2p5", 2.5,  "OAT O$_2$/C$_2$H$_2$ = 2.5 (stoech.)"),
 ]
 
+# Flamme + air entraîné : (étiquette XML, r, fraction massique d'air, libellé)
+EDGES_AIR = [
+    ("oat_r1p0_air25", 1.0, 0.25, "r = 1.0 + 25 % air"),
+    ("oat_r1p0_air50", 1.0, 0.50, "r = 1.0 + 50 % air"),
+    ("oat_r1p3_air25", 1.3, 0.25, "r = 1.3 + 25 % air"),
+    ("oat_r1p3_air50", 1.3, 0.50, "r = 1.3 + 50 % air"),
+]
+F_AIR = {bl: f for bl, _, f, _ in EDGES_AIR}
+R_OF = {bl: r for bl, r, _ in EDGES}
+R_OF.update({bl: r for bl, r, _, _ in EDGES_AIR})
+LABEL = {bl: lab for bl, _, lab in EDGES}
+LABEL.update({bl: lab for bl, _, _, lab in EDGES_AIR})
+ALL_EDGES = [bl for bl, _, _ in EDGES] + [bl for bl, _, _, _ in EDGES_AIR]
+
 T_RANGE       = "300:25:5000"
 PRESSURES_ATM = np.logspace(-3, 3, 25)
 BG_VALUES     = [0.0, 0.1, 0.2, 0.5, 1.0, 2.0, 5.0]
@@ -70,9 +92,15 @@ SWEEP_PRESSURES = [0.01, 1.0]
 M_C, M_H, M_O = 12.011, 1.008, 15.999
 
 
-def plateau(r):
-    """B'c de plateau d'oxydation (O en excès -> CO) pour C2H2 + r O2."""
-    return M_C * max(2 * r - 2, 0) / (2 * M_C + 2 * M_H + 2 * r * M_O)
+M_N = 14.007
+B_AIR = M_C * 0.21 / (0.79 * M_N + 0.21 * M_O)   # plateau de l'air, 0.175
+
+
+def plateau(r, f_air=0.0):
+    """B'c de plateau d'oxydation (O en excès -> CO) pour C2H2 + r O2,
+    mélangé à une fraction massique f_air d'air entraîné."""
+    b = M_C * max(2 * r - 2, 0) / (2 * M_C + 2 * M_H + 2 * r * M_O)
+    return (1.0 - f_air) * b + f_air * B_AIR
 
 
 def run(bprime_path, bl, P_pa, bg, t_range=T_RANGE):
@@ -93,7 +121,7 @@ def main():
 
     # --- Tables B'c / h_w, format long ------------------------------------
     tables = {}   # (bl, P_atm, bg) -> data
-    for bl, r, _ in EDGES:
+    for bl in ALL_EDGES:
         for bg in BG_VALUES:
             print(f"  {bl:9s} B'g = {bg:<4g}", flush=True)
             for P in PRESSURES_ATM:
@@ -102,19 +130,20 @@ def main():
     with open("cork_oat_bprime_bc_table.csv", "w", newline="") as fb, \
          open("cork_oat_bprime_hw_table.csv", "w", newline="") as fh:
         wb, wh = csv.writer(fb), csv.writer(fh)
-        wb.writerow(["Tw_K", "P_bar", "O2_C2H2", "Bg", "Bc"])
-        wh.writerow(["Tw_K", "P_bar", "O2_C2H2", "Bg", "hw_Jkg"])
-        for bl, r, _ in EDGES:
+        wb.writerow(["Tw_K", "P_bar", "O2_C2H2", "f_air", "Bg", "Bc"])
+        wh.writerow(["Tw_K", "P_bar", "O2_C2H2", "f_air", "Bg", "hw_Jkg"])
+        for bl in ALL_EDGES:
+            r, f = R_OF[bl], F_AIR.get(bl, 0.0)
             if r is None:
                 continue   # la table air est déjà dans cork_bprime_*.csv
             for bg in BG_VALUES:
                 for P in PRESSURES_ATM:
                     P_bar = P * ONEATM / 1.0e5
                     for row in tables[(bl, P, bg)]:
-                        wb.writerow([f"{row[0]:.6g}", f"{P_bar:.6g}", f"{r:g}",
-                                     f"{bg:g}", f"{row[1]:.6e}"])
-                        wh.writerow([f"{row[0]:.6g}", f"{P_bar:.6g}", f"{r:g}",
-                                     f"{bg:g}", f"{row[2] * 1e6:.6e}"])
+                        key = [f"{row[0]:.6g}", f"{P_bar:.6g}", f"{r:g}",
+                               f"{f:g}", f"{bg:g}"]
+                        wb.writerow(key + [f"{row[1]:.6e}"])
+                        wh.writerow(key + [f"{row[2] * 1e6:.6e}"])
     print("Tables : cork_oat_bprime_bc_table.csv, cork_oat_bprime_hw_table.csv")
 
     # --- Figure B'c / h_w à 1 atm -----------------------------------------
@@ -149,7 +178,7 @@ def main():
 
     # --- Point de fonctionnement stationnaire (k = 4) ---------------------
     ss = {}
-    for bl, r, _ in EDGES:
+    for bl in ALL_EDGES:
         for P in SWEEP_PRESSURES:
             raw = {bg: run(bprime_path, bl, P * ONEATM, bg, SWEEP_T_RANGE)
                    for bg in BG_SWEEP}
@@ -166,12 +195,16 @@ def main():
 
     with open("cork_oat_bprime_steady_state.csv", "w", newline="") as f:
         w = csv.writer(f)
-        w.writerow(["edge", "O2_C2H2", "P_atm", "T_K", "Bc_ss", "Bg_ss",
-                    "hw_ss_MJkg", "Bc_Bg0", "recession_over_mdote_m3_per_kg"])
-        for bl, r, _ in EDGES:
+        w.writerow(["edge", "O2_C2H2", "f_air", "P_atm", "T_K", "Bc_ss",
+                    "Bg_ss", "hw_ss_MJkg", "Bc_Bg0",
+                    "recession_over_mdote_m3_per_kg"])
+        for bl in ALL_EDGES:
+            r = R_OF[bl]
+            f = 1.0 if r is None else F_AIR.get(bl, 0.0)
             for P in SWEEP_PRESSURES:
                 for T, bc, bg, hw, bc0 in ss[(bl, P)]:
-                    w.writerow([bl, "" if r is None else f"{r:g}", f"{P:g}",
+                    w.writerow([bl, "" if r is None else f"{r:g}", f"{f:g}",
+                                f"{P:g}",
                                 f"{T:g}", f"{bc:.6e}", f"{bg:.6e}",
                                 f"{hw:.6e}", f"{bc0:.6e}",
                                 f"{bc / RHO_CHAR:.6e}"])
@@ -198,25 +231,66 @@ def main():
     plt.savefig("cork_oat_bprime_steady_state.png", dpi=150)
     plt.close()
 
+    # --- Effet de l'air entraîné (1 atm) ----------------------------------
+    fig, axes = plt.subplots(1, 3, figsize=(20, 6))
+    fig.suptitle("Liège/phénolique P50 — flamme oxyacétylénique + air "
+                 "entraîné (fraction massique f), 1 atm", fontsize=13)
+    groups = [("air", "k", "-"),
+              ("oat_r1p0", "tab:blue", "-"),
+              ("oat_r1p0_air25", "tab:blue", "--"),
+              ("oat_r1p0_air50", "tab:blue", ":"),
+              ("oat_r1p3", "tab:red", "-"),
+              ("oat_r1p3_air25", "tab:red", "--"),
+              ("oat_r1p3_air50", "tab:red", ":")]
+    for bl, c, ls in groups:
+        lab = LABEL[bl] if bl in F_AIR else (
+            "air" if bl == "air" else f"r = {R_OF[bl]:g} (sans air)")
+        d = tables[(bl, P1, 0.0)]
+        axes[0].plot(d[:, 0], np.maximum(d[:, 1], 1e-5), ls, color=c, lw=2,
+                     label=lab)
+        axes[1].plot(d[:, 0], d[:, 2], ls, color=c, lw=2, label=lab)
+        d = ss[(bl, 1.0)]
+        ok = d[:, 2] < BG_SWEEP[-1]
+        axes[2].plot(d[ok, 0], np.maximum(d[ok, 1], 1e-5), ls, color=c,
+                     lw=2, label=lab)
+    for ax, yl, t in ((axes[0], r"$B'_c$", r"$B'_c$, $B'_g = 0$"),
+                      (axes[1], r"$h_w$ [MJ/kg]", r"$h_w$, $B'_g = 0$"),
+                      (axes[2], r"$B'_c$ stationnaire",
+                       r"$B'_c$ stationnaire ($B'_g = 4\,B'_c$)")):
+        ax.set_xlabel(r"$T_w$ [K]")
+        ax.set_ylabel(yl)
+        ax.set_title(t)
+        ax.grid(True, which="both", ls="--", alpha=0.4)
+        ax.legend(fontsize=8, loc="upper left")
+    for ax in (axes[0], axes[2]):
+        ax.set_yscale("log")
+        ax.set_ylim(1e-4, 3)
+    axes[0].set_xlim(300, 4000)
+    axes[1].set_xlim(300, 4000)
+    plt.tight_layout()
+    plt.savefig("cork_oat_air_bprime.png", dpi=150)
+    plt.close()
+
     # --- Récapitulatif ----------------------------------------------------
     print("\nPlateaux théoriques : " + ", ".join(
-        f"r = {r:g} -> {plateau(r):.4f}" for _, r, _ in EDGES if r))
-    print(f"\n1 atm   {'':9s}" + "".join(f"{T:>10d}" for T in
+        f"{bl} -> {plateau(R_OF[bl], F_AIR.get(bl, 0.0)):.4f}"
+        for bl in ALL_EDGES if R_OF[bl]))
+    print(f"\n1 atm   {'':15s}" + "".join(f"{T:>10d}" for T in
                                          (1000, 1500, 2000, 2500, 3000, 3400)))
     for kind, bg in (("B'c B'g=0", 0.0), ("B'c B'g=5", 5.0)):
-        for bl, _, _ in EDGES:
+        for bl in ALL_EDGES:
             d = tables[(bl, P1, bg)]
             vals = [np.interp(T, d[:, 0], d[:, 1])
                     for T in (1000, 1500, 2000, 2500, 3000, 3400)]
-            print(f"{kind} {bl:9s}" + "".join(f"{v:>10.4f}" for v in vals))
-    for bl, _, _ in EDGES:
+            print(f"{kind} {bl:15s}" + "".join(f"{v:>10.4f}" for v in vals))
+    for bl in ALL_EDGES:
         d = ss[(bl, 1.0)]
         vals = [np.interp(T, d[:, 0], d[:, 1])
                 for T in (1000, 1500, 2000, 2500, 3000, 3400)]
         hws = [np.interp(T, d[:, 0], d[:, 3])
                for T in (1000, 1500, 2000, 2500, 3000, 3400)]
-        print(f"B'c ss    {bl:9s}" + "".join(f"{v:>10.4f}" for v in vals))
-        print(f"hw ss     {bl:9s}" + "".join(f"{v:>10.2f}" for v in hws))
+        print(f"B'c ss    {bl:15s}" + "".join(f"{v:>10.4f}" for v in vals))
+        print(f"hw ss     {bl:15s}" + "".join(f"{v:>10.2f}" for v in hws))
 
 
 if __name__ == "__main__":
