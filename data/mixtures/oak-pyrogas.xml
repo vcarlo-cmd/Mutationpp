@@ -1,0 +1,29 @@
+<!-- ===================================================================== -->
+<!-- Gaz de pyrolyse seul du bois de chêne, à l'équilibre chimique.        -->
+<!--                                                                       -->
+<!-- Sert à calculer les propriétés du gaz de pyrolyse (h_g, Cp, M, gamma, -->
+<!-- rho, mu) en fonction de T et P, avec l'outil `mppequil`.              -->
+<!--                                                                       -->
+<!-- À NE PAS confondre avec oak-air.xml : ici il n'y a NI air NI char —   -->
+<!-- c'est le gaz de pyrolyse pur, avant qu'il n'atteigne la paroi. Bois   -->
+<!-- sec, rendement en char 20 %.                                          -->
+<!--                                                                       -->
+<!-- PAS DE PHASE CONDENSÉE, même convention que les autres matériaux.     -->
+<!-- Ce gaz est pauvre en carbone et riche en oxygène (C:0.221, O:0.243) : -->
+<!-- il est loin de la limite de dépôt de suie, la convention ne pose pas  -->
+<!-- de difficulté ici.                                                    -->
+<!--                                                                       -->
+<!-- Espèces : liste de oak-air.xml privée de C(gr) et des espèces azotées.-->
+<!-- ===================================================================== -->
+<mixture thermo_db="NASA-9">
+
+    <species>
+       C H O CH4 CO CO2 C2 C2H C2H2,acetylene C3 C4 C4H2,butadiyne C5
+       H2 H2O CH2OH C6H6
+    </species>
+
+    <element_compositions default="oak_pyro">
+        <composition name="oak_pyro">C:0.221, H:0.536, O:0.243</composition>
+    </element_compositions>
+
+</mixture>
