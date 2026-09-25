@@ -228,7 +228,7 @@ pour chaque φ (`hvof_phi*_air25/50`). Le palier devient
 | — φ=1.0 + 25 % air | 0.091 | 0.142 | 0.144 | 0.154 | 0.190 | 0.330 |
 | — φ=1.0 + 50 % air | 0.081 | 0.120 | 0.122 | 0.132 | 0.168 | 0.303 |
 
-- Le jet HVOF oxyde le char **2 à 2.5 fois plus que l'air** sur le palier,
+- Le jet HVOF oxyde le char **1.7 à 2.5 fois plus que l'air** sur le palier,
   quel que soit φ dans le domaine usuel ; φ pèse moins que r pour l'OAT.
 - h_w et sublimation : mêmes remarques qu'au §4 (h_w bas à froid, h_e à
   prendre dans la même référence NASA-9, seuil de sublimation inchangé).
