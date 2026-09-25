@@ -1,0 +1,4726 @@
+Tw_K,P_atm,phases_condensees,methode,violation_stabilite
+300,0.001,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+325,0.001,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+350,0.001,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+375,0.001,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+400,0.001,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+425,0.001,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+450,0.001,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+475,0.001,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+500,0.001,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+525,0.001,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+550,0.001,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+575,0.001,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+600,0.001,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+625,0.001,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+650,0.001,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+675,0.001,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+700,0.001,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+725,0.001,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+750,0.001,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+775,0.001,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+800,0.001,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+825,0.001,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+850,0.001,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+875,0.001,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+900,0.001,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+925,0.001,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+950,0.001,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+975,0.001,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1000,0.001,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1025,0.001,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1050,0.001,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1075,0.001,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1100,0.001,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1125,0.001,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1150,0.001,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1175,0.001,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1200,0.001,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1225,0.001,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1250,0.001,SiC(b) SiO2(b-crt),direct,0.00e+00
+1275,0.001,SiC(b) SiO2(b-crt),direct,0.00e+00
+1300,0.001,SiC(b) SiO2(b-crt),direct,0.00e+00
+1325,0.001,SiC(b) SiO2(b-crt),direct,0.00e+00
+1350,0.001,SiC(b) SiO2(b-crt),direct,0.00e+00
+1375,0.001,SiC(b) SiO2(b-crt),direct,0.00e+00
+1400,0.001,SiC(b) SiO2(b-crt),direct,0.00e+00
+1425,0.001,SiC(b) SiO2(b-crt),direct,0.00e+00
+1450,0.001,SiC(b) SiO2(b-crt),direct,0.00e+00
+1475,0.001,SiC(b) SiO2(b-crt),direct,0.00e+00
+1500,0.001,SiC(b),direct,0.00e+00
+1525,0.001,SiC(b),direct,0.00e+00
+1550,0.001,SiC(b),direct,0.00e+00
+1575,0.001,SiC(b),direct,0.00e+00
+1600,0.001,SiC(b),enum,0.00e+00
+1625,0.001,SiC(b),direct,0.00e+00
+1650,0.001,SiC(b),direct,0.00e+00
+1675,0.001,SiC(b),enum,0.00e+00
+1700,0.001,SiC(b),direct,0.00e+00
+1725,0.001,SiC(b),enum,0.00e+00
+1750,0.001,SiC(b),enum,0.00e+00
+1775,0.001,SiC(b),enum,0.00e+00
+1800,0.001,SiC(b),enum,0.00e+00
+1825,0.001,SiC(b),direct,0.00e+00
+1850,0.001,SiC(b),direct,0.00e+00
+1875,0.001,SiC(b),enum,0.00e+00
+1900,0.001,SiC(b),direct,0.00e+00
+1925,0.001,SiC(b),direct,0.00e+00
+1950,0.001,SiC(b),direct,0.00e+00
+1975,0.001,SiC(b),direct,0.00e+00
+2000,0.001,SiC(b),direct,0.00e+00
+2025,0.001,SiC(b),direct,0.00e+00
+2050,0.001,SiC(b),enum,0.00e+00
+2075,0.001,SiC(b),enum,0.00e+00
+2100,0.001,SiC(b),enum,0.00e+00
+2125,0.001,SiC(b),enum,0.00e+00
+2150,0.001,SiC(b),enum,0.00e+00
+2175,0.001,SiC(b),enum,0.00e+00
+2200,0.001,SiC(b),enum,0.00e+00
+2225,0.001,SiC(b),direct,0.00e+00
+2250,0.001,SiC(b),direct,0.00e+00
+2275,0.001,SiC(b),direct,0.00e+00
+2300,0.001,SiC(b),direct,0.00e+00
+2325,0.001,SiC(b),direct,0.00e+00
+2350,0.001,C(gr) SiC(b),assemblage,0.00e+00
+2375,0.001,C(gr) SiC(b),assemblage,0.00e+00
+2400,0.001,C(gr) SiC(b),assemblage,0.00e+00
+2425,0.001,C(gr),enum,0.00e+00
+2450,0.001,C(gr),enum,0.00e+00
+2475,0.001,C(gr),enum,0.00e+00
+2500,0.001,C(gr),direct,0.00e+00
+2525,0.001,C(gr),direct,0.00e+00
+2550,0.001,C(gr),direct,0.00e+00
+2575,0.001,C(gr),direct,0.00e+00
+2600,0.001,C(gr),direct,0.00e+00
+2625,0.001,C(gr),assemblage,0.00e+00
+2650,0.001,-,direct,0.00e+00
+2675,0.001,-,direct,0.00e+00
+2700,0.001,-,direct,0.00e+00
+2725,0.001,-,direct,0.00e+00
+2750,0.001,-,direct,0.00e+00
+2775,0.001,-,direct,0.00e+00
+2800,0.001,-,direct,0.00e+00
+2825,0.001,-,direct,0.00e+00
+2850,0.001,-,direct,0.00e+00
+2875,0.001,-,direct,0.00e+00
+2900,0.001,-,direct,0.00e+00
+2925,0.001,-,direct,0.00e+00
+2950,0.001,-,direct,0.00e+00
+2975,0.001,-,direct,0.00e+00
+3000,0.001,-,direct,0.00e+00
+3025,0.001,-,direct,0.00e+00
+3050,0.001,-,direct,0.00e+00
+3075,0.001,-,direct,0.00e+00
+3100,0.001,-,direct,0.00e+00
+3125,0.001,-,direct,0.00e+00
+3150,0.001,-,direct,0.00e+00
+3175,0.001,-,direct,0.00e+00
+3200,0.001,-,direct,0.00e+00
+3225,0.001,-,direct,0.00e+00
+3250,0.001,-,direct,0.00e+00
+3275,0.001,-,direct,0.00e+00
+3300,0.001,-,direct,0.00e+00
+3325,0.001,-,direct,0.00e+00
+3350,0.001,-,direct,0.00e+00
+3375,0.001,-,direct,0.00e+00
+3400,0.001,-,direct,0.00e+00
+3425,0.001,-,direct,0.00e+00
+3450,0.001,-,direct,0.00e+00
+3475,0.001,-,direct,0.00e+00
+3500,0.001,-,direct,0.00e+00
+3525,0.001,-,direct,0.00e+00
+3550,0.001,-,direct,0.00e+00
+3575,0.001,-,direct,0.00e+00
+3600,0.001,-,direct,0.00e+00
+3625,0.001,-,direct,0.00e+00
+3650,0.001,-,direct,0.00e+00
+3675,0.001,-,direct,0.00e+00
+3700,0.001,-,direct,0.00e+00
+3725,0.001,-,direct,0.00e+00
+3750,0.001,-,direct,0.00e+00
+3775,0.001,-,direct,0.00e+00
+3800,0.001,-,direct,0.00e+00
+3825,0.001,-,direct,0.00e+00
+3850,0.001,-,direct,0.00e+00
+3875,0.001,-,direct,0.00e+00
+3900,0.001,-,direct,0.00e+00
+3925,0.001,-,direct,0.00e+00
+3950,0.001,-,direct,0.00e+00
+3975,0.001,-,direct,0.00e+00
+4000,0.001,-,direct,0.00e+00
+4025,0.001,-,direct,0.00e+00
+4050,0.001,-,direct,0.00e+00
+4075,0.001,-,direct,0.00e+00
+4100,0.001,-,direct,0.00e+00
+4125,0.001,-,direct,0.00e+00
+4150,0.001,-,direct,0.00e+00
+4175,0.001,-,direct,0.00e+00
+4200,0.001,-,direct,0.00e+00
+4225,0.001,-,direct,0.00e+00
+4250,0.001,-,direct,0.00e+00
+4275,0.001,-,direct,0.00e+00
+4300,0.001,-,direct,0.00e+00
+4325,0.001,-,direct,0.00e+00
+4350,0.001,-,direct,0.00e+00
+4375,0.001,-,direct,0.00e+00
+4400,0.001,-,direct,0.00e+00
+4425,0.001,-,direct,0.00e+00
+4450,0.001,-,direct,0.00e+00
+4475,0.001,-,direct,0.00e+00
+4500,0.001,-,direct,0.00e+00
+4525,0.001,-,direct,0.00e+00
+4550,0.001,-,direct,0.00e+00
+4575,0.001,-,direct,0.00e+00
+4600,0.001,-,direct,0.00e+00
+4625,0.001,-,direct,0.00e+00
+4650,0.001,-,direct,0.00e+00
+4675,0.001,-,direct,0.00e+00
+4700,0.001,-,direct,0.00e+00
+4725,0.001,-,direct,0.00e+00
+4750,0.001,-,direct,0.00e+00
+4775,0.001,-,direct,0.00e+00
+4800,0.001,-,direct,0.00e+00
+4825,0.001,-,direct,0.00e+00
+4850,0.001,-,direct,0.00e+00
+4875,0.001,-,direct,0.00e+00
+4900,0.001,-,direct,0.00e+00
+4925,0.001,-,direct,0.00e+00
+4950,0.001,-,direct,0.00e+00
+4975,0.001,-,direct,0.00e+00
+5000,0.001,-,direct,0.00e+00
+300,0.00177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+325,0.00177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+350,0.00177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+375,0.00177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+400,0.00177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+425,0.00177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+450,0.00177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+475,0.00177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+500,0.00177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+525,0.00177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+550,0.00177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+575,0.00177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+600,0.00177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+625,0.00177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+650,0.00177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+675,0.00177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+700,0.00177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+725,0.00177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+750,0.00177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+775,0.00177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+800,0.00177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+825,0.00177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+850,0.00177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+875,0.00177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+900,0.00177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+925,0.00177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+950,0.00177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+975,0.00177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1000,0.00177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1025,0.00177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1050,0.00177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1075,0.00177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1100,0.00177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1125,0.00177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1150,0.00177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1175,0.00177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1200,0.00177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1225,0.00177828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1250,0.00177828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1275,0.00177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1300,0.00177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1325,0.00177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1350,0.00177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1375,0.00177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1400,0.00177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1425,0.00177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1450,0.00177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1475,0.00177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1500,0.00177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1525,0.00177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1550,0.00177828,SiC(b),direct,0.00e+00
+1575,0.00177828,SiC(b),direct,0.00e+00
+1600,0.00177828,SiC(b),direct,0.00e+00
+1625,0.00177828,SiC(b),direct,0.00e+00
+1650,0.00177828,SiC(b),enum,0.00e+00
+1675,0.00177828,SiC(b),enum,0.00e+00
+1700,0.00177828,SiC(b),enum,0.00e+00
+1725,0.00177828,SiC(b),enum,0.00e+00
+1750,0.00177828,SiC(b),direct,0.00e+00
+1775,0.00177828,SiC(b),direct,0.00e+00
+1800,0.00177828,SiC(b),enum,0.00e+00
+1825,0.00177828,SiC(b),direct,0.00e+00
+1850,0.00177828,SiC(b),enum,0.00e+00
+1875,0.00177828,SiC(b),direct,0.00e+00
+1900,0.00177828,SiC(b),direct,0.00e+00
+1925,0.00177828,SiC(b),enum,0.00e+00
+1950,0.00177828,SiC(b),direct,0.00e+00
+1975,0.00177828,SiC(b),direct,0.00e+00
+2000,0.00177828,SiC(b),enum,0.00e+00
+2025,0.00177828,SiC(b),enum,0.00e+00
+2050,0.00177828,SiC(b),direct,0.00e+00
+2075,0.00177828,SiC(b),direct,0.00e+00
+2100,0.00177828,SiC(b),enum,0.00e+00
+2125,0.00177828,SiC(b),enum,0.00e+00
+2150,0.00177828,SiC(b),enum,0.00e+00
+2175,0.00177828,SiC(b),enum,0.00e+00
+2200,0.00177828,SiC(b),direct,0.00e+00
+2225,0.00177828,SiC(b),direct,0.00e+00
+2250,0.00177828,SiC(b),direct,0.00e+00
+2275,0.00177828,SiC(b),direct,0.00e+00
+2300,0.00177828,SiC(b),direct,0.00e+00
+2325,0.00177828,SiC(b),direct,0.00e+00
+2350,0.00177828,SiC(b),direct,0.00e+00
+2375,0.00177828,SiC(b),direct,0.00e+00
+2400,0.00177828,C(gr) SiC(b),assemblage,0.00e+00
+2425,0.00177828,C(gr) SiC(b),assemblage,0.00e+00
+2450,0.00177828,C(gr) SiC(b),assemblage,0.00e+00
+2475,0.00177828,C(gr),enum,0.00e+00
+2500,0.00177828,C(gr),enum,0.00e+00
+2525,0.00177828,C(gr),enum,0.00e+00
+2550,0.00177828,C(gr),direct,0.00e+00
+2575,0.00177828,C(gr),direct,0.00e+00
+2600,0.00177828,C(gr),direct,0.00e+00
+2625,0.00177828,C(gr),assemblage,0.00e+00
+2650,0.00177828,C(gr),assemblage,0.00e+00
+2675,0.00177828,-,direct,0.00e+00
+2700,0.00177828,-,direct,0.00e+00
+2725,0.00177828,-,direct,0.00e+00
+2750,0.00177828,-,direct,0.00e+00
+2775,0.00177828,-,direct,0.00e+00
+2800,0.00177828,-,direct,0.00e+00
+2825,0.00177828,-,direct,0.00e+00
+2850,0.00177828,-,direct,0.00e+00
+2875,0.00177828,-,direct,0.00e+00
+2900,0.00177828,-,direct,0.00e+00
+2925,0.00177828,-,direct,0.00e+00
+2950,0.00177828,-,direct,0.00e+00
+2975,0.00177828,-,direct,0.00e+00
+3000,0.00177828,-,direct,0.00e+00
+3025,0.00177828,-,direct,0.00e+00
+3050,0.00177828,-,direct,0.00e+00
+3075,0.00177828,-,direct,0.00e+00
+3100,0.00177828,-,direct,0.00e+00
+3125,0.00177828,-,direct,0.00e+00
+3150,0.00177828,-,direct,0.00e+00
+3175,0.00177828,-,direct,0.00e+00
+3200,0.00177828,-,direct,0.00e+00
+3225,0.00177828,-,direct,0.00e+00
+3250,0.00177828,-,direct,0.00e+00
+3275,0.00177828,-,direct,0.00e+00
+3300,0.00177828,-,direct,0.00e+00
+3325,0.00177828,-,direct,0.00e+00
+3350,0.00177828,-,direct,0.00e+00
+3375,0.00177828,-,direct,0.00e+00
+3400,0.00177828,-,direct,0.00e+00
+3425,0.00177828,-,direct,0.00e+00
+3450,0.00177828,-,direct,0.00e+00
+3475,0.00177828,-,direct,0.00e+00
+3500,0.00177828,-,direct,0.00e+00
+3525,0.00177828,-,direct,0.00e+00
+3550,0.00177828,-,direct,0.00e+00
+3575,0.00177828,-,direct,0.00e+00
+3600,0.00177828,-,direct,0.00e+00
+3625,0.00177828,-,direct,0.00e+00
+3650,0.00177828,-,direct,0.00e+00
+3675,0.00177828,-,direct,0.00e+00
+3700,0.00177828,-,direct,0.00e+00
+3725,0.00177828,-,direct,0.00e+00
+3750,0.00177828,-,direct,0.00e+00
+3775,0.00177828,-,direct,0.00e+00
+3800,0.00177828,-,direct,0.00e+00
+3825,0.00177828,-,direct,0.00e+00
+3850,0.00177828,-,direct,0.00e+00
+3875,0.00177828,-,direct,0.00e+00
+3900,0.00177828,-,direct,0.00e+00
+3925,0.00177828,-,direct,0.00e+00
+3950,0.00177828,-,direct,0.00e+00
+3975,0.00177828,-,direct,0.00e+00
+4000,0.00177828,-,direct,0.00e+00
+4025,0.00177828,-,direct,0.00e+00
+4050,0.00177828,-,direct,0.00e+00
+4075,0.00177828,-,direct,0.00e+00
+4100,0.00177828,-,direct,0.00e+00
+4125,0.00177828,-,direct,0.00e+00
+4150,0.00177828,-,direct,0.00e+00
+4175,0.00177828,-,direct,0.00e+00
+4200,0.00177828,-,direct,0.00e+00
+4225,0.00177828,-,direct,0.00e+00
+4250,0.00177828,-,direct,0.00e+00
+4275,0.00177828,-,direct,0.00e+00
+4300,0.00177828,-,direct,0.00e+00
+4325,0.00177828,-,direct,0.00e+00
+4350,0.00177828,-,direct,0.00e+00
+4375,0.00177828,-,direct,0.00e+00
+4400,0.00177828,-,direct,0.00e+00
+4425,0.00177828,-,direct,0.00e+00
+4450,0.00177828,-,direct,0.00e+00
+4475,0.00177828,-,direct,0.00e+00
+4500,0.00177828,-,direct,0.00e+00
+4525,0.00177828,-,direct,0.00e+00
+4550,0.00177828,-,direct,0.00e+00
+4575,0.00177828,-,direct,0.00e+00
+4600,0.00177828,-,direct,0.00e+00
+4625,0.00177828,-,direct,0.00e+00
+4650,0.00177828,-,direct,0.00e+00
+4675,0.00177828,-,direct,0.00e+00
+4700,0.00177828,-,direct,0.00e+00
+4725,0.00177828,-,direct,0.00e+00
+4750,0.00177828,-,direct,0.00e+00
+4775,0.00177828,-,direct,0.00e+00
+4800,0.00177828,-,direct,0.00e+00
+4825,0.00177828,-,direct,0.00e+00
+4850,0.00177828,-,direct,0.00e+00
+4875,0.00177828,-,direct,0.00e+00
+4900,0.00177828,-,direct,0.00e+00
+4925,0.00177828,-,direct,0.00e+00
+4950,0.00177828,-,direct,0.00e+00
+4975,0.00177828,-,direct,0.00e+00
+5000,0.00177828,-,direct,0.00e+00
+300,0.00316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+325,0.00316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+350,0.00316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+375,0.00316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+400,0.00316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+425,0.00316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+450,0.00316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+475,0.00316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+500,0.00316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+525,0.00316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+550,0.00316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+575,0.00316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+600,0.00316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+625,0.00316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+650,0.00316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+675,0.00316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+700,0.00316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+725,0.00316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+750,0.00316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+775,0.00316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+800,0.00316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+825,0.00316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+850,0.00316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+875,0.00316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+900,0.00316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+925,0.00316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+950,0.00316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+975,0.00316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1000,0.00316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1025,0.00316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1050,0.00316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1075,0.00316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1100,0.00316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1125,0.00316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1150,0.00316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1175,0.00316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1200,0.00316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1225,0.00316228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1250,0.00316228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1275,0.00316228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1300,0.00316228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1325,0.00316228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1350,0.00316228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1375,0.00316228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1400,0.00316228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1425,0.00316228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1450,0.00316228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1475,0.00316228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1500,0.00316228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1525,0.00316228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1550,0.00316228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1575,0.00316228,SiC(b),direct,0.00e+00
+1600,0.00316228,SiC(b),direct,0.00e+00
+1625,0.00316228,SiC(b),direct,0.00e+00
+1650,0.00316228,SiC(b),direct,0.00e+00
+1675,0.00316228,SiC(b),enum,0.00e+00
+1700,0.00316228,SiC(b),enum,0.00e+00
+1725,0.00316228,SiC(b),direct,0.00e+00
+1750,0.00316228,SiC(b),enum,0.00e+00
+1775,0.00316228,SiC(b),direct,0.00e+00
+1800,0.00316228,SiC(b),direct,0.00e+00
+1825,0.00316228,SiC(b),direct,0.00e+00
+1850,0.00316228,SiC(b),enum,0.00e+00
+1875,0.00316228,SiC(b),direct,0.00e+00
+1900,0.00316228,SiC(b),direct,0.00e+00
+1925,0.00316228,SiC(b),direct,0.00e+00
+1950,0.00316228,SiC(b),enum,0.00e+00
+1975,0.00316228,SiC(b),enum,0.00e+00
+2000,0.00316228,SiC(b),enum,0.00e+00
+2025,0.00316228,SiC(b),enum,0.00e+00
+2050,0.00316228,SiC(b),direct,0.00e+00
+2075,0.00316228,SiC(b),direct,0.00e+00
+2100,0.00316228,SiC(b),direct,0.00e+00
+2125,0.00316228,SiC(b),enum,0.00e+00
+2150,0.00316228,SiC(b),direct,0.00e+00
+2175,0.00316228,SiC(b),enum,0.00e+00
+2200,0.00316228,SiC(b),direct,0.00e+00
+2225,0.00316228,SiC(b),direct,0.00e+00
+2250,0.00316228,SiC(b),direct,0.00e+00
+2275,0.00316228,SiC(b),direct,0.00e+00
+2300,0.00316228,SiC(b),direct,0.00e+00
+2325,0.00316228,SiC(b),direct,0.00e+00
+2350,0.00316228,SiC(b),direct,0.00e+00
+2375,0.00316228,SiC(b),direct,0.00e+00
+2400,0.00316228,SiC(b),direct,0.00e+00
+2425,0.00316228,SiC(b),direct,0.00e+00
+2450,0.00316228,C(gr) SiC(b),assemblage,0.00e+00
+2475,0.00316228,C(gr) SiC(b),assemblage,0.00e+00
+2500,0.00316228,C(gr) SiC(b),assemblage,0.00e+00
+2525,0.00316228,C(gr),enum,0.00e+00
+2550,0.00316228,C(gr),enum,0.00e+00
+2575,0.00316228,C(gr),enum,0.00e+00
+2600,0.00316228,C(gr),enum,0.00e+00
+2625,0.00316228,C(gr),assemblage,0.00e+00
+2650,0.00316228,C(gr),assemblage,0.00e+00
+2675,0.00316228,-,direct,0.00e+00
+2700,0.00316228,-,direct,0.00e+00
+2725,0.00316228,-,direct,0.00e+00
+2750,0.00316228,-,direct,0.00e+00
+2775,0.00316228,-,direct,0.00e+00
+2800,0.00316228,-,direct,0.00e+00
+2825,0.00316228,-,direct,0.00e+00
+2850,0.00316228,-,direct,0.00e+00
+2875,0.00316228,-,direct,0.00e+00
+2900,0.00316228,-,direct,0.00e+00
+2925,0.00316228,-,direct,0.00e+00
+2950,0.00316228,-,direct,0.00e+00
+2975,0.00316228,-,direct,0.00e+00
+3000,0.00316228,-,direct,0.00e+00
+3025,0.00316228,-,direct,0.00e+00
+3050,0.00316228,-,direct,0.00e+00
+3075,0.00316228,-,direct,0.00e+00
+3100,0.00316228,-,direct,0.00e+00
+3125,0.00316228,-,direct,0.00e+00
+3150,0.00316228,-,direct,0.00e+00
+3175,0.00316228,-,direct,0.00e+00
+3200,0.00316228,-,direct,0.00e+00
+3225,0.00316228,-,direct,0.00e+00
+3250,0.00316228,-,direct,0.00e+00
+3275,0.00316228,-,direct,0.00e+00
+3300,0.00316228,-,direct,0.00e+00
+3325,0.00316228,-,direct,0.00e+00
+3350,0.00316228,-,direct,0.00e+00
+3375,0.00316228,-,direct,0.00e+00
+3400,0.00316228,-,direct,0.00e+00
+3425,0.00316228,-,direct,0.00e+00
+3450,0.00316228,-,direct,0.00e+00
+3475,0.00316228,-,direct,0.00e+00
+3500,0.00316228,-,direct,0.00e+00
+3525,0.00316228,-,direct,0.00e+00
+3550,0.00316228,-,direct,0.00e+00
+3575,0.00316228,-,direct,0.00e+00
+3600,0.00316228,-,direct,0.00e+00
+3625,0.00316228,-,direct,0.00e+00
+3650,0.00316228,-,direct,0.00e+00
+3675,0.00316228,-,direct,0.00e+00
+3700,0.00316228,-,direct,0.00e+00
+3725,0.00316228,-,direct,0.00e+00
+3750,0.00316228,-,direct,0.00e+00
+3775,0.00316228,-,direct,0.00e+00
+3800,0.00316228,-,direct,0.00e+00
+3825,0.00316228,-,direct,0.00e+00
+3850,0.00316228,-,direct,0.00e+00
+3875,0.00316228,-,direct,0.00e+00
+3900,0.00316228,-,direct,0.00e+00
+3925,0.00316228,-,direct,0.00e+00
+3950,0.00316228,-,direct,0.00e+00
+3975,0.00316228,-,direct,0.00e+00
+4000,0.00316228,-,direct,0.00e+00
+4025,0.00316228,-,direct,0.00e+00
+4050,0.00316228,-,direct,0.00e+00
+4075,0.00316228,-,direct,0.00e+00
+4100,0.00316228,-,direct,0.00e+00
+4125,0.00316228,-,direct,0.00e+00
+4150,0.00316228,-,direct,0.00e+00
+4175,0.00316228,-,direct,0.00e+00
+4200,0.00316228,-,direct,0.00e+00
+4225,0.00316228,-,direct,0.00e+00
+4250,0.00316228,-,direct,0.00e+00
+4275,0.00316228,-,direct,0.00e+00
+4300,0.00316228,-,direct,0.00e+00
+4325,0.00316228,-,direct,0.00e+00
+4350,0.00316228,-,direct,0.00e+00
+4375,0.00316228,-,direct,0.00e+00
+4400,0.00316228,-,direct,0.00e+00
+4425,0.00316228,-,direct,0.00e+00
+4450,0.00316228,-,direct,0.00e+00
+4475,0.00316228,-,direct,0.00e+00
+4500,0.00316228,-,direct,0.00e+00
+4525,0.00316228,-,direct,0.00e+00
+4550,0.00316228,-,direct,0.00e+00
+4575,0.00316228,-,direct,0.00e+00
+4600,0.00316228,-,direct,0.00e+00
+4625,0.00316228,-,direct,0.00e+00
+4650,0.00316228,-,direct,0.00e+00
+4675,0.00316228,-,direct,0.00e+00
+4700,0.00316228,-,direct,0.00e+00
+4725,0.00316228,-,direct,0.00e+00
+4750,0.00316228,-,direct,0.00e+00
+4775,0.00316228,-,direct,0.00e+00
+4800,0.00316228,-,direct,0.00e+00
+4825,0.00316228,-,direct,0.00e+00
+4850,0.00316228,-,direct,0.00e+00
+4875,0.00316228,-,direct,0.00e+00
+4900,0.00316228,-,direct,0.00e+00
+4925,0.00316228,-,direct,0.00e+00
+4950,0.00316228,-,direct,0.00e+00
+4975,0.00316228,-,direct,0.00e+00
+5000,0.00316228,-,direct,0.00e+00
+300,0.00562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+325,0.00562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+350,0.00562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+375,0.00562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+400,0.00562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+425,0.00562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+450,0.00562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+475,0.00562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+500,0.00562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+525,0.00562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+550,0.00562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+575,0.00562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+600,0.00562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+625,0.00562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+650,0.00562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+675,0.00562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+700,0.00562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+725,0.00562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+750,0.00562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+775,0.00562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+800,0.00562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+825,0.00562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+850,0.00562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+875,0.00562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+900,0.00562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+925,0.00562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+950,0.00562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+975,0.00562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1000,0.00562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1025,0.00562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1050,0.00562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1075,0.00562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1100,0.00562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1125,0.00562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1150,0.00562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1175,0.00562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1200,0.00562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1225,0.00562341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1250,0.00562341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1275,0.00562341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1300,0.00562341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1325,0.00562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1350,0.00562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1375,0.00562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1400,0.00562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1425,0.00562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1450,0.00562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1475,0.00562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1500,0.00562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1525,0.00562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1550,0.00562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1575,0.00562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1600,0.00562341,SiC(b),direct,0.00e+00
+1625,0.00562341,SiC(b),direct,0.00e+00
+1650,0.00562341,SiC(b),direct,0.00e+00
+1675,0.00562341,SiC(b),direct,0.00e+00
+1700,0.00562341,SiC(b),direct,0.00e+00
+1725,0.00562341,SiC(b),enum,0.00e+00
+1750,0.00562341,SiC(b),enum,0.00e+00
+1775,0.00562341,SiC(b),enum,0.00e+00
+1800,0.00562341,SiC(b),direct,0.00e+00
+1825,0.00562341,SiC(b),enum,0.00e+00
+1850,0.00562341,SiC(b),enum,0.00e+00
+1875,0.00562341,SiC(b),direct,0.00e+00
+1900,0.00562341,SiC(b),direct,0.00e+00
+1925,0.00562341,SiC(b),direct,0.00e+00
+1950,0.00562341,SiC(b),enum,0.00e+00
+1975,0.00562341,SiC(b),direct,0.00e+00
+2000,0.00562341,SiC(b),direct,0.00e+00
+2025,0.00562341,SiC(b),direct,0.00e+00
+2050,0.00562341,SiC(b),direct,0.00e+00
+2075,0.00562341,SiC(b),direct,0.00e+00
+2100,0.00562341,SiC(b),enum,0.00e+00
+2125,0.00562341,SiC(b),enum,0.00e+00
+2150,0.00562341,SiC(b),direct,0.00e+00
+2175,0.00562341,SiC(b),direct,0.00e+00
+2200,0.00562341,SiC(b),direct,0.00e+00
+2225,0.00562341,SiC(b),direct,0.00e+00
+2250,0.00562341,SiC(b),direct,0.00e+00
+2275,0.00562341,SiC(b),direct,0.00e+00
+2300,0.00562341,SiC(b),direct,0.00e+00
+2325,0.00562341,SiC(b),direct,0.00e+00
+2350,0.00562341,SiC(b),direct,0.00e+00
+2375,0.00562341,SiC(b),direct,0.00e+00
+2400,0.00562341,SiC(b),direct,0.00e+00
+2425,0.00562341,SiC(b),direct,0.00e+00
+2450,0.00562341,SiC(b),direct,0.00e+00
+2475,0.00562341,SiC(b),direct,0.00e+00
+2500,0.00562341,SiC(b),direct,0.00e+00
+2525,0.00562341,C(gr) SiC(b),assemblage,0.00e+00
+2550,0.00562341,C(gr) SiC(b),assemblage,0.00e+00
+2575,0.00562341,C(gr),enum,0.00e+00
+2600,0.00562341,C(gr),enum,0.00e+00
+2625,0.00562341,C(gr),assemblage,0.00e+00
+2650,0.00562341,C(gr),assemblage,0.00e+00
+2675,0.00562341,C(gr),assemblage,0.00e+00
+2700,0.00562341,-,direct,0.00e+00
+2725,0.00562341,-,direct,0.00e+00
+2750,0.00562341,-,direct,0.00e+00
+2775,0.00562341,-,direct,0.00e+00
+2800,0.00562341,-,direct,0.00e+00
+2825,0.00562341,-,direct,0.00e+00
+2850,0.00562341,-,direct,0.00e+00
+2875,0.00562341,-,direct,0.00e+00
+2900,0.00562341,-,direct,0.00e+00
+2925,0.00562341,-,direct,0.00e+00
+2950,0.00562341,-,direct,0.00e+00
+2975,0.00562341,-,direct,0.00e+00
+3000,0.00562341,-,direct,0.00e+00
+3025,0.00562341,-,direct,0.00e+00
+3050,0.00562341,-,direct,0.00e+00
+3075,0.00562341,-,direct,0.00e+00
+3100,0.00562341,-,direct,0.00e+00
+3125,0.00562341,-,direct,0.00e+00
+3150,0.00562341,-,direct,0.00e+00
+3175,0.00562341,-,direct,0.00e+00
+3200,0.00562341,-,direct,0.00e+00
+3225,0.00562341,-,direct,0.00e+00
+3250,0.00562341,-,direct,0.00e+00
+3275,0.00562341,-,direct,0.00e+00
+3300,0.00562341,-,direct,0.00e+00
+3325,0.00562341,-,direct,0.00e+00
+3350,0.00562341,-,direct,0.00e+00
+3375,0.00562341,-,direct,0.00e+00
+3400,0.00562341,-,direct,0.00e+00
+3425,0.00562341,-,direct,0.00e+00
+3450,0.00562341,-,direct,0.00e+00
+3475,0.00562341,-,direct,0.00e+00
+3500,0.00562341,-,direct,0.00e+00
+3525,0.00562341,-,direct,0.00e+00
+3550,0.00562341,-,direct,0.00e+00
+3575,0.00562341,-,direct,0.00e+00
+3600,0.00562341,-,direct,0.00e+00
+3625,0.00562341,-,direct,0.00e+00
+3650,0.00562341,-,direct,0.00e+00
+3675,0.00562341,-,direct,0.00e+00
+3700,0.00562341,-,direct,0.00e+00
+3725,0.00562341,-,direct,0.00e+00
+3750,0.00562341,-,direct,0.00e+00
+3775,0.00562341,-,direct,0.00e+00
+3800,0.00562341,-,direct,0.00e+00
+3825,0.00562341,-,direct,0.00e+00
+3850,0.00562341,-,direct,0.00e+00
+3875,0.00562341,-,direct,0.00e+00
+3900,0.00562341,-,direct,0.00e+00
+3925,0.00562341,-,direct,0.00e+00
+3950,0.00562341,-,direct,0.00e+00
+3975,0.00562341,-,direct,0.00e+00
+4000,0.00562341,-,direct,0.00e+00
+4025,0.00562341,-,direct,0.00e+00
+4050,0.00562341,-,direct,0.00e+00
+4075,0.00562341,-,direct,0.00e+00
+4100,0.00562341,-,direct,0.00e+00
+4125,0.00562341,-,direct,0.00e+00
+4150,0.00562341,-,direct,0.00e+00
+4175,0.00562341,-,direct,0.00e+00
+4200,0.00562341,-,direct,0.00e+00
+4225,0.00562341,-,direct,0.00e+00
+4250,0.00562341,-,direct,0.00e+00
+4275,0.00562341,-,direct,0.00e+00
+4300,0.00562341,-,direct,0.00e+00
+4325,0.00562341,-,direct,0.00e+00
+4350,0.00562341,-,direct,0.00e+00
+4375,0.00562341,-,direct,0.00e+00
+4400,0.00562341,-,direct,0.00e+00
+4425,0.00562341,-,direct,0.00e+00
+4450,0.00562341,-,direct,0.00e+00
+4475,0.00562341,-,direct,0.00e+00
+4500,0.00562341,-,direct,0.00e+00
+4525,0.00562341,-,direct,0.00e+00
+4550,0.00562341,-,direct,0.00e+00
+4575,0.00562341,-,direct,0.00e+00
+4600,0.00562341,-,direct,0.00e+00
+4625,0.00562341,-,direct,0.00e+00
+4650,0.00562341,-,direct,0.00e+00
+4675,0.00562341,-,direct,0.00e+00
+4700,0.00562341,-,direct,0.00e+00
+4725,0.00562341,-,direct,0.00e+00
+4750,0.00562341,-,direct,0.00e+00
+4775,0.00562341,-,direct,0.00e+00
+4800,0.00562341,-,direct,0.00e+00
+4825,0.00562341,-,direct,0.00e+00
+4850,0.00562341,-,direct,0.00e+00
+4875,0.00562341,-,direct,0.00e+00
+4900,0.00562341,-,direct,0.00e+00
+4925,0.00562341,-,direct,0.00e+00
+4950,0.00562341,-,direct,0.00e+00
+4975,0.00562341,-,direct,0.00e+00
+5000,0.00562341,-,direct,0.00e+00
+300,0.01,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+325,0.01,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+350,0.01,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+375,0.01,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+400,0.01,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+425,0.01,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+450,0.01,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+475,0.01,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+500,0.01,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+525,0.01,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+550,0.01,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+575,0.01,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+600,0.01,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+625,0.01,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+650,0.01,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+675,0.01,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+700,0.01,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+725,0.01,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+750,0.01,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+775,0.01,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+800,0.01,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+825,0.01,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+850,0.01,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+875,0.01,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+900,0.01,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+925,0.01,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+950,0.01,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+975,0.01,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1000,0.01,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1025,0.01,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1050,0.01,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1075,0.01,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1100,0.01,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1125,0.01,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1150,0.01,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1175,0.01,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1200,0.01,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1225,0.01,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1250,0.01,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1275,0.01,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1300,0.01,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1325,0.01,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1350,0.01,SiC(b) SiO2(b-crt),direct,0.00e+00
+1375,0.01,SiC(b) SiO2(b-crt),direct,0.00e+00
+1400,0.01,SiC(b) SiO2(b-crt),direct,0.00e+00
+1425,0.01,SiC(b) SiO2(b-crt),direct,0.00e+00
+1450,0.01,SiC(b) SiO2(b-crt),direct,0.00e+00
+1475,0.01,SiC(b) SiO2(b-crt),direct,0.00e+00
+1500,0.01,SiC(b) SiO2(b-crt),direct,0.00e+00
+1525,0.01,SiC(b) SiO2(b-crt),direct,0.00e+00
+1550,0.01,SiC(b) SiO2(b-crt),direct,0.00e+00
+1575,0.01,SiC(b) SiO2(b-crt),direct,0.00e+00
+1600,0.01,SiC(b) SiO2(b-crt),direct,0.00e+00
+1625,0.01,SiC(b) SiO2(b-crt),direct,0.00e+00
+1650,0.01,SiC(b),direct,0.00e+00
+1675,0.01,SiC(b),direct,0.00e+00
+1700,0.01,SiC(b),direct,0.00e+00
+1725,0.01,SiC(b),direct,0.00e+00
+1750,0.01,SiC(b),direct,0.00e+00
+1775,0.01,SiC(b),enum,0.00e+00
+1800,0.01,SiC(b),direct,0.00e+00
+1825,0.01,SiC(b),enum,0.00e+00
+1850,0.01,SiC(b),enum,0.00e+00
+1875,0.01,SiC(b),direct,0.00e+00
+1900,0.01,SiC(b),direct,0.00e+00
+1925,0.01,SiC(b),enum,0.00e+00
+1950,0.01,SiC(b),enum,0.00e+00
+1975,0.01,SiC(b),direct,0.00e+00
+2000,0.01,SiC(b),direct,0.00e+00
+2025,0.01,SiC(b),enum,0.00e+00
+2050,0.01,SiC(b),direct,0.00e+00
+2075,0.01,SiC(b),direct,0.00e+00
+2100,0.01,SiC(b),enum,0.00e+00
+2125,0.01,SiC(b),direct,0.00e+00
+2150,0.01,SiC(b),enum,0.00e+00
+2175,0.01,SiC(b),enum,0.00e+00
+2200,0.01,SiC(b),enum,0.00e+00
+2225,0.01,SiC(b),direct,0.00e+00
+2250,0.01,SiC(b),direct,0.00e+00
+2275,0.01,SiC(b),direct,0.00e+00
+2300,0.01,SiC(b),direct,0.00e+00
+2325,0.01,SiC(b),direct,0.00e+00
+2350,0.01,SiC(b),direct,0.00e+00
+2375,0.01,SiC(b),direct,0.00e+00
+2400,0.01,SiC(b),direct,0.00e+00
+2425,0.01,SiC(b),direct,0.00e+00
+2450,0.01,SiC(b),direct,0.00e+00
+2475,0.01,SiC(b),direct,0.00e+00
+2500,0.01,SiC(b),direct,0.00e+00
+2525,0.01,SiC(b),direct,0.00e+00
+2550,0.01,SiC(b),direct,0.00e+00
+2575,0.01,C(gr) SiC(b),assemblage,0.00e+00
+2600,0.01,C(gr) SiC(b),assemblage,0.00e+00
+2625,0.01,C(gr),enum,0.00e+00
+2650,0.01,C(gr),enum,0.00e+00
+2675,0.01,C(gr),assemblage,0.00e+00
+2700,0.01,C(gr),assemblage,0.00e+00
+2725,0.01,C(gr),assemblage,0.00e+00
+2750,0.01,-,direct,0.00e+00
+2775,0.01,-,direct,0.00e+00
+2800,0.01,-,direct,0.00e+00
+2825,0.01,-,direct,0.00e+00
+2850,0.01,-,direct,0.00e+00
+2875,0.01,-,direct,0.00e+00
+2900,0.01,-,direct,0.00e+00
+2925,0.01,-,direct,0.00e+00
+2950,0.01,-,direct,0.00e+00
+2975,0.01,-,direct,0.00e+00
+3000,0.01,-,direct,0.00e+00
+3025,0.01,-,direct,0.00e+00
+3050,0.01,-,direct,0.00e+00
+3075,0.01,-,direct,0.00e+00
+3100,0.01,-,direct,0.00e+00
+3125,0.01,-,direct,0.00e+00
+3150,0.01,-,direct,0.00e+00
+3175,0.01,-,direct,0.00e+00
+3200,0.01,-,direct,0.00e+00
+3225,0.01,-,direct,0.00e+00
+3250,0.01,-,direct,0.00e+00
+3275,0.01,-,direct,0.00e+00
+3300,0.01,-,direct,0.00e+00
+3325,0.01,-,direct,0.00e+00
+3350,0.01,-,direct,0.00e+00
+3375,0.01,-,direct,0.00e+00
+3400,0.01,-,direct,0.00e+00
+3425,0.01,-,direct,0.00e+00
+3450,0.01,-,direct,0.00e+00
+3475,0.01,-,direct,0.00e+00
+3500,0.01,-,direct,0.00e+00
+3525,0.01,-,direct,0.00e+00
+3550,0.01,-,direct,0.00e+00
+3575,0.01,-,direct,0.00e+00
+3600,0.01,-,direct,0.00e+00
+3625,0.01,-,direct,0.00e+00
+3650,0.01,-,direct,0.00e+00
+3675,0.01,-,direct,0.00e+00
+3700,0.01,-,direct,0.00e+00
+3725,0.01,-,direct,0.00e+00
+3750,0.01,-,direct,0.00e+00
+3775,0.01,-,direct,0.00e+00
+3800,0.01,-,direct,0.00e+00
+3825,0.01,-,direct,0.00e+00
+3850,0.01,-,direct,0.00e+00
+3875,0.01,-,direct,0.00e+00
+3900,0.01,-,direct,0.00e+00
+3925,0.01,-,direct,0.00e+00
+3950,0.01,-,direct,0.00e+00
+3975,0.01,-,direct,0.00e+00
+4000,0.01,-,direct,0.00e+00
+4025,0.01,-,direct,0.00e+00
+4050,0.01,-,direct,0.00e+00
+4075,0.01,-,direct,0.00e+00
+4100,0.01,-,direct,0.00e+00
+4125,0.01,-,direct,0.00e+00
+4150,0.01,-,direct,0.00e+00
+4175,0.01,-,direct,0.00e+00
+4200,0.01,-,direct,0.00e+00
+4225,0.01,-,direct,0.00e+00
+4250,0.01,-,direct,0.00e+00
+4275,0.01,-,direct,0.00e+00
+4300,0.01,-,direct,0.00e+00
+4325,0.01,-,direct,0.00e+00
+4350,0.01,-,direct,0.00e+00
+4375,0.01,-,direct,0.00e+00
+4400,0.01,-,direct,0.00e+00
+4425,0.01,-,direct,0.00e+00
+4450,0.01,-,direct,0.00e+00
+4475,0.01,-,direct,0.00e+00
+4500,0.01,-,direct,0.00e+00
+4525,0.01,-,direct,0.00e+00
+4550,0.01,-,direct,0.00e+00
+4575,0.01,-,direct,0.00e+00
+4600,0.01,-,direct,0.00e+00
+4625,0.01,-,direct,0.00e+00
+4650,0.01,-,direct,0.00e+00
+4675,0.01,-,direct,0.00e+00
+4700,0.01,-,direct,0.00e+00
+4725,0.01,-,direct,0.00e+00
+4750,0.01,-,direct,0.00e+00
+4775,0.01,-,direct,0.00e+00
+4800,0.01,-,direct,0.00e+00
+4825,0.01,-,direct,0.00e+00
+4850,0.01,-,direct,0.00e+00
+4875,0.01,-,direct,0.00e+00
+4900,0.01,-,direct,0.00e+00
+4925,0.01,-,direct,0.00e+00
+4950,0.01,-,direct,0.00e+00
+4975,0.01,-,direct,0.00e+00
+5000,0.01,-,direct,0.00e+00
+300,0.0177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+325,0.0177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+350,0.0177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+375,0.0177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+400,0.0177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+425,0.0177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+450,0.0177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+475,0.0177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+500,0.0177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+525,0.0177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+550,0.0177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+575,0.0177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+600,0.0177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+625,0.0177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+650,0.0177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+675,0.0177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+700,0.0177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+725,0.0177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+750,0.0177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+775,0.0177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+800,0.0177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+825,0.0177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+850,0.0177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+875,0.0177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+900,0.0177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+925,0.0177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+950,0.0177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+975,0.0177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1000,0.0177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1025,0.0177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1050,0.0177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1075,0.0177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1100,0.0177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1125,0.0177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1150,0.0177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1175,0.0177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1200,0.0177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1225,0.0177828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1250,0.0177828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1275,0.0177828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1300,0.0177828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1325,0.0177828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1350,0.0177828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1375,0.0177828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1400,0.0177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1425,0.0177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1450,0.0177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1475,0.0177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1500,0.0177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1525,0.0177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1550,0.0177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1575,0.0177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1600,0.0177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1625,0.0177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1650,0.0177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1675,0.0177828,SiC(b),direct,0.00e+00
+1700,0.0177828,SiC(b),direct,0.00e+00
+1725,0.0177828,SiC(b),direct,0.00e+00
+1750,0.0177828,SiC(b),direct,0.00e+00
+1775,0.0177828,SiC(b),direct,0.00e+00
+1800,0.0177828,SiC(b),enum,0.00e+00
+1825,0.0177828,SiC(b),direct,0.00e+00
+1850,0.0177828,SiC(b),enum,0.00e+00
+1875,0.0177828,SiC(b),direct,0.00e+00
+1900,0.0177828,SiC(b),direct,0.00e+00
+1925,0.0177828,SiC(b),enum,0.00e+00
+1950,0.0177828,SiC(b),enum,0.00e+00
+1975,0.0177828,SiC(b),direct,0.00e+00
+2000,0.0177828,SiC(b),enum,0.00e+00
+2025,0.0177828,SiC(b),enum,0.00e+00
+2050,0.0177828,SiC(b),enum,0.00e+00
+2075,0.0177828,SiC(b),enum,0.00e+00
+2100,0.0177828,SiC(b),direct,0.00e+00
+2125,0.0177828,SiC(b),enum,0.00e+00
+2150,0.0177828,SiC(b),direct,0.00e+00
+2175,0.0177828,SiC(b),direct,0.00e+00
+2200,0.0177828,SiC(b),enum,0.00e+00
+2225,0.0177828,SiC(b),direct,0.00e+00
+2250,0.0177828,SiC(b),direct,0.00e+00
+2275,0.0177828,SiC(b),direct,0.00e+00
+2300,0.0177828,SiC(b),direct,0.00e+00
+2325,0.0177828,SiC(b),direct,0.00e+00
+2350,0.0177828,SiC(b),direct,0.00e+00
+2375,0.0177828,SiC(b),direct,0.00e+00
+2400,0.0177828,SiC(b),direct,0.00e+00
+2425,0.0177828,SiC(b),direct,0.00e+00
+2450,0.0177828,SiC(b),direct,0.00e+00
+2475,0.0177828,SiC(b),direct,0.00e+00
+2500,0.0177828,SiC(b),direct,0.00e+00
+2525,0.0177828,SiC(b),direct,0.00e+00
+2550,0.0177828,SiC(b),direct,0.00e+00
+2575,0.0177828,SiC(b),direct,0.00e+00
+2600,0.0177828,SiC(b),direct,0.00e+00
+2625,0.0177828,C(gr) SiC(b),assemblage,0.00e+00
+2650,0.0177828,C(gr) SiC(b),assemblage,0.00e+00
+2675,0.0177828,C(gr),enum,0.00e+00
+2700,0.0177828,C(gr),enum,0.00e+00
+2725,0.0177828,C(gr),assemblage,0.00e+00
+2750,0.0177828,C(gr),assemblage,0.00e+00
+2775,0.0177828,-,direct,0.00e+00
+2800,0.0177828,-,direct,0.00e+00
+2825,0.0177828,-,direct,0.00e+00
+2850,0.0177828,-,direct,0.00e+00
+2875,0.0177828,-,direct,0.00e+00
+2900,0.0177828,-,direct,0.00e+00
+2925,0.0177828,-,direct,0.00e+00
+2950,0.0177828,-,direct,0.00e+00
+2975,0.0177828,-,direct,0.00e+00
+3000,0.0177828,-,direct,0.00e+00
+3025,0.0177828,-,direct,0.00e+00
+3050,0.0177828,-,direct,0.00e+00
+3075,0.0177828,-,direct,0.00e+00
+3100,0.0177828,-,direct,0.00e+00
+3125,0.0177828,-,direct,0.00e+00
+3150,0.0177828,-,direct,0.00e+00
+3175,0.0177828,-,direct,0.00e+00
+3200,0.0177828,-,direct,0.00e+00
+3225,0.0177828,-,direct,0.00e+00
+3250,0.0177828,-,direct,0.00e+00
+3275,0.0177828,-,direct,0.00e+00
+3300,0.0177828,-,direct,0.00e+00
+3325,0.0177828,-,direct,0.00e+00
+3350,0.0177828,-,direct,0.00e+00
+3375,0.0177828,-,direct,0.00e+00
+3400,0.0177828,-,direct,0.00e+00
+3425,0.0177828,-,direct,0.00e+00
+3450,0.0177828,-,direct,0.00e+00
+3475,0.0177828,-,direct,0.00e+00
+3500,0.0177828,-,direct,0.00e+00
+3525,0.0177828,-,direct,0.00e+00
+3550,0.0177828,-,direct,0.00e+00
+3575,0.0177828,-,direct,0.00e+00
+3600,0.0177828,-,direct,0.00e+00
+3625,0.0177828,-,direct,0.00e+00
+3650,0.0177828,-,direct,0.00e+00
+3675,0.0177828,-,direct,0.00e+00
+3700,0.0177828,-,direct,0.00e+00
+3725,0.0177828,-,direct,0.00e+00
+3750,0.0177828,-,direct,0.00e+00
+3775,0.0177828,-,direct,0.00e+00
+3800,0.0177828,-,direct,0.00e+00
+3825,0.0177828,-,direct,0.00e+00
+3850,0.0177828,-,direct,0.00e+00
+3875,0.0177828,-,direct,0.00e+00
+3900,0.0177828,-,direct,0.00e+00
+3925,0.0177828,-,direct,0.00e+00
+3950,0.0177828,-,direct,0.00e+00
+3975,0.0177828,-,direct,0.00e+00
+4000,0.0177828,-,direct,0.00e+00
+4025,0.0177828,-,direct,0.00e+00
+4050,0.0177828,-,direct,0.00e+00
+4075,0.0177828,-,direct,0.00e+00
+4100,0.0177828,-,direct,0.00e+00
+4125,0.0177828,-,direct,0.00e+00
+4150,0.0177828,-,direct,0.00e+00
+4175,0.0177828,-,direct,0.00e+00
+4200,0.0177828,-,direct,0.00e+00
+4225,0.0177828,-,direct,0.00e+00
+4250,0.0177828,-,direct,0.00e+00
+4275,0.0177828,-,direct,0.00e+00
+4300,0.0177828,-,direct,0.00e+00
+4325,0.0177828,-,direct,0.00e+00
+4350,0.0177828,-,direct,0.00e+00
+4375,0.0177828,-,direct,0.00e+00
+4400,0.0177828,-,direct,0.00e+00
+4425,0.0177828,-,direct,0.00e+00
+4450,0.0177828,-,direct,0.00e+00
+4475,0.0177828,-,direct,0.00e+00
+4500,0.0177828,-,direct,0.00e+00
+4525,0.0177828,-,direct,0.00e+00
+4550,0.0177828,-,direct,0.00e+00
+4575,0.0177828,-,direct,0.00e+00
+4600,0.0177828,-,direct,0.00e+00
+4625,0.0177828,-,direct,0.00e+00
+4650,0.0177828,-,direct,0.00e+00
+4675,0.0177828,-,direct,0.00e+00
+4700,0.0177828,-,direct,0.00e+00
+4725,0.0177828,-,direct,0.00e+00
+4750,0.0177828,-,direct,0.00e+00
+4775,0.0177828,-,direct,0.00e+00
+4800,0.0177828,-,direct,0.00e+00
+4825,0.0177828,-,direct,0.00e+00
+4850,0.0177828,-,direct,0.00e+00
+4875,0.0177828,-,direct,0.00e+00
+4900,0.0177828,-,direct,0.00e+00
+4925,0.0177828,-,direct,0.00e+00
+4950,0.0177828,-,direct,0.00e+00
+4975,0.0177828,-,direct,0.00e+00
+5000,0.0177828,-,direct,0.00e+00
+300,0.0316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+325,0.0316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+350,0.0316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+375,0.0316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+400,0.0316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+425,0.0316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+450,0.0316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+475,0.0316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+500,0.0316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+525,0.0316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+550,0.0316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+575,0.0316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+600,0.0316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+625,0.0316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+650,0.0316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+675,0.0316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+700,0.0316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+725,0.0316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+750,0.0316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+775,0.0316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+800,0.0316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+825,0.0316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+850,0.0316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+875,0.0316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+900,0.0316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+925,0.0316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+950,0.0316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+975,0.0316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1000,0.0316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1025,0.0316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1050,0.0316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1075,0.0316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1100,0.0316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1125,0.0316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1150,0.0316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1175,0.0316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1200,0.0316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1225,0.0316228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1250,0.0316228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1275,0.0316228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1300,0.0316228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1325,0.0316228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1350,0.0316228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1375,0.0316228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1400,0.0316228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1425,0.0316228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1450,0.0316228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1475,0.0316228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1500,0.0316228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1525,0.0316228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1550,0.0316228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1575,0.0316228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1600,0.0316228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1625,0.0316228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1650,0.0316228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1675,0.0316228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1700,0.0316228,SiC(b) SiO2(b-crt),assemblage,0.00e+00
+1725,0.0316228,SiC(b),direct,0.00e+00
+1750,0.0316228,SiC(b),direct,0.00e+00
+1775,0.0316228,SiC(b),direct,0.00e+00
+1800,0.0316228,SiC(b),direct,0.00e+00
+1825,0.0316228,SiC(b),direct,0.00e+00
+1850,0.0316228,SiC(b),enum,0.00e+00
+1875,0.0316228,SiC(b),enum,0.00e+00
+1900,0.0316228,SiC(b),enum,0.00e+00
+1925,0.0316228,SiC(b),direct,0.00e+00
+1950,0.0316228,SiC(b),enum,0.00e+00
+1975,0.0316228,SiC(b),enum,0.00e+00
+2000,0.0316228,SiC(b),direct,0.00e+00
+2025,0.0316228,SiC(b),enum,0.00e+00
+2050,0.0316228,SiC(b),enum,0.00e+00
+2075,0.0316228,SiC(b),direct,0.00e+00
+2100,0.0316228,SiC(b),direct,0.00e+00
+2125,0.0316228,SiC(b),direct,0.00e+00
+2150,0.0316228,SiC(b),direct,0.00e+00
+2175,0.0316228,SiC(b),direct,0.00e+00
+2200,0.0316228,SiC(b),enum,0.00e+00
+2225,0.0316228,SiC(b),direct,0.00e+00
+2250,0.0316228,SiC(b),direct,0.00e+00
+2275,0.0316228,Si(L) SiC(b),direct,0.00e+00
+2300,0.0316228,Si(L) SiC(b),direct,0.00e+00
+2325,0.0316228,Si(L) SiC(b),direct,0.00e+00
+2350,0.0316228,Si(L) SiC(b),direct,0.00e+00
+2375,0.0316228,Si(L) SiC(b),direct,0.00e+00
+2400,0.0316228,SiC(b),direct,0.00e+00
+2425,0.0316228,SiC(b),direct,0.00e+00
+2450,0.0316228,SiC(b),direct,0.00e+00
+2475,0.0316228,SiC(b),direct,0.00e+00
+2500,0.0316228,SiC(b),direct,0.00e+00
+2525,0.0316228,SiC(b),direct,0.00e+00
+2550,0.0316228,SiC(b),direct,0.00e+00
+2575,0.0316228,SiC(b),direct,0.00e+00
+2600,0.0316228,SiC(b),direct,0.00e+00
+2625,0.0316228,SiC(b),direct,0.00e+00
+2650,0.0316228,SiC(b),direct,0.00e+00
+2675,0.0316228,SiC(b),direct,0.00e+00
+2700,0.0316228,C(gr) SiC(b),assemblage,0.00e+00
+2725,0.0316228,C(gr) SiC(b),assemblage,0.00e+00
+2750,0.0316228,C(gr),enum,0.00e+00
+2775,0.0316228,C(gr),assemblage,0.00e+00
+2800,0.0316228,-,direct,0.00e+00
+2825,0.0316228,-,direct,0.00e+00
+2850,0.0316228,-,direct,0.00e+00
+2875,0.0316228,-,direct,0.00e+00
+2900,0.0316228,-,direct,0.00e+00
+2925,0.0316228,-,direct,0.00e+00
+2950,0.0316228,-,direct,0.00e+00
+2975,0.0316228,-,direct,0.00e+00
+3000,0.0316228,-,direct,0.00e+00
+3025,0.0316228,-,direct,0.00e+00
+3050,0.0316228,-,direct,0.00e+00
+3075,0.0316228,-,direct,0.00e+00
+3100,0.0316228,-,direct,0.00e+00
+3125,0.0316228,-,direct,0.00e+00
+3150,0.0316228,-,direct,0.00e+00
+3175,0.0316228,-,direct,0.00e+00
+3200,0.0316228,-,direct,0.00e+00
+3225,0.0316228,-,direct,0.00e+00
+3250,0.0316228,-,direct,0.00e+00
+3275,0.0316228,-,direct,0.00e+00
+3300,0.0316228,-,direct,0.00e+00
+3325,0.0316228,-,direct,0.00e+00
+3350,0.0316228,-,direct,0.00e+00
+3375,0.0316228,-,direct,0.00e+00
+3400,0.0316228,-,direct,0.00e+00
+3425,0.0316228,-,direct,0.00e+00
+3450,0.0316228,-,direct,0.00e+00
+3475,0.0316228,-,direct,0.00e+00
+3500,0.0316228,-,direct,0.00e+00
+3525,0.0316228,-,direct,0.00e+00
+3550,0.0316228,-,direct,0.00e+00
+3575,0.0316228,-,direct,0.00e+00
+3600,0.0316228,-,direct,0.00e+00
+3625,0.0316228,-,direct,0.00e+00
+3650,0.0316228,-,direct,0.00e+00
+3675,0.0316228,-,direct,0.00e+00
+3700,0.0316228,-,direct,0.00e+00
+3725,0.0316228,-,direct,0.00e+00
+3750,0.0316228,-,direct,0.00e+00
+3775,0.0316228,-,direct,0.00e+00
+3800,0.0316228,-,direct,0.00e+00
+3825,0.0316228,-,direct,0.00e+00
+3850,0.0316228,-,direct,0.00e+00
+3875,0.0316228,-,direct,0.00e+00
+3900,0.0316228,-,direct,0.00e+00
+3925,0.0316228,-,direct,0.00e+00
+3950,0.0316228,-,direct,0.00e+00
+3975,0.0316228,-,direct,0.00e+00
+4000,0.0316228,-,direct,0.00e+00
+4025,0.0316228,-,direct,0.00e+00
+4050,0.0316228,-,direct,0.00e+00
+4075,0.0316228,-,direct,0.00e+00
+4100,0.0316228,-,direct,0.00e+00
+4125,0.0316228,-,direct,0.00e+00
+4150,0.0316228,-,direct,0.00e+00
+4175,0.0316228,-,direct,0.00e+00
+4200,0.0316228,-,direct,0.00e+00
+4225,0.0316228,-,direct,0.00e+00
+4250,0.0316228,-,direct,0.00e+00
+4275,0.0316228,-,direct,0.00e+00
+4300,0.0316228,-,direct,0.00e+00
+4325,0.0316228,-,direct,0.00e+00
+4350,0.0316228,-,direct,0.00e+00
+4375,0.0316228,-,direct,0.00e+00
+4400,0.0316228,-,direct,0.00e+00
+4425,0.0316228,-,direct,0.00e+00
+4450,0.0316228,-,direct,0.00e+00
+4475,0.0316228,-,direct,0.00e+00
+4500,0.0316228,-,direct,0.00e+00
+4525,0.0316228,-,direct,0.00e+00
+4550,0.0316228,-,direct,0.00e+00
+4575,0.0316228,-,direct,0.00e+00
+4600,0.0316228,-,direct,0.00e+00
+4625,0.0316228,-,direct,0.00e+00
+4650,0.0316228,-,direct,0.00e+00
+4675,0.0316228,-,direct,0.00e+00
+4700,0.0316228,-,direct,0.00e+00
+4725,0.0316228,-,direct,0.00e+00
+4750,0.0316228,-,direct,0.00e+00
+4775,0.0316228,-,direct,0.00e+00
+4800,0.0316228,-,direct,0.00e+00
+4825,0.0316228,-,direct,0.00e+00
+4850,0.0316228,-,direct,0.00e+00
+4875,0.0316228,-,direct,0.00e+00
+4900,0.0316228,-,direct,0.00e+00
+4925,0.0316228,-,direct,0.00e+00
+4950,0.0316228,-,direct,0.00e+00
+4975,0.0316228,-,direct,0.00e+00
+5000,0.0316228,-,direct,0.00e+00
+300,0.0562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+325,0.0562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+350,0.0562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+375,0.0562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+400,0.0562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+425,0.0562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+450,0.0562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+475,0.0562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+500,0.0562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+525,0.0562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+550,0.0562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+575,0.0562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+600,0.0562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+625,0.0562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+650,0.0562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+675,0.0562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+700,0.0562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+725,0.0562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+750,0.0562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+775,0.0562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+800,0.0562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+825,0.0562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+850,0.0562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+875,0.0562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+900,0.0562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+925,0.0562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+950,0.0562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+975,0.0562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1000,0.0562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1025,0.0562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1050,0.0562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1075,0.0562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1100,0.0562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1125,0.0562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1150,0.0562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1175,0.0562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1200,0.0562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1225,0.0562341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1250,0.0562341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1275,0.0562341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1300,0.0562341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1325,0.0562341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1350,0.0562341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1375,0.0562341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1400,0.0562341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1425,0.0562341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1450,0.0562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1475,0.0562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1500,0.0562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1525,0.0562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1550,0.0562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1575,0.0562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1600,0.0562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1625,0.0562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1650,0.0562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1675,0.0562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1700,0.0562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1725,0.0562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1750,0.0562341,SiC(b),direct,0.00e+00
+1775,0.0562341,SiC(b),direct,0.00e+00
+1800,0.0562341,SiC(b),direct,0.00e+00
+1825,0.0562341,SiC(b),direct,0.00e+00
+1850,0.0562341,SiC(b),direct,0.00e+00
+1875,0.0562341,SiC(b),enum,0.00e+00
+1900,0.0562341,SiC(b),enum,0.00e+00
+1925,0.0562341,SiC(b),enum,0.00e+00
+1950,0.0562341,SiC(b),enum,0.00e+00
+1975,0.0562341,SiC(b),direct,0.00e+00
+2000,0.0562341,SiC(b),direct,0.00e+00
+2025,0.0562341,SiC(b),enum,0.00e+00
+2050,0.0562341,SiC(b),direct,0.00e+00
+2075,0.0562341,SiC(b),enum,0.00e+00
+2100,0.0562341,SiC(b),enum,0.00e+00
+2125,0.0562341,SiC(b),direct,0.00e+00
+2150,0.0562341,SiC(b),enum,0.00e+00
+2175,0.0562341,SiC(b),enum,0.00e+00
+2200,0.0562341,SiC(b),enum,0.00e+00
+2225,0.0562341,SiC(b),direct,0.00e+00
+2250,0.0562341,Si(L) SiC(b),direct,0.00e+00
+2275,0.0562341,Si(L) SiC(b),direct,0.00e+00
+2300,0.0562341,Si(L) SiC(b),direct,0.00e+00
+2325,0.0562341,Si(L) SiC(b),direct,0.00e+00
+2350,0.0562341,Si(L) SiC(b),direct,0.00e+00
+2375,0.0562341,Si(L) SiC(b),direct,0.00e+00
+2400,0.0562341,Si(L) SiC(b),direct,0.00e+00
+2425,0.0562341,Si(L) SiC(b),direct,0.00e+00
+2450,0.0562341,Si(L) SiC(b),direct,0.00e+00
+2475,0.0562341,Si(L) SiC(b),direct,0.00e+00
+2500,0.0562341,Si(L) SiC(b),direct,0.00e+00
+2525,0.0562341,SiC(b),direct,0.00e+00
+2550,0.0562341,SiC(b),direct,0.00e+00
+2575,0.0562341,SiC(b),direct,0.00e+00
+2600,0.0562341,SiC(b),direct,0.00e+00
+2625,0.0562341,SiC(b),direct,0.00e+00
+2650,0.0562341,SiC(b),direct,0.00e+00
+2675,0.0562341,SiC(b),direct,0.00e+00
+2700,0.0562341,SiC(b),direct,0.00e+00
+2725,0.0562341,SiC(b),direct,0.00e+00
+2750,0.0562341,C(gr) SiC(b),assemblage,0.00e+00
+2775,0.0562341,C(gr) SiC(b),assemblage,0.00e+00
+2800,0.0562341,C(gr),enum,0.00e+00
+2825,0.0562341,C(gr),assemblage,0.00e+00
+2850,0.0562341,-,direct,0.00e+00
+2875,0.0562341,-,direct,0.00e+00
+2900,0.0562341,-,direct,0.00e+00
+2925,0.0562341,-,direct,0.00e+00
+2950,0.0562341,-,direct,0.00e+00
+2975,0.0562341,-,direct,0.00e+00
+3000,0.0562341,-,direct,0.00e+00
+3025,0.0562341,-,direct,0.00e+00
+3050,0.0562341,-,direct,0.00e+00
+3075,0.0562341,-,direct,0.00e+00
+3100,0.0562341,-,direct,0.00e+00
+3125,0.0562341,-,direct,0.00e+00
+3150,0.0562341,-,direct,0.00e+00
+3175,0.0562341,-,direct,0.00e+00
+3200,0.0562341,-,direct,0.00e+00
+3225,0.0562341,-,direct,0.00e+00
+3250,0.0562341,-,direct,0.00e+00
+3275,0.0562341,-,direct,0.00e+00
+3300,0.0562341,-,direct,0.00e+00
+3325,0.0562341,-,direct,0.00e+00
+3350,0.0562341,-,direct,0.00e+00
+3375,0.0562341,-,direct,0.00e+00
+3400,0.0562341,-,direct,0.00e+00
+3425,0.0562341,-,direct,0.00e+00
+3450,0.0562341,-,direct,0.00e+00
+3475,0.0562341,-,direct,0.00e+00
+3500,0.0562341,-,direct,0.00e+00
+3525,0.0562341,-,direct,0.00e+00
+3550,0.0562341,-,direct,0.00e+00
+3575,0.0562341,-,direct,0.00e+00
+3600,0.0562341,-,direct,0.00e+00
+3625,0.0562341,-,direct,0.00e+00
+3650,0.0562341,-,direct,0.00e+00
+3675,0.0562341,-,direct,0.00e+00
+3700,0.0562341,-,direct,0.00e+00
+3725,0.0562341,-,direct,0.00e+00
+3750,0.0562341,-,direct,0.00e+00
+3775,0.0562341,-,direct,0.00e+00
+3800,0.0562341,-,direct,0.00e+00
+3825,0.0562341,-,direct,0.00e+00
+3850,0.0562341,-,direct,0.00e+00
+3875,0.0562341,-,direct,0.00e+00
+3900,0.0562341,-,direct,0.00e+00
+3925,0.0562341,-,direct,0.00e+00
+3950,0.0562341,-,direct,0.00e+00
+3975,0.0562341,-,direct,0.00e+00
+4000,0.0562341,-,direct,0.00e+00
+4025,0.0562341,-,direct,0.00e+00
+4050,0.0562341,-,direct,0.00e+00
+4075,0.0562341,-,direct,0.00e+00
+4100,0.0562341,-,direct,0.00e+00
+4125,0.0562341,-,direct,0.00e+00
+4150,0.0562341,-,direct,0.00e+00
+4175,0.0562341,-,direct,0.00e+00
+4200,0.0562341,-,direct,0.00e+00
+4225,0.0562341,-,direct,0.00e+00
+4250,0.0562341,-,direct,0.00e+00
+4275,0.0562341,-,direct,0.00e+00
+4300,0.0562341,-,direct,0.00e+00
+4325,0.0562341,-,direct,0.00e+00
+4350,0.0562341,-,direct,0.00e+00
+4375,0.0562341,-,direct,0.00e+00
+4400,0.0562341,-,direct,0.00e+00
+4425,0.0562341,-,direct,0.00e+00
+4450,0.0562341,-,direct,0.00e+00
+4475,0.0562341,-,direct,0.00e+00
+4500,0.0562341,-,direct,0.00e+00
+4525,0.0562341,-,direct,0.00e+00
+4550,0.0562341,-,direct,0.00e+00
+4575,0.0562341,-,direct,0.00e+00
+4600,0.0562341,-,direct,0.00e+00
+4625,0.0562341,-,direct,0.00e+00
+4650,0.0562341,-,direct,0.00e+00
+4675,0.0562341,-,direct,0.00e+00
+4700,0.0562341,-,direct,0.00e+00
+4725,0.0562341,-,direct,0.00e+00
+4750,0.0562341,-,direct,0.00e+00
+4775,0.0562341,-,direct,0.00e+00
+4800,0.0562341,-,direct,0.00e+00
+4825,0.0562341,-,direct,0.00e+00
+4850,0.0562341,-,direct,0.00e+00
+4875,0.0562341,-,direct,0.00e+00
+4900,0.0562341,-,direct,0.00e+00
+4925,0.0562341,-,direct,0.00e+00
+4950,0.0562341,-,direct,0.00e+00
+4975,0.0562341,-,direct,0.00e+00
+5000,0.0562341,-,direct,0.00e+00
+300,0.1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+325,0.1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+350,0.1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+375,0.1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+400,0.1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+425,0.1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+450,0.1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+475,0.1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+500,0.1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+525,0.1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+550,0.1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+575,0.1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+600,0.1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+625,0.1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+650,0.1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+675,0.1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+700,0.1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+725,0.1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+750,0.1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+775,0.1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+800,0.1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+825,0.1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+850,0.1,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+875,0.1,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+900,0.1,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+925,0.1,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+950,0.1,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+975,0.1,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1000,0.1,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1025,0.1,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1050,0.1,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1075,0.1,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1100,0.1,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1125,0.1,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1150,0.1,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1175,0.1,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1200,0.1,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1225,0.1,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1250,0.1,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1275,0.1,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1300,0.1,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1325,0.1,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1350,0.1,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1375,0.1,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1400,0.1,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1425,0.1,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1450,0.1,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1475,0.1,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1500,0.1,SiC(b) SiO2(b-crt),direct,0.00e+00
+1525,0.1,SiC(b) SiO2(b-crt),direct,0.00e+00
+1550,0.1,SiC(b) SiO2(b-crt),direct,0.00e+00
+1575,0.1,SiC(b) SiO2(b-crt),direct,0.00e+00
+1600,0.1,SiC(b) SiO2(b-crt),direct,0.00e+00
+1625,0.1,SiC(b) SiO2(b-crt),direct,0.00e+00
+1650,0.1,SiC(b) SiO2(b-crt),direct,0.00e+00
+1675,0.1,SiC(b) SiO2(b-crt),direct,0.00e+00
+1700,0.1,SiC(b) SiO2(b-crt),direct,0.00e+00
+1725,0.1,SiC(b) SiO2(b-crt),direct,0.00e+00
+1750,0.1,SiC(b) SiO2(b-crt),direct,0.00e+00
+1775,0.1,SiC(b) SiO2(b-crt),direct,0.00e+00
+1800,0.1,SiC(b),direct,0.00e+00
+1825,0.1,SiC(b),direct,0.00e+00
+1850,0.1,SiC(b),direct,0.00e+00
+1875,0.1,SiC(b),direct,0.00e+00
+1900,0.1,SiC(b),direct,0.00e+00
+1925,0.1,SiC(b),enum,0.00e+00
+1950,0.1,SiC(b),enum,0.00e+00
+1975,0.1,SiC(b),direct,0.00e+00
+2000,0.1,SiC(b),enum,0.00e+00
+2025,0.1,SiC(b),enum,0.00e+00
+2050,0.1,SiC(b),enum,0.00e+00
+2075,0.1,SiC(b),enum,0.00e+00
+2100,0.1,SiC(b),direct,0.00e+00
+2125,0.1,SiC(b),enum,0.00e+00
+2150,0.1,SiC(b),direct,0.00e+00
+2175,0.1,SiC(b),enum,0.00e+00
+2200,0.1,SiC(b),enum,0.00e+00
+2225,0.1,SiC(b),direct,0.00e+00
+2250,0.1,Si(L) SiC(b),direct,0.00e+00
+2275,0.1,Si(L) SiC(b),direct,0.00e+00
+2300,0.1,Si(L) SiC(b),direct,0.00e+00
+2325,0.1,Si(L) SiC(b),direct,0.00e+00
+2350,0.1,Si(L) SiC(b),direct,0.00e+00
+2375,0.1,Si(L) SiC(b),direct,0.00e+00
+2400,0.1,Si(L) SiC(b),direct,0.00e+00
+2425,0.1,Si(L) SiC(b),direct,0.00e+00
+2450,0.1,Si(L) SiC(b),direct,0.00e+00
+2475,0.1,Si(L) SiC(b),direct,0.00e+00
+2500,0.1,Si(L) SiC(b),direct,0.00e+00
+2525,0.1,Si(L) SiC(b),direct,0.00e+00
+2550,0.1,Si(L) SiC(b),direct,0.00e+00
+2575,0.1,Si(L) SiC(b),direct,0.00e+00
+2600,0.1,SiC(b),direct,0.00e+00
+2625,0.1,SiC(b),direct,0.00e+00
+2650,0.1,SiC(b),direct,0.00e+00
+2675,0.1,SiC(b),direct,0.00e+00
+2700,0.1,SiC(b),direct,0.00e+00
+2725,0.1,SiC(b),direct,0.00e+00
+2750,0.1,SiC(b),direct,0.00e+00
+2775,0.1,SiC(b),direct,0.00e+00
+2800,0.1,SiC(b),direct,0.00e+00
+2825,0.1,C(gr) SiC(b),assemblage,0.00e+00
+2850,0.1,C(gr),enum,0.00e+00
+2875,0.1,C(gr),assemblage,0.00e+00
+2900,0.1,-,direct,0.00e+00
+2925,0.1,-,direct,0.00e+00
+2950,0.1,-,direct,0.00e+00
+2975,0.1,-,direct,0.00e+00
+3000,0.1,-,direct,0.00e+00
+3025,0.1,-,direct,0.00e+00
+3050,0.1,-,direct,0.00e+00
+3075,0.1,-,direct,0.00e+00
+3100,0.1,-,direct,0.00e+00
+3125,0.1,-,direct,0.00e+00
+3150,0.1,-,direct,0.00e+00
+3175,0.1,-,direct,0.00e+00
+3200,0.1,-,direct,0.00e+00
+3225,0.1,-,direct,0.00e+00
+3250,0.1,-,direct,0.00e+00
+3275,0.1,-,direct,0.00e+00
+3300,0.1,-,direct,0.00e+00
+3325,0.1,-,direct,0.00e+00
+3350,0.1,-,direct,0.00e+00
+3375,0.1,-,direct,0.00e+00
+3400,0.1,-,direct,0.00e+00
+3425,0.1,-,direct,0.00e+00
+3450,0.1,-,direct,0.00e+00
+3475,0.1,-,direct,0.00e+00
+3500,0.1,-,direct,0.00e+00
+3525,0.1,-,direct,0.00e+00
+3550,0.1,-,direct,0.00e+00
+3575,0.1,-,direct,0.00e+00
+3600,0.1,-,direct,0.00e+00
+3625,0.1,-,direct,0.00e+00
+3650,0.1,-,direct,0.00e+00
+3675,0.1,-,direct,0.00e+00
+3700,0.1,-,direct,0.00e+00
+3725,0.1,-,direct,0.00e+00
+3750,0.1,-,direct,0.00e+00
+3775,0.1,-,direct,0.00e+00
+3800,0.1,-,direct,0.00e+00
+3825,0.1,-,direct,0.00e+00
+3850,0.1,-,direct,0.00e+00
+3875,0.1,-,direct,0.00e+00
+3900,0.1,-,direct,0.00e+00
+3925,0.1,-,direct,0.00e+00
+3950,0.1,-,direct,0.00e+00
+3975,0.1,-,direct,0.00e+00
+4000,0.1,-,direct,0.00e+00
+4025,0.1,-,direct,0.00e+00
+4050,0.1,-,direct,0.00e+00
+4075,0.1,-,direct,0.00e+00
+4100,0.1,-,direct,0.00e+00
+4125,0.1,-,direct,0.00e+00
+4150,0.1,-,direct,0.00e+00
+4175,0.1,-,direct,0.00e+00
+4200,0.1,-,direct,0.00e+00
+4225,0.1,-,direct,0.00e+00
+4250,0.1,-,direct,0.00e+00
+4275,0.1,-,direct,0.00e+00
+4300,0.1,-,direct,0.00e+00
+4325,0.1,-,direct,0.00e+00
+4350,0.1,-,direct,0.00e+00
+4375,0.1,-,direct,0.00e+00
+4400,0.1,-,direct,0.00e+00
+4425,0.1,-,direct,0.00e+00
+4450,0.1,-,direct,0.00e+00
+4475,0.1,-,direct,0.00e+00
+4500,0.1,-,direct,0.00e+00
+4525,0.1,-,direct,0.00e+00
+4550,0.1,-,direct,0.00e+00
+4575,0.1,-,direct,0.00e+00
+4600,0.1,-,direct,0.00e+00
+4625,0.1,-,direct,0.00e+00
+4650,0.1,-,direct,0.00e+00
+4675,0.1,-,direct,0.00e+00
+4700,0.1,-,direct,0.00e+00
+4725,0.1,-,direct,0.00e+00
+4750,0.1,-,direct,0.00e+00
+4775,0.1,-,direct,0.00e+00
+4800,0.1,-,direct,0.00e+00
+4825,0.1,-,direct,0.00e+00
+4850,0.1,-,direct,0.00e+00
+4875,0.1,-,direct,0.00e+00
+4900,0.1,-,direct,0.00e+00
+4925,0.1,-,direct,0.00e+00
+4950,0.1,-,direct,0.00e+00
+4975,0.1,-,direct,0.00e+00
+5000,0.1,-,direct,0.00e+00
+300,0.177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+325,0.177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+350,0.177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+375,0.177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+400,0.177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+425,0.177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+450,0.177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+475,0.177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+500,0.177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+525,0.177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+550,0.177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+575,0.177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+600,0.177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+625,0.177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+650,0.177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+675,0.177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+700,0.177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+725,0.177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+750,0.177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+775,0.177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+800,0.177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+825,0.177828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+850,0.177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+875,0.177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+900,0.177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+925,0.177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+950,0.177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+975,0.177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1000,0.177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1025,0.177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1050,0.177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1075,0.177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1100,0.177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1125,0.177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1150,0.177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1175,0.177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1200,0.177828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1225,0.177828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1250,0.177828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1275,0.177828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1300,0.177828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1325,0.177828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1350,0.177828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1375,0.177828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1400,0.177828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1425,0.177828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1450,0.177828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1475,0.177828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1500,0.177828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1525,0.177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1550,0.177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1575,0.177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1600,0.177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1625,0.177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1650,0.177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1675,0.177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1700,0.177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1725,0.177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1750,0.177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1775,0.177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1800,0.177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1825,0.177828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1850,0.177828,SiC(b),direct,0.00e+00
+1875,0.177828,SiC(b),direct,0.00e+00
+1900,0.177828,SiC(b),direct,0.00e+00
+1925,0.177828,SiC(b),direct,0.00e+00
+1950,0.177828,SiC(b),direct,0.00e+00
+1975,0.177828,SiC(b),enum,0.00e+00
+2000,0.177828,SiC(b),enum,0.00e+00
+2025,0.177828,SiC(b),enum,0.00e+00
+2050,0.177828,SiC(b),enum,0.00e+00
+2075,0.177828,SiC(b),enum,0.00e+00
+2100,0.177828,SiC(b),enum,0.00e+00
+2125,0.177828,SiC(b),enum,0.00e+00
+2150,0.177828,SiC(b),direct,0.00e+00
+2175,0.177828,SiC(b),direct,0.00e+00
+2200,0.177828,SiC(b),enum,0.00e+00
+2225,0.177828,Si(L) SiC(b),direct,0.00e+00
+2250,0.177828,Si(L) SiC(b),direct,0.00e+00
+2275,0.177828,Si(L) SiC(b),direct,0.00e+00
+2300,0.177828,Si(L) SiC(b),direct,0.00e+00
+2325,0.177828,Si(L) SiC(b),direct,0.00e+00
+2350,0.177828,Si(L) SiC(b),direct,0.00e+00
+2375,0.177828,Si(L) SiC(b),direct,0.00e+00
+2400,0.177828,Si(L) SiC(b),direct,0.00e+00
+2425,0.177828,Si(L) SiC(b),direct,0.00e+00
+2450,0.177828,Si(L) SiC(b),direct,0.00e+00
+2475,0.177828,Si(L) SiC(b),direct,0.00e+00
+2500,0.177828,Si(L) SiC(b),direct,0.00e+00
+2525,0.177828,Si(L) SiC(b),direct,0.00e+00
+2550,0.177828,Si(L) SiC(b),direct,0.00e+00
+2575,0.177828,Si(L) SiC(b),direct,0.00e+00
+2600,0.177828,Si(L) SiC(b),direct,0.00e+00
+2625,0.177828,Si(L) SiC(b),direct,0.00e+00
+2650,0.177828,Si(L) SiC(b),direct,0.00e+00
+2675,0.177828,Si(L) SiC(b),direct,0.00e+00
+2700,0.177828,SiC(b),direct,0.00e+00
+2725,0.177828,SiC(b),direct,0.00e+00
+2750,0.177828,SiC(b),direct,0.00e+00
+2775,0.177828,SiC(b),direct,0.00e+00
+2800,0.177828,SiC(b),direct,0.00e+00
+2825,0.177828,SiC(b),direct,0.00e+00
+2850,0.177828,SiC(b),direct,0.00e+00
+2875,0.177828,SiC(b),direct,0.00e+00
+2900,0.177828,C(gr) SiC(b),assemblage,0.00e+00
+2925,0.177828,C(gr),enum,0.00e+00
+2950,0.177828,-,direct,0.00e+00
+2975,0.177828,-,direct,0.00e+00
+3000,0.177828,-,direct,0.00e+00
+3025,0.177828,-,direct,0.00e+00
+3050,0.177828,-,direct,0.00e+00
+3075,0.177828,-,direct,0.00e+00
+3100,0.177828,-,direct,0.00e+00
+3125,0.177828,-,direct,0.00e+00
+3150,0.177828,-,direct,0.00e+00
+3175,0.177828,-,direct,0.00e+00
+3200,0.177828,-,direct,0.00e+00
+3225,0.177828,-,direct,0.00e+00
+3250,0.177828,-,direct,0.00e+00
+3275,0.177828,-,direct,0.00e+00
+3300,0.177828,-,direct,0.00e+00
+3325,0.177828,-,direct,0.00e+00
+3350,0.177828,-,direct,0.00e+00
+3375,0.177828,-,direct,0.00e+00
+3400,0.177828,-,direct,0.00e+00
+3425,0.177828,-,direct,0.00e+00
+3450,0.177828,-,direct,0.00e+00
+3475,0.177828,-,direct,0.00e+00
+3500,0.177828,-,direct,0.00e+00
+3525,0.177828,-,direct,0.00e+00
+3550,0.177828,-,direct,0.00e+00
+3575,0.177828,-,direct,0.00e+00
+3600,0.177828,-,direct,0.00e+00
+3625,0.177828,-,direct,0.00e+00
+3650,0.177828,-,direct,0.00e+00
+3675,0.177828,-,direct,0.00e+00
+3700,0.177828,-,direct,0.00e+00
+3725,0.177828,-,direct,0.00e+00
+3750,0.177828,-,direct,0.00e+00
+3775,0.177828,-,direct,0.00e+00
+3800,0.177828,-,direct,0.00e+00
+3825,0.177828,-,direct,0.00e+00
+3850,0.177828,-,direct,0.00e+00
+3875,0.177828,-,direct,0.00e+00
+3900,0.177828,-,direct,0.00e+00
+3925,0.177828,-,direct,0.00e+00
+3950,0.177828,-,direct,0.00e+00
+3975,0.177828,-,direct,0.00e+00
+4000,0.177828,-,direct,0.00e+00
+4025,0.177828,-,direct,0.00e+00
+4050,0.177828,-,direct,0.00e+00
+4075,0.177828,-,direct,0.00e+00
+4100,0.177828,-,direct,0.00e+00
+4125,0.177828,-,direct,0.00e+00
+4150,0.177828,-,direct,0.00e+00
+4175,0.177828,-,direct,0.00e+00
+4200,0.177828,-,direct,0.00e+00
+4225,0.177828,-,direct,0.00e+00
+4250,0.177828,-,direct,0.00e+00
+4275,0.177828,-,direct,0.00e+00
+4300,0.177828,-,direct,0.00e+00
+4325,0.177828,-,direct,0.00e+00
+4350,0.177828,-,direct,0.00e+00
+4375,0.177828,-,direct,0.00e+00
+4400,0.177828,-,direct,0.00e+00
+4425,0.177828,-,direct,0.00e+00
+4450,0.177828,-,direct,0.00e+00
+4475,0.177828,-,direct,0.00e+00
+4500,0.177828,-,direct,0.00e+00
+4525,0.177828,-,direct,0.00e+00
+4550,0.177828,-,direct,0.00e+00
+4575,0.177828,-,direct,0.00e+00
+4600,0.177828,-,direct,0.00e+00
+4625,0.177828,-,direct,0.00e+00
+4650,0.177828,-,direct,0.00e+00
+4675,0.177828,-,direct,0.00e+00
+4700,0.177828,-,direct,0.00e+00
+4725,0.177828,-,direct,0.00e+00
+4750,0.177828,-,direct,0.00e+00
+4775,0.177828,-,direct,0.00e+00
+4800,0.177828,-,direct,0.00e+00
+4825,0.177828,-,direct,0.00e+00
+4850,0.177828,-,direct,0.00e+00
+4875,0.177828,-,direct,0.00e+00
+4900,0.177828,-,direct,0.00e+00
+4925,0.177828,-,direct,0.00e+00
+4950,0.177828,-,direct,0.00e+00
+4975,0.177828,-,direct,0.00e+00
+5000,0.177828,-,direct,0.00e+00
+300,0.316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+325,0.316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+350,0.316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+375,0.316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+400,0.316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+425,0.316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+450,0.316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+475,0.316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+500,0.316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+525,0.316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+550,0.316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+575,0.316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+600,0.316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+625,0.316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+650,0.316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+675,0.316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+700,0.316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+725,0.316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+750,0.316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+775,0.316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+800,0.316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+825,0.316228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+850,0.316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+875,0.316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+900,0.316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+925,0.316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+950,0.316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+975,0.316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1000,0.316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1025,0.316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1050,0.316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1075,0.316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1100,0.316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1125,0.316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1150,0.316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1175,0.316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1200,0.316228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1225,0.316228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1250,0.316228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1275,0.316228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1300,0.316228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1325,0.316228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1350,0.316228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1375,0.316228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1400,0.316228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1425,0.316228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1450,0.316228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1475,0.316228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1500,0.316228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1525,0.316228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1550,0.316228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1575,0.316228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1600,0.316228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1625,0.316228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1650,0.316228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1675,0.316228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1700,0.316228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1725,0.316228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1750,0.316228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1775,0.316228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1800,0.316228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1825,0.316228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1850,0.316228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1875,0.316228,SiC(b),direct,0.00e+00
+1900,0.316228,SiC(b),direct,0.00e+00
+1925,0.316228,SiC(b),direct,0.00e+00
+1950,0.316228,SiC(b),direct,0.00e+00
+1975,0.316228,SiC(b),direct,0.00e+00
+2000,0.316228,SiC(b),direct,0.00e+00
+2025,0.316228,SiC(b),direct,0.00e+00
+2050,0.316228,SiC(b),direct,0.00e+00
+2075,0.316228,SiC(b),enum,0.00e+00
+2100,0.316228,SiC(b),enum,0.00e+00
+2125,0.316228,SiC(b),enum,0.00e+00
+2150,0.316228,SiC(b),direct,0.00e+00
+2175,0.316228,SiC(b),direct,0.00e+00
+2200,0.316228,SiC(b),direct,0.00e+00
+2225,0.316228,Si(L) SiC(b),direct,0.00e+00
+2250,0.316228,Si(L) SiC(b),direct,0.00e+00
+2275,0.316228,Si(L) SiC(b),direct,0.00e+00
+2300,0.316228,Si(L) SiC(b),direct,0.00e+00
+2325,0.316228,Si(L) SiC(b),direct,0.00e+00
+2350,0.316228,Si(L) SiC(b),direct,0.00e+00
+2375,0.316228,Si(L) SiC(b),direct,0.00e+00
+2400,0.316228,Si(L) SiC(b),direct,0.00e+00
+2425,0.316228,Si(L) SiC(b),direct,0.00e+00
+2450,0.316228,Si(L) SiC(b),direct,0.00e+00
+2475,0.316228,Si(L) SiC(b),direct,0.00e+00
+2500,0.316228,Si(L) SiC(b),direct,0.00e+00
+2525,0.316228,Si(L) SiC(b),direct,0.00e+00
+2550,0.316228,Si(L) SiC(b),direct,0.00e+00
+2575,0.316228,Si(L) SiC(b),direct,0.00e+00
+2600,0.316228,Si(L) SiC(b),direct,0.00e+00
+2625,0.316228,Si(L) SiC(b),direct,0.00e+00
+2650,0.316228,Si(L) SiC(b),direct,0.00e+00
+2675,0.316228,Si(L) SiC(b),direct,0.00e+00
+2700,0.316228,Si(L) SiC(b),direct,0.00e+00
+2725,0.316228,Si(L) SiC(b),direct,0.00e+00
+2750,0.316228,Si(L) SiC(b),direct,0.00e+00
+2775,0.316228,Si(L) SiC(b),direct,0.00e+00
+2800,0.316228,SiC(b),direct,0.00e+00
+2825,0.316228,SiC(b),direct,0.00e+00
+2850,0.316228,SiC(b),direct,0.00e+00
+2875,0.316228,SiC(b),direct,0.00e+00
+2900,0.316228,SiC(b),direct,0.00e+00
+2925,0.316228,SiC(b),direct,0.00e+00
+2950,0.316228,SiC(b),direct,0.00e+00
+2975,0.316228,C(gr) SiC(b),assemblage,0.00e+00
+3000,0.316228,-,direct,0.00e+00
+3025,0.316228,-,direct,0.00e+00
+3050,0.316228,-,direct,0.00e+00
+3075,0.316228,-,direct,0.00e+00
+3100,0.316228,-,enum,0.00e+00
+3125,0.316228,-,direct,0.00e+00
+3150,0.316228,-,direct,0.00e+00
+3175,0.316228,-,enum,0.00e+00
+3200,0.316228,-,direct,0.00e+00
+3225,0.316228,-,direct,0.00e+00
+3250,0.316228,-,direct,0.00e+00
+3275,0.316228,-,direct,0.00e+00
+3300,0.316228,-,direct,0.00e+00
+3325,0.316228,-,direct,0.00e+00
+3350,0.316228,-,direct,0.00e+00
+3375,0.316228,-,direct,0.00e+00
+3400,0.316228,-,direct,0.00e+00
+3425,0.316228,-,direct,0.00e+00
+3450,0.316228,-,direct,0.00e+00
+3475,0.316228,-,direct,0.00e+00
+3500,0.316228,-,direct,0.00e+00
+3525,0.316228,-,direct,0.00e+00
+3550,0.316228,-,direct,0.00e+00
+3575,0.316228,-,direct,0.00e+00
+3600,0.316228,-,direct,0.00e+00
+3625,0.316228,-,direct,0.00e+00
+3650,0.316228,-,direct,0.00e+00
+3675,0.316228,-,direct,0.00e+00
+3700,0.316228,-,direct,0.00e+00
+3725,0.316228,-,direct,0.00e+00
+3750,0.316228,-,direct,0.00e+00
+3775,0.316228,-,direct,0.00e+00
+3800,0.316228,-,direct,0.00e+00
+3825,0.316228,-,direct,0.00e+00
+3850,0.316228,-,direct,0.00e+00
+3875,0.316228,-,direct,0.00e+00
+3900,0.316228,-,direct,0.00e+00
+3925,0.316228,-,direct,0.00e+00
+3950,0.316228,-,direct,0.00e+00
+3975,0.316228,-,direct,0.00e+00
+4000,0.316228,-,direct,0.00e+00
+4025,0.316228,-,direct,0.00e+00
+4050,0.316228,-,direct,0.00e+00
+4075,0.316228,-,direct,0.00e+00
+4100,0.316228,-,direct,0.00e+00
+4125,0.316228,-,direct,0.00e+00
+4150,0.316228,-,direct,0.00e+00
+4175,0.316228,-,direct,0.00e+00
+4200,0.316228,-,direct,0.00e+00
+4225,0.316228,-,direct,0.00e+00
+4250,0.316228,-,direct,0.00e+00
+4275,0.316228,-,direct,0.00e+00
+4300,0.316228,-,direct,0.00e+00
+4325,0.316228,-,direct,0.00e+00
+4350,0.316228,-,direct,0.00e+00
+4375,0.316228,-,direct,0.00e+00
+4400,0.316228,-,direct,0.00e+00
+4425,0.316228,-,direct,0.00e+00
+4450,0.316228,-,direct,0.00e+00
+4475,0.316228,-,direct,0.00e+00
+4500,0.316228,-,direct,0.00e+00
+4525,0.316228,-,direct,0.00e+00
+4550,0.316228,-,direct,0.00e+00
+4575,0.316228,-,direct,0.00e+00
+4600,0.316228,-,direct,0.00e+00
+4625,0.316228,-,direct,0.00e+00
+4650,0.316228,-,direct,0.00e+00
+4675,0.316228,-,direct,0.00e+00
+4700,0.316228,-,direct,0.00e+00
+4725,0.316228,-,direct,0.00e+00
+4750,0.316228,-,direct,0.00e+00
+4775,0.316228,-,direct,0.00e+00
+4800,0.316228,-,direct,0.00e+00
+4825,0.316228,-,direct,0.00e+00
+4850,0.316228,-,direct,0.00e+00
+4875,0.316228,-,direct,0.00e+00
+4900,0.316228,-,direct,0.00e+00
+4925,0.316228,-,direct,0.00e+00
+4950,0.316228,-,direct,0.00e+00
+4975,0.316228,-,direct,0.00e+00
+5000,0.316228,-,direct,0.00e+00
+300,0.562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+325,0.562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+350,0.562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+375,0.562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+400,0.562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+425,0.562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+450,0.562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+475,0.562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+500,0.562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+525,0.562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+550,0.562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+575,0.562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+600,0.562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+625,0.562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+650,0.562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+675,0.562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+700,0.562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+725,0.562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+750,0.562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+775,0.562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+800,0.562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+825,0.562341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+850,0.562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+875,0.562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+900,0.562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+925,0.562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+950,0.562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+975,0.562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1000,0.562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1025,0.562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1050,0.562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1075,0.562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1100,0.562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1125,0.562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1150,0.562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1175,0.562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1200,0.562341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1225,0.562341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1250,0.562341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1275,0.562341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1300,0.562341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1325,0.562341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1350,0.562341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1375,0.562341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1400,0.562341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1425,0.562341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1450,0.562341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1475,0.562341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1500,0.562341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1525,0.562341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1550,0.562341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1575,0.562341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1600,0.562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1625,0.562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1650,0.562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1675,0.562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1700,0.562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1725,0.562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1750,0.562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1775,0.562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1800,0.562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1825,0.562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1850,0.562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1875,0.562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1900,0.562341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1925,0.562341,SiC(b),direct,0.00e+00
+1950,0.562341,SiC(b),direct,0.00e+00
+1975,0.562341,SiC(b),direct,0.00e+00
+2000,0.562341,SiC(b),direct,0.00e+00
+2025,0.562341,SiC(b),direct,0.00e+00
+2050,0.562341,SiC(b),direct,0.00e+00
+2075,0.562341,SiC(b),direct,0.00e+00
+2100,0.562341,SiC(b),enum,0.00e+00
+2125,0.562341,SiC(b),direct,0.00e+00
+2150,0.562341,SiC(b),direct,0.00e+00
+2175,0.562341,SiC(b),direct,0.00e+00
+2200,0.562341,SiC(b),direct,0.00e+00
+2225,0.562341,Si(L) SiC(b),direct,0.00e+00
+2250,0.562341,Si(L) SiC(b),direct,0.00e+00
+2275,0.562341,Si(L) SiC(b),direct,0.00e+00
+2300,0.562341,Si(L) SiC(b),direct,0.00e+00
+2325,0.562341,Si(L) SiC(b),direct,0.00e+00
+2350,0.562341,Si(L) SiC(b),direct,0.00e+00
+2375,0.562341,Si(L) SiC(b),direct,0.00e+00
+2400,0.562341,Si(L) SiC(b),direct,0.00e+00
+2425,0.562341,Si(L) SiC(b),direct,0.00e+00
+2450,0.562341,Si(L) SiC(b),direct,0.00e+00
+2475,0.562341,Si(L) SiC(b),direct,0.00e+00
+2500,0.562341,Si(L) SiC(b),direct,0.00e+00
+2525,0.562341,Si(L) SiC(b),direct,0.00e+00
+2550,0.562341,Si(L) SiC(b),direct,0.00e+00
+2575,0.562341,Si(L) SiC(b),direct,0.00e+00
+2600,0.562341,Si(L) SiC(b),direct,0.00e+00
+2625,0.562341,Si(L) SiC(b),direct,0.00e+00
+2650,0.562341,Si(L) SiC(b),direct,0.00e+00
+2675,0.562341,Si(L) SiC(b),direct,0.00e+00
+2700,0.562341,Si(L) SiC(b),direct,0.00e+00
+2725,0.562341,Si(L) SiC(b),direct,0.00e+00
+2750,0.562341,Si(L) SiC(b),direct,0.00e+00
+2775,0.562341,Si(L) SiC(b),direct,0.00e+00
+2800,0.562341,Si(L) SiC(b),direct,0.00e+00
+2825,0.562341,Si(L) SiC(b),direct,0.00e+00
+2850,0.562341,Si(L) SiC(b),direct,0.00e+00
+2875,0.562341,Si(L) SiC(b),direct,0.00e+00
+2900,0.562341,SiC(b),direct,0.00e+00
+2925,0.562341,SiC(b),direct,0.00e+00
+2950,0.562341,SiC(b),direct,0.00e+00
+2975,0.562341,SiC(b),direct,0.00e+00
+3000,0.562341,SiC(b),direct,0.00e+00
+3025,0.562341,SiC(b),direct,0.00e+00
+3050,0.562341,-,direct,0.00e+00
+3075,0.562341,-,direct,0.00e+00
+3100,0.562341,-,direct,0.00e+00
+3125,0.562341,-,direct,0.00e+00
+3150,0.562341,-,direct,0.00e+00
+3175,0.562341,-,enum,0.00e+00
+3200,0.562341,-,enum,0.00e+00
+3225,0.562341,-,direct,0.00e+00
+3250,0.562341,-,direct,0.00e+00
+3275,0.562341,-,direct,0.00e+00
+3300,0.562341,-,direct,0.00e+00
+3325,0.562341,-,direct,0.00e+00
+3350,0.562341,-,enum,0.00e+00
+3375,0.562341,-,direct,0.00e+00
+3400,0.562341,-,direct,0.00e+00
+3425,0.562341,-,direct,0.00e+00
+3450,0.562341,-,direct,0.00e+00
+3475,0.562341,-,direct,0.00e+00
+3500,0.562341,-,direct,0.00e+00
+3525,0.562341,-,direct,0.00e+00
+3550,0.562341,-,direct,0.00e+00
+3575,0.562341,-,direct,0.00e+00
+3600,0.562341,-,direct,0.00e+00
+3625,0.562341,-,direct,0.00e+00
+3650,0.562341,-,direct,0.00e+00
+3675,0.562341,-,direct,0.00e+00
+3700,0.562341,-,direct,0.00e+00
+3725,0.562341,-,direct,0.00e+00
+3750,0.562341,-,direct,0.00e+00
+3775,0.562341,-,direct,0.00e+00
+3800,0.562341,-,direct,0.00e+00
+3825,0.562341,-,direct,0.00e+00
+3850,0.562341,-,direct,0.00e+00
+3875,0.562341,-,direct,0.00e+00
+3900,0.562341,-,direct,0.00e+00
+3925,0.562341,-,direct,0.00e+00
+3950,0.562341,-,direct,0.00e+00
+3975,0.562341,-,direct,0.00e+00
+4000,0.562341,-,direct,0.00e+00
+4025,0.562341,-,direct,0.00e+00
+4050,0.562341,-,direct,0.00e+00
+4075,0.562341,-,direct,0.00e+00
+4100,0.562341,-,direct,0.00e+00
+4125,0.562341,-,direct,0.00e+00
+4150,0.562341,-,direct,0.00e+00
+4175,0.562341,-,direct,0.00e+00
+4200,0.562341,-,direct,0.00e+00
+4225,0.562341,-,direct,0.00e+00
+4250,0.562341,-,direct,0.00e+00
+4275,0.562341,-,direct,0.00e+00
+4300,0.562341,-,direct,0.00e+00
+4325,0.562341,-,direct,0.00e+00
+4350,0.562341,-,direct,0.00e+00
+4375,0.562341,-,direct,0.00e+00
+4400,0.562341,-,direct,0.00e+00
+4425,0.562341,-,direct,0.00e+00
+4450,0.562341,-,direct,0.00e+00
+4475,0.562341,-,direct,0.00e+00
+4500,0.562341,-,direct,0.00e+00
+4525,0.562341,-,direct,0.00e+00
+4550,0.562341,-,direct,0.00e+00
+4575,0.562341,-,direct,0.00e+00
+4600,0.562341,-,direct,0.00e+00
+4625,0.562341,-,direct,0.00e+00
+4650,0.562341,-,direct,0.00e+00
+4675,0.562341,-,direct,0.00e+00
+4700,0.562341,-,direct,0.00e+00
+4725,0.562341,-,direct,0.00e+00
+4750,0.562341,-,direct,0.00e+00
+4775,0.562341,-,direct,0.00e+00
+4800,0.562341,-,direct,0.00e+00
+4825,0.562341,-,direct,0.00e+00
+4850,0.562341,-,direct,0.00e+00
+4875,0.562341,-,direct,0.00e+00
+4900,0.562341,-,direct,0.00e+00
+4925,0.562341,-,direct,0.00e+00
+4950,0.562341,-,direct,0.00e+00
+4975,0.562341,-,direct,0.00e+00
+5000,0.562341,-,direct,0.00e+00
+300,1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+325,1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+350,1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+375,1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+400,1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+425,1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+450,1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+475,1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+500,1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+525,1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+550,1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+575,1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+600,1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+625,1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+650,1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+675,1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+700,1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+725,1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+750,1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+775,1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+800,1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+825,1,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+850,1,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+875,1,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+900,1,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+925,1,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+950,1,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+975,1,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1000,1,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1025,1,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1050,1,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1075,1,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1100,1,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1125,1,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1150,1,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1175,1,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1200,1,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1225,1,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1250,1,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1275,1,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1300,1,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1325,1,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1350,1,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1375,1,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1400,1,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1425,1,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1450,1,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1475,1,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1500,1,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1525,1,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1550,1,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1575,1,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1600,1,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1625,1,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1650,1,SiC(b) SiO2(b-crt),direct,0.00e+00
+1675,1,SiC(b) SiO2(b-crt),direct,0.00e+00
+1700,1,SiC(b) SiO2(b-crt),direct,0.00e+00
+1725,1,SiC(b) SiO2(b-crt),direct,0.00e+00
+1750,1,SiC(b) SiO2(b-crt),direct,0.00e+00
+1775,1,SiC(b) SiO2(b-crt),direct,0.00e+00
+1800,1,SiC(b) SiO2(b-crt),direct,0.00e+00
+1825,1,SiC(b) SiO2(b-crt),direct,0.00e+00
+1850,1,SiC(b) SiO2(b-crt),direct,0.00e+00
+1875,1,SiC(b) SiO2(b-crt),direct,0.00e+00
+1900,1,SiC(b) SiO2(b-crt),direct,0.00e+00
+1925,1,SiC(b) SiO2(b-crt),direct,0.00e+00
+1950,1,SiC(b) SiO2(b-crt),direct,0.00e+00
+1975,1,SiC(b),direct,0.00e+00
+2000,1,SiC(b),direct,0.00e+00
+2025,1,SiC(b),direct,0.00e+00
+2050,1,SiC(b),direct,0.00e+00
+2075,1,SiC(b),direct,0.00e+00
+2100,1,SiC(b),direct,0.00e+00
+2125,1,SiC(b),direct,0.00e+00
+2150,1,SiC(b),direct,0.00e+00
+2175,1,SiC(b),direct,0.00e+00
+2200,1,SiC(b),direct,0.00e+00
+2225,1,Si(L) SiC(b),direct,0.00e+00
+2250,1,Si(L) SiC(b),direct,0.00e+00
+2275,1,Si(L) SiC(b),direct,0.00e+00
+2300,1,Si(L) SiC(b),direct,0.00e+00
+2325,1,Si(L) SiC(b),direct,0.00e+00
+2350,1,Si(L) SiC(b),direct,0.00e+00
+2375,1,Si(L) SiC(b),direct,0.00e+00
+2400,1,Si(L) SiC(b),direct,0.00e+00
+2425,1,Si(L) SiC(b),direct,0.00e+00
+2450,1,Si(L) SiC(b),direct,0.00e+00
+2475,1,Si(L) SiC(b),direct,0.00e+00
+2500,1,Si(L) SiC(b),direct,0.00e+00
+2525,1,Si(L) SiC(b),direct,0.00e+00
+2550,1,Si(L) SiC(b),direct,0.00e+00
+2575,1,Si(L) SiC(b),direct,0.00e+00
+2600,1,Si(L) SiC(b),direct,0.00e+00
+2625,1,Si(L) SiC(b),direct,0.00e+00
+2650,1,Si(L) SiC(b),direct,0.00e+00
+2675,1,Si(L) SiC(b),direct,0.00e+00
+2700,1,Si(L) SiC(b),direct,0.00e+00
+2725,1,Si(L) SiC(b),direct,0.00e+00
+2750,1,Si(L) SiC(b),direct,0.00e+00
+2775,1,Si(L) SiC(b),direct,0.00e+00
+2800,1,Si(L) SiC(b),direct,0.00e+00
+2825,1,Si(L) SiC(b),direct,0.00e+00
+2850,1,Si(L) SiC(b),direct,0.00e+00
+2875,1,Si(L) SiC(b),direct,0.00e+00
+2900,1,Si(L) SiC(b),direct,0.00e+00
+2925,1,Si(L) SiC(b),direct,0.00e+00
+2950,1,Si(L) SiC(b),direct,0.00e+00
+2975,1,Si(L) SiC(b),direct,0.00e+00
+3000,1,Si(L) SiC(b),direct,0.00e+00
+3025,1,SiC(b),direct,0.00e+00
+3050,1,SiC(b),direct,0.00e+00
+3075,1,SiC(b),direct,0.00e+00
+3100,1,SiC(b),direct,0.00e+00
+3125,1,-,direct,0.00e+00
+3150,1,-,direct,0.00e+00
+3175,1,-,direct,0.00e+00
+3200,1,-,direct,0.00e+00
+3225,1,-,direct,0.00e+00
+3250,1,-,enum,0.00e+00
+3275,1,-,direct,0.00e+00
+3300,1,-,enum,0.00e+00
+3325,1,-,direct,0.00e+00
+3350,1,-,direct,0.00e+00
+3375,1,-,direct,0.00e+00
+3400,1,-,direct,0.00e+00
+3425,1,-,direct,0.00e+00
+3450,1,-,direct,0.00e+00
+3475,1,-,direct,0.00e+00
+3500,1,-,enum,0.00e+00
+3525,1,-,direct,0.00e+00
+3550,1,-,direct,0.00e+00
+3575,1,-,direct,0.00e+00
+3600,1,-,direct,0.00e+00
+3625,1,-,direct,0.00e+00
+3650,1,-,direct,0.00e+00
+3675,1,-,direct,0.00e+00
+3700,1,-,direct,0.00e+00
+3725,1,-,direct,0.00e+00
+3750,1,-,direct,0.00e+00
+3775,1,-,direct,0.00e+00
+3800,1,-,direct,0.00e+00
+3825,1,-,direct,0.00e+00
+3850,1,-,direct,0.00e+00
+3875,1,-,direct,0.00e+00
+3900,1,-,direct,0.00e+00
+3925,1,-,direct,0.00e+00
+3950,1,-,direct,0.00e+00
+3975,1,-,direct,0.00e+00
+4000,1,-,direct,0.00e+00
+4025,1,-,direct,0.00e+00
+4050,1,-,direct,0.00e+00
+4075,1,-,direct,0.00e+00
+4100,1,-,direct,0.00e+00
+4125,1,-,direct,0.00e+00
+4150,1,-,direct,0.00e+00
+4175,1,-,direct,0.00e+00
+4200,1,-,direct,0.00e+00
+4225,1,-,direct,0.00e+00
+4250,1,-,direct,0.00e+00
+4275,1,-,direct,0.00e+00
+4300,1,-,direct,0.00e+00
+4325,1,-,direct,0.00e+00
+4350,1,-,direct,0.00e+00
+4375,1,-,direct,0.00e+00
+4400,1,-,direct,0.00e+00
+4425,1,-,direct,0.00e+00
+4450,1,-,direct,0.00e+00
+4475,1,-,direct,0.00e+00
+4500,1,-,direct,0.00e+00
+4525,1,-,direct,0.00e+00
+4550,1,-,direct,0.00e+00
+4575,1,-,direct,0.00e+00
+4600,1,-,direct,0.00e+00
+4625,1,-,direct,0.00e+00
+4650,1,-,direct,0.00e+00
+4675,1,-,direct,0.00e+00
+4700,1,-,direct,0.00e+00
+4725,1,-,direct,0.00e+00
+4750,1,-,direct,0.00e+00
+4775,1,-,direct,0.00e+00
+4800,1,-,direct,0.00e+00
+4825,1,-,direct,0.00e+00
+4850,1,-,direct,0.00e+00
+4875,1,-,direct,0.00e+00
+4900,1,-,direct,0.00e+00
+4925,1,-,direct,0.00e+00
+4950,1,-,direct,0.00e+00
+4975,1,-,direct,0.00e+00
+5000,1,-,direct,0.00e+00
+300,1.77828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+325,1.77828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+350,1.77828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+375,1.77828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+400,1.77828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+425,1.77828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+450,1.77828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+475,1.77828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+500,1.77828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+525,1.77828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+550,1.77828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+575,1.77828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+600,1.77828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+625,1.77828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+650,1.77828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+675,1.77828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+700,1.77828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+725,1.77828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+750,1.77828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+775,1.77828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+800,1.77828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+825,1.77828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+850,1.77828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+875,1.77828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+900,1.77828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+925,1.77828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+950,1.77828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+975,1.77828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1000,1.77828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1025,1.77828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1050,1.77828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1075,1.77828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1100,1.77828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1125,1.77828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1150,1.77828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1175,1.77828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1200,1.77828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1225,1.77828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1250,1.77828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1275,1.77828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1300,1.77828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1325,1.77828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1350,1.77828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1375,1.77828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1400,1.77828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1425,1.77828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1450,1.77828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1475,1.77828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1500,1.77828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1525,1.77828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1550,1.77828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1575,1.77828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1600,1.77828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1625,1.77828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1650,1.77828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1675,1.77828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1700,1.77828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1725,1.77828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1750,1.77828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1775,1.77828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1800,1.77828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1825,1.77828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1850,1.77828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1875,1.77828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1900,1.77828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1925,1.77828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1950,1.77828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1975,1.77828,SiC(b) SiO2(b-crt),direct,0.00e+00
+2000,1.77828,SiC(b) SiO2(L),direct,0.00e+00
+2025,1.77828,SiC(b) SiO2(L),direct,0.00e+00
+2050,1.77828,SiC(b),direct,0.00e+00
+2075,1.77828,SiC(b),direct,0.00e+00
+2100,1.77828,SiC(b),direct,0.00e+00
+2125,1.77828,SiC(b),direct,0.00e+00
+2150,1.77828,SiC(b),direct,0.00e+00
+2175,1.77828,SiC(b),direct,0.00e+00
+2200,1.77828,SiC(b),direct,0.00e+00
+2225,1.77828,Si(L) SiC(b),direct,0.00e+00
+2250,1.77828,Si(L) SiC(b),direct,0.00e+00
+2275,1.77828,Si(L) SiC(b),direct,0.00e+00
+2300,1.77828,Si(L) SiC(b),direct,0.00e+00
+2325,1.77828,Si(L) SiC(b),direct,0.00e+00
+2350,1.77828,Si(L) SiC(b),direct,0.00e+00
+2375,1.77828,Si(L) SiC(b),direct,0.00e+00
+2400,1.77828,Si(L) SiC(b),direct,0.00e+00
+2425,1.77828,Si(L) SiC(b),direct,0.00e+00
+2450,1.77828,Si(L) SiC(b),direct,0.00e+00
+2475,1.77828,Si(L) SiC(b),direct,0.00e+00
+2500,1.77828,Si(L) SiC(b),direct,0.00e+00
+2525,1.77828,Si(L) SiC(b),direct,0.00e+00
+2550,1.77828,Si(L) SiC(b),direct,0.00e+00
+2575,1.77828,Si(L) SiC(b),direct,0.00e+00
+2600,1.77828,Si(L) SiC(b),direct,0.00e+00
+2625,1.77828,Si(L) SiC(b),direct,0.00e+00
+2650,1.77828,Si(L) SiC(b),direct,0.00e+00
+2675,1.77828,Si(L) SiC(b),direct,0.00e+00
+2700,1.77828,Si(L) SiC(b),direct,0.00e+00
+2725,1.77828,Si(L) SiC(b),direct,0.00e+00
+2750,1.77828,Si(L) SiC(b),direct,0.00e+00
+2775,1.77828,Si(L) SiC(b),direct,0.00e+00
+2800,1.77828,Si(L) SiC(b),direct,0.00e+00
+2825,1.77828,Si(L) SiC(b),direct,0.00e+00
+2850,1.77828,Si(L) SiC(b),direct,0.00e+00
+2875,1.77828,Si(L) SiC(b),direct,0.00e+00
+2900,1.77828,Si(L) SiC(b),direct,0.00e+00
+2925,1.77828,Si(L) SiC(b),direct,0.00e+00
+2950,1.77828,Si(L) SiC(b),direct,0.00e+00
+2975,1.77828,Si(L) SiC(b),direct,0.00e+00
+3000,1.77828,Si(L) SiC(b),direct,0.00e+00
+3025,1.77828,Si(L) SiC(b),direct,0.00e+00
+3050,1.77828,Si(L) SiC(b),direct,0.00e+00
+3075,1.77828,Si(L) SiC(b),direct,0.00e+00
+3100,1.77828,Si(L) SiC(b),direct,0.00e+00
+3125,1.77828,Si(L) SiC(L),direct,0.00e+00
+3150,1.77828,Si(L) SiC(L),direct,0.00e+00
+3175,1.77828,SiC(L),direct,0.00e+00
+3200,1.77828,SiC(L),direct,0.00e+00
+3225,1.77828,-,direct,0.00e+00
+3250,1.77828,-,direct,0.00e+00
+3275,1.77828,-,direct,0.00e+00
+3300,1.77828,-,direct,0.00e+00
+3325,1.77828,-,direct,0.00e+00
+3350,1.77828,-,direct,0.00e+00
+3375,1.77828,-,direct,0.00e+00
+3400,1.77828,-,enum,0.00e+00
+3425,1.77828,-,direct,0.00e+00
+3450,1.77828,-,direct,0.00e+00
+3475,1.77828,-,direct,0.00e+00
+3500,1.77828,-,direct,0.00e+00
+3525,1.77828,-,direct,0.00e+00
+3550,1.77828,-,enum,0.00e+00
+3575,1.77828,-,enum,0.00e+00
+3600,1.77828,-,direct,0.00e+00
+3625,1.77828,-,enum,0.00e+00
+3650,1.77828,-,enum,0.00e+00
+3675,1.77828,-,direct,0.00e+00
+3700,1.77828,-,direct,0.00e+00
+3725,1.77828,-,direct,0.00e+00
+3750,1.77828,-,direct,0.00e+00
+3775,1.77828,-,direct,0.00e+00
+3800,1.77828,-,direct,0.00e+00
+3825,1.77828,-,direct,0.00e+00
+3850,1.77828,-,direct,0.00e+00
+3875,1.77828,-,direct,0.00e+00
+3900,1.77828,-,direct,0.00e+00
+3925,1.77828,-,direct,0.00e+00
+3950,1.77828,-,direct,0.00e+00
+3975,1.77828,-,direct,0.00e+00
+4000,1.77828,-,direct,0.00e+00
+4025,1.77828,-,direct,0.00e+00
+4050,1.77828,-,direct,0.00e+00
+4075,1.77828,-,direct,0.00e+00
+4100,1.77828,-,direct,0.00e+00
+4125,1.77828,-,direct,0.00e+00
+4150,1.77828,-,direct,0.00e+00
+4175,1.77828,-,direct,0.00e+00
+4200,1.77828,-,direct,0.00e+00
+4225,1.77828,-,direct,0.00e+00
+4250,1.77828,-,direct,0.00e+00
+4275,1.77828,-,direct,0.00e+00
+4300,1.77828,-,direct,0.00e+00
+4325,1.77828,-,direct,0.00e+00
+4350,1.77828,-,direct,0.00e+00
+4375,1.77828,-,direct,0.00e+00
+4400,1.77828,-,direct,0.00e+00
+4425,1.77828,-,direct,0.00e+00
+4450,1.77828,-,direct,0.00e+00
+4475,1.77828,-,direct,0.00e+00
+4500,1.77828,-,direct,0.00e+00
+4525,1.77828,-,direct,0.00e+00
+4550,1.77828,-,direct,0.00e+00
+4575,1.77828,-,direct,0.00e+00
+4600,1.77828,-,direct,0.00e+00
+4625,1.77828,-,direct,0.00e+00
+4650,1.77828,-,direct,0.00e+00
+4675,1.77828,-,direct,0.00e+00
+4700,1.77828,-,direct,0.00e+00
+4725,1.77828,-,direct,0.00e+00
+4750,1.77828,-,direct,0.00e+00
+4775,1.77828,-,direct,0.00e+00
+4800,1.77828,-,direct,0.00e+00
+4825,1.77828,-,direct,0.00e+00
+4850,1.77828,-,direct,0.00e+00
+4875,1.77828,-,direct,0.00e+00
+4900,1.77828,-,direct,0.00e+00
+4925,1.77828,-,direct,0.00e+00
+4950,1.77828,-,direct,0.00e+00
+4975,1.77828,-,direct,0.00e+00
+5000,1.77828,-,direct,0.00e+00
+300,3.16228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+325,3.16228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+350,3.16228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+375,3.16228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+400,3.16228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+425,3.16228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+450,3.16228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+475,3.16228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+500,3.16228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+525,3.16228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+550,3.16228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+575,3.16228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+600,3.16228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+625,3.16228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+650,3.16228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+675,3.16228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+700,3.16228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+725,3.16228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+750,3.16228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+775,3.16228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+800,3.16228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+825,3.16228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+850,3.16228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+875,3.16228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+900,3.16228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+925,3.16228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+950,3.16228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+975,3.16228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1000,3.16228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1025,3.16228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1050,3.16228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1075,3.16228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1100,3.16228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1125,3.16228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1150,3.16228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1175,3.16228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1200,3.16228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1225,3.16228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1250,3.16228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1275,3.16228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1300,3.16228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1325,3.16228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1350,3.16228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1375,3.16228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1400,3.16228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1425,3.16228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1450,3.16228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1475,3.16228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1500,3.16228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1525,3.16228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1550,3.16228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1575,3.16228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1600,3.16228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1625,3.16228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1650,3.16228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1675,3.16228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1700,3.16228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1725,3.16228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1750,3.16228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1775,3.16228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1800,3.16228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1825,3.16228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1850,3.16228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1875,3.16228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1900,3.16228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1925,3.16228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1950,3.16228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1975,3.16228,SiC(b) SiO2(b-crt),direct,0.00e+00
+2000,3.16228,SiC(b) SiO2(L),direct,0.00e+00
+2025,3.16228,SiC(b) SiO2(L),direct,0.00e+00
+2050,3.16228,SiC(b) SiO2(L),direct,0.00e+00
+2075,3.16228,SiC(b) SiO2(L),direct,0.00e+00
+2100,3.16228,SiC(b),direct,0.00e+00
+2125,3.16228,SiC(b),direct,0.00e+00
+2150,3.16228,SiC(b),direct,0.00e+00
+2175,3.16228,SiC(b),direct,0.00e+00
+2200,3.16228,SiC(b),direct,0.00e+00
+2225,3.16228,Si(L) SiC(b),enum,0.00e+00
+2250,3.16228,Si(L) SiC(b),enum,0.00e+00
+2275,3.16228,Si(L) SiC(b),direct,0.00e+00
+2300,3.16228,Si(L) SiC(b),direct,0.00e+00
+2325,3.16228,Si(L) SiC(b),direct,0.00e+00
+2350,3.16228,Si(L) SiC(b),direct,0.00e+00
+2375,3.16228,Si(L) SiC(b),direct,0.00e+00
+2400,3.16228,Si(L) SiC(b),direct,0.00e+00
+2425,3.16228,Si(L) SiC(b),direct,0.00e+00
+2450,3.16228,Si(L) SiC(b),direct,0.00e+00
+2475,3.16228,Si(L) SiC(b),direct,0.00e+00
+2500,3.16228,Si(L) SiC(b),direct,0.00e+00
+2525,3.16228,Si(L) SiC(b),direct,0.00e+00
+2550,3.16228,Si(L) SiC(b),direct,0.00e+00
+2575,3.16228,Si(L) SiC(b),direct,0.00e+00
+2600,3.16228,Si(L) SiC(b),direct,0.00e+00
+2625,3.16228,Si(L) SiC(b),direct,0.00e+00
+2650,3.16228,Si(L) SiC(b),direct,0.00e+00
+2675,3.16228,Si(L) SiC(b),direct,0.00e+00
+2700,3.16228,Si(L) SiC(b),direct,0.00e+00
+2725,3.16228,Si(L) SiC(b),direct,0.00e+00
+2750,3.16228,Si(L) SiC(b),direct,0.00e+00
+2775,3.16228,Si(L) SiC(b),direct,0.00e+00
+2800,3.16228,Si(L) SiC(b),direct,0.00e+00
+2825,3.16228,Si(L) SiC(b),direct,0.00e+00
+2850,3.16228,Si(L) SiC(b),direct,0.00e+00
+2875,3.16228,Si(L) SiC(b),direct,0.00e+00
+2900,3.16228,Si(L) SiC(b),direct,0.00e+00
+2925,3.16228,Si(L) SiC(b),direct,0.00e+00
+2950,3.16228,Si(L) SiC(b),direct,0.00e+00
+2975,3.16228,Si(L) SiC(b),direct,0.00e+00
+3000,3.16228,Si(L) SiC(b),direct,0.00e+00
+3025,3.16228,Si(L) SiC(b),direct,0.00e+00
+3050,3.16228,Si(L) SiC(b),direct,0.00e+00
+3075,3.16228,Si(L) SiC(b),direct,0.00e+00
+3100,3.16228,Si(L) SiC(b),direct,0.00e+00
+3125,3.16228,Si(L) SiC(L),direct,0.00e+00
+3150,3.16228,Si(L) SiC(L),direct,0.00e+00
+3175,3.16228,Si(L) SiC(L),direct,0.00e+00
+3200,3.16228,Si(L) SiC(L),direct,0.00e+00
+3225,3.16228,Si(L) SiC(L),direct,0.00e+00
+3250,3.16228,Si(L) SiC(L),direct,0.00e+00
+3275,3.16228,Si(L) SiC(L),direct,0.00e+00
+3300,3.16228,Si(L),direct,0.00e+00
+3325,3.16228,Si(L),direct,0.00e+00
+3350,3.16228,-,direct,0.00e+00
+3375,3.16228,-,direct,0.00e+00
+3400,3.16228,-,enum,0.00e+00
+3425,3.16228,-,direct,0.00e+00
+3450,3.16228,-,enum,0.00e+00
+3475,3.16228,-,direct,0.00e+00
+3500,3.16228,-,direct,0.00e+00
+3525,3.16228,-,direct,0.00e+00
+3550,3.16228,-,direct,0.00e+00
+3575,3.16228,-,direct,0.00e+00
+3600,3.16228,-,direct,0.00e+00
+3625,3.16228,-,direct,0.00e+00
+3650,3.16228,-,direct,0.00e+00
+3675,3.16228,-,direct,0.00e+00
+3700,3.16228,-,direct,0.00e+00
+3725,3.16228,-,direct,0.00e+00
+3750,3.16228,-,direct,0.00e+00
+3775,3.16228,-,direct,0.00e+00
+3800,3.16228,-,enum,0.00e+00
+3825,3.16228,-,direct,0.00e+00
+3850,3.16228,-,direct,0.00e+00
+3875,3.16228,-,direct,0.00e+00
+3900,3.16228,-,direct,0.00e+00
+3925,3.16228,-,direct,0.00e+00
+3950,3.16228,-,direct,0.00e+00
+3975,3.16228,-,direct,0.00e+00
+4000,3.16228,-,direct,0.00e+00
+4025,3.16228,-,direct,0.00e+00
+4050,3.16228,-,direct,0.00e+00
+4075,3.16228,-,direct,0.00e+00
+4100,3.16228,-,direct,0.00e+00
+4125,3.16228,-,direct,0.00e+00
+4150,3.16228,-,direct,0.00e+00
+4175,3.16228,-,direct,0.00e+00
+4200,3.16228,-,direct,0.00e+00
+4225,3.16228,-,direct,0.00e+00
+4250,3.16228,-,direct,0.00e+00
+4275,3.16228,-,direct,0.00e+00
+4300,3.16228,-,direct,0.00e+00
+4325,3.16228,-,direct,0.00e+00
+4350,3.16228,-,direct,0.00e+00
+4375,3.16228,-,direct,0.00e+00
+4400,3.16228,-,direct,0.00e+00
+4425,3.16228,-,direct,0.00e+00
+4450,3.16228,-,direct,0.00e+00
+4475,3.16228,-,direct,0.00e+00
+4500,3.16228,-,direct,0.00e+00
+4525,3.16228,-,direct,0.00e+00
+4550,3.16228,-,direct,0.00e+00
+4575,3.16228,-,direct,0.00e+00
+4600,3.16228,-,direct,0.00e+00
+4625,3.16228,-,direct,0.00e+00
+4650,3.16228,-,direct,0.00e+00
+4675,3.16228,-,direct,0.00e+00
+4700,3.16228,-,direct,0.00e+00
+4725,3.16228,-,direct,0.00e+00
+4750,3.16228,-,direct,0.00e+00
+4775,3.16228,-,direct,0.00e+00
+4800,3.16228,-,direct,0.00e+00
+4825,3.16228,-,direct,0.00e+00
+4850,3.16228,-,direct,0.00e+00
+4875,3.16228,-,direct,0.00e+00
+4900,3.16228,-,direct,0.00e+00
+4925,3.16228,-,direct,0.00e+00
+4950,3.16228,-,direct,0.00e+00
+4975,3.16228,-,direct,0.00e+00
+5000,3.16228,-,direct,0.00e+00
+300,5.62341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+325,5.62341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+350,5.62341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+375,5.62341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+400,5.62341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+425,5.62341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+450,5.62341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+475,5.62341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+500,5.62341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+525,5.62341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+550,5.62341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+575,5.62341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+600,5.62341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+625,5.62341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+650,5.62341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+675,5.62341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+700,5.62341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+725,5.62341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+750,5.62341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+775,5.62341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+800,5.62341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+825,5.62341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+850,5.62341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+875,5.62341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+900,5.62341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+925,5.62341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+950,5.62341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+975,5.62341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1000,5.62341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1025,5.62341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1050,5.62341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1075,5.62341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1100,5.62341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1125,5.62341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1150,5.62341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1175,5.62341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1200,5.62341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1225,5.62341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1250,5.62341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1275,5.62341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1300,5.62341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1325,5.62341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1350,5.62341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1375,5.62341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1400,5.62341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1425,5.62341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1450,5.62341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1475,5.62341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1500,5.62341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1525,5.62341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1550,5.62341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1575,5.62341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1600,5.62341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1625,5.62341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1650,5.62341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1675,5.62341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1700,5.62341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1725,5.62341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1750,5.62341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1775,5.62341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1800,5.62341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1825,5.62341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1850,5.62341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1875,5.62341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1900,5.62341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1925,5.62341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1950,5.62341,SiC(b) SiO2(b-crt),direct,0.00e+00
+1975,5.62341,SiC(b) SiO2(b-crt),direct,0.00e+00
+2000,5.62341,SiC(b) SiO2(L),direct,0.00e+00
+2025,5.62341,SiC(b) SiO2(L),direct,0.00e+00
+2050,5.62341,SiC(b) SiO2(L),direct,0.00e+00
+2075,5.62341,SiC(b) SiO2(L),direct,0.00e+00
+2100,5.62341,SiC(b) SiO2(L),direct,0.00e+00
+2125,5.62341,SiC(b) SiO2(L),direct,0.00e+00
+2150,5.62341,SiC(b),direct,0.00e+00
+2175,5.62341,SiC(b),direct,0.00e+00
+2200,5.62341,SiC(b),direct,0.00e+00
+2225,5.62341,Si(L) SiC(b),enum,0.00e+00
+2250,5.62341,Si(L) SiC(b),enum,0.00e+00
+2275,5.62341,Si(L) SiC(b),enum,0.00e+00
+2300,5.62341,Si(L) SiC(b),enum,0.00e+00
+2325,5.62341,Si(L) SiC(b),direct,0.00e+00
+2350,5.62341,Si(L) SiC(b),direct,0.00e+00
+2375,5.62341,Si(L) SiC(b),direct,0.00e+00
+2400,5.62341,Si(L) SiC(b),direct,0.00e+00
+2425,5.62341,Si(L) SiC(b),direct,0.00e+00
+2450,5.62341,Si(L) SiC(b),direct,0.00e+00
+2475,5.62341,Si(L) SiC(b),direct,0.00e+00
+2500,5.62341,Si(L) SiC(b),direct,0.00e+00
+2525,5.62341,Si(L) SiC(b),direct,0.00e+00
+2550,5.62341,Si(L) SiC(b),direct,0.00e+00
+2575,5.62341,Si(L) SiC(b),direct,0.00e+00
+2600,5.62341,Si(L) SiC(b),direct,0.00e+00
+2625,5.62341,Si(L) SiC(b),direct,0.00e+00
+2650,5.62341,Si(L) SiC(b),direct,0.00e+00
+2675,5.62341,Si(L) SiC(b),direct,0.00e+00
+2700,5.62341,Si(L) SiC(b),direct,0.00e+00
+2725,5.62341,Si(L) SiC(b),direct,0.00e+00
+2750,5.62341,Si(L) SiC(b),direct,0.00e+00
+2775,5.62341,Si(L) SiC(b),direct,0.00e+00
+2800,5.62341,Si(L) SiC(b),direct,0.00e+00
+2825,5.62341,Si(L) SiC(b),direct,0.00e+00
+2850,5.62341,Si(L) SiC(b),direct,0.00e+00
+2875,5.62341,Si(L) SiC(b),direct,0.00e+00
+2900,5.62341,Si(L) SiC(b),direct,0.00e+00
+2925,5.62341,Si(L) SiC(b),direct,0.00e+00
+2950,5.62341,Si(L) SiC(b),direct,0.00e+00
+2975,5.62341,Si(L) SiC(b),direct,0.00e+00
+3000,5.62341,Si(L) SiC(b),direct,0.00e+00
+3025,5.62341,Si(L) SiC(b),direct,0.00e+00
+3050,5.62341,Si(L) SiC(b),direct,0.00e+00
+3075,5.62341,Si(L) SiC(b),direct,0.00e+00
+3100,5.62341,Si(L) SiC(b),direct,0.00e+00
+3125,5.62341,Si(L) SiC(L),direct,0.00e+00
+3150,5.62341,Si(L) SiC(L),direct,0.00e+00
+3175,5.62341,Si(L) SiC(L),direct,0.00e+00
+3200,5.62341,Si(L) SiC(L),direct,0.00e+00
+3225,5.62341,Si(L) SiC(L),direct,0.00e+00
+3250,5.62341,Si(L) SiC(L),direct,0.00e+00
+3275,5.62341,Si(L) SiC(L),direct,0.00e+00
+3300,5.62341,Si(L) SiC(L),direct,0.00e+00
+3325,5.62341,Si(L) SiC(L),direct,0.00e+00
+3350,5.62341,Si(L) SiC(L),direct,0.00e+00
+3375,5.62341,Si(L) SiC(L),direct,0.00e+00
+3400,5.62341,Si(L),direct,0.00e+00
+3425,5.62341,Si(L),direct,0.00e+00
+3450,5.62341,Si(L),direct,0.00e+00
+3475,5.62341,Si(L),direct,0.00e+00
+3500,5.62341,Si(L),direct,0.00e+00
+3525,5.62341,-,direct,0.00e+00
+3550,5.62341,-,direct,0.00e+00
+3575,5.62341,-,enum,0.00e+00
+3600,5.62341,-,enum,0.00e+00
+3625,5.62341,-,direct,0.00e+00
+3650,5.62341,-,direct,0.00e+00
+3675,5.62341,-,direct,0.00e+00
+3700,5.62341,-,direct,0.00e+00
+3725,5.62341,-,enum,0.00e+00
+3750,5.62341,-,direct,0.00e+00
+3775,5.62341,-,direct,0.00e+00
+3800,5.62341,-,enum,0.00e+00
+3825,5.62341,-,direct,0.00e+00
+3850,5.62341,-,enum,0.00e+00
+3875,5.62341,-,direct,0.00e+00
+3900,5.62341,-,direct,0.00e+00
+3925,5.62341,-,direct,0.00e+00
+3950,5.62341,-,enum,0.00e+00
+3975,5.62341,-,enum,0.00e+00
+4000,5.62341,-,direct,0.00e+00
+4025,5.62341,-,enum,0.00e+00
+4050,5.62341,-,direct,0.00e+00
+4075,5.62341,-,direct,0.00e+00
+4100,5.62341,-,direct,0.00e+00
+4125,5.62341,-,direct,0.00e+00
+4150,5.62341,-,direct,0.00e+00
+4175,5.62341,-,direct,0.00e+00
+4200,5.62341,-,direct,0.00e+00
+4225,5.62341,-,direct,0.00e+00
+4250,5.62341,-,direct,0.00e+00
+4275,5.62341,-,direct,0.00e+00
+4300,5.62341,-,direct,0.00e+00
+4325,5.62341,-,direct,0.00e+00
+4350,5.62341,-,direct,0.00e+00
+4375,5.62341,-,direct,0.00e+00
+4400,5.62341,-,direct,0.00e+00
+4425,5.62341,-,direct,0.00e+00
+4450,5.62341,-,direct,0.00e+00
+4475,5.62341,-,direct,0.00e+00
+4500,5.62341,-,direct,0.00e+00
+4525,5.62341,-,direct,0.00e+00
+4550,5.62341,-,direct,0.00e+00
+4575,5.62341,-,direct,0.00e+00
+4600,5.62341,-,direct,0.00e+00
+4625,5.62341,-,direct,0.00e+00
+4650,5.62341,-,direct,0.00e+00
+4675,5.62341,-,direct,0.00e+00
+4700,5.62341,-,direct,0.00e+00
+4725,5.62341,-,direct,0.00e+00
+4750,5.62341,-,direct,0.00e+00
+4775,5.62341,-,direct,0.00e+00
+4800,5.62341,-,direct,0.00e+00
+4825,5.62341,-,direct,0.00e+00
+4850,5.62341,-,direct,0.00e+00
+4875,5.62341,-,direct,0.00e+00
+4900,5.62341,-,direct,0.00e+00
+4925,5.62341,-,direct,0.00e+00
+4950,5.62341,-,direct,0.00e+00
+4975,5.62341,-,direct,0.00e+00
+5000,5.62341,-,direct,0.00e+00
+300,10,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+325,10,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+350,10,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+375,10,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+400,10,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+425,10,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+450,10,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+475,10,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+500,10,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+525,10,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+550,10,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+575,10,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+600,10,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+625,10,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+650,10,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+675,10,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+700,10,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+725,10,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+750,10,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+775,10,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+800,10,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+825,10,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+850,10,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+875,10,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+900,10,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+925,10,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+950,10,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+975,10,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1000,10,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1025,10,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1050,10,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1075,10,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1100,10,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1125,10,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1150,10,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1175,10,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1200,10,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1225,10,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1250,10,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1275,10,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1300,10,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1325,10,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1350,10,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1375,10,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1400,10,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1425,10,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1450,10,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1475,10,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1500,10,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1525,10,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1550,10,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1575,10,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1600,10,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1625,10,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1650,10,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1675,10,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1700,10,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1725,10,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1750,10,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1775,10,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1800,10,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1825,10,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1850,10,SiC(b) SiO2(b-crt),direct,0.00e+00
+1875,10,SiC(b) SiO2(b-crt),direct,0.00e+00
+1900,10,SiC(b) SiO2(b-crt),direct,0.00e+00
+1925,10,SiC(b) SiO2(b-crt),direct,0.00e+00
+1950,10,SiC(b) SiO2(b-crt),direct,0.00e+00
+1975,10,SiC(b) SiO2(b-crt),direct,0.00e+00
+2000,10,SiC(b) SiO2(L),direct,0.00e+00
+2025,10,SiC(b) SiO2(L),direct,0.00e+00
+2050,10,SiC(b) SiO2(L),direct,0.00e+00
+2075,10,SiC(b) SiO2(L),direct,0.00e+00
+2100,10,SiC(b) SiO2(L),direct,0.00e+00
+2125,10,SiC(b) SiO2(L),direct,0.00e+00
+2150,10,SiC(b) SiO2(L),direct,0.00e+00
+2175,10,SiC(b) SiO2(L),direct,0.00e+00
+2200,10,SiC(b) SiO2(L),direct,0.00e+00
+2225,10,Si(L) SiC(b),enum,0.00e+00
+2250,10,Si(L) SiC(b),enum,0.00e+00
+2275,10,Si(L) SiC(b),enum,0.00e+00
+2300,10,Si(L) SiC(b),enum,0.00e+00
+2325,10,Si(L) SiC(b),enum,0.00e+00
+2350,10,Si(L) SiC(b),enum,0.00e+00
+2375,10,Si(L) SiC(b),enum,0.00e+00
+2400,10,Si(L) SiC(b),direct,0.00e+00
+2425,10,Si(L) SiC(b),direct,0.00e+00
+2450,10,Si(L) SiC(b),direct,0.00e+00
+2475,10,Si(L) SiC(b),direct,0.00e+00
+2500,10,Si(L) SiC(b),direct,0.00e+00
+2525,10,Si(L) SiC(b),direct,0.00e+00
+2550,10,Si(L) SiC(b),direct,0.00e+00
+2575,10,Si(L) SiC(b),direct,0.00e+00
+2600,10,Si(L) SiC(b),direct,0.00e+00
+2625,10,Si(L) SiC(b),direct,0.00e+00
+2650,10,Si(L) SiC(b),direct,0.00e+00
+2675,10,Si(L) SiC(b),direct,0.00e+00
+2700,10,Si(L) SiC(b),direct,0.00e+00
+2725,10,Si(L) SiC(b),direct,0.00e+00
+2750,10,Si(L) SiC(b),direct,0.00e+00
+2775,10,Si(L) SiC(b),direct,0.00e+00
+2800,10,Si(L) SiC(b),direct,0.00e+00
+2825,10,Si(L) SiC(b),direct,0.00e+00
+2850,10,Si(L) SiC(b),direct,0.00e+00
+2875,10,Si(L) SiC(b),direct,0.00e+00
+2900,10,Si(L) SiC(b),direct,0.00e+00
+2925,10,Si(L) SiC(b),direct,0.00e+00
+2950,10,Si(L) SiC(b),direct,0.00e+00
+2975,10,Si(L) SiC(b),direct,0.00e+00
+3000,10,Si(L) SiC(b),direct,0.00e+00
+3025,10,Si(L) SiC(b),direct,0.00e+00
+3050,10,Si(L) SiC(b),direct,0.00e+00
+3075,10,Si(L) SiC(b),direct,0.00e+00
+3100,10,Si(L) SiC(b),direct,0.00e+00
+3125,10,Si(L) SiC(L),direct,0.00e+00
+3150,10,Si(L) SiC(L),direct,0.00e+00
+3175,10,Si(L) SiC(L),direct,0.00e+00
+3200,10,Si(L) SiC(L),direct,0.00e+00
+3225,10,Si(L) SiC(L),direct,0.00e+00
+3250,10,Si(L) SiC(L),direct,0.00e+00
+3275,10,Si(L) SiC(L),direct,0.00e+00
+3300,10,Si(L) SiC(L),direct,0.00e+00
+3325,10,Si(L) SiC(L),direct,0.00e+00
+3350,10,Si(L) SiC(L),direct,0.00e+00
+3375,10,Si(L) SiC(L),direct,0.00e+00
+3400,10,Si(L) SiC(L),direct,0.00e+00
+3425,10,C(gr) Si(L),direct,0.00e+00
+3450,10,C(gr) Si(L),direct,0.00e+00
+3475,10,C(gr) Si(L),direct,0.00e+00
+3500,10,C(gr) Si(L),direct,0.00e+00
+3525,10,Si(L),direct,0.00e+00
+3550,10,Si(L),direct,0.00e+00
+3575,10,Si(L),direct,0.00e+00
+3600,10,Si(L),enum,0.00e+00
+3625,10,Si(L),direct,0.00e+00
+3650,10,Si(L),direct,0.00e+00
+3675,10,Si(L),enum,0.00e+00
+3700,10,-,direct,0.00e+00
+3725,10,-,direct,0.00e+00
+3750,10,-,direct,0.00e+00
+3775,10,-,enum,0.00e+00
+3800,10,-,direct,0.00e+00
+3825,10,-,direct,0.00e+00
+3850,10,-,direct,0.00e+00
+3875,10,-,direct,0.00e+00
+3900,10,-,direct,0.00e+00
+3925,10,-,direct,0.00e+00
+3950,10,-,direct,0.00e+00
+3975,10,-,direct,0.00e+00
+4000,10,-,direct,0.00e+00
+4025,10,-,enum,0.00e+00
+4050,10,-,direct,0.00e+00
+4075,10,-,direct,0.00e+00
+4100,10,-,direct,0.00e+00
+4125,10,-,direct,0.00e+00
+4150,10,-,direct,0.00e+00
+4175,10,-,enum,0.00e+00
+4200,10,-,direct,0.00e+00
+4225,10,-,enum,0.00e+00
+4250,10,-,enum,0.00e+00
+4275,10,-,direct,0.00e+00
+4300,10,-,direct,0.00e+00
+4325,10,-,direct,0.00e+00
+4350,10,-,direct,0.00e+00
+4375,10,-,direct,0.00e+00
+4400,10,-,direct,0.00e+00
+4425,10,-,direct,0.00e+00
+4450,10,-,direct,0.00e+00
+4475,10,-,direct,0.00e+00
+4500,10,-,direct,0.00e+00
+4525,10,-,direct,0.00e+00
+4550,10,-,direct,0.00e+00
+4575,10,-,direct,0.00e+00
+4600,10,-,direct,0.00e+00
+4625,10,-,direct,0.00e+00
+4650,10,-,direct,0.00e+00
+4675,10,-,direct,0.00e+00
+4700,10,-,direct,0.00e+00
+4725,10,-,direct,0.00e+00
+4750,10,-,direct,0.00e+00
+4775,10,-,direct,0.00e+00
+4800,10,-,direct,0.00e+00
+4825,10,-,direct,0.00e+00
+4850,10,-,direct,0.00e+00
+4875,10,-,direct,0.00e+00
+4900,10,-,direct,0.00e+00
+4925,10,-,direct,0.00e+00
+4950,10,-,direct,0.00e+00
+4975,10,-,direct,0.00e+00
+5000,10,-,direct,0.00e+00
+300,17.7828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+325,17.7828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+350,17.7828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+375,17.7828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+400,17.7828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+425,17.7828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+450,17.7828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+475,17.7828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+500,17.7828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+525,17.7828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+550,17.7828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+575,17.7828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+600,17.7828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+625,17.7828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+650,17.7828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+675,17.7828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+700,17.7828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+725,17.7828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+750,17.7828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+775,17.7828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+800,17.7828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+825,17.7828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+850,17.7828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+875,17.7828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+900,17.7828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+925,17.7828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+950,17.7828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+975,17.7828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1000,17.7828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1025,17.7828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1050,17.7828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1075,17.7828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1100,17.7828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1125,17.7828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1150,17.7828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1175,17.7828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1200,17.7828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1225,17.7828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1250,17.7828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1275,17.7828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1300,17.7828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1325,17.7828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1350,17.7828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1375,17.7828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1400,17.7828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1425,17.7828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1450,17.7828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1475,17.7828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1500,17.7828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1525,17.7828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1550,17.7828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1575,17.7828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1600,17.7828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1625,17.7828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1650,17.7828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1675,17.7828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1700,17.7828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1725,17.7828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1750,17.7828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1775,17.7828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1800,17.7828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1825,17.7828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1850,17.7828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1875,17.7828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1900,17.7828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1925,17.7828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1950,17.7828,SiC(b) SiO2(b-crt),direct,0.00e+00
+1975,17.7828,SiC(b) SiO2(b-crt),direct,0.00e+00
+2000,17.7828,SiC(b) SiO2(L),direct,0.00e+00
+2025,17.7828,SiC(b) SiO2(L),direct,0.00e+00
+2050,17.7828,SiC(b) SiO2(L),direct,0.00e+00
+2075,17.7828,SiC(b) SiO2(L),direct,0.00e+00
+2100,17.7828,SiC(b) SiO2(L),direct,0.00e+00
+2125,17.7828,SiC(b) SiO2(L),direct,0.00e+00
+2150,17.7828,SiC(b) SiO2(L),direct,0.00e+00
+2175,17.7828,SiC(b) SiO2(L),direct,0.00e+00
+2200,17.7828,SiC(b) SiO2(L),direct,0.00e+00
+2225,17.7828,SiC(b) SiO2(L),direct,0.00e+00
+2250,17.7828,SiC(b) SiO2(L),direct,0.00e+00
+2275,17.7828,Si(L) SiC(b) SiO2(L),assemblage,0.00e+00
+2300,17.7828,Si(L) SiC(b),enum,0.00e+00
+2325,17.7828,Si(L) SiC(b),enum,0.00e+00
+2350,17.7828,Si(L) SiC(b),enum,0.00e+00
+2375,17.7828,Si(L) SiC(b),enum,0.00e+00
+2400,17.7828,Si(L) SiC(b),enum,0.00e+00
+2425,17.7828,Si(L) SiC(b),enum,0.00e+00
+2450,17.7828,Si(L) SiC(b),direct,0.00e+00
+2475,17.7828,Si(L) SiC(b),direct,0.00e+00
+2500,17.7828,Si(L) SiC(b),direct,0.00e+00
+2525,17.7828,Si(L) SiC(b),direct,0.00e+00
+2550,17.7828,Si(L) SiC(b),direct,0.00e+00
+2575,17.7828,Si(L) SiC(b),direct,0.00e+00
+2600,17.7828,Si(L) SiC(b),direct,0.00e+00
+2625,17.7828,Si(L) SiC(b),direct,0.00e+00
+2650,17.7828,Si(L) SiC(b),direct,0.00e+00
+2675,17.7828,Si(L) SiC(b),direct,0.00e+00
+2700,17.7828,Si(L) SiC(b),direct,0.00e+00
+2725,17.7828,Si(L) SiC(b),direct,0.00e+00
+2750,17.7828,Si(L) SiC(b),direct,0.00e+00
+2775,17.7828,Si(L) SiC(b),direct,0.00e+00
+2800,17.7828,Si(L) SiC(b),direct,0.00e+00
+2825,17.7828,Si(L) SiC(b),direct,0.00e+00
+2850,17.7828,Si(L) SiC(b),direct,0.00e+00
+2875,17.7828,Si(L) SiC(b),direct,0.00e+00
+2900,17.7828,Si(L) SiC(b),direct,0.00e+00
+2925,17.7828,Si(L) SiC(b),direct,0.00e+00
+2950,17.7828,Si(L) SiC(b),direct,0.00e+00
+2975,17.7828,Si(L) SiC(b),direct,0.00e+00
+3000,17.7828,Si(L) SiC(b),direct,0.00e+00
+3025,17.7828,Si(L) SiC(b),direct,0.00e+00
+3050,17.7828,Si(L) SiC(b),direct,0.00e+00
+3075,17.7828,Si(L) SiC(b),direct,0.00e+00
+3100,17.7828,Si(L) SiC(b),direct,0.00e+00
+3125,17.7828,Si(L) SiC(L),direct,0.00e+00
+3150,17.7828,Si(L) SiC(L),direct,0.00e+00
+3175,17.7828,Si(L) SiC(L),direct,0.00e+00
+3200,17.7828,Si(L) SiC(L),direct,0.00e+00
+3225,17.7828,Si(L) SiC(L),direct,0.00e+00
+3250,17.7828,Si(L) SiC(L),direct,0.00e+00
+3275,17.7828,Si(L) SiC(L),direct,0.00e+00
+3300,17.7828,Si(L) SiC(L),direct,0.00e+00
+3325,17.7828,Si(L) SiC(L),direct,0.00e+00
+3350,17.7828,Si(L) SiC(L),direct,0.00e+00
+3375,17.7828,Si(L) SiC(L),direct,0.00e+00
+3400,17.7828,Si(L) SiC(L),direct,0.00e+00
+3425,17.7828,C(gr) Si(L),direct,0.00e+00
+3450,17.7828,C(gr) Si(L),direct,0.00e+00
+3475,17.7828,C(gr) Si(L),direct,0.00e+00
+3500,17.7828,C(gr) Si(L),direct,0.00e+00
+3525,17.7828,C(gr) Si(L),direct,0.00e+00
+3550,17.7828,C(gr) Si(L),direct,0.00e+00
+3575,17.7828,C(gr) Si(L),direct,0.00e+00
+3600,17.7828,C(gr) Si(L),direct,0.00e+00
+3625,17.7828,C(gr) Si(L),direct,0.00e+00
+3650,17.7828,Si(L),direct,0.00e+00
+3675,17.7828,Si(L),direct,0.00e+00
+3700,17.7828,Si(L),direct,0.00e+00
+3725,17.7828,Si(L),direct,0.00e+00
+3750,17.7828,Si(L),direct,0.00e+00
+3775,17.7828,Si(L),enum,0.00e+00
+3800,17.7828,Si(L),direct,0.00e+00
+3825,17.7828,Si(L),direct,0.00e+00
+3850,17.7828,Si(L),direct,0.00e+00
+3875,17.7828,Si(L),direct,0.00e+00
+3900,17.7828,-,direct,0.00e+00
+3925,17.7828,-,direct,0.00e+00
+3950,17.7828,-,direct,0.00e+00
+3975,17.7828,-,direct,0.00e+00
+4000,17.7828,-,direct,0.00e+00
+4025,17.7828,-,direct,0.00e+00
+4050,17.7828,-,direct,0.00e+00
+4075,17.7828,-,direct,0.00e+00
+4100,17.7828,-,direct,0.00e+00
+4125,17.7828,-,direct,0.00e+00
+4150,17.7828,-,direct,0.00e+00
+4175,17.7828,-,direct,0.00e+00
+4200,17.7828,-,enum,0.00e+00
+4225,17.7828,-,direct,0.00e+00
+4250,17.7828,-,direct,0.00e+00
+4275,17.7828,-,enum,0.00e+00
+4300,17.7828,-,direct,0.00e+00
+4325,17.7828,-,direct,0.00e+00
+4350,17.7828,-,direct,0.00e+00
+4375,17.7828,-,direct,0.00e+00
+4400,17.7828,-,direct,0.00e+00
+4425,17.7828,-,direct,0.00e+00
+4450,17.7828,-,enum,0.00e+00
+4475,17.7828,-,direct,0.00e+00
+4500,17.7828,-,direct,0.00e+00
+4525,17.7828,-,direct,0.00e+00
+4550,17.7828,-,direct,0.00e+00
+4575,17.7828,-,direct,0.00e+00
+4600,17.7828,-,direct,0.00e+00
+4625,17.7828,-,direct,0.00e+00
+4650,17.7828,-,direct,0.00e+00
+4675,17.7828,-,direct,0.00e+00
+4700,17.7828,-,direct,0.00e+00
+4725,17.7828,-,direct,0.00e+00
+4750,17.7828,-,direct,0.00e+00
+4775,17.7828,-,direct,0.00e+00
+4800,17.7828,-,direct,0.00e+00
+4825,17.7828,-,direct,0.00e+00
+4850,17.7828,-,direct,0.00e+00
+4875,17.7828,-,direct,0.00e+00
+4900,17.7828,-,direct,0.00e+00
+4925,17.7828,-,direct,0.00e+00
+4950,17.7828,-,direct,0.00e+00
+4975,17.7828,-,direct,0.00e+00
+5000,17.7828,-,direct,0.00e+00
+300,31.6228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+325,31.6228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+350,31.6228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+375,31.6228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+400,31.6228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+425,31.6228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+450,31.6228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+475,31.6228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+500,31.6228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+525,31.6228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+550,31.6228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+575,31.6228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+600,31.6228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+625,31.6228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+650,31.6228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+675,31.6228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+700,31.6228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+725,31.6228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+750,31.6228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+775,31.6228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+800,31.6228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+825,31.6228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+850,31.6228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+875,31.6228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+900,31.6228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+925,31.6228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+950,31.6228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+975,31.6228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1000,31.6228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1025,31.6228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1050,31.6228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1075,31.6228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1100,31.6228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1125,31.6228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1150,31.6228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1175,31.6228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1200,31.6228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1225,31.6228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1250,31.6228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1275,31.6228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1300,31.6228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1325,31.6228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1350,31.6228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1375,31.6228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1400,31.6228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1425,31.6228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1450,31.6228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1475,31.6228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1500,31.6228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1525,31.6228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1550,31.6228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1575,31.6228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1600,31.6228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1625,31.6228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1650,31.6228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1675,31.6228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1700,31.6228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1725,31.6228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1750,31.6228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1775,31.6228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1800,31.6228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1825,31.6228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1850,31.6228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1875,31.6228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1900,31.6228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1925,31.6228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1950,31.6228,SiC(b) SiO2(b-crt),direct,0.00e+00
+1975,31.6228,SiC(b) SiO2(b-crt),direct,0.00e+00
+2000,31.6228,SiC(b) SiO2(L),direct,0.00e+00
+2025,31.6228,SiC(b) SiO2(L),direct,0.00e+00
+2050,31.6228,SiC(b) SiO2(L),direct,0.00e+00
+2075,31.6228,SiC(b) SiO2(L),direct,0.00e+00
+2100,31.6228,SiC(b) SiO2(L),direct,0.00e+00
+2125,31.6228,SiC(b) SiO2(L),direct,0.00e+00
+2150,31.6228,SiC(b) SiO2(L),direct,0.00e+00
+2175,31.6228,SiC(b) SiO2(L),direct,0.00e+00
+2200,31.6228,SiC(b) SiO2(L),direct,0.00e+00
+2225,31.6228,SiC(b) SiO2(L),direct,0.00e+00
+2250,31.6228,SiC(b) SiO2(L),direct,0.00e+00
+2275,31.6228,SiC(b) SiO2(L),direct,0.00e+00
+2300,31.6228,SiC(b) SiO2(L),direct,0.00e+00
+2325,31.6228,Si(L) SiC(b) SiO2(L),assemblage,0.00e+00
+2350,31.6228,Si(L) SiC(b),enum,0.00e+00
+2375,31.6228,Si(L) SiC(b),enum,0.00e+00
+2400,31.6228,Si(L) SiC(b),enum,0.00e+00
+2425,31.6228,Si(L) SiC(b),enum,0.00e+00
+2450,31.6228,Si(L) SiC(b),enum,0.00e+00
+2475,31.6228,Si(L) SiC(b),enum,0.00e+00
+2500,31.6228,Si(L) SiC(b),enum,0.00e+00
+2525,31.6228,Si(L) SiC(b),direct,0.00e+00
+2550,31.6228,Si(L) SiC(b),direct,0.00e+00
+2575,31.6228,Si(L) SiC(b),direct,0.00e+00
+2600,31.6228,Si(L) SiC(b),direct,0.00e+00
+2625,31.6228,Si(L) SiC(b),direct,0.00e+00
+2650,31.6228,Si(L) SiC(b),direct,0.00e+00
+2675,31.6228,Si(L) SiC(b),direct,0.00e+00
+2700,31.6228,Si(L) SiC(b),direct,0.00e+00
+2725,31.6228,Si(L) SiC(b),direct,0.00e+00
+2750,31.6228,Si(L) SiC(b),direct,0.00e+00
+2775,31.6228,Si(L) SiC(b),direct,0.00e+00
+2800,31.6228,Si(L) SiC(b),direct,0.00e+00
+2825,31.6228,Si(L) SiC(b),direct,0.00e+00
+2850,31.6228,Si(L) SiC(b),direct,0.00e+00
+2875,31.6228,Si(L) SiC(b),direct,0.00e+00
+2900,31.6228,Si(L) SiC(b),direct,0.00e+00
+2925,31.6228,Si(L) SiC(b),direct,0.00e+00
+2950,31.6228,Si(L) SiC(b),direct,0.00e+00
+2975,31.6228,Si(L) SiC(b),direct,0.00e+00
+3000,31.6228,Si(L) SiC(b),direct,0.00e+00
+3025,31.6228,Si(L) SiC(b),direct,0.00e+00
+3050,31.6228,Si(L) SiC(b),direct,0.00e+00
+3075,31.6228,Si(L) SiC(b),direct,0.00e+00
+3100,31.6228,Si(L) SiC(b),direct,0.00e+00
+3125,31.6228,Si(L) SiC(L),direct,0.00e+00
+3150,31.6228,Si(L) SiC(L),direct,0.00e+00
+3175,31.6228,Si(L) SiC(L),direct,0.00e+00
+3200,31.6228,Si(L) SiC(L),direct,0.00e+00
+3225,31.6228,Si(L) SiC(L),direct,0.00e+00
+3250,31.6228,Si(L) SiC(L),direct,0.00e+00
+3275,31.6228,Si(L) SiC(L),direct,0.00e+00
+3300,31.6228,Si(L) SiC(L),direct,0.00e+00
+3325,31.6228,Si(L) SiC(L),direct,0.00e+00
+3350,31.6228,Si(L) SiC(L),direct,0.00e+00
+3375,31.6228,Si(L) SiC(L),direct,0.00e+00
+3400,31.6228,Si(L) SiC(L),direct,0.00e+00
+3425,31.6228,C(gr) Si(L),direct,0.00e+00
+3450,31.6228,C(gr) Si(L),direct,0.00e+00
+3475,31.6228,C(gr) Si(L),direct,0.00e+00
+3500,31.6228,C(gr) Si(L),direct,0.00e+00
+3525,31.6228,C(gr) Si(L),direct,0.00e+00
+3550,31.6228,C(gr) Si(L),direct,0.00e+00
+3575,31.6228,C(gr) Si(L),direct,0.00e+00
+3600,31.6228,C(gr) Si(L),direct,0.00e+00
+3625,31.6228,C(gr) Si(L),direct,0.00e+00
+3650,31.6228,C(gr) Si(L),direct,0.00e+00
+3675,31.6228,C(gr) Si(L),direct,0.00e+00
+3700,31.6228,C(gr) Si(L),direct,0.00e+00
+3725,31.6228,C(gr) Si(L),direct,0.00e+00
+3750,31.6228,C(gr) Si(L),direct,0.00e+00
+3775,31.6228,Si(L),direct,0.00e+00
+3800,31.6228,Si(L),direct,0.00e+00
+3825,31.6228,Si(L),direct,0.00e+00
+3850,31.6228,Si(L),enum,0.00e+00
+3875,31.6228,Si(L),direct,0.00e+00
+3900,31.6228,Si(L),direct,0.00e+00
+3925,31.6228,Si(L),direct,0.00e+00
+3950,31.6228,Si(L),enum,0.00e+00
+3975,31.6228,Si(L),direct,0.00e+00
+4000,31.6228,Si(L),direct,0.00e+00
+4025,31.6228,Si(L),direct,0.00e+00
+4050,31.6228,Si(L),direct,0.00e+00
+4075,31.6228,Si(L),enum,0.00e+00
+4100,31.6228,Si(L),enum,0.00e+00
+4125,31.6228,-,enum,0.00e+00
+4150,31.6228,-,enum,0.00e+00
+4175,31.6228,-,direct,0.00e+00
+4200,31.6228,-,direct,0.00e+00
+4225,31.6228,-,direct,0.00e+00
+4250,31.6228,-,direct,0.00e+00
+4275,31.6228,-,direct,0.00e+00
+4300,31.6228,-,enum,0.00e+00
+4325,31.6228,-,enum,0.00e+00
+4350,31.6228,-,direct,0.00e+00
+4375,31.6228,-,enum,0.00e+00
+4400,31.6228,-,enum,0.00e+00
+4425,31.6228,-,direct,0.00e+00
+4450,31.6228,-,direct,0.00e+00
+4475,31.6228,-,direct,0.00e+00
+4500,31.6228,-,direct,0.00e+00
+4525,31.6228,-,enum,0.00e+00
+4550,31.6228,-,direct,0.00e+00
+4575,31.6228,-,direct,0.00e+00
+4600,31.6228,-,direct,0.00e+00
+4625,31.6228,-,enum,0.00e+00
+4650,31.6228,-,direct,0.00e+00
+4675,31.6228,-,direct,0.00e+00
+4700,31.6228,-,direct,0.00e+00
+4725,31.6228,-,enum,0.00e+00
+4750,31.6228,-,direct,0.00e+00
+4775,31.6228,-,direct,0.00e+00
+4800,31.6228,-,direct,0.00e+00
+4825,31.6228,-,direct,0.00e+00
+4850,31.6228,-,direct,0.00e+00
+4875,31.6228,-,direct,0.00e+00
+4900,31.6228,-,direct,0.00e+00
+4925,31.6228,-,direct,0.00e+00
+4950,31.6228,-,direct,0.00e+00
+4975,31.6228,-,direct,0.00e+00
+5000,31.6228,-,direct,0.00e+00
+300,56.2341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+325,56.2341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+350,56.2341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+375,56.2341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+400,56.2341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+425,56.2341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+450,56.2341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+475,56.2341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+500,56.2341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+525,56.2341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+550,56.2341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+575,56.2341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+600,56.2341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+625,56.2341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+650,56.2341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+675,56.2341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+700,56.2341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+725,56.2341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+750,56.2341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+775,56.2341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+800,56.2341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+825,56.2341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+850,56.2341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+875,56.2341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+900,56.2341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+925,56.2341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+950,56.2341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+975,56.2341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1000,56.2341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1025,56.2341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1050,56.2341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1075,56.2341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1100,56.2341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1125,56.2341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1150,56.2341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1175,56.2341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1200,56.2341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1225,56.2341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1250,56.2341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1275,56.2341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1300,56.2341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1325,56.2341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1350,56.2341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1375,56.2341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1400,56.2341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1425,56.2341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1450,56.2341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1475,56.2341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1500,56.2341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1525,56.2341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1550,56.2341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1575,56.2341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1600,56.2341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1625,56.2341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1650,56.2341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1675,56.2341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1700,56.2341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1725,56.2341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1750,56.2341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1775,56.2341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1800,56.2341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1825,56.2341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1850,56.2341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1875,56.2341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1900,56.2341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1925,56.2341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1950,56.2341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1975,56.2341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+2000,56.2341,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2025,56.2341,SiC(b) SiO2(L),direct,0.00e+00
+2050,56.2341,SiC(b) SiO2(L),direct,0.00e+00
+2075,56.2341,SiC(b) SiO2(L),direct,0.00e+00
+2100,56.2341,SiC(b) SiO2(L),direct,0.00e+00
+2125,56.2341,SiC(b) SiO2(L),direct,0.00e+00
+2150,56.2341,SiC(b) SiO2(L),direct,0.00e+00
+2175,56.2341,SiC(b) SiO2(L),direct,0.00e+00
+2200,56.2341,SiC(b) SiO2(L),direct,0.00e+00
+2225,56.2341,SiC(b) SiO2(L),direct,0.00e+00
+2250,56.2341,SiC(b) SiO2(L),direct,0.00e+00
+2275,56.2341,SiC(b) SiO2(L),direct,0.00e+00
+2300,56.2341,SiC(b) SiO2(L),direct,0.00e+00
+2325,56.2341,SiC(b) SiO2(L),direct,0.00e+00
+2350,56.2341,SiC(b) SiO2(L),direct,0.00e+00
+2375,56.2341,Si(L) SiC(b) SiO2(L),assemblage,0.00e+00
+2400,56.2341,Si(L) SiC(b) SiO2(L),assemblage,0.00e+00
+2425,56.2341,Si(L) SiC(b),enum,0.00e+00
+2450,56.2341,Si(L) SiC(b),enum,0.00e+00
+2475,56.2341,Si(L) SiC(b),enum,0.00e+00
+2500,56.2341,Si(L) SiC(b),enum,0.00e+00
+2525,56.2341,Si(L) SiC(b),enum,0.00e+00
+2550,56.2341,Si(L) SiC(b),enum,0.00e+00
+2575,56.2341,Si(L) SiC(b),direct,0.00e+00
+2600,56.2341,Si(L) SiC(b),direct,0.00e+00
+2625,56.2341,Si(L) SiC(b),direct,0.00e+00
+2650,56.2341,Si(L) SiC(b),direct,0.00e+00
+2675,56.2341,Si(L) SiC(b),direct,0.00e+00
+2700,56.2341,Si(L) SiC(b),direct,0.00e+00
+2725,56.2341,Si(L) SiC(b),direct,0.00e+00
+2750,56.2341,Si(L) SiC(b),direct,0.00e+00
+2775,56.2341,Si(L) SiC(b),direct,0.00e+00
+2800,56.2341,Si(L) SiC(b),direct,0.00e+00
+2825,56.2341,Si(L) SiC(b),direct,0.00e+00
+2850,56.2341,Si(L) SiC(b),direct,0.00e+00
+2875,56.2341,Si(L) SiC(b),direct,0.00e+00
+2900,56.2341,Si(L) SiC(b),direct,0.00e+00
+2925,56.2341,Si(L) SiC(b),direct,0.00e+00
+2950,56.2341,Si(L) SiC(b),direct,0.00e+00
+2975,56.2341,Si(L) SiC(b),direct,0.00e+00
+3000,56.2341,Si(L) SiC(b),direct,0.00e+00
+3025,56.2341,Si(L) SiC(b),direct,0.00e+00
+3050,56.2341,Si(L) SiC(b),direct,0.00e+00
+3075,56.2341,Si(L) SiC(b),direct,0.00e+00
+3100,56.2341,Si(L) SiC(b),direct,0.00e+00
+3125,56.2341,Si(L) SiC(L),direct,0.00e+00
+3150,56.2341,Si(L) SiC(L),direct,0.00e+00
+3175,56.2341,Si(L) SiC(L),direct,0.00e+00
+3200,56.2341,Si(L) SiC(L),direct,0.00e+00
+3225,56.2341,Si(L) SiC(L),direct,0.00e+00
+3250,56.2341,Si(L) SiC(L),direct,0.00e+00
+3275,56.2341,Si(L) SiC(L),direct,0.00e+00
+3300,56.2341,Si(L) SiC(L),direct,0.00e+00
+3325,56.2341,Si(L) SiC(L),direct,0.00e+00
+3350,56.2341,Si(L) SiC(L),direct,0.00e+00
+3375,56.2341,Si(L) SiC(L),direct,0.00e+00
+3400,56.2341,Si(L) SiC(L),direct,0.00e+00
+3425,56.2341,C(gr) Si(L),direct,0.00e+00
+3450,56.2341,C(gr) Si(L),direct,0.00e+00
+3475,56.2341,C(gr) Si(L),direct,0.00e+00
+3500,56.2341,C(gr) Si(L),direct,0.00e+00
+3525,56.2341,C(gr) Si(L),direct,0.00e+00
+3550,56.2341,C(gr) Si(L),direct,0.00e+00
+3575,56.2341,C(gr) Si(L),direct,0.00e+00
+3600,56.2341,C(gr) Si(L),direct,0.00e+00
+3625,56.2341,C(gr) Si(L),direct,0.00e+00
+3650,56.2341,C(gr) Si(L),direct,0.00e+00
+3675,56.2341,C(gr) Si(L),direct,0.00e+00
+3700,56.2341,C(gr) Si(L),direct,0.00e+00
+3725,56.2341,C(gr) Si(L),direct,0.00e+00
+3750,56.2341,C(gr) Si(L),direct,0.00e+00
+3775,56.2341,C(gr) Si(L),direct,0.00e+00
+3800,56.2341,C(gr) Si(L),direct,0.00e+00
+3825,56.2341,C(gr) Si(L),direct,0.00e+00
+3850,56.2341,C(gr) Si(L),direct,0.00e+00
+3875,56.2341,C(gr) Si(L),direct,0.00e+00
+3900,56.2341,C(gr) Si(L),direct,0.00e+00
+3925,56.2341,Si(L),direct,0.00e+00
+3950,56.2341,Si(L),direct,0.00e+00
+3975,56.2341,Si(L),enum,0.00e+00
+4000,56.2341,Si(L),direct,0.00e+00
+4025,56.2341,Si(L),enum,0.00e+00
+4050,56.2341,Si(L),direct,0.00e+00
+4075,56.2341,Si(L),direct,0.00e+00
+4100,56.2341,Si(L),direct,0.00e+00
+4125,56.2341,Si(L),direct,0.00e+00
+4150,56.2341,Si(L),direct,0.00e+00
+4175,56.2341,Si(L),direct,0.00e+00
+4200,56.2341,Si(L),direct,0.00e+00
+4225,56.2341,Si(L),enum,0.00e+00
+4250,56.2341,Si(L),enum,0.00e+00
+4275,56.2341,Si(L),direct,0.00e+00
+4300,56.2341,Si(L),enum,0.00e+00
+4325,56.2341,Si(L),direct,0.00e+00
+4350,56.2341,-,direct,0.00e+00
+4375,56.2341,-,enum,0.00e+00
+4400,56.2341,-,enum,0.00e+00
+4425,56.2341,-,direct,0.00e+00
+4450,56.2341,-,direct,0.00e+00
+4475,56.2341,-,direct,0.00e+00
+4500,56.2341,-,direct,0.00e+00
+4525,56.2341,-,direct,0.00e+00
+4550,56.2341,-,enum,0.00e+00
+4575,56.2341,-,direct,0.00e+00
+4600,56.2341,-,direct,0.00e+00
+4625,56.2341,-,direct,0.00e+00
+4650,56.2341,-,direct,0.00e+00
+4675,56.2341,-,direct,0.00e+00
+4700,56.2341,-,direct,0.00e+00
+4725,56.2341,-,direct,0.00e+00
+4750,56.2341,-,direct,0.00e+00
+4775,56.2341,-,direct,0.00e+00
+4800,56.2341,-,enum,0.00e+00
+4825,56.2341,-,direct,0.00e+00
+4850,56.2341,-,direct,0.00e+00
+4875,56.2341,-,direct,0.00e+00
+4900,56.2341,-,direct,0.00e+00
+4925,56.2341,-,enum,0.00e+00
+4950,56.2341,-,direct,0.00e+00
+4975,56.2341,-,direct,0.00e+00
+5000,56.2341,-,direct,0.00e+00
+300,100,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+325,100,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+350,100,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+375,100,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+400,100,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+425,100,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+450,100,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+475,100,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+500,100,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+525,100,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+550,100,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+575,100,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+600,100,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+625,100,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+650,100,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+675,100,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+700,100,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+725,100,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+750,100,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+775,100,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+800,100,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+825,100,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+850,100,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+875,100,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+900,100,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+925,100,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+950,100,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+975,100,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1000,100,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1025,100,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1050,100,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1075,100,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1100,100,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1125,100,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1150,100,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1175,100,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1200,100,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1225,100,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1250,100,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1275,100,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1300,100,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1325,100,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1350,100,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1375,100,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1400,100,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1425,100,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1450,100,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1475,100,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1500,100,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1525,100,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1550,100,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1575,100,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1600,100,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1625,100,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1650,100,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1675,100,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1700,100,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1725,100,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1750,100,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1775,100,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1800,100,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1825,100,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1850,100,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1875,100,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1900,100,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1925,100,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1950,100,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1975,100,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+2000,100,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2025,100,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2050,100,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2075,100,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2100,100,SiC(b) SiO2(L),direct,0.00e+00
+2125,100,SiC(b) SiO2(L),direct,0.00e+00
+2150,100,SiC(b) SiO2(L),direct,0.00e+00
+2175,100,SiC(b) SiO2(L),direct,0.00e+00
+2200,100,SiC(b) SiO2(L),direct,0.00e+00
+2225,100,SiC(b) SiO2(L),direct,0.00e+00
+2250,100,SiC(b) SiO2(L),direct,0.00e+00
+2275,100,SiC(b) SiO2(L),direct,0.00e+00
+2300,100,SiC(b) SiO2(L),direct,0.00e+00
+2325,100,SiC(b) SiO2(L),direct,0.00e+00
+2350,100,SiC(b) SiO2(L),direct,0.00e+00
+2375,100,SiC(b) SiO2(L),direct,0.00e+00
+2400,100,SiC(b) SiO2(L),direct,0.00e+00
+2425,100,SiC(b) SiO2(L),direct,0.00e+00
+2450,100,Si(L) SiC(b) SiO2(L),assemblage,0.00e+00
+2475,100,Si(L) SiC(b) SiO2(L),assemblage,0.00e+00
+2500,100,Si(L) SiC(b),enum,0.00e+00
+2525,100,Si(L) SiC(b),direct,0.00e+00
+2550,100,Si(L) SiC(b),enum,0.00e+00
+2575,100,Si(L) SiC(b),enum,0.00e+00
+2600,100,Si(L) SiC(b),enum,0.00e+00
+2625,100,Si(L) SiC(b),enum,0.00e+00
+2650,100,Si(L) SiC(b),direct,0.00e+00
+2675,100,Si(L) SiC(b),direct,0.00e+00
+2700,100,Si(L) SiC(b),direct,0.00e+00
+2725,100,Si(L) SiC(b),direct,0.00e+00
+2750,100,Si(L) SiC(b),direct,0.00e+00
+2775,100,Si(L) SiC(b),direct,0.00e+00
+2800,100,Si(L) SiC(b),direct,0.00e+00
+2825,100,Si(L) SiC(b),direct,0.00e+00
+2850,100,Si(L) SiC(b),direct,0.00e+00
+2875,100,Si(L) SiC(b),direct,0.00e+00
+2900,100,Si(L) SiC(b),direct,0.00e+00
+2925,100,Si(L) SiC(b),direct,0.00e+00
+2950,100,Si(L) SiC(b),direct,0.00e+00
+2975,100,Si(L) SiC(b),direct,0.00e+00
+3000,100,Si(L) SiC(b),direct,0.00e+00
+3025,100,Si(L) SiC(b),direct,0.00e+00
+3050,100,Si(L) SiC(b),direct,0.00e+00
+3075,100,Si(L) SiC(b),direct,0.00e+00
+3100,100,Si(L) SiC(b),direct,0.00e+00
+3125,100,Si(L) SiC(L),direct,0.00e+00
+3150,100,Si(L) SiC(L),direct,0.00e+00
+3175,100,Si(L) SiC(L),direct,0.00e+00
+3200,100,Si(L) SiC(L),direct,0.00e+00
+3225,100,Si(L) SiC(L),direct,0.00e+00
+3250,100,Si(L) SiC(L),direct,0.00e+00
+3275,100,Si(L) SiC(L),direct,0.00e+00
+3300,100,Si(L) SiC(L),direct,0.00e+00
+3325,100,Si(L) SiC(L),direct,0.00e+00
+3350,100,Si(L) SiC(L),direct,0.00e+00
+3375,100,Si(L) SiC(L),direct,0.00e+00
+3400,100,Si(L) SiC(L),direct,0.00e+00
+3425,100,C(gr) Si(L),direct,0.00e+00
+3450,100,C(gr) Si(L),direct,0.00e+00
+3475,100,C(gr) Si(L),direct,0.00e+00
+3500,100,C(gr) Si(L),direct,0.00e+00
+3525,100,C(gr) Si(L),direct,0.00e+00
+3550,100,C(gr) Si(L),direct,0.00e+00
+3575,100,C(gr) Si(L),direct,0.00e+00
+3600,100,C(gr) Si(L),direct,0.00e+00
+3625,100,C(gr) Si(L),direct,0.00e+00
+3650,100,C(gr) Si(L),direct,0.00e+00
+3675,100,C(gr) Si(L),direct,0.00e+00
+3700,100,C(gr) Si(L),direct,0.00e+00
+3725,100,C(gr) Si(L),direct,0.00e+00
+3750,100,C(gr) Si(L),direct,0.00e+00
+3775,100,C(gr) Si(L),direct,0.00e+00
+3800,100,C(gr) Si(L),direct,0.00e+00
+3825,100,C(gr) Si(L),direct,0.00e+00
+3850,100,C(gr) Si(L),direct,0.00e+00
+3875,100,C(gr) Si(L),direct,0.00e+00
+3900,100,C(gr) Si(L),direct,0.00e+00
+3925,100,C(gr) Si(L),direct,0.00e+00
+3950,100,C(gr) Si(L),direct,0.00e+00
+3975,100,C(gr) Si(L),direct,0.00e+00
+4000,100,C(gr) Si(L),direct,0.00e+00
+4025,100,C(gr) Si(L),direct,0.00e+00
+4050,100,C(gr) Si(L),direct,0.00e+00
+4075,100,Si(L),direct,0.00e+00
+4100,100,Si(L),direct,0.00e+00
+4125,100,Si(L),direct,0.00e+00
+4150,100,Si(L),enum,0.00e+00
+4175,100,Si(L),direct,0.00e+00
+4200,100,Si(L),direct,0.00e+00
+4225,100,Si(L),enum,0.00e+00
+4250,100,Si(L),enum,0.00e+00
+4275,100,Si(L),enum,0.00e+00
+4300,100,Si(L),direct,0.00e+00
+4325,100,Si(L),enum,0.00e+00
+4350,100,Si(L),direct,0.00e+00
+4375,100,Si(L),enum,0.00e+00
+4400,100,Si(L),direct,0.00e+00
+4425,100,Si(L),direct,0.00e+00
+4450,100,Si(L),enum,0.00e+00
+4475,100,Si(L),enum,0.00e+00
+4500,100,Si(L),direct,0.00e+00
+4525,100,Si(L),enum,0.00e+00
+4550,100,Si(L),enum,0.00e+00
+4575,100,Si(L),direct,0.00e+00
+4600,100,Si(L),direct,0.00e+00
+4625,100,-,direct,0.00e+00
+4650,100,-,direct,0.00e+00
+4675,100,-,direct,0.00e+00
+4700,100,-,direct,0.00e+00
+4725,100,-,direct,0.00e+00
+4750,100,-,direct,0.00e+00
+4775,100,-,enum,0.00e+00
+4800,100,-,enum,0.00e+00
+4825,100,-,direct,0.00e+00
+4850,100,-,direct,0.00e+00
+4875,100,-,direct,0.00e+00
+4900,100,-,direct,0.00e+00
+4925,100,-,direct,0.00e+00
+4950,100,-,direct,0.00e+00
+4975,100,-,direct,0.00e+00
+5000,100,-,enum,0.00e+00
+300,177.828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+325,177.828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+350,177.828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+375,177.828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+400,177.828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+425,177.828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+450,177.828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+475,177.828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+500,177.828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+525,177.828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+550,177.828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+575,177.828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+600,177.828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+625,177.828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+650,177.828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+675,177.828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+700,177.828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+725,177.828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+750,177.828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+775,177.828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+800,177.828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+825,177.828,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+850,177.828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+875,177.828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+900,177.828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+925,177.828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+950,177.828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+975,177.828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1000,177.828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1025,177.828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1050,177.828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1075,177.828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1100,177.828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1125,177.828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1150,177.828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1175,177.828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1200,177.828,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1225,177.828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1250,177.828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1275,177.828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1300,177.828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1325,177.828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1350,177.828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1375,177.828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1400,177.828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1425,177.828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1450,177.828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1475,177.828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1500,177.828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1525,177.828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1550,177.828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1575,177.828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1600,177.828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1625,177.828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1650,177.828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1675,177.828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1700,177.828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1725,177.828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1750,177.828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1775,177.828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1800,177.828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1825,177.828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1850,177.828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1875,177.828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1900,177.828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1925,177.828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1950,177.828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1975,177.828,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+2000,177.828,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2025,177.828,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2050,177.828,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2075,177.828,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2100,177.828,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2125,177.828,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2150,177.828,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2175,177.828,SiC(b) SiO2(L),direct,0.00e+00
+2200,177.828,SiC(b) SiO2(L),direct,0.00e+00
+2225,177.828,SiC(b) SiO2(L),direct,0.00e+00
+2250,177.828,SiC(b) SiO2(L),direct,0.00e+00
+2275,177.828,SiC(b) SiO2(L),direct,0.00e+00
+2300,177.828,SiC(b) SiO2(L),direct,0.00e+00
+2325,177.828,SiC(b) SiO2(L),direct,0.00e+00
+2350,177.828,SiC(b) SiO2(L),direct,0.00e+00
+2375,177.828,SiC(b) SiO2(L),direct,0.00e+00
+2400,177.828,SiC(b) SiO2(L),direct,0.00e+00
+2425,177.828,SiC(b) SiO2(L),direct,0.00e+00
+2450,177.828,SiC(b) SiO2(L),direct,0.00e+00
+2475,177.828,SiC(b) SiO2(L),direct,0.00e+00
+2500,177.828,Si(L) SiC(b) SiO2(L),direct,0.00e+00
+2525,177.828,Si(L) SiC(b) SiO2(L),direct,0.00e+00
+2550,177.828,Si(L) SiC(b),enum,0.00e+00
+2575,177.828,Si(L) SiC(b),enum,0.00e+00
+2600,177.828,Si(L) SiC(b),direct,0.00e+00
+2625,177.828,Si(L) SiC(b),enum,0.00e+00
+2650,177.828,Si(L) SiC(b),enum,0.00e+00
+2675,177.828,Si(L) SiC(b),enum,0.00e+00
+2700,177.828,Si(L) SiC(b),enum,0.00e+00
+2725,177.828,Si(L) SiC(b),direct,0.00e+00
+2750,177.828,Si(L) SiC(b),direct,0.00e+00
+2775,177.828,Si(L) SiC(b),direct,0.00e+00
+2800,177.828,Si(L) SiC(b),direct,0.00e+00
+2825,177.828,Si(L) SiC(b),direct,0.00e+00
+2850,177.828,Si(L) SiC(b),direct,0.00e+00
+2875,177.828,Si(L) SiC(b),direct,0.00e+00
+2900,177.828,Si(L) SiC(b),direct,0.00e+00
+2925,177.828,Si(L) SiC(b),direct,0.00e+00
+2950,177.828,Si(L) SiC(b),direct,0.00e+00
+2975,177.828,Si(L) SiC(b),direct,0.00e+00
+3000,177.828,Si(L) SiC(b),direct,0.00e+00
+3025,177.828,Si(L) SiC(b),direct,0.00e+00
+3050,177.828,Si(L) SiC(b),direct,0.00e+00
+3075,177.828,Si(L) SiC(b),direct,0.00e+00
+3100,177.828,Si(L) SiC(b),direct,0.00e+00
+3125,177.828,Si(L) SiC(L),direct,0.00e+00
+3150,177.828,Si(L) SiC(L),direct,0.00e+00
+3175,177.828,Si(L) SiC(L),direct,0.00e+00
+3200,177.828,Si(L) SiC(L),direct,0.00e+00
+3225,177.828,Si(L) SiC(L),direct,0.00e+00
+3250,177.828,Si(L) SiC(L),direct,0.00e+00
+3275,177.828,Si(L) SiC(L),direct,0.00e+00
+3300,177.828,Si(L) SiC(L),direct,0.00e+00
+3325,177.828,Si(L) SiC(L),direct,0.00e+00
+3350,177.828,Si(L) SiC(L),direct,0.00e+00
+3375,177.828,Si(L) SiC(L),direct,0.00e+00
+3400,177.828,Si(L) SiC(L),direct,0.00e+00
+3425,177.828,C(gr) Si(L),direct,0.00e+00
+3450,177.828,C(gr) Si(L),direct,0.00e+00
+3475,177.828,C(gr) Si(L),direct,0.00e+00
+3500,177.828,C(gr) Si(L),direct,0.00e+00
+3525,177.828,C(gr) Si(L),direct,0.00e+00
+3550,177.828,C(gr) Si(L),direct,0.00e+00
+3575,177.828,C(gr) Si(L),direct,0.00e+00
+3600,177.828,C(gr) Si(L),direct,0.00e+00
+3625,177.828,C(gr) Si(L),direct,0.00e+00
+3650,177.828,C(gr) Si(L),direct,0.00e+00
+3675,177.828,C(gr) Si(L),direct,0.00e+00
+3700,177.828,C(gr) Si(L),direct,0.00e+00
+3725,177.828,C(gr) Si(L),direct,0.00e+00
+3750,177.828,C(gr) Si(L),direct,0.00e+00
+3775,177.828,C(gr) Si(L),direct,0.00e+00
+3800,177.828,C(gr) Si(L),direct,0.00e+00
+3825,177.828,C(gr) Si(L),direct,0.00e+00
+3850,177.828,C(gr) Si(L),direct,0.00e+00
+3875,177.828,C(gr) Si(L),direct,0.00e+00
+3900,177.828,C(gr) Si(L),direct,0.00e+00
+3925,177.828,C(gr) Si(L),direct,0.00e+00
+3950,177.828,C(gr) Si(L),direct,0.00e+00
+3975,177.828,C(gr) Si(L),direct,0.00e+00
+4000,177.828,C(gr) Si(L),direct,0.00e+00
+4025,177.828,C(gr) Si(L),direct,0.00e+00
+4050,177.828,C(gr) Si(L),direct,0.00e+00
+4075,177.828,C(gr) Si(L),direct,0.00e+00
+4100,177.828,C(gr) Si(L),direct,0.00e+00
+4125,177.828,C(gr) Si(L),direct,0.00e+00
+4150,177.828,C(gr) Si(L),direct,0.00e+00
+4175,177.828,C(gr) Si(L),direct,0.00e+00
+4200,177.828,C(gr) Si(L),direct,0.00e+00
+4225,177.828,Si(L),direct,0.00e+00
+4250,177.828,Si(L),direct,0.00e+00
+4275,177.828,Si(L),direct,0.00e+00
+4300,177.828,Si(L),direct,0.00e+00
+4325,177.828,Si(L),enum,0.00e+00
+4350,177.828,Si(L),direct,0.00e+00
+4375,177.828,Si(L),direct,0.00e+00
+4400,177.828,Si(L),enum,0.00e+00
+4425,177.828,Si(L),enum,0.00e+00
+4450,177.828,Si(L),enum,0.00e+00
+4475,177.828,Si(L),direct,0.00e+00
+4500,177.828,Si(L),enum,0.00e+00
+4525,177.828,Si(L),enum,0.00e+00
+4550,177.828,Si(L),direct,0.00e+00
+4575,177.828,Si(L),direct,0.00e+00
+4600,177.828,Si(L),enum,0.00e+00
+4625,177.828,Si(L),direct,0.00e+00
+4650,177.828,Si(L),direct,0.00e+00
+4675,177.828,Si(L),enum,0.00e+00
+4700,177.828,Si(L),enum,0.00e+00
+4725,177.828,Si(L),direct,0.00e+00
+4750,177.828,Si(L),direct,0.00e+00
+4775,177.828,Si(L),direct,0.00e+00
+4800,177.828,Si(L),direct,0.00e+00
+4825,177.828,Si(L),direct,0.00e+00
+4850,177.828,Si(L),direct,0.00e+00
+4875,177.828,Si(L),direct,0.00e+00
+4900,177.828,Si(L),enum,0.00e+00
+4925,177.828,-,direct,0.00e+00
+4950,177.828,-,direct,0.00e+00
+4975,177.828,-,enum,0.00e+00
+5000,177.828,-,direct,0.00e+00
+300,316.228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+325,316.228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+350,316.228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+375,316.228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+400,316.228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+425,316.228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+450,316.228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+475,316.228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+500,316.228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+525,316.228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+550,316.228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+575,316.228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+600,316.228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+625,316.228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+650,316.228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+675,316.228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+700,316.228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+725,316.228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+750,316.228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+775,316.228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+800,316.228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+825,316.228,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+850,316.228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+875,316.228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+900,316.228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+925,316.228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+950,316.228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+975,316.228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1000,316.228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1025,316.228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1050,316.228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1075,316.228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1100,316.228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1125,316.228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1150,316.228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1175,316.228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1200,316.228,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1225,316.228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1250,316.228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1275,316.228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1300,316.228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1325,316.228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1350,316.228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1375,316.228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1400,316.228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1425,316.228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1450,316.228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1475,316.228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1500,316.228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1525,316.228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1550,316.228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1575,316.228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1600,316.228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1625,316.228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1650,316.228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1675,316.228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1700,316.228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1725,316.228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1750,316.228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1775,316.228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1800,316.228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1825,316.228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1850,316.228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1875,316.228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1900,316.228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1925,316.228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1950,316.228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1975,316.228,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+2000,316.228,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2025,316.228,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2050,316.228,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2075,316.228,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2100,316.228,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2125,316.228,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2150,316.228,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2175,316.228,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2200,316.228,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2225,316.228,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2250,316.228,SiC(b) SiO2(L),direct,0.00e+00
+2275,316.228,SiC(b) SiO2(L),direct,0.00e+00
+2300,316.228,SiC(b) SiO2(L),direct,0.00e+00
+2325,316.228,SiC(b) SiO2(L),direct,0.00e+00
+2350,316.228,SiC(b) SiO2(L),direct,0.00e+00
+2375,316.228,SiC(b) SiO2(L),direct,0.00e+00
+2400,316.228,SiC(b) SiO2(L),direct,0.00e+00
+2425,316.228,SiC(b) SiO2(L),direct,0.00e+00
+2450,316.228,SiC(b) SiO2(L),direct,0.00e+00
+2475,316.228,SiC(b) SiO2(L),direct,0.00e+00
+2500,316.228,SiC(b) SiO2(L),direct,0.00e+00
+2525,316.228,SiC(b) SiO2(L),direct,0.00e+00
+2550,316.228,SiC(b) SiO2(L),direct,0.00e+00
+2575,316.228,Si(L) SiC(b) SiO2(L),direct,0.00e+00
+2600,316.228,Si(L) SiC(b) SiO2(L),direct,0.00e+00
+2625,316.228,Si(L) SiC(b),enum,0.00e+00
+2650,316.228,Si(L) SiC(b),enum,0.00e+00
+2675,316.228,Si(L) SiC(b),enum,0.00e+00
+2700,316.228,Si(L) SiC(b),enum,0.00e+00
+2725,316.228,Si(L) SiC(b),enum,0.00e+00
+2750,316.228,Si(L) SiC(b),enum,0.00e+00
+2775,316.228,Si(L) SiC(b),enum,0.00e+00
+2800,316.228,Si(L) SiC(b),direct,0.00e+00
+2825,316.228,Si(L) SiC(b),direct,0.00e+00
+2850,316.228,Si(L) SiC(b),direct,0.00e+00
+2875,316.228,Si(L) SiC(b),direct,0.00e+00
+2900,316.228,Si(L) SiC(b),direct,0.00e+00
+2925,316.228,Si(L) SiC(b),direct,0.00e+00
+2950,316.228,Si(L) SiC(b),direct,0.00e+00
+2975,316.228,Si(L) SiC(b),direct,0.00e+00
+3000,316.228,Si(L) SiC(b),direct,0.00e+00
+3025,316.228,Si(L) SiC(b),direct,0.00e+00
+3050,316.228,Si(L) SiC(b),direct,0.00e+00
+3075,316.228,Si(L) SiC(b),direct,0.00e+00
+3100,316.228,Si(L) SiC(b),direct,0.00e+00
+3125,316.228,Si(L) SiC(L),direct,0.00e+00
+3150,316.228,Si(L) SiC(L),direct,0.00e+00
+3175,316.228,Si(L) SiC(L),direct,0.00e+00
+3200,316.228,Si(L) SiC(L),direct,0.00e+00
+3225,316.228,Si(L) SiC(L),direct,0.00e+00
+3250,316.228,Si(L) SiC(L),direct,0.00e+00
+3275,316.228,Si(L) SiC(L),direct,0.00e+00
+3300,316.228,Si(L) SiC(L),direct,0.00e+00
+3325,316.228,Si(L) SiC(L),direct,0.00e+00
+3350,316.228,Si(L) SiC(L),direct,0.00e+00
+3375,316.228,Si(L) SiC(L),direct,0.00e+00
+3400,316.228,Si(L) SiC(L),direct,0.00e+00
+3425,316.228,C(gr) Si(L),direct,0.00e+00
+3450,316.228,C(gr) Si(L),direct,0.00e+00
+3475,316.228,C(gr) Si(L),direct,0.00e+00
+3500,316.228,C(gr) Si(L),direct,0.00e+00
+3525,316.228,C(gr) Si(L),direct,0.00e+00
+3550,316.228,C(gr) Si(L),direct,0.00e+00
+3575,316.228,C(gr) Si(L),direct,0.00e+00
+3600,316.228,C(gr) Si(L),direct,0.00e+00
+3625,316.228,C(gr) Si(L),direct,0.00e+00
+3650,316.228,C(gr) Si(L),direct,0.00e+00
+3675,316.228,C(gr) Si(L),direct,0.00e+00
+3700,316.228,C(gr) Si(L),direct,0.00e+00
+3725,316.228,C(gr) Si(L),direct,0.00e+00
+3750,316.228,C(gr) Si(L),direct,0.00e+00
+3775,316.228,C(gr) Si(L),direct,0.00e+00
+3800,316.228,C(gr) Si(L),direct,0.00e+00
+3825,316.228,C(gr) Si(L),direct,0.00e+00
+3850,316.228,C(gr) Si(L),direct,0.00e+00
+3875,316.228,C(gr) Si(L),direct,0.00e+00
+3900,316.228,C(gr) Si(L),direct,0.00e+00
+3925,316.228,C(gr) Si(L),direct,0.00e+00
+3950,316.228,C(gr) Si(L),direct,0.00e+00
+3975,316.228,C(gr) Si(L),direct,0.00e+00
+4000,316.228,C(gr) Si(L),direct,0.00e+00
+4025,316.228,C(gr) Si(L),direct,0.00e+00
+4050,316.228,C(gr) Si(L),direct,0.00e+00
+4075,316.228,C(gr) Si(L),direct,0.00e+00
+4100,316.228,C(gr) Si(L),direct,0.00e+00
+4125,316.228,C(gr) Si(L),direct,0.00e+00
+4150,316.228,C(gr) Si(L),direct,0.00e+00
+4175,316.228,C(gr) Si(L),direct,0.00e+00
+4200,316.228,C(gr) Si(L),direct,0.00e+00
+4225,316.228,C(gr) Si(L),direct,0.00e+00
+4250,316.228,C(gr) Si(L),direct,0.00e+00
+4275,316.228,C(gr) Si(L),direct,0.00e+00
+4300,316.228,C(gr) Si(L),direct,0.00e+00
+4325,316.228,C(gr) Si(L),direct,0.00e+00
+4350,316.228,C(gr) Si(L),direct,0.00e+00
+4375,316.228,C(gr) Si(L),direct,0.00e+00
+4400,316.228,Si(L),direct,0.00e+00
+4425,316.228,Si(L),direct,0.00e+00
+4450,316.228,Si(L),enum,0.00e+00
+4475,316.228,Si(L),direct,0.00e+00
+4500,316.228,Si(L),enum,0.00e+00
+4525,316.228,Si(L),direct,0.00e+00
+4550,316.228,Si(L),enum,0.00e+00
+4575,316.228,Si(L),direct,0.00e+00
+4600,316.228,Si(L),direct,0.00e+00
+4625,316.228,Si(L),direct,0.00e+00
+4650,316.228,Si(L),direct,0.00e+00
+4675,316.228,Si(L),direct,0.00e+00
+4700,316.228,Si(L),enum,0.00e+00
+4725,316.228,Si(L),enum,0.00e+00
+4750,316.228,Si(L),enum,0.00e+00
+4775,316.228,Si(L),enum,0.00e+00
+4800,316.228,Si(L),direct,0.00e+00
+4825,316.228,Si(L),direct,0.00e+00
+4850,316.228,Si(L),direct,0.00e+00
+4875,316.228,Si(L),direct,0.00e+00
+4900,316.228,Si(L),enum,0.00e+00
+4925,316.228,Si(L),direct,0.00e+00
+4950,316.228,Si(L),direct,0.00e+00
+4975,316.228,Si(L),direct,0.00e+00
+5000,316.228,Si(L),direct,0.00e+00
+300,562.341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+325,562.341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+350,562.341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+375,562.341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+400,562.341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+425,562.341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+450,562.341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+475,562.341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+500,562.341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+525,562.341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+550,562.341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+575,562.341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+600,562.341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+625,562.341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+650,562.341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+675,562.341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+700,562.341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+725,562.341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+750,562.341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+775,562.341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+800,562.341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+825,562.341,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+850,562.341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+875,562.341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+900,562.341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+925,562.341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+950,562.341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+975,562.341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1000,562.341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1025,562.341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1050,562.341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1075,562.341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1100,562.341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1125,562.341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1150,562.341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1175,562.341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1200,562.341,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1225,562.341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1250,562.341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1275,562.341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1300,562.341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1325,562.341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1350,562.341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1375,562.341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1400,562.341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1425,562.341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1450,562.341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1475,562.341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1500,562.341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1525,562.341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1550,562.341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1575,562.341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1600,562.341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1625,562.341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1650,562.341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1675,562.341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1700,562.341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1725,562.341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1750,562.341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1775,562.341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1800,562.341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1825,562.341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1850,562.341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1875,562.341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1900,562.341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1925,562.341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1950,562.341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1975,562.341,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+2000,562.341,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2025,562.341,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2050,562.341,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2075,562.341,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2100,562.341,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2125,562.341,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2150,562.341,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2175,562.341,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2200,562.341,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2225,562.341,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2250,562.341,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2275,562.341,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2300,562.341,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2325,562.341,SiC(b) SiO2(L),direct,0.00e+00
+2350,562.341,SiC(b) SiO2(L),direct,0.00e+00
+2375,562.341,SiC(b) SiO2(L),direct,0.00e+00
+2400,562.341,SiC(b) SiO2(L),direct,0.00e+00
+2425,562.341,SiC(b) SiO2(L),direct,0.00e+00
+2450,562.341,SiC(b) SiO2(L),direct,0.00e+00
+2475,562.341,SiC(b) SiO2(L),direct,0.00e+00
+2500,562.341,SiC(b) SiO2(L),direct,0.00e+00
+2525,562.341,SiC(b) SiO2(L),direct,0.00e+00
+2550,562.341,SiC(b) SiO2(L),direct,0.00e+00
+2575,562.341,SiC(b) SiO2(L),direct,0.00e+00
+2600,562.341,SiC(b) SiO2(L),direct,0.00e+00
+2625,562.341,Si(L) SiC(b) SiO2(L),assemblage,0.00e+00
+2650,562.341,Si(L) SiC(b) SiO2(L),assemblage,0.00e+00
+2675,562.341,Si(L) SiC(b) SiO2(L),direct,0.00e+00
+2700,562.341,Si(L) SiC(b) SiO2(L),direct,0.00e+00
+2725,562.341,Si(L) SiC(b),enum,0.00e+00
+2750,562.341,Si(L) SiC(b),enum,0.00e+00
+2775,562.341,Si(L) SiC(b),enum,0.00e+00
+2800,562.341,Si(L) SiC(b),enum,0.00e+00
+2825,562.341,Si(L) SiC(b),enum,0.00e+00
+2850,562.341,Si(L) SiC(b),enum,0.00e+00
+2875,562.341,Si(L) SiC(b),enum,0.00e+00
+2900,562.341,Si(L) SiC(b),direct,0.00e+00
+2925,562.341,Si(L) SiC(b),direct,0.00e+00
+2950,562.341,Si(L) SiC(b),direct,0.00e+00
+2975,562.341,Si(L) SiC(b),direct,0.00e+00
+3000,562.341,Si(L) SiC(b),direct,0.00e+00
+3025,562.341,Si(L) SiC(b),direct,0.00e+00
+3050,562.341,Si(L) SiC(b),direct,0.00e+00
+3075,562.341,Si(L) SiC(b),direct,0.00e+00
+3100,562.341,Si(L) SiC(b),direct,0.00e+00
+3125,562.341,Si(L) SiC(L),direct,0.00e+00
+3150,562.341,Si(L) SiC(L),direct,0.00e+00
+3175,562.341,Si(L) SiC(L),direct,0.00e+00
+3200,562.341,Si(L) SiC(L),direct,0.00e+00
+3225,562.341,Si(L) SiC(L),direct,0.00e+00
+3250,562.341,Si(L) SiC(L),direct,0.00e+00
+3275,562.341,Si(L) SiC(L),direct,0.00e+00
+3300,562.341,Si(L) SiC(L),direct,0.00e+00
+3325,562.341,Si(L) SiC(L),direct,0.00e+00
+3350,562.341,Si(L) SiC(L),direct,0.00e+00
+3375,562.341,Si(L) SiC(L),direct,0.00e+00
+3400,562.341,Si(L) SiC(L),direct,0.00e+00
+3425,562.341,C(gr) Si(L),direct,0.00e+00
+3450,562.341,C(gr) Si(L),direct,0.00e+00
+3475,562.341,C(gr) Si(L),direct,0.00e+00
+3500,562.341,C(gr) Si(L),direct,0.00e+00
+3525,562.341,C(gr) Si(L),direct,0.00e+00
+3550,562.341,C(gr) Si(L),direct,0.00e+00
+3575,562.341,C(gr) Si(L),direct,0.00e+00
+3600,562.341,C(gr) Si(L),direct,0.00e+00
+3625,562.341,C(gr) Si(L),direct,0.00e+00
+3650,562.341,C(gr) Si(L),direct,0.00e+00
+3675,562.341,C(gr) Si(L),direct,0.00e+00
+3700,562.341,C(gr) Si(L),direct,0.00e+00
+3725,562.341,C(gr) Si(L),direct,0.00e+00
+3750,562.341,C(gr) Si(L),direct,0.00e+00
+3775,562.341,C(gr) Si(L),direct,0.00e+00
+3800,562.341,C(gr) Si(L),direct,0.00e+00
+3825,562.341,C(gr) Si(L),direct,0.00e+00
+3850,562.341,C(gr) Si(L),direct,0.00e+00
+3875,562.341,C(gr) Si(L),direct,0.00e+00
+3900,562.341,C(gr) Si(L),direct,0.00e+00
+3925,562.341,C(gr) Si(L),direct,0.00e+00
+3950,562.341,C(gr) Si(L),direct,0.00e+00
+3975,562.341,C(gr) Si(L),direct,0.00e+00
+4000,562.341,C(gr) Si(L),direct,0.00e+00
+4025,562.341,C(gr) Si(L),direct,0.00e+00
+4050,562.341,C(gr) Si(L),direct,0.00e+00
+4075,562.341,C(gr) Si(L),direct,0.00e+00
+4100,562.341,C(gr) Si(L),direct,0.00e+00
+4125,562.341,C(gr) Si(L),direct,0.00e+00
+4150,562.341,C(gr) Si(L),direct,0.00e+00
+4175,562.341,C(gr) Si(L),direct,0.00e+00
+4200,562.341,C(gr) Si(L),direct,0.00e+00
+4225,562.341,C(gr) Si(L),direct,0.00e+00
+4250,562.341,C(gr) Si(L),direct,0.00e+00
+4275,562.341,C(gr) Si(L),direct,0.00e+00
+4300,562.341,C(gr) Si(L),direct,0.00e+00
+4325,562.341,C(gr) Si(L),direct,0.00e+00
+4350,562.341,C(gr) Si(L),direct,0.00e+00
+4375,562.341,C(gr) Si(L),direct,0.00e+00
+4400,562.341,C(gr) Si(L),direct,0.00e+00
+4425,562.341,C(gr) Si(L),direct,0.00e+00
+4450,562.341,C(gr) Si(L),direct,0.00e+00
+4475,562.341,C(gr) Si(L),direct,0.00e+00
+4500,562.341,C(gr) Si(L),direct,0.00e+00
+4525,562.341,C(gr) Si(L),direct,0.00e+00
+4550,562.341,C(gr) Si(L),direct,0.00e+00
+4575,562.341,Si(L),direct,0.00e+00
+4600,562.341,Si(L),direct,0.00e+00
+4625,562.341,Si(L),direct,0.00e+00
+4650,562.341,Si(L),enum,0.00e+00
+4675,562.341,Si(L),direct,0.00e+00
+4700,562.341,Si(L),direct,0.00e+00
+4725,562.341,Si(L),enum,0.00e+00
+4750,562.341,Si(L),direct,0.00e+00
+4775,562.341,Si(L),enum,0.00e+00
+4800,562.341,Si(L),direct,0.00e+00
+4825,562.341,Si(L),direct,0.00e+00
+4850,562.341,Si(L),enum,0.00e+00
+4875,562.341,Si(L),enum,0.00e+00
+4900,562.341,Si(L),enum,0.00e+00
+4925,562.341,Si(L),direct,0.00e+00
+4950,562.341,Si(L),direct,0.00e+00
+4975,562.341,Si(L),direct,0.00e+00
+5000,562.341,Si(L),direct,0.00e+00
+300,1000,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+325,1000,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+350,1000,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+375,1000,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+400,1000,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+425,1000,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+450,1000,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+475,1000,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+500,1000,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+525,1000,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+550,1000,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+575,1000,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+600,1000,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+625,1000,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+650,1000,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+675,1000,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+700,1000,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+725,1000,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+750,1000,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+775,1000,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+800,1000,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+825,1000,C(gr) SiC(b) SiO2(a-qz),direct,0.00e+00
+850,1000,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+875,1000,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+900,1000,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+925,1000,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+950,1000,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+975,1000,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1000,1000,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1025,1000,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1050,1000,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1075,1000,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1100,1000,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1125,1000,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1150,1000,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1175,1000,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1200,1000,C(gr) SiC(b) SiO2(b-qz),direct,0.00e+00
+1225,1000,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1250,1000,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1275,1000,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1300,1000,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1325,1000,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1350,1000,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1375,1000,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1400,1000,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1425,1000,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1450,1000,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1475,1000,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1500,1000,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1525,1000,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1550,1000,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1575,1000,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1600,1000,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1625,1000,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1650,1000,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1675,1000,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1700,1000,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1725,1000,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1750,1000,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1775,1000,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1800,1000,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1825,1000,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1850,1000,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1875,1000,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1900,1000,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1925,1000,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1950,1000,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+1975,1000,C(gr) SiC(b) SiO2(b-crt),direct,0.00e+00
+2000,1000,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2025,1000,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2050,1000,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2075,1000,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2100,1000,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2125,1000,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2150,1000,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2175,1000,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2200,1000,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2225,1000,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2250,1000,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2275,1000,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2300,1000,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2325,1000,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2350,1000,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2375,1000,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2400,1000,C(gr) SiC(b) SiO2(L),direct,0.00e+00
+2425,1000,SiC(b) SiO2(L),direct,0.00e+00
+2450,1000,SiC(b) SiO2(L),direct,0.00e+00
+2475,1000,SiC(b) SiO2(L),direct,0.00e+00
+2500,1000,SiC(b) SiO2(L),direct,0.00e+00
+2525,1000,SiC(b) SiO2(L),direct,0.00e+00
+2550,1000,SiC(b) SiO2(L),direct,0.00e+00
+2575,1000,SiC(b) SiO2(L),direct,0.00e+00
+2600,1000,SiC(b) SiO2(L),direct,0.00e+00
+2625,1000,SiC(b) SiO2(L),direct,0.00e+00
+2650,1000,SiC(b) SiO2(L),direct,0.00e+00
+2675,1000,SiC(b) SiO2(L),direct,0.00e+00
+2700,1000,Si(L) SiC(b) SiO2(L),assemblage,0.00e+00
+2725,1000,Si(L) SiC(b) SiO2(L),assemblage,0.00e+00
+2750,1000,Si(L) SiC(b) SiO2(L),direct,0.00e+00
+2775,1000,Si(L) SiC(b) SiO2(L),direct,0.00e+00
+2800,1000,Si(L) SiC(b),enum,0.00e+00
+2825,1000,Si(L) SiC(b),enum,0.00e+00
+2850,1000,Si(L) SiC(b),enum,0.00e+00
+2875,1000,Si(L) SiC(b),enum,0.00e+00
+2900,1000,Si(L) SiC(b),enum,0.00e+00
+2925,1000,Si(L) SiC(b),enum,0.00e+00
+2950,1000,Si(L) SiC(b),enum,0.00e+00
+2975,1000,Si(L) SiC(b),direct,0.00e+00
+3000,1000,Si(L) SiC(b),direct,0.00e+00
+3025,1000,Si(L) SiC(b),direct,0.00e+00
+3050,1000,Si(L) SiC(b),direct,0.00e+00
+3075,1000,Si(L) SiC(b),direct,0.00e+00
+3100,1000,Si(L) SiC(b),direct,0.00e+00
+3125,1000,Si(L) SiC(L),direct,0.00e+00
+3150,1000,Si(L) SiC(L),direct,0.00e+00
+3175,1000,Si(L) SiC(L),direct,0.00e+00
+3200,1000,Si(L) SiC(L),direct,0.00e+00
+3225,1000,Si(L) SiC(L),direct,0.00e+00
+3250,1000,Si(L) SiC(L),direct,0.00e+00
+3275,1000,Si(L) SiC(L),direct,0.00e+00
+3300,1000,Si(L) SiC(L),direct,0.00e+00
+3325,1000,Si(L) SiC(L),direct,0.00e+00
+3350,1000,Si(L) SiC(L),direct,0.00e+00
+3375,1000,Si(L) SiC(L),direct,0.00e+00
+3400,1000,Si(L) SiC(L),direct,0.00e+00
+3425,1000,C(gr) Si(L),direct,0.00e+00
+3450,1000,C(gr) Si(L),direct,0.00e+00
+3475,1000,C(gr) Si(L),direct,0.00e+00
+3500,1000,C(gr) Si(L),direct,0.00e+00
+3525,1000,C(gr) Si(L),direct,0.00e+00
+3550,1000,C(gr) Si(L),direct,0.00e+00
+3575,1000,C(gr) Si(L),direct,0.00e+00
+3600,1000,C(gr) Si(L),direct,0.00e+00
+3625,1000,C(gr) Si(L),direct,0.00e+00
+3650,1000,C(gr) Si(L),direct,0.00e+00
+3675,1000,C(gr) Si(L),direct,0.00e+00
+3700,1000,C(gr) Si(L),direct,0.00e+00
+3725,1000,C(gr) Si(L),direct,0.00e+00
+3750,1000,C(gr) Si(L),direct,0.00e+00
+3775,1000,C(gr) Si(L),direct,0.00e+00
+3800,1000,C(gr) Si(L),direct,0.00e+00
+3825,1000,C(gr) Si(L),direct,0.00e+00
+3850,1000,C(gr) Si(L),direct,0.00e+00
+3875,1000,C(gr) Si(L),direct,0.00e+00
+3900,1000,C(gr) Si(L),direct,0.00e+00
+3925,1000,C(gr) Si(L),direct,0.00e+00
+3950,1000,C(gr) Si(L),direct,0.00e+00
+3975,1000,C(gr) Si(L),direct,0.00e+00
+4000,1000,C(gr) Si(L),direct,0.00e+00
+4025,1000,C(gr) Si(L),direct,0.00e+00
+4050,1000,C(gr) Si(L),direct,0.00e+00
+4075,1000,C(gr) Si(L),direct,0.00e+00
+4100,1000,C(gr) Si(L),direct,0.00e+00
+4125,1000,C(gr) Si(L),direct,0.00e+00
+4150,1000,C(gr) Si(L),direct,0.00e+00
+4175,1000,C(gr) Si(L),direct,0.00e+00
+4200,1000,C(gr) Si(L),direct,0.00e+00
+4225,1000,C(gr) Si(L),direct,0.00e+00
+4250,1000,C(gr) Si(L),direct,0.00e+00
+4275,1000,C(gr) Si(L),direct,0.00e+00
+4300,1000,C(gr) Si(L),direct,0.00e+00
+4325,1000,C(gr) Si(L),direct,0.00e+00
+4350,1000,C(gr) Si(L),direct,0.00e+00
+4375,1000,C(gr) Si(L),direct,0.00e+00
+4400,1000,C(gr) Si(L),direct,0.00e+00
+4425,1000,C(gr) Si(L),direct,0.00e+00
+4450,1000,C(gr) Si(L),direct,0.00e+00
+4475,1000,C(gr) Si(L),direct,0.00e+00
+4500,1000,C(gr) Si(L),direct,0.00e+00
+4525,1000,C(gr) Si(L),direct,0.00e+00
+4550,1000,C(gr) Si(L),direct,0.00e+00
+4575,1000,C(gr) Si(L),direct,0.00e+00
+4600,1000,C(gr) Si(L),direct,0.00e+00
+4625,1000,C(gr) Si(L),direct,0.00e+00
+4650,1000,C(gr) Si(L),direct,0.00e+00
+4675,1000,C(gr) Si(L),direct,0.00e+00
+4700,1000,C(gr) Si(L),direct,0.00e+00
+4725,1000,C(gr) Si(L),direct,0.00e+00
+4750,1000,C(gr) Si(L),direct,0.00e+00
+4775,1000,Si(L),direct,0.00e+00
+4800,1000,Si(L),direct,0.00e+00
+4825,1000,Si(L),direct,0.00e+00
+4850,1000,Si(L),enum,0.00e+00
+4875,1000,Si(L),enum,0.00e+00
+4900,1000,Si(L),enum,0.00e+00
+4925,1000,Si(L),enum,0.00e+00
+4950,1000,Si(L),direct,0.00e+00
+4975,1000,Si(L),direct,0.00e+00
+5000,1000,Si(L),enum,0.00e+00
