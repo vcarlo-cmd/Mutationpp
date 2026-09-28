@@ -114,6 +114,7 @@ en profondeur (h_g − h_s). 25 isobares de 10⁻³ à 10³ atm, T de 200 à 400
 | `cork_bprime_steady_state.csv` | point de fonctionnement stationnaire : `Bc_ss`, `Bg_ss`, `hw_ss`, `Bc_Bg0`, `B'c/ρc` |
 | `cork_pyrolysis_gas.csv` / `.png` | h_g, M, Cp, γ, ρ, μ du gaz de pyrolyse |
 | `cork_pyrolysis_gas_enthalpy.png` | zoom sur h_g et sa sensibilité à la pression |
+| `cork_seul_bprime_bc_table.csv` / `_steady_state.csv` | liège **sans résine**, rendement char imposé à 20 % (`cork_seul_bprime.py`, `corkpure-air.xml`) — cas de comparaison, cf. `../oak_bprime/comparaison_chene_liege.md` |
 
 Voir `../tacot_bprime/` (TACOT et mécanique générale du XML),
 `../cph70_bprime/` et `../zuram_bprime/` pour les carbone/phénolique.

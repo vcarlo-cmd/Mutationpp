@@ -1,0 +1,30 @@
+<!-- ===================================================================== -->
+<!-- Liège SEUL (sans résine) en ablation dans l'air — cas de comparaison. -->
+<!--                                                                       -->
+<!--   liège 100 % (C 62.4 / H 8.5 / O 28.4 % masse, même analyse que     -->
+<!--   cork-air.xml), rendement en char IMPOSÉ à 20 % — le même que le     -->
+<!--   composite P50 et que le chêne, pour isoler l'effet de la chimie     -->
+<!--   du gaz. (Le rendement déduit de la TGA du P50 serait 12.5 %.)       -->
+<!--                                                                       -->
+<!--   Fermeture élémentaire sur 100 g : 20 g char (C) + 80 g gaz          -->
+<!--   gaz : C:0.258, H:0.613, O:0.129   (O/C = 0.50)  <- `corkpure_pyro`  -->
+<!--   k = B'g/B'c = (1 - y)/y = 4.0                                       -->
+<!--                                                                       -->
+<!-- Calcul : cork_pyrolysis_data.composite_balance(w_cork=1, w_resin=0,   -->
+<!-- cork_char_yield=0.20). Même liste d'espèces que cork-air.xml.         -->
+<!-- Voir cork_bprime/cork_seul_bprime.py.                                 -->
+<!-- ===================================================================== -->
+<mixture thermo_db="NASA-9">
+
+    <species>
+       C H O N CH4 CN CO CO2 C2 C2H C2H2,acetylene C3 C4 C4H2,butadiyne C5
+       HCN H2 H2O N2 CH2OH CNN CNC CNCOCN C6H6 HNC C(gr)
+    </species>
+
+    <element_compositions default="air">
+        <composition name="air">N:0.79, O:0.21</composition>
+        <composition name="corkpure_pyro">C:0.2576, H:0.6133, O:0.1291</composition>
+        <composition name="corkpure_char">C:1.0</composition>
+    </element_compositions>
+
+</mixture>
