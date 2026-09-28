@@ -120,6 +120,7 @@ est dominé par H₂O et CO₂, très stables.
 | `oak_bprime_steady_state.csv` | point de fonctionnement stationnaire : `Bc_ss`, `Bg_ss`, `hw_ss`, `Bc_Bg0`, `B'c/ρc` |
 | `oak_pyrolysis_gas.csv` / `.png` | h_g, M, Cp, γ, ρ, μ du gaz de pyrolyse |
 | `oak_pyrolysis_gas_enthalpy.png` | zoom sur h_g et sa sensibilité à la pression |
+| `comparaison_chene_liege.{md,py,csv,png}` | comparaison avec le liège/phénolique P50 (rendement char 20 % pour les deux) |
 
 Voir `../cork_bprime/` (liège/phénolique, même trame) et `../tacot_bprime/`
 (mécanique générale du XML).

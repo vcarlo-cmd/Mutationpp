@@ -1,119 +1,123 @@
-# Chêne vs liège/phénolique — comparaison des tables B'
+# Chêne vs liège/phénolique P50 — comparaison des tables B'
 
-Comparaison de la table B' du bois de chêne (`oak_bprime/`) à celle du
-liège/phénolique 80/20 (`../cork_bprime/`), et question annexe : quel est
-l'intérêt d'ajouter ~20 % de résine phénolique au liège ?
+Comparaison de la table B' du bois de chêne (`oak_bprime/`) avec celle du
+liège/phénolique **P50 telle que déjà calculée** (`../cork_bprime/`).
+Hypothèse commune : **rendement en char 20 %** pour les deux matériaux.
+
+Tous les chiffres ci-dessous sont relus dans les CSV versionnés par
+`comparaison_chene_liege.py`, sans nouveau calcul d'équilibre :
+
+```bash
+python comparaison_chene_liege.py   # tableaux + comparaison_chene_liege.{csv,png}
+```
 
 ---
 
-## 1. Ce que les deux matériaux ont en commun
+## 1. Même rendement en char, même k
 
 | | chêne | liège/phénolique P50 |
 |---|---|---|
-| rendement en char | 20 % | 20 % |
+| rendement en char | **20 %** (donnée de l'énoncé) | **20 %** (TGA P50, argon) |
+| bilan sur 100 g vierge | 20 g char + 80 g gaz | 20 g char + 80 g gaz |
 | k = B'g/B'c = (1−y)/y | **4,0** | **4,0** |
 | char | C:1.0 | C:1.0 |
+| bord de couche limite | air N:0,79 O:0,21 | air N:0,79 O:0,21 |
 | mélange paroi | 25 espèces + C(gr) | même liste d'espèces |
+| ρ vierge | 700 kg/m³ (ordre de grandeur) | 465,6 kg/m³ (mesurée) |
 
-- **Char et air identiques** ⇒ à B'g = 0 les deux tables B' **coïncident
-  exactement** : B'c = 0,0874 à 300 K (limite C + O₂ → CO₂), plateau à 0,175
-  de 1500 à 2500 K, sublimation vers 3500-4000 K.
-- **Même k = 4** : les deux matériaux gardent 20 % de leur masse en char et
-  produisent 4 g de gaz par gramme de char.
+- **Char et air identiques** : à B'g = 0 les deux tables **coïncident
+  exactement** (B'c = 0,0874 à 300 K, limite C + O₂ → CO₂ ; plateau à 0,175
+  de 1500 à 2500 K ; sublimation vers 3500-4000 K).
+- **Même k = 4** : pour chaque gramme de char consommé en paroi, les deux
+  matériaux soufflent 4 g de gaz de pyrolyse.
 
-La seule différence entre les deux tables vient donc de la **composition du
-gaz de pyrolyse**, pas de la quantité de gaz produite.
+À rendement en char égal, **la seule différence entre les deux tables est la
+composition du gaz de pyrolyse**.
 
-## 2. Ce qui diffère : la chimie du gaz de pyrolyse
+## 2. La chimie du gaz de pyrolyse
 
-| Gaz de pyrolyse | C | H | O | O/C |
+| gaz de pyrolyse | C | H | O | O/C |
 |---|---|---|---|---|
-| liège/phénolique P50 (`cork_pyro`) | 0,287 | 0,592 | 0,121 | **0,42** |
 | chêne (`oak_pyro`) | 0,221 | 0,536 | 0,243 | **1,10** |
+| liège/phénolique P50 (`cork_pyro`) | 0,287 | 0,592 | 0,121 | **0,42** |
 
-- **Le gaz du liège manque d'oxygène** : il ne peut pas oxyder le char et
-  dilue seulement l'oxygène de l'air. Le soufflage **protège** le char : à
-  1 atm, B'c tombe à 0 dès B'g ≈ 2, et ce jusqu'à 3000 K.
-- **Le gaz du chêne a de l'oxygène en excès** (H₂O, CO₂ dominants) : il
-  **oxyde** le char au-dessus de ~1100 K. Le soufflage **augmente** B'c au
-  lieu de le faire baisser — comportement inverse du liège.
+- **Gaz du liège P50 pauvre en oxygène** (O/C = 0,42) : il ne peut pas
+  oxyder le char et dilue l'oxygène de l'air. Le soufflage **protège** le
+  char.
+- **Gaz du chêne riche en oxygène** (O/C = 1,10, H₂O et CO₂ dominants) : au-
+  dessus de ~1100 K il **oxyde** le char. Le soufflage **augmente** B'c.
 
-Effet à 1 atm (voir `oak_bprime_bg_comparison.png` / `cork_bprime_bg0p5.png`,
-et la figure combinée `chene_vs_liege_bprime.png`) :
+B'c à 1 atm, B'g imposé (chêne / liège P50) :
 
-| T [K] | B'c(0) | B'c(B'g=5), chêne | B'c(B'g=5), liège |
+| T [K] | B'g = 0 | B'g = 0,5 | B'g = 2 | B'g = 5 |
+|---|---|---|---|---|
+| 1000 | 0,154 / 0,154 | 0,128 / 0,000 | 0,056 / 0 | 0 / 0 |
+| 1500 | 0,175 / 0,175 | 0,194 / 0,009 | 0,250 / 0 | 0,363 / 0 |
+| 2000 | 0,175 / 0,175 | 0,199 / 0,014 | 0,260 / 0 | 0,380 / 0 |
+| 2500 | 0,175 / 0,175 | 0,220 / 0,040 | 0,313 / 0 | 0,478 / 0 |
+| 3000 | 0,177 / 0,177 | 0,274 / 0,105 | 0,463 / 0 | 0,791 / 0 |
+
+Pour le liège P50, B'c est nul dès B'g = 2 jusqu'à ~3300 K ; pour le chêne,
+il est multiplié par 2 à 4,5 à B'g = 5 selon la température.
+
+## 3. Point de fonctionnement stationnaire (B'g = 4·B'c, 1 atm)
+
+| T [K] | B'c chêne | B'c liège P50 | B'g chêne | B'g liège P50 | rapport B'c |
+|---|---|---|---|---|---|
+| 1000 | 0,127 | 0,060 | 0,51 | 0,24 | ×2,1 |
+| 1500 | 0,206 | 0,075 | 0,82 | 0,30 | ×2,7 |
+| 2000 | 0,214 | 0,077 | 0,85 | 0,31 | ×2,8 |
+| 2500 | 0,254 | 0,086 | 1,02 | 0,34 | ×3,0 |
+| 3000 | 0,431 | 0,114 | 1,72 | 0,46 | ×3,8 |
+
+Référence sans pyrolyse (B'g = 0) : 0,154 / 0,175 / 0,177 à 1000 / 2000 /
+3000 K. Le soufflage du liège P50 **divise B'c par 2,6 à 1000 K, 2,3 à
+2000 K et 1,6 à 3000 K** ; celui du chêne le réduit encore un peu à 1000 K
+(−17 %) mais **l'augmente de 22 % à 2000 K et le multiplie par 2,4 à
+3000 K**.
+
+**Perte de masse.** k étant le même, la perte de masse totale
+ṁ/ṁe = (1+k)·B'c est dans le même rapport que B'c : le chêne perd
+**2,8 fois plus de masse à 2000 K et 3,8 fois plus à 3000 K**. Ce rapport ne
+dépend d'aucune masse volumique.
+
+**Récession.** En régime stationnaire, le front recule de
+ṡ/ṁe = (1+k)·B'c/ρ_v :
+
+| T [K] | chêne (ρ_v = 700) | liège P50 (ρ_v = 465,6) | rapport |
 |---|---|---|---|
-| 1000 | 0,154 | 0 | 0 |
-| 2000 | 0,175 | 0,380 | 0 |
-| 3000 | 0,177 | 0,791 | 0,020 |
+| 1000 | 0,91 | 0,64 | ×1,4 |
+| 2000 | 1,53 | 0,83 | ×1,8 |
+| 3000 | 3,08 | 1,22 | ×2,5 |
 
-## 3. Point de fonctionnement stationnaire (1 atm)
+(unités : 10⁻³ m³/kg). La masse volumique plus élevée du chêne compense en
+partie : il récède **1,8 fois plus vite à 2000 K et 2,5 fois plus vite à
+3000 K**. Ce rapport hérite de l'incertitude sur ρ_v du chêne (700 kg/m³,
+ordre de grandeur) ; celui sur la perte de masse, non.
 
-| T [K] | B'c chêne | B'c liège P50 | rapport |
-|---|---|---|---|
-| 1000 | 0,127 | 0,060 | ×2,1 |
-| 2000 | 0,213 | 0,077 | ×2,8 |
-| 3000 | 0,430 | 0,114 | ×3,8 |
+> La colonne `recession_over_mdote_m3_per_kg` des CSV de chaque matériau
+> vaut B'c/ρ_c (vitesse de consommation du seul char, avec ρ_c = 255 kg/m³
+> supposée pour le chêne et 289,1 kg/m³ mesurée pour le P50). Ce n'est pas
+> la grandeur utilisée ici.
 
-Récession estimée ṡ/ṁe = (1+k)·B'c/ρ_v (ρ_v = 700 kg/m³ pour le chêne,
-465,6 kg/m³ pour le liège P50, mesurée) : le chêne récède environ **1,8 fois
-plus vite à 2000 K et 2,5 fois plus vite à 3000 K**, malgré une masse
-volumique plus élevée. Pour la même quantité de gaz produite, le liège
-ablate nettement mieux, parce que la chimie de son gaz protège le char au
-lieu de l'attaquer.
+Au-delà de ~3200 K à 1 atm, le point stationnaire du chêne sort de la table
+(B'g_ss atteint 10 à 3400 K) : la comparaison s'arrête à 3000 K.
 
----
+## 4. Conclusion
 
-## 4. Intérêt de la résine (~20 %) dans le liège/phénolique
-
-Comparaison, à rendement en char du liège fixé (12,5 %), entre le liège seul
-et le composite 80 % liège / 20 % résine (P50) :
-
-| | liège seul | liège + 20 % résine (P50) |
-|---|---|---|
-| gaz de pyrolyse | C:0,290 H:0,587 O:0,124 | C:0,287 H:0,592 O:0,121 |
-| rendement en char du composite | 12,5 % | **20 %** |
-| k = B'g/B'c | **7** | 4 |
-| B'c stationnaire, 1 atm, 2000 / 3000 K | 0,054 / 0,086 | 0,077 / 0,114 |
-| (1+k)·B'c/ρ_v, 2000 / 3000 K [10⁻³ m³/kg] | 1,16 / 1,85 * | **0,83 / 1,22** |
-
-\* ρ_v du liège seul supposée = 0,8 × 465,6 = 372 kg/m³ (hypothèse : le
-volume ne change pas quand on retire la résine — pas une mesure).
-
-**La résine ne change presque pas la chimie du gaz** — les deux gaz ont le
-même O/C (0,42-0,43) et les tables B'c(T, B'g) coïncident à 0,001 près. Son
-effet porte sur la **quantité de char produite** :
-
-1. **Plus de char, moins de récession.** La résine laisse 50 % de char
-   contre 12,5 % pour le liège seul. Le rendement composite passe de 12,5 %
-   à 20 %, k de 7 à 4 : environ −30 % de récession à 2000 K et −35 % à
-   3000 K, malgré un B'c stationnaire plus élevé (moins de soufflage
-   protecteur).
-2. **Tenue mécanique du char** (hors modèle B'). Le char de liège seul est
-   pulvérulent (cellules effondrées). La résine forme un squelette carboné
-   continu qui lie les granulés et résiste au cisaillement de l'écoulement —
-   sans elle, risque d'érosion mécanique / écaillage non capturé par la
-   thermochimie de surface.
-3. **Coût.** Matériau plus dense, plus conducteur, soufflage moins fort
-   (k = 4 au lieu de 7) : la résine échange un peu d'isolation contre la
-   tenue du char.
-
-**Conclusion** : 20 % de résine ne modifie pas la chimie de paroi (même O/C
-du gaz), mais transforme le liège — bon isolant qui se désagrège — en
-ablateur au char cohérent, avec moins de récession.
+À rendement en char égal (20 %) et donc à soufflage égal (k = 4), le liège/
+phénolique P50 ablate **2 à 4 fois moins** (en masse) que le chêne, entre
+1000 et 3000 K à 1 atm. Ce n'est pas une question de quantité de char ou de
+gaz, mais de **chimie du gaz** : celui du P50 (O/C = 0,42) protège le char,
+celui du chêne (O/C = 1,10) l'oxyde.
 
 ---
 
 ## Sources
 
-- `oak_bprime/oak_bprime.py`, `oak_bprime/oak_bprime_bc_table.csv`,
-  `oak_bprime/oak_bprime_steady_state.csv`
-- `../cork_bprime/cork_bprime.py`, `../cork_bprime/cork_bprime_bc_table.csv`,
-  `../cork_bprime/cork_bprime_steady_state.csv`
-- cas « liège seul » : calcul ad hoc avec `cork_pyrolysis_data.py`
-  (`composite_balance(w_cork=1.0, w_resin=0.0)`) et une table B' générée à la
-  volée avec le mélange `corkpure-air` (composition C:0,290 H:0,587 O:0,124,
-  char C:1.0) — **non versionné dans le dépôt**, reproductible depuis
-  `cork_pyrolysis_data.py`.
-- figure `chene_vs_liege_bprime.png` — générée pour cette comparaison,
-  disponible dans le scratchpad de session (à republier si besoin).
+- `comparaison_chene_liege.py` → `comparaison_chene_liege.csv` (point
+  stationnaire des deux matériaux) et `comparaison_chene_liege.png`
+  (B'c à B'g imposé, et point stationnaire, 1 atm)
+- `oak_bprime_bc_table.csv`, `oak_bprime_steady_state.csv` (`oak_bprime.py`)
+- `../cork_bprime/cork_bprime_bc_table.csv`,
+  `../cork_bprime/cork_bprime_steady_state.csv` (`cork_bprime.py`, P50)
