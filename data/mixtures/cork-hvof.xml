@@ -1,0 +1,58 @@
+<!-- ===================================================================== -->
+<!-- Liège / phénolique (cork P50) en ablation sous jet de combustion      -->
+<!-- kérosène Jet-A1 / oxygène (torche HVOF, type JP-5000).                -->
+<!--                                                                       -->
+<!-- Même matériau, même gaz de pyrolyse, même char et même liste          -->
+<!-- d'espèces que data/mixtures/cork-air.xml : SEULE la composition de    -->
+<!-- bord de couche limite change. Cas distinct de cork-oat.xml.           -->
+<!--                                                                       -->
+<!-- Carburant : Jet-A1 représenté par la formule moyenne C12H23           -->
+<!-- (H/C = 1.92, M = 167.3 g/mol). Comburant : O2 pur.                    -->
+<!--   stoechiométrie : C12H23 + 17.75 O2 -> 12 CO2 + 11.5 H2O             -->
+<!-- Richesse phi = (carburant/O2) / (carburant/O2)_stoech, soit           -->
+<!-- C12H23 + (17.75/phi) O2. Éléments C:H:O = 12 : 23 : 35.5/phi.         -->
+<!-- Fractions MOLAIRES élémentaires, sans air entraîné :                  -->
+<!--                                                                       -->
+<!--   phi = 0.8  pauvre        C:0.1512, H:0.2898, O:0.5591               -->
+<!--   phi = 1.0  stoech.       C:0.1702, H:0.3262, O:0.5035               -->
+<!--   phi = 1.3  riche         C:0.1926, H:0.3691, O:0.4383               -->
+<!--                                                                       -->
+<!-- (Le point « CO-neutre », analogue de la flamme neutre OAT où tout le  -->
+<!-- C finit en CO sans O en excès, serait phi = 2.96 : hors du domaine    -->
+<!-- de fonctionnement d'un HVOF.)                                         -->
+<!--                                                                       -->
+<!-- Jet + air entraîné : fraction MASSIQUE f d'air ambiant                -->
+<!-- (N2/O2 = 79/21) mélangée aux produits de combustion :                 -->
+<!--                                                                       -->
+<!--   phi = 0.8, f = 0.25   C:0.1204, H:0.2308, O:0.4880, N:0.1607        -->
+<!--   phi = 0.8, f = 0.50   C:0.0856, H:0.1641, O:0.4076, N:0.3427        -->
+<!--   phi = 1.0, f = 0.25   C:0.1372, H:0.2629, O:0.4465, N:0.1534        -->
+<!--   phi = 1.0, f = 0.50   C:0.0988, H:0.1893, O:0.3804, N:0.3315        -->
+<!--   phi = 1.3, f = 0.25   C:0.1573, H:0.3016, O:0.3965, N:0.1446        -->
+<!--   phi = 1.3, f = 0.50   C:0.1152, H:0.2207, O:0.3465, N:0.3176        -->
+<!--                                                                       -->
+<!-- Voir cork_bprime/cork_bprime_hvof.py.                                 -->
+<!-- ===================================================================== -->
+<mixture thermo_db="NASA-9">
+
+    <species>
+       C H O N CH4 CN CO CO2 C2 C2H C2H2,acetylene C3 C4 C4H2,butadiyne C5
+       HCN H2 H2O N2 CH2OH CNN CNC CNCOCN C6H6 HNC C(gr)
+    </species>
+
+    <element_compositions default="hvof_phi1p0">
+        <composition name="hvof_phi0p8">C:0.151181, H:0.289764, O:0.559055</composition>
+        <composition name="hvof_phi1p0">C:0.170213, H:0.326241, O:0.503546</composition>
+        <composition name="hvof_phi1p3">C:0.192593, H:0.369136, O:0.438271</composition>
+        <composition name="hvof_phi0p8_air25">C:0.120426, H:0.230816, O:0.488045, N:0.160713</composition>
+        <composition name="hvof_phi0p8_air50">C:0.085598, H:0.164063, O:0.407634, N:0.342705</composition>
+        <composition name="hvof_phi1p0_air25">C:0.137158, H:0.262886, O:0.446540, N:0.153416</composition>
+        <composition name="hvof_phi1p0_air50">C:0.098789, H:0.189345, O:0.380369, N:0.331497</composition>
+        <composition name="hvof_phi1p3_air25">C:0.157337, H:0.301562, O:0.396484, N:0.144617</composition>
+        <composition name="hvof_phi1p3_air50">C:0.115171, H:0.220744, O:0.346507, N:0.317578</composition>
+        <composition name="air">N:0.79, O:0.21</composition>
+        <composition name="cork_pyro">C:0.287, H:0.592, O:0.121</composition>
+        <composition name="cork_char">C:1.0</composition>
+    </element_compositions>
+
+</mixture>
