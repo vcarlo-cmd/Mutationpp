@@ -638,6 +638,8 @@ r = hyp(ws, r, "H4", "Aucune grandeur volumique n'entre dans le bilan de surface
         "Le bilan est écrit sur des fractions massiques élémentaires, donc normalisées : ni ρ, ni porosité, ni ε_f n'y apparaissent (Constantes §4).")
 r = hyp(ws, r, "H5", "Rendement en char de la résine : 0.50 (valeur du modèle TACOT).",
         "Elle n'entre pas dans le XML — seulement dans ρ_char, donc dans k (§7).")
+r = hyp(ws, r, "H6", "Enthalpies de formation : loi de mélange massique, h_f(virgin) = Y_résine·h_f(résine) + Y_fibres·0 ; h_f(char) = 0 (carbone pur).",
+        "C'est exactement la définition du classeur TACOT 3.0 ('Thermal Properties'!A31:A33) : −2×10⁶ × 120/280 = −857 142.857 J/kg. Valable parce que fibres et résine sont celles du TACOT (H1). Hors XML : Mutationpp ne porte pas de h_f de matériau.")
 r += 1
 
 r = section(ws, r, "§2 — DONNÉES D'ENTRÉE")
@@ -653,6 +655,18 @@ r = kv(ws, r, "ρ intrinsèque résine [kg/m³]", 1200, "Description!A12")
 rrhom = r - 1
 r = kv(ws, r, "rendement en char de la résine", 0.50, "'Pyrolysis model'!A32:A34 et B18:C19", key=True)
 ry = r - 1
+r = kv(ws, r, "h_f résine (phénolique), 298 K [J/kg]", -2000000.0, "'Thermal Properties'!B32 du classeur TACOT 3.0 — par kg de résine vierge", key=True, nf="#,##0")
+rhfm = r - 1
+r = kv(ws, r, "h_f fibres de carbone, 298 K [J/kg]", 0.0, "carbone pur, état de référence", nf="#,##0")
+rhff = r - 1
+r = kv(ws, r, "h_f char, 298 K [J/kg]", 0.0, "'Thermal Properties'!B31 du classeur TACOT 3.0", nf="#,##0")
+rhfc = r - 1
+r = kv(ws, r, "TACOT : ρ_v [kg/m³] (pour le contrôle de l'Étape 5)", 280, "'Pyrolysis model'!A32")
+rtv = r - 1
+r = kv(ws, r, "TACOT : ε_m (volume de résine)", 0.10, "Description!A16")
+rte = r - 1
+r = kv(ws, r, "TACOT : h_f virgin du classeur [J/kg]", -857142.8571428572, "'Thermal Properties'!F32 — valeur à retrouver", font=F_OUT, nf="#,##0.000", )
+rthv = r - 1
 r += 1
 
 r = section(ws, r, "§3 — CALCUL PAS À PAS")
@@ -701,6 +715,29 @@ r = kv(ws, r, "… soit en % de la masse vierge", f"=(C{rrv}-C{rrc})/C{rrv}*100"
 r = kv(ws, r, "couplage k = B'g / B'c = (ρ_v − ρ_c)/ρ_c", f"=(C{rrv}-C{rrc})/C{rrc}",
        "attendu 0.1385 — la SEULE grandeur qui distingue le CPh70 du TACOT", font=F_CALC, nf="0.0000")
 rk = r - 1
+r = step(ws, r, "Étape 5 — enthalpies de formation virgin et char (loi de mélange massique)",
+         "h_f,v = Y_m·h_f,m + (1 − Y_m)·h_f,f ;  h_f,c = h_f,c(TACOT)")
+r = kv(ws, r, "Y_résine = ε_m·ρ_m / ρ_v", f"=D{repsr}*$C${rrhom}/C{rrv}",
+       "attendu 0.2432 = 9/37 (TACOT : 0.4286 = 3/7)", font=F_CALC, nf="0.0000")
+rym = r - 1
+r = kv(ws, r, "h_f virgin CPh70 [J/kg]", f"=C{rym}*$C${rhfm}+(1-C{rym})*$C${rhff}",
+       "attendu −486 486 J/kg (≈ −209.2 Btu/lb)", font=F_CALC, nf="#,##0.0")
+rhv = r - 1
+r = kv(ws, r, "h_f virgin CPh70 [Btu/lb]", f"=C{rhv}/2326",
+       "1 Btu/lb = 2326 J/kg ; le classeur TACOT donne −368.505 Btu/lb", font=F_CALC, nf="0.00")
+r = kv(ws, r, "h_f char CPh70 [J/kg]", f"=$C${rhfc}",
+       "carbone pur : 0 (H3)", font=F_CALC, nf="#,##0.0")
+r = step(ws, r, "Contrôle — la même formule retrouve le h_f virgin du TACOT", "écart attendu ~ 1e-16")
+r = kv(ws, r, "h_f virgin TACOT recalculé [J/kg]", f"=$C${rte}*$C${rrhom}/$C${rtv}*$C${rhfm}",
+       "0.1·1200/280 · (−2×10⁶)", font=F_CALC, nf="#,##0.000")
+rhtr = r - 1
+r = kv(ws, r, "écart relatif au classeur", f"=ABS(C{rhtr}-C{rthv})/ABS(C{rthv})",
+       "la loi de mélange reproduit EXACTEMENT la cellule du classeur", font=F_CALC, nf=NF_E)
+r = kv(ws, r, "rapport h_f virgin TACOT / CPh70", f"=C{rthv}/C{rhv}",
+       "≈ 1.76 : le CPh70 contient moins de résine, donc est moins négatif", font=F_CALC, nf="0.00")
+r = note(ws, r, "Ne vaut que si h_f(résine) est indépendant de la matrice (H1) ET si −2×10⁶ J/kg est bien rapporté à la masse de résine "
+                "(le classeur le confirme : −857 143 = −2×10⁶ × 3/7). Ce n'est PAS la chaleur de pyrolyse (−4×10⁶ J/kg de la base VKI), "
+                "qui est une autre grandeur.")
 r += 1
 
 r = section(ws, r, "§4 — RÉSULTAT : CE QUI ENTRE DANS LE XML")
@@ -757,6 +794,8 @@ r = kv(ws, r, "k du CPh70", f"=C{rk}", "", font=F_CALC, nf="0.0000")
 r = kv(ws, r, "k du TACOT (rappel)", f"='TACOT'!C{TAC_XML[1]}", "", font=F_LINK, nf="0.0000")
 r = kv(ws, r, "rapport ρ_char CPh70 / ρ_char TACOT", f"=C{rrc}/'TACOT'!C{TAC_XML[3]}",
        "à B'c égal, la récession ṡ = B'c·ṁe/ρ_c du CPh70 est 5.85 fois plus lente", font=F_CALC, nf="0.00")
+r = kv(ws, r, "h_f virgin du CPh70 [J/kg]", f"=C{rhv}", "Étape 5 du §3 — pour le bilan d'énergie du matériau, pas pour bprime", font=F_CALC, nf="#,##0")
+r = kv(ws, r, "h_f char du CPh70 [J/kg]", f"=$C${rhfc}", "", font=F_CALC, nf="#,##0")
 r += 1
 
 r = section(ws, r, "§8 — BLOC XML")
