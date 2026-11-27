@@ -612,6 +612,71 @@ r = kv(ws, r, "h_f virgin [Btu/lb]", f"=C{rhv_t}/2326", "1 Btu/lb = 2326 J/kg ; 
 r = kv(ws, r, "h_f char [J/kg]", f"=$C${rhfc_t}", "carbone pur : 0 (H5)", font=F_CALC, nf="#,##0.0")
 r = note(ws, r, "Le −2×10⁶ J/kg est rapporté à la masse de résine vierge ; ce n'est PAS la chaleur de pyrolyse "
                 "(−4×10⁶ J/kg de la base VKI), qui est une autre grandeur. Aucune enthalpie de pyrolyse dans TACOT_3.0.xls.")
+
+r = step(ws, r, "Vérification — h(T) du classeur = h₀ + ∫cp dT depuis 298 K (cp linéaire entre nœuds, trapèzes)",
+         "h(Tᵢ) = h(Tᵢ₋₁) + ½(cpᵢ + cpᵢ₋₁)(Tᵢ − Tᵢ₋₁)")
+r = note(ws, r, "Données : 'Thermal Properties'!I3:L15 (virgin) et I17:L29 (char), colonnes T, cp, h en unités SI. "
+                "h₀ = h_f à 298 K : celui du virgin vient de la loi de mélange ci-dessus, celui du char vaut 0. "
+                "Le point à 255.6 K, sous 298 K, se retrouve en intégrant à rebours.")
+CP_TAB = {
+    "virgin": (rhv_t, [
+        (255.55555555555554, 879.228, -896682.5311428572),
+        (298.0, 983.8980000000001, -857142.8571428572),
+        (444.44444444444446, 1297.9080000000001, -690063.9511428571),
+        (555.5555555555555, 1465.3799999999999, -536547.9511428571),
+        (644.4444444444445, 1570.0500000000002, -401639.951142857),
+        (833.3333333333333, 1716.588, -91235.25114285719),
+        (1111.111111111111, 1863.1260000000002, 405947.24885714287),
+        (1388.888888888889, 1934.3016000000002, 933367.748857143),
+        (1666.6666666666665, 1980.3564000000001, 1477070.2488571426),
+        (1944.4444444444443, 1988.7300000000002, 2028332.2488571429),
+        (2222.222222222222, 2001.2904000000003, 2582501.748857143),
+        (2777.777777777778, 2009.664, 3696655.7488571433),
+        (3333.333333333333, 2009.664, 4813135.748857142)]),
+    "char": (rhfc_t, [
+        (255.55555555555554, 732.69, -32164.85840000001),
+        (298.0, 782.9316, 0.0),
+        (444.44444444444446, 1092.7548000000002, 137341.92640000003),
+        (555.5555555555555, 1318.842, 271319.5264),
+        (644.4444444444445, 1431.8856, 393574.08640000003),
+        (833.3333333333333, 1674.7200000000003, 686975.7263999999),
+        (1111.111111111111, 1842.192, 1175435.7264),
+        (1388.888888888889, 1967.796, 1704600.7264),
+        (1666.6666666666665, 2051.532, 2262840.7263999996),
+        (1944.4444444444443, 2093.4, 2838525.7264),
+        (2222.222222222222, 2110.1472, 3422351.7264),
+        (2777.777777777778, 2135.268, 4601633.7264),
+        (3333.333333333333, 2152.0152000000003, 5792545.726399999)]),
+}
+cp_err_cells = []
+for mat, (rh0, data) in CP_TAB.items():
+    r = headrow(ws, r, [f"{mat} — T [K]", "cp [J/kg/K]", "h classeur [J/kg]", "h = h₀ + ∫cp dT [J/kg]",
+                        "écart [J/kg]", "cp moyen (h−h₀)/(T−298)", "h₀ + cp(T)·(T−298)  (FAUX)"])
+    r0 = r
+    i0 = 1                       # ligne 298 K
+    for i, (T, cp, h) in enumerate(data):
+        if i == i0:
+            hc = f"=$C${rh0}"
+        elif i > i0:
+            hc = f"=E{r-1}+0.5*(C{r}+C{r-1})*(B{r}-B{r-1})"
+        else:                    # i < i0 : intégration à rebours depuis la ligne suivante
+            hc = f"=E{r+1}-0.5*(C{r}+C{r+1})*(B{r+1}-B{r})"
+        r = row(ws, r, [T, cp, h, hc, f"=E{r}-D{r}",
+                        ("—" if i == i0 else f"=(D{r}-$D${r0+i0})/(B{r}-298)"),
+                        f"=$D${r0+i0}+C{r}*(B{r}-298)"],
+                fonts=[F_IN, F_IN, F_IN, F_CALC, F_CALC, F_CALC, F_NOTE],
+                nfs=["0.0", "0.0", "#,##0.0", "#,##0.0", NF_E, "0.0", "#,##0"])
+    cp_err_cells.append((r0, r - 1))
+    r += 1
+(va0, vb0), (va1, vb1) = cp_err_cells
+r = kv(ws, r, "écart absolu maximal sur h [J/kg], virgin",
+       f"=MAX(MAX(F{va0}:F{vb0}),-MIN(F{va0}:F{vb0}))",
+       "attendu ~1e-9 J/kg : l'intégrale reproduit les colonnes h du classeur", font=F_CALC, nf=NF_E)
+r = kv(ws, r, "écart absolu maximal sur h [J/kg], char",
+       f"=MAX(MAX(F{va1}:F{vb1}),-MIN(F{va1}:F{vb1}))",
+       "idem", font=F_CALC, nf=NF_E)
+r = note(ws, r, "La dernière colonne montre pourquoi cp doit être intégré : à 3333 K, h₀ + cp(T)·(T−298) donne "
+                "≈ 5.24×10⁶ J/kg au lieu de 4.81×10⁶ (virgin), car cp varie d'un facteur 2.5 sur la plage.")
 r += 1
 
 r = section(ws, r, "§8 — BLOC XML")
