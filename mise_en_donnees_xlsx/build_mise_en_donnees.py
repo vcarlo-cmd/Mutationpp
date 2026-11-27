@@ -144,6 +144,22 @@ def para(ws, r, text, height=None):
     return r + 1
 
 
+FILL_WARN = PatternFill("solid", fgColor="FFD966")
+F_WARN = Font(name=FONT, size=10, bold=True, color="9C0006")
+
+
+def warn(ws, r, text, height=44):
+    ws[f"A{r}"] = "⚠"
+    ws[f"A{r}"].font = F_WARN
+    ws.merge_cells(f"B{r}:I{r}")
+    ws[f"B{r}"] = text
+    ws[f"B{r}"].font = F_WARN
+    ws[f"B{r}"].fill = FILL_WARN
+    ws[f"B{r}"].alignment = Alignment(vertical="center", wrap_text=True, indent=1)
+    ws.row_dimensions[r].height = height
+    return r + 1
+
+
 def kv(ws, r, label, value, src="", font=F_IN, nf=None, tag=None, key=False):
     """Ligne 'libelle | valeur | source'."""
     if tag is not None:
@@ -669,6 +685,7 @@ for mat, (rh0, data) in CP_TAB.items():
     cp_err_cells.append((r0, r - 1))
     r += 1
 (va0, vb0), (va1, vb1) = cp_err_cells
+CP_TAC_R0 = (va0, va1)        # première ligne des tableaux virgin / char (pour les liens du CPh70)
 r = kv(ws, r, "écart absolu maximal sur h [J/kg], virgin",
        f"=MAX(MAX(F{va0}:F{vb0}),-MIN(F{va0}:F{vb0}))",
        "attendu ~1e-9 J/kg : l'intégrale reproduit les colonnes h du classeur", font=F_CALC, nf=NF_E)
@@ -729,6 +746,8 @@ r = hyp(ws, r, "H5", "Rendement en char de la résine : 0.50 (valeur du modèle 
         "Elle n'entre pas dans le XML — seulement dans ρ_char, donc dans k (§7).")
 r = hyp(ws, r, "H6", "Enthalpies de formation : loi de mélange massique, h_f(virgin) = Y_résine·h_f(résine) + Y_fibres·0 ; h_f(char) = 0 (carbone pur).",
         "C'est exactement la définition du classeur TACOT 3.0 ('Thermal Properties'!A31:A33) : −2×10⁶ × 120/280 = −857 142.857 J/kg. Valable parce que fibres et résine sont celles du TACOT (H1). Hors XML : Mutationpp ne porte pas de h_f de matériau.")
+r = hyp(ws, r, "H7", "h(T) du CPh70 : cp du TACOT REPRIS TELS QUELS (§7) — approximation, pas une donnée du CPh70.",
+        "Le classeur TACOT 3.0 ne donne que le cp du composite (virgin et char), pas celui des constituants. Voir l'avertissement du §7.")
 r += 1
 
 r = section(ws, r, "§2 — DONNÉES D'ENTRÉE")
@@ -885,6 +904,40 @@ r = kv(ws, r, "rapport ρ_char CPh70 / ρ_char TACOT", f"=C{rrc}/'TACOT'!C{TAC_X
        "à B'c égal, la récession ṡ = B'c·ṁe/ρ_c du CPh70 est 5.85 fois plus lente", font=F_CALC, nf="0.00")
 r = kv(ws, r, "h_f virgin du CPh70 [J/kg]", f"=C{rhv}", "Étape 5 du §3 — pour le bilan d'énergie du matériau, pas pour bprime", font=F_CALC, nf="#,##0")
 r = kv(ws, r, "h_f char du CPh70 [J/kg]", f"=$C${rhfc}", "", font=F_CALC, nf="#,##0")
+r = step(ws, r, "h(T) = h₀ + ∫cp dT depuis 298 K — AVEC LES cp DU TACOT",
+         "h(Tᵢ) = h(Tᵢ₋₁) + ½(cpᵢ + cpᵢ₋₁)(Tᵢ − Tᵢ₋₁)")
+r = warn(ws, r, "AVERTISSEMENT — les cp ci-dessous sont ceux du TACOT, pas ceux du CPh70. Le cp du classeur est celui du COMPOSITE "
+                "(par kg de matériau, mélange à 57 % fibres / 43 % résine en masse), alors que le CPh70 est à 76 % / 24 %. Le cp du CPh70 "
+                "n'est donc pas celui du TACOT ; en particulier le cp du virgin du TACOT inclut la contribution de la résine, plus forte "
+                "que dans le CPh70. Le char (carbone pur) est moins concerné. Résultat à prendre comme ordre de grandeur, à remplacer "
+                "par une mesure du CPh70 ou par un cp reconstruit par constituant.", 62)
+r = note(ws, r, "T et cp sont des LIENS vers l'onglet TACOT §7 (vert). h₀ : virgin = loi de mélange du CPh70 ci-dessus, char = 0. "
+                "Il n'y a pas de colonne « h classeur » : le classeur TACOT ne contient pas de h(T) pour le CPh70, donc pas de contrôle "
+                "possible — seul le schéma d'intégration est vérifié (il est exact sur le TACOT).")
+cph_rows = []
+for k, (mat, rh0) in enumerate((("virgin", rhv), ("char", rhfc))):
+    rt = CP_TAC_R0[k]
+    r = headrow(ws, r, [f"{mat} — T [K]", "cp TACOT [J/kg/K]", "h CPh70 = h₀ + ∫cp dT [J/kg]",
+                        "h TACOT [J/kg]", "h CPh70 − h TACOT [J/kg]", "cp moyen (h−h₀)/(T−298)"])
+    r0 = r
+    for i in range(13):
+        tr = rt + i
+        if i == 1:
+            hc = f"=$C${rh0}"
+        elif i > 1:
+            hc = f"=D{r-1}+0.5*(C{r}+C{r-1})*(B{r}-B{r-1})"
+        else:
+            hc = f"=D{r+1}-0.5*(C{r}+C{r+1})*(B{r+1}-B{r})"
+        r = row(ws, r, [f"='TACOT'!B{tr}", f"='TACOT'!C{tr}", hc, f"='TACOT'!D{tr}",
+                        f"=D{r}-E{r}", ("—" if i == 1 else f"=(D{r}-$D${r0+1})/(B{r}-298)")],
+                fonts=[F_LINK, F_LINK, F_CALC, F_LINK, F_CALC, F_CALC],
+                nfs=["0.0", "0.0", "#,##0.0", "#,##0.0", "#,##0.0", "0.0"])
+    cph_rows.append((r0, r - 1))
+    r += 1
+r = kv(ws, r, "h(3333 K) CPh70 − TACOT [J/kg], virgin", f"=F{cph_rows[0][1]}",
+       "décalage dû UNIQUEMENT à h₀ (même cp) : = h₀(CPh70) − h₀(TACOT) = +370 656 J/kg, constant sur toute la plage", font=F_CALC, nf="#,##0")
+r = kv(ws, r, "h(3333 K) CPh70 − TACOT [J/kg], char", f"=F{cph_rows[1][1]}",
+       "0 : même h₀ (0) et même cp", font=F_CALC, nf="#,##0")
 r += 1
 
 r = section(ws, r, "§8 — BLOC XML")
