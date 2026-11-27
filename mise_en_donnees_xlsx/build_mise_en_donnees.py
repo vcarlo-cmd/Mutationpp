@@ -404,6 +404,8 @@ r = hyp(ws, r, "H6", "Le gaz à la paroi est à l'équilibre thermochimique à (
         "Hypothèse centrale de la table B'. Le solveur multiphase de Mutation++ traite la coexistence gaz / C(gr).")
 r = hyp(ws, r, "H7", "Liste d'espèces = les 25 espèces gazeuses de la table B' de référence, PLUS la phase condensée C(gr).",
         "Sans C(gr) l'excès de carbone ne peut pas se condenser : Y_w,C → 1 et B'c sature vers ≈ 200 au lieu de ≈ 0.087 à 300 K. La liste conditionne le résultat : 25 espèces donnent 0.43 % d'écart moyen contre la table de référence, 35 espèces 2.41 %.")
+r = hyp(ws, r, "H8", "Enthalpies de formation : h_f(virgin) = Y_résine·h_f(résine) + Y_fibres·0 ; h_f(char) = 0 (carbone pur).",
+        "Définition du classeur TACOT 3.0 ('Thermal Properties'!A31:A33). Hors XML : Mutationpp ne porte pas de h_f de matériau. Le §7 retrouve la cellule du classeur ; l'onglet CPh70 réutilise la même loi avec d'autres proportions.")
 r += 1
 
 r = section(ws, r, "§2 — DONNÉES D'ENTRÉE")
@@ -446,6 +448,14 @@ r = kv(ws, r, "ε_fibres / ε_matrice [-]", 0.10, "Description!A15:A17 (porosit�
 repsf = r - 1
 r = kv(ws, r, "", 0.10, "")
 repsm = r - 1
+r = kv(ws, r, "h_f résine (phénolique), 298 K [J/kg]", -2000000.0, "'Thermal Properties'!B32 — par kg de résine vierge", key=True, nf="#,##0")
+rhfm_t = r - 1
+r = kv(ws, r, "h_f fibres de carbone, 298 K [J/kg]", 0.0, "carbone pur, état de référence", nf="#,##0")
+rhff_t = r - 1
+r = kv(ws, r, "h_f char, 298 K [J/kg]", 0.0, "'Thermal Properties'!B31", nf="#,##0")
+rhfc_t = r - 1
+r = kv(ws, r, "h_f virgin du classeur [J/kg] — valeur à retrouver", -857142.8571428572, "'Thermal Properties'!F32 (= −368.505 Btu/lb en F33)", font=F_OUT, nf="#,##0.000")
+rhv_cl = r - 1
 r += 1
 
 r = section(ws, r, "§3 — CALCUL PAS À PAS")
@@ -588,6 +598,20 @@ rk_tac = r - 1
 r = note(ws, r, "k est la SEULE façon dont la microstructure entre dans le résultat final : elle ne change "
                 "pas la table B'c(T, P, B'g), elle change l'endroit où le matériau la lit. Voir l'onglet CPh70, "
                 "qui partage la table du TACOT mais pas son k.")
+r = step(ws, r, "Enthalpies de formation virgin et char (loi de mélange massique, H8)",
+         "h_f,v = Y_m·h_f,m + (1 − Y_m)·h_f,f ;  Y_m = ε_m·ρ_m/ρ_v")
+r = kv(ws, r, "Y_résine = ε_m·ρ_m / ρ_v", f"=$C${repsm}*$C${rrhom}/C{rrv}",
+       "attendu 0.4286 = 3/7 (CPh70 : 0.2432)", font=F_CALC, nf="0.0000")
+rym_t = r - 1
+r = kv(ws, r, "h_f virgin recalculé [J/kg]", f"=C{rym_t}*$C${rhfm_t}+(1-C{rym_t})*$C${rhff_t}",
+       "attendu −857 142.857", font=F_CALC, nf="#,##0.000")
+rhv_t = r - 1
+r = kv(ws, r, "écart relatif au classeur", f"=ABS(C{rhv_t}-C{rhv_cl})/ABS(C{rhv_cl})",
+       "la loi de mélange reproduit EXACTEMENT la cellule du classeur (~1e-16)", font=F_CALC, nf=NF_E)
+r = kv(ws, r, "h_f virgin [Btu/lb]", f"=C{rhv_t}/2326", "1 Btu/lb = 2326 J/kg ; classeur : −368.505", font=F_CALC, nf="0.000")
+r = kv(ws, r, "h_f char [J/kg]", f"=$C${rhfc_t}", "carbone pur : 0 (H5)", font=F_CALC, nf="#,##0.0")
+r = note(ws, r, "Le −2×10⁶ J/kg est rapporté à la masse de résine vierge ; ce n'est PAS la chaleur de pyrolyse "
+                "(−4×10⁶ J/kg de la base VKI), qui est une autre grandeur. Aucune enthalpie de pyrolyse dans TACOT_3.0.xls.")
 r += 1
 
 r = section(ws, r, "§8 — BLOC XML")
